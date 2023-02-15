@@ -4,4 +4,4 @@
 **/*.fls
 **/*.log
 **/*.synctex.gz
-**.*.toc
+**/*.toc

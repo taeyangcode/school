@@ -1,0 +1,103 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{xfrac}
+
+\renewcommand{\contentsname}{Chapter 0 - Introduction to Physics 1A}
+
+\begin{document}
+
+\newpage
+    \tableofcontents
+\newpage
+
+\section{Prerequisite Knowledge}
+
+\subsection{Units \& Dim}
+
+\begin{flalign*}
+    & [\cdots] = "\text{Units of}" & \\
+    & [\text{mass}] = \text{kg} & \\
+    & [\text{length}] = \text{m} & \\
+    & [\text{time}] = \text{s} &
+\end{flalign*}
+
+\bigskip
+Physics 1A has 3 unit systems \\
+\begin{tabular}{ l | l | l | l }
+    \hline
+    Sys & $[L]$ & $[T]$ & $[M]$ \\
+    Mks & m & s & kg \\
+    CGS & cm & s & g \\
+    US Customary & ft & s & slug \\
+\end{tabular}
+\bigskip
+
+\begin{flalign*}
+    & [v] = \frac{\text{length}}{\text{time}} & \\
+    & [v]_{\text{CGS}} = \frac{\text{cm}}{\text{s}} & \\
+    & [v]_{\text{MKS}} = \frac{\text{m}}{\text{s}} & \\
+    & [v]_{\text{US}} = \frac{\text{ft}}{\text{s}} &
+\end{flalign*}
+
+\begin{flalign*}
+    & [F] = [m] [a] & \\
+    & [F] = [m] \frac{[v]}{[T]} & \\
+    & [F] = [m] \frac{[L]}{[T]^{2}} & \\
+    & [F]_{\text{MKS}} = \text{kg} \frac{\text{m}}{\text{s}^{2}} = \text{N} & \\
+    & [F]_{\text{CGS}} = \text{g} \frac{\text{cm}}{\text{s}^{2}} = \text{dyne} & \\
+    & [F]_{\text{US}} = \text{(sl)} \frac{\text{ft}}{\text{s}^{2}} = \text{lb} &
+\end{flalign*}
+
+\begin{flalign*}
+    & [C] = 1 & \\
+    & [p] = \frac{\text{kg}}{\text{m}^{3}} & \\
+    & [A] = \text{m}^{2} & \\
+    & [v] = \frac{\text{m}}{\text{s}} &
+\end{flalign*}
+
+\subsection{SI Units}
+
+\begin{tabular}{ l | l | l | l }
+    Prefix & Symbol & Power & Amount \\
+    \hline
+    giga & $G$ & $10^{9}$ & $1,000,000,000$ \\
+    mega & $M$ & $10^{6}$ & $1,000,000$ \\
+    kilo & $k$ & $10^{3}$ & $1,000$ \\
+    base & - & $10^{0}$ & $1$ \\
+    centi & $c$ & $10^{-2}$ & $\frac{1}{100}$ \\
+    milli & $m$ & $10^{-3}$ & $\frac{1}{1,000}$ \\
+    micro & $\mu$ & $10^{-6}$ & $\frac{1}{1,000,000}$ \\
+    nano & $n$ & $10^{-9}$ & $\frac{1}{1,000,000,000}$ \\
+    pico & $p$ & $10^{-12}$ & - \\
+\end{tabular}
+
+\subsection{Unit Conversion}
+
+Given:
+$mi = 1609 \text{m}$
+$hr = 3600 \text{s}$
+
+$$\left(\frac{60 \text{mi}}{1 \text{hr}}\right)\left(\frac{1609 \text{m}}{1 \text{mi}}\right)\left(\frac{1 \text{hr}}{3600 \text{s}}\right) = 27 \sfrac{\text{m}}{\text{s}}$$
+
+\noindent
+Find 9.8 $\sfrac{\text{m}}{\text{s}^{2}}$ in $\sfrac{\text{mph}}{\text{s}}$
+$$\left(\frac{9.8 \text{m}}{\text{s}^{2}}\right)\left(\frac{1 \text{mi}}{1609 \text{m}}\right)\left(\frac{3,600 \text{s}}{1 \text{hr}}\right) = 22 \sfrac{\text{mph}}{\text{s}}$$
+
+\subsection{Notable Derivatives}
+
+\begin{flalign*}
+    & \frac{\text{d} \left(x^{n} \right)}{\text{d}x} = nx^{n-1} & \\
+    & \frac{\text{d} \left(\frac{1}{x^{n}} \right)}{\text{d}x} = \frac{\text{d} \left(x^{-n}\right)}{\text{d}x} = -nx^{-n-1} & \\
+    & \frac{\text{d} \left(Ae^{kx} \right)}{\text{d}x}=Ake^{kx} &
+\end{flalign*}
+
+\subsection{Notable Integrals}
+
+\begin{flalign*}
+    & \int(x^{n})\text{d}x = \frac{1}{n+1} x^{n+1} + C & \\
+    & \int(x^{-n})\text{d}x = \frac{1}{-n+1}x^{1-n} + C \implies (n \neq 1) & \\
+    & \int \left(\frac{1}{x} \right)\text{d}x = \ln|x| + C &
+\end{flalign*}
+
+\end{document}

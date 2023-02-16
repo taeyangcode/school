@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xfrac}
+
+\renewcommand{\contentsname}{Chapter 1}
+
+\begin{document}
+
+\newpage
+    \tableofcontents
+\newpage
+
+\section{Introduction}
+
+\subsection{Introduction to Differential Equations}
+
+Equations contain: ``=" and ``\textit{solution}"
+
+There are two types of variables: \textit{dependent} and \textit{independent}
+
+Differential: contains derivative (or partial derivative)
+
+Derivative refers to:
+\begin{align*}
+    \text{ODE (ordinary differential equation)} & \text{:}\ \frac{ \text{d} }{ \text{d}x } \\
+    \text{PDE (partial differential equation)} & \text{:}\ \frac{ \partial }{ \partial x }
+\end{align*}
+
+The solution to a differential equation is a \textbf{function} \\
+And can be expressed in four ways:
+\begin{enumerate}
+    \item Verbally
+    \item Table
+    \item Graph
+    \item Expression (implicitly or explicitly)
+\end{enumerate}
+
+Regular equation:
+$$ x^{3} + 3 \sin(x) = 2 - 2 \cos(x) $$
+
+$ \text{Claim}\ x = 0\ \text{is a solution. Verify by substitution.} $
+$$ \text{When}\ x = 0 $$
+$$ \left( 0 \right)^{3} + 3 \sin(0) = 2 - 2 \cos(0) $$
+$$ 0 + 3 \times 0 = 2 - 2 \times 1 $$
+$$ 0 = 0 $$
+
+Although it may be true for $ x = 0 $, it is not a true method of verification. See for $ x = \pi $:
+$$ \pi ^{3} + 3 \sin(\pi) = 2 - 2 \cos(\pi) $$
+$$ \pi ^{3} + 0 = 2 - 2 \times \left( -1 \right) $$
+$$ \pi ^{3} \neq 4 $$
+
+So how do we verify the equation?
+
+Given $ y'' - 2y' + 5y = 0 $ (with respect to $x$) \\
+Claim $ y = 4e^{x} \cos(2x) $ is a solution
+\begin{align*}
+    y' & = 4e^{x} \cos(2x) + 4e^{x} \left( - \sin(2x) \right) \\
+       & = 4e^{x} \left( \cos(2x) - 2 \sin(2x) \right) \\
+    y'' & = 4e^{x} \left( \cos(2x) - 2 \sin(2x) \right) + 4e^{x} \left( -2 \sin(2x) - 4 \cos(2x) \right) \\
+        & = 4e^{x} \left( -3 \cos(2x) - 4 \sin(2x) \right) \\
+    -2y' & = 4e^{x} \left( -2 \cos(2x) + 4 \sin(2x) \right) \\
+    5y & = 4e^{x} \left( 5 \cos(2x) \right)
+\end{align*}
+$ \text{LHS} = y'' - 2y' + 5y = 4e^{x} \left( 0 + 0 \right) = 0 = \text{RHS} $ \\
+$ \therefore\ y = 4e^{x} \cos(2x)\ \text{is a solution} $
+
+\subsection{Classification of Differential Equations}
+
+\begin{enumerate}
+    \item ODE v.s. PDE
+    \begin{itemize}
+        \item ODE: ordinary differential equation \\
+        $ F \left( x,y,y',y'',\cdots,y^{\left( n \right)} \right) = 0 $
+
+        \item PDE: partial differential equation \\
+        $ F \left( x_{1},x_{2},\cdots,u,u_{x_{1}},u_{x_{2}},\cdots,u_{x_{k}},\cdots \right) = 0 $
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Order of Differential Equations}
+
+The order of differential equations is defined by the highest derivative.
+
+Example:
+$$ y'' - 2y' + 5y = 0 \rightarrow \text{2nd order} $$ 
+
+Second order ODE is generally written as:
+$$ F \left( x, y, y', y'' \right) = 0 $$
+\begin{itemize}
+    \item independent variable: $x$
+    \item dependent variable: $y$
+\end{itemize}
+
+To write the second order PDE, the indepedent variable must be located first
+\begin{itemize}
+    \item independent variable: $x, t$
+    \item dependent variable: $u$
+\end{itemize}
+$$ F \left( x, t, u, u_{x}, u_{t}, u_{xt}, u_{xx}, u_{tx}, u_{tt} \right) = 0 $$
+
+\subsection{Linear \& Non-Linear ODE Classification}
+
+Linear equations can be solved explicitly.
+Non-linear equations may only sometimes be solvable. Generally analyzed or attempting to find the equation's stable point.
+
+\begin{enumerate}
+    \item Linear Form
+    $$ a_{n}(x) y^{n} + a_{n - 1}(x) y^{n-1} + \cdots + a_{2}(x) y'' + a_{1}(x) y' + a_{0}(x) y = f(x) $$
+\end{enumerate}
+
+\end{document}

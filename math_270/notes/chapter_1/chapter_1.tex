@@ -94,7 +94,7 @@ $$ F \left( x, y, y', y'' \right) = 0 $$
     \item dependent variable: $y$
 \end{itemize}
 
-To write the second order PDE, the indepedent variable must be located first
+To write the second order PDE, the independent variable must be located first
 \begin{itemize}
     \item independent variable: $x, t$
     \item dependent variable: $u$
@@ -108,7 +108,27 @@ Non-linear equations may only sometimes be solvable. Generally analyzed or attem
 
 \begin{enumerate}
     \item Linear Form
-    $$ a_{n}(x) y^{n} + a_{n - 1}(x) y^{n-1} + \cdots + a_{2}(x) y'' + a_{1}(x) y' + a_{0}(x) y = f(x) $$
+        $$ a_{n}(x) y^{n} + a_{n - 1}(x) y^{n-1} + \cdots + a_{2}(x) y'' + a_{1}(x) y' + a_{0}(x) y = f(x) $$ \\
+        Can also be written as so:
+        $$ \sum_{i = 0}^{n} a_{i}(x) y^{(i)} = f(x) $$
+
+    \item Non-Linear \\
+        Examples include: $ \sin(y), e^{y}, \ln(y), y^{2}, \sqrt{y} $
 \end{enumerate}
+
+Orders covered in this course:
+\begin{itemize}
+    \item 1st order: linear \& some non-linear
+
+    \item 2nd order: linear only
+        \begin{itemize}
+            \item[$\rightarrow$] $ a_{i}(x) $ are constants
+            \item[$\rightarrow$] $ f(x) $ are ``nice functions"
+            \item[$\rightarrow$] $ a_{i}(x) $ are polynomials
+        \end{itemize}
+
+    \item higher order: linear with constant coefficients \\
+        * possibly system of linear differential (using matrices \& eigen-theory)
+\end{itemize}
 
 \end{document}

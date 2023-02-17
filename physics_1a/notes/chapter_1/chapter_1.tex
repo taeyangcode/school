@@ -138,11 +138,85 @@ Another example to show importance of angle between vectors:
     \draw[->, thick] (0,0) -- (0:4cm) node [midway, below] {$ \hat{x} $};
 \end{tikzpicture}
 
-$$ A_{\parallel} = A \cos(\theta)_{AB} $$
-$$ \vv{A} \cdot \vv{B} = \left( A \cos(\theta)_{AB} \right) \left( B \right) $$
-$$ \vv{A} \cdot \vv{B} = \left( 20 \cos(10 \degree) \right) (45) $$
+\begin{align*}
+    A_{\parallel} & = A \cos(\theta)_{AB} \\
+    \vv{A} \cdot \vv{B} & = \left( A \cos(\theta)_{AB} \right) \left( B \right) \\
+    \vv{A} \cdot \vv{B} & = \left( 20 \cos(10 \degree) \right) (45)
+\end{align*}
 \begin{equation*}
     \boxed{\vv{A} \cdot \vv{B} = 886}
 \end{equation*}
+\textit{* Where $ \theta_{AB} $ is the angle between $ \vv{A} $ and $ \vv{B} $}
+
+Dot product in three-dimensions:
+\begin{align*}
+    \vv{A} \cdot \vv{B} & = A_{x}B_{x} + A_{y}B_{y} + A_{z}B_{z} \\
+    \vv{A} & = 15 \hat{x} + 13 \hat{y} \\
+    \vv{B} & = 39 \hat{x} + 23 \hat{y} \\
+    \vv{A} \cdot \vv{B} & = A_{x}B_{x} + A_{y}B_{y} \\
+                        & = (15)(39) + (13)(23)
+\end{align*}
+\begin{equation*}
+    \boxed{\vv{A} \cdot \vv{B} = 884}
+\end{equation*}
+
+\begin{align*}
+    \vv{A} \cdot \vv{B} & = AB \cos(\theta)_{AB} \\
+    \cos(\theta)_{AB} & = \frac{\vv{A} \cdot \vv{B}}{|\vv{A}||\vv{B}|} \\
+    \theta_{AB} & = \arccos \left( \frac{\vv{A} \cdot \vv{B}}{|\vv{A}||\vv{B}|} \right) \\
+    \theta_{AB} & = \arccos \left( \frac{884}{(20)(45)} \right) = 11 \degree 
+\end{align*}
+
+\subsection{Cross Product}
+
+Counter-clockwise rotation - out:
+
+\begin{tikzpicture}
+    \draw[->, thick] (0,0) -- (15:3cm) node [midway, below] {$ \vv{A} $};
+    \draw[->, thick] (0,0) -- (80:3cm) node [above] {$ \vv{B} $};
+\end{tikzpicture}
+
+Clockwise rotation - in:
+
+\begin{tikzpicture}
+    \draw[->, thick] (0,0) -- (80:3cm) node [above] {$ \vv{B} $};
+    \draw[->, thick] (0,0) -- (15:3cm) node [midway, below] {$ \vv{A} $};
+\end{tikzpicture}
+
+$$ | \vv{A} \times \vv{B} | = AB_{\perp} $$
+
+\begin{tikzpicture}
+    \draw[thick] (0,0) -- (0:3cm) node [midway, above, sloped] {$ |\vv{A}| = 20 $}
+        [->] -- ++(-45:3cm) node [midway, above, sloped] {$ |\vv{B}| = 45 $};
+\end{tikzpicture}
+
+\begin{align*}
+    |\vv{A} \times \vv{B}| & = AB_{\perp} \\
+                           & = (20)(45) \sin(10 \degree) \\
+    \vv{A} \times \vv{B} & = -156 \hat{z} \rightarrow \text{(clockwise)}
+\end{align*}
+
+Calculating mathematically (using determinant):
+\begin{align*}
+    \vv{A}\times\vv{B} & = \hat{x}A_{y}B_{z}+\hat{y}A_{z}B_{x}+\hat{z}A_{x}B_{y}-\hat{x}A_{z}B_{y}-\hat{y}A_{x}B_{z}-\hat{z}A_{y}B_{x} \\
+    \vv{A}\times\vv{B} & = \hat{x} \left( A_{y}B_{z}-A_{z}B_{y} \right) + \hat{y} \left( A_{z}B_{x}-A_{x}B_{z} \right) + \hat{z} \left( A_{x}B_{y}-A_{y}B_{x} \right)
+\end{align*}
+
+\subsection{Sphere Calculation}
+
+\textit{* Three-dimensional graph omitted}
+
+% \begin{tikzpicture}
+%     \draw[] (0,0) -- (90,2cm) node [midway, left] {$ z $}
+%     -- ++(0,2cm) node [midway, above] {$ \rho $};
+%     \draw[->] (0,0) -- (45,2cm) node [midway, below] {$ r $};
+% \end{tikzpicture}
+$$ z = r \cos(\theta) $$
+$$ \rho = r \sin(\theta) $$
+$$ x = \rho \cos(\phi) $$
+$$ y = \rho \sin(\phi) $$
+$$ x = r \sin(\theta) \cos(\phi) $$
+$$ y = r \sin(\theta) \sin(\phi) $$
+$$ z = r \cos(\theta) $$
 
 \end{document}

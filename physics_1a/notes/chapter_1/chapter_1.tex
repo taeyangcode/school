@@ -115,4 +115,34 @@ Given three vectors connected from head to tail, find the distance from the tail
     \boxed{\vv{A} + \vv{B} + \vv{C} = 0.99 \text{km} \hat{x} + 0.73 \text{km} \hat{y}}
 \end{equation*}
 
+\subsection{Multiplying Vectors}
+
+A dot product multiplies two vectors and returns a scalar.
+
+Notation:
+$$ \vv{A} \cdot \vv{B} $$
+Essentially means: ''What part of $ \vv{A} $ lies in the direction of $ \vv{B} $?"
+
+\begin{tikzpicture}
+    \draw[->, thick] (0,0) -- (45:2cm) node [midway, above] {$ \vv{A} $};
+    \draw[->, thick] (0,0) -- (15:4cm) node [midway, below] {$ \vv{B} $};
+    \draw[->, thick, red] (0,0) -- (15:2cm) node [midway, below] {$ A_{\parallel} $};
+\end{tikzpicture}
+
+Another example to show importance of angle between vectors:
+
+\begin{tikzpicture}
+    \draw[->, thick] (0,0) -- (45:2cm) node [midway, above] {$ \vv{A} $};
+    \draw[->, thick] (0,0) -- (15:4cm) node [midway, below] {$ \vv{B} $};
+    \draw[->, thick, red] (0,0) -- (15:2cm) node [midway, above] {$ A_{\parallel} $};
+    \draw[->, thick] (0,0) -- (0:4cm) node [midway, below] {$ \hat{x} $};
+\end{tikzpicture}
+
+$$ A_{\parallel} = A \cos(\theta)_{AB} $$
+$$ \vv{A} \cdot \vv{B} = \left( A \cos(\theta)_{AB} \right) \left( B \right) $$
+$$ \vv{A} \cdot \vv{B} = \left( 20 \cos(10 \degree) \right) (45) $$
+\begin{equation*}
+    \boxed{\vv{A} \cdot \vv{B} = 886}
+\end{equation*}
+
 \end{document}

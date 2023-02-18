@@ -5,7 +5,7 @@
 \usepackage{amssymb}
 \usepackage{xfrac}
 
-\renewcommand{\contentsname}{Chapter 1}
+\renewcommand{\contentsname}{Chapter 1 - First-Order Differential Equations}
 
 \begin{document}
 
@@ -13,122 +13,149 @@
     \tableofcontents
 \newpage
 
-\section{Introduction}
+\section{Differential Equations and Mathematical Models}
 
-\subsection{Introduction to Differential Equations}
+\subsection{What is a differential equation?}
 
-Equations contain: ``=" and ``\textit{solution}"
+An equation relating an unknown function and one or more of its derivatives is called a \textbf{differential equation}.
 
-There are two types of variables: \textit{dependent} and \textit{independent}
+The differential equation
+$$ \frac{dx}{dt} = x^2 + t^2 $$
+involves both the unknown function $ x(t) $ and its first derivative $ x'(t) = \frac{dx}{dt} $.
 
-Differential: contains derivative (or partial derivative)
+The differential equation
+$$ \frac{d^2y}{dx^2} + 3\frac{dy}{dx} + 7y = 0 $$
+inolves the unknown function $ y $ of the independent variable $ x $ and the first two derivatives $ y' $ and $ y'' $ of $ y $.
 
-Derivative refers to:
+\par\noindent\rule{\textwidth}{0.4pt}
+
+The study of differential equations has three principal goals:
+\begin{enumerate}
+    \item To discover the differential equation that describes a specified physical situation.
+    \item To find – either exactly or approximately – the appropriate solution of that equation.
+    \item To interpret the solution that is found.
+\end{enumerate}
+
+\par\noindent\rule{\textwidth}{0.4pt}
+
+\textbf{Example 1:}
+
+If $ C $ is a constant and
+$$ y(x) = C{e^x}^{2}\text{,} $$
+then
+$$ \frac{dy}{dx} = C\left(2x{e^x}^{2}\right) = (2x)\left(C{e^x}^{2}\right) = 2xy $$
+for all $ x $. This example defines an \textit{infinite} family of different solutions of this differential equation; one for each choice of the arbitrary constant \textit{C}.
+
+\textbf{Example 2:}
+
+Note that any function of the form
+$$ P(t) = Ce^{kt} $$
+is a solution of the differential equation
+$$ \frac{dP}{dt} = kP $$
+And can be verified as such
 \begin{align*}
-    \text{ODE (ordinary differential equation)} & \text{:}\ \frac{ \text{d} }{ \text{d}x } \\
-    \text{PDE (partial differential equation)} & \text{:}\ \frac{ \partial }{ \partial x }
+    P'(t) & = Cke^{kt} \\
+          & = k\left(Ce^{kt}\right) \\
+          & = kP(t)
 \end{align*}
+This example exemplifies that the differential equation $ \frac{dP}{dt} = kP $ has \textit{infinitely many} different solutions of the form $ P(t) = Ce^{kt} $ – one for each choice of the arbitrary constant $ C $.
 
-The solution to a differential equation is a \textbf{function} \\
-And can be expressed in four ways:
-\begin{enumerate}
-    \item Verbally
-    \item Table
-    \item Graph
-    \item Expression (implicitly or explicitly)
-\end{enumerate}
+\textbf{Example 3:}
 
-Regular equation:
-$$ x^{3} + 3 \sin(x) = 2 - 2 \cos(x) $$
-
-$ \text{Claim}\ x = 0\ \text{is a solution. Verify by substitution.} $
-$$ \text{When}\ x = 0 $$
-$$ \left( 0 \right)^{3} + 3 \sin(0) = 2 - 2 \cos(0) $$
-$$ 0 + 3 \times 0 = 2 - 2 \times 1 $$
-$$ 0 = 0 $$
-
-Although it may be true for $ x = 0 $, it is not a true method of verification. See for $ x = \pi $:
-$$ \pi ^{3} + 3 \sin(\pi) = 2 - 2 \cos(\pi) $$
-$$ \pi ^{3} + 0 = 2 - 2 \times \left( -1 \right) $$
-$$ \pi ^{3} \neq 4 $$
-
-So how do we verify the equation?
-
-Given $ y'' - 2y' + 5y = 0 $ (with respect to $x$) \\
-Claim $ y = 4e^{x} \cos(2x) $ is a solution
+Suppose that $ P(t) = Ce^{kt} $ is the population of a colony of bacteria at time $ t $, that the population at time $ t = 0 $ (hours, h) was $ 1000 $, and that the population doubled after $ 1 $ h. This additional information about $ P(t) $ yields the following equations:
 \begin{align*}
-    y' & = 4e^{x} \cos(2x) + 4e^{x} \left( - \sin(2x) \right) \\
-       & = 4e^{x} \left( \cos(2x) - 2 \sin(2x) \right) \\
-    y'' & = 4e^{x} \left( \cos(2x) - 2 \sin(2x) \right) + 4e^{x} \left( -2 \sin(2x) - 4 \cos(2x) \right) \\
-        & = 4e^{x} \left( -3 \cos(2x) - 4 \sin(2x) \right) \\
-    -2y' & = 4e^{x} \left( -2 \cos(2x) + 4 \sin(2x) \right) \\
-    5y & = 4e^{x} \left( 5 \cos(2x) \right)
+    1000 & = P(0) = Ce^0 = C \\
+    2000 & = P(1) = Ce^k
 \end{align*}
-$ \text{LHS} = y'' - 2y' + 5y = 4e^{x} \left( 0 + 0 \right) = 0 = \text{RHS} $ \\
-$ \therefore\ y = 4e^{x} \cos(2x)\ \text{is a solution} $
+It follows that $ C = 1000 $ and that $ e^k = 2 $, so $ k = \ln(2) \approx 0.693147 $. With this value of $ k $ the differential equation is
+$$ \frac{dP}{dt} = (\ln(2))P \approx (0.693147)P $$
+Substitution of $ k = \ln(2) $ and $ C = 1000 $ for the function $ P $ yields the particular solution
+\begin{align*}
+    P(t) & = 1000e^{\left(\ln(2)\right)t} \\
+         & = 1000\left(e^{\ln(2)}\right)^t \\
+         & = 1000 \cdot 2^t \rightarrow \text{because } e^{ln(2)} = 2
+\end{align*}
+that satisfies the given conditions. This solution can be used to predict future populations of the bacteria colony – e.g.
+$$ P(1.5) = 1000 \cdot 2^{\sfrac{3}{2}} \approx 2828 $$
 
-\subsection{Classification of Differential Equations}
+The condition $ P(0) = 1000 $ used in \textbf{Example 3} is called an \textbf{initial condition} because differential equations are frequently written for which $ t = 0 $ – the "starting time."
 
+\subsection{Mathematical Models}
+
+\textbf{Mathematical Modeling} is
 \begin{enumerate}
-    \item ODE v.s. PDE
-    \begin{itemize}
-        \item ODE: ordinary differential equation \\
-        $ F \left( x,y,y',y'',\cdots,y^{\left( n \right)} \right) = 0 $
-
-        \item PDE: partial differential equation \\
-        $ F \left( x_{1},x_{2},\cdots,u,u_{x_{1}},u_{x_{2}},\cdots,u_{x_{k}},\cdots \right) = 0 $
-    \end{itemize}
+    \item The formulation fo a real-world problem in mathematical terms; that is, the construction of a mathematical model.
+    \item The analysis or solution of the resulting mathematical problem.
+    \item The interpretation of the mathematical results in the context of the original real-world situation – for example, answering the question originally posed.
 \end{enumerate}
 
-\subsection{Order of Differential Equations}
+A satisfactory mathematical model is subject to two contradictory requirements: It must be sufficiently detailed to represent the real-world situation with relative accuracy, yet it must be sufficiently simple to make the mathematical analysis practical. In other words, if the model is so detailed that it fully represents the physical situation, then the mathematical analysis may to be too difficult to carry out. On the contrary, if the model is too simple, the results may be so inaccurate as to be useless. Finding the tradeoff is \textit{key}.
 
-The order of differential equations is defined by the highest derivative.
+\par\noindent\rule{\textwidth}{0.4pt}
 
-Example:
-$$ y'' - 2y' + 5y = 0 \rightarrow \text{2nd order} $$ 
+\textbf{Example 1}
+If $ C $ is a constant and $ y(x) = \frac{1}{(C-x)^2} $, then
+\begin{align*}
+    \frac{dy}{dx} & = \frac{d}{dx} \left(C-x\right)^{-1} \\
+                  & = \frac{-1}{\left(C-x\right)^2} \cdot \frac{d}{dx}\left(C-x\right) \\
+                  & = \frac{1}{\left(C-x\right)^2} \rightarrow x \neq C \\
+                  & = y^2
+\end{align*}
+Thus
+$$ y(x) = \frac{1}{C-x} $$
+defines a solution of the differential equation
+$$ \frac{dy}{dx} = y^2 \rightarrow x \neq C $$
 
-Second order ODE is generally written as:
-$$ F \left( x, y, y', y'' \right) = 0 $$
-\begin{itemize}
-    \item independent variable: $x$
-    \item dependent variable: $y$
-\end{itemize}
+\textbf{Example 2}
+Verify that the function $ y(x) = 2x^{\sfrac{1}{2}} - x^{\sfrac{1}{2}}\ln(x) $ satisfies the differential equation
+$$ 4x^2y'' + y = 0 $$
+for all $ x > 0 $.
 
-To write the second order PDE, the independent variable must be located first
-\begin{itemize}
-    \item independent variable: $x, t$
-    \item dependent variable: $u$
-\end{itemize}
-$$ F \left( x, t, u, u_{x}, u_{t}, u_{xt}, u_{xx}, u_{tx}, u_{tt} \right) = 0 $$
+Find $ y'(x) $
+\begin{align*}
+    y'(x) & = x^{\sfrac{-1}{2}} - \left( \frac{1}{2}x^{\sfrac{-1}{2}} \cdot \ln(x) + \frac{1}{x} \cdot x^{\sfrac{1}{2}} \right) \\
+          & = x^{\sfrac{-1}{2}} - \frac{x^{\sfrac{-1}{2}}\ln(x)}{2} - x^{\sfrac{-1}{2}} \\
+          & = -\frac{x^{\sfrac{-1}{2}}\ln(x)}{2} \\
+          & = -\frac{1}{2}x^{\sfrac{-1}{2}}\ln(x)
+\end{align*}
+Find $ y''(x) $
+\begin{align*}
+    y''(x) & = -\frac{1}{2} \left( -\frac{1}{2}x^{\sfrac{-3}{2}} \cdot \ln(x) + \frac{1}{x} \cdot x^{\sfrac{-1}{2}} \right) \\
+           & = \frac{1}{4}x^{\sfrac{-3}{2}}\ln(x) - \frac{1}{2}x^{\sfrac{-3}{2}}
+\end{align*}
+Substitute for $ 4x^2y'' + y = 0 $
+\begin{align*}
+    4x^2 \left( \frac{1}{4}x^{\sfrac{-3}{2}}\ln(x) - \frac{1}{2}x^{\sfrac{-3}{2}} \right) + 2x^{\sfrac{1}{2}} - x^{\sfrac{1}{2}}\ln(x) & = 0 \\
+    x^{\sfrac{1}{2}}\ln(x) - 2x^{\sfrac{1}{2}} + 2x^{\sfrac{1}{2}} - x^{\sfrac{1}{2}}\ln(x) & = 0 \\
+    x^{\sfrac{1}{2}}\ln(x) + \left( -x^{\sfrac{1}{2}}\ln(x) \right) - 2x^{\sfrac{1}{2}} + 2x^{\sfrac{1}{2}} & = 0 \\
+    0 + 0 & = 0 \rightarrow 0 = 0
+\end{align*}
+$ \therefore $ if $ x $ is positive, the differential equation is satisfied for all $ x > 0 $.
 
-\subsection{Linear \& Non-Linear ODE Classification}
+\par\noindent\rule{\textwidth}{0.4pt}
 
-Linear equations can be solved explicitly.
-Non-linear equations may only sometimes be solvable. Generally analyzed or attempting to find the equation's stable point.
+The \textbf{order} of a differential equation is the order of the highest derivative that appears in it. e.g.
+$$ y^{(4)} + x^2y^{(3)} + x^5y = \sin(x) $$
+is a fourth-order equation.
 
-\begin{enumerate}
-    \item Linear Form
-        $$ a_{n}(x) y^{n} + a_{n - 1}(x) y^{n-1} + \cdots + a_{2}(x) y'' + a_{1}(x) y' + a_{0}(x) y = f(x) $$ \\
-        Can also be written as so:
-        $$ \sum_{i = 0}^{n} a_{i}(x) y^{(i)} = f(x) $$
+The most general form of an \textbf{\textit{n}th-order} differential equation with independent variable $ x $ and unknown function or dependent variable $ y= y(x) $ is
+$$ F \left( x,y,y',y'',\cdots,y^{(n)} \right) = 0 $$
+where $ F $ is a specific real-valued function of $ n + 2 $ variables.
 
-    \item Non-Linear \\
-        Examples include: $ \sin(y), e^{y}, \ln(y), y^{2}, \sqrt{y} $
-\end{enumerate}
+A \textbf{solution} is the continuous function $ u = u(x) $ of the differential equation \textbf{on the interval} $ I $ provided that the derivatives $ u',u'',\cdots,u^{(n)} $ exist on $ I $ and
+$$ F \left( x,u,u',u'',\cdots,u^{(n)} \right) = 0 $$
+for all $ x $ in  $ I $. For the sake of brevity, we may say that $ u = u(x) $ \textbf{satisfies} the differential equation on $ I $.
 
-Orders covered in this course:
-\begin{itemize}
-    \item 1st order: linear \& some non-linear
+\par\noindent\rule{\textwidth}{0.4pt}
 
-    \item 2nd order: linear only
-        \begin{itemize}
-            \item[$\rightarrow$] $ a_{i}(x) $ are constants
-            \item[$\rightarrow$] $ f(x) $ are ``nice functions"
-            \item[$\rightarrow$] $ a_{i}(x) $ are polynomials
-        \end{itemize}
-
-    \item higher order: linear with constant coefficients \\
-        * possibly system of linear differential (using matrices \& eigen-theory)
-\end{itemize}
+\textbf{Example 1}
+If $ A $ and $ B $ are constants and
+$$ y(x) = A\cos(3x) + B\sin(3x) $$
+then two successive differentiations yield 
+\begin{align*}
+    y'(x) & = -3A\sin(3x) + 3B\cos(3x) \\
+    y''(x) & = -9A\cos(3x) - 9B\sin(3x) = -9y(x)
+\end{align*}
+for all $ x $.
 
 \end{document}

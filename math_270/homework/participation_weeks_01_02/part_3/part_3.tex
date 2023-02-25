@@ -1,0 +1,139 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+% \usepackage{enumitem}
+%
+% 
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+% \usepackage{esvect}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+% \usepackage{tikz}
+%
+% Image insertion
+% \usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\usepackage{empheq}
+
+\title{Week 01 and Week 02 Participation Assignment (3 of 4)}
+\date{24 February 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 3}
+
+\textbf{Directions:} We say a differential equation is separable if we can write the equation into the form of $ \frac{dy}{dx} = f(x) \cdot g(y) $. For the following differential equation, determine whether the given equation is separable or not. If it is separable, identify $ f $ and $ g $ (we may encounter other variables other than $ x $ and $ y $).  
+
+\subsection{Problem 1}
+$$ \frac{dy}{dx} - \sin(x + y) = 0 $$
+\begin{align*}
+    \frac{dy}{dx} - \sin(x + y) & = 0 \\
+    \frac{dy}{dx} & = \sin(x + y) \\
+    \frac{dy}{dx} & = \sin(x)\cos(y) + \cos(x)\sin(y)
+\end{align*}
+\begin{equation*}
+    \boxed{\text{Cannot be turned into separable form.}}
+\end{equation*}
+
+\subsection{Problem 2}
+$$ \frac{dy}{dx} = 4y^2 - 3y + 1 $$
+\begin{align*}
+    \frac{dy}{dx} & = 4y^2 - 3y + 1 \\
+    \left(\frac{dx}{4y^2 -3y + 1}\right) \frac{dy}{dx} & = \left(4y^2 - 3y + 1\right) \left(\frac{dx}{4y^2 -3y + 1}\right) \\
+    \left(\frac{1}{4y^2 -3y + 1}\right)dy & = (1)dx
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+    & \text{The differential equation is separable.} \\
+    & f(x) = 1 \text{, } g(y) = 4y^2 - 3y + 1
+\end{empheq}
+
+\subsection{Problem 3}
+$$ \frac{ds}{dt} = t\ln \left(s^{2t}\right) + 8t^2 $$
+\begin{align*}
+    \frac{ds}{dt} & = t\ln \left(s^{2t}\right) + 8t^2 \\
+                  & = t(2t)\ln(s) + 8t^2 \\
+                  & = 2t^2\ln(s) + 8t^2 \\
+                  & = (2t^2)(\ln(s) + 4) \\
+    \left(\frac{1}{\ln(s)+4}\right)ds & = (2t^2)dt
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+    & \text{The differential equation is separable.} \\
+    & f(s) = \ln(s) + 4 \text{, } g(t) = 2t^2
+\end{empheq}
+
+\subsection{Problem 4}
+$$ \frac{dy}{dx} = \frac{ye^{x+y}}{x^2+2} $$
+\begin{align*}
+    \frac{dy}{dx} & = \frac{ye^{x+y}}{x^2+2} \\
+                  & = \frac{ye^xe^y}{x^2+2} \\
+    \frac{dy}{dx} & = \left(ye^y\right) \left(\frac{e^x}{x^2+2}\right)
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+    & \text{The differential equation is separable.} \\
+    & f(x) = \left(\frac{e^x}{x^2+2}\right) \text{, } g(y) = ye^y
+\end{empheq}
+
+\subsection{Problem 5}
+$$ \left(xy^2 + 3y^2\right)dy - 2xdx = 0 $$
+\begin{align*}
+    \left(xy^2 + 3y^2\right)dy - 2xdx & = 0 \\
+    \left(xy^2 + 3y^2\right)dy & = (2x)dx \\
+    \frac{dy}{dx}\left(xy^2 + 3y^2\right) & = 2x \\
+    \frac{dy}{dx} & = \frac{2x}{xy^2 + 3y^2} \\
+                  & = \frac{2x}{y^2\left(x + 3\right)} \\
+    \frac{dy}{dx} & = \left(\frac{1}{y^2}\right) \left(\frac{2x}{x+3}\right)
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+    & \text{The differential equation is separable.} \\
+    & f(x) = \left(\frac{2x}{x+3}\right) \text{, } g(y) = \left(\frac{1}{y^2}\right)
+\end{empheq}
+
+\subsection{Problem 6}
+$$ s^2 + \frac{ds}{dt} = \frac{s+1}{st} $$
+\begin{align*}
+    s^2 + \frac{ds}{dt} & = \frac{s+1}{st} \\
+    \frac{ds}{dt} & = \frac{s+1}{st} - s^2 \\
+                  & = \frac{s}{st} + \frac{1}{st} - s^2 \\
+                  & = \frac{1}{t} + \frac{1}{st} - s^2 \\
+                  & = \frac{1}{t}\left(1 + \frac{1}{s}\right) - s^2
+\end{align*}
+\begin{equation*}
+    \boxed{\text{Cannot be turned into separable form.}}
+\end{equation*}
+
+\end{document}

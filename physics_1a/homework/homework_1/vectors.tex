@@ -118,13 +118,13 @@ Solution:
     & \text{Direction: } 65.38\degree \text{ N of E}
 \end{empheq}
 
-\section{Lab Manuel}
+\section{Lab Manual}
 
 \subsection{172}
 
 \begin{enumerate}[label=\alph*)]
     \item Prove that $ \vv{A} \cdot \vv{B} = \vv{B} \cdot \vv{A} $
-    \item Show that $ \vv{A} \cdot \vv{B} $ can be interpreted either as $ \vv{B} $ times the component of $ \vv{A} $ in the direction of $ \vv{B} $, or as $ \vv{A} $ times the component of $ \vv{B} $ in the direction of $ \vv{A} $.
+    \item Show that $ \vv{A} \cdot \vv{B} $ can be interpreted either as $ B $ times the component of $ \vv{A} $ in the direction of $ \vv{B} $, or as $ A $ times the component of $ \vv{B} $ in the direction of $ \vv{A} $.
     \item Calculate the dot product of the two vectors, $ \vv{A} \cdot \vv{B} $, given below: (No units)
         \begin{enumerate}[label=\arabic*)]
             \item $ \vv{A} = 20 $ along the +X axis, $ \vv{B} = 15 $ at $ 37\degree $ above the +X axis.
@@ -149,9 +149,17 @@ Which can be rewritten as
 \end{equation*}
 
 b) \\
-Begin by finding ``the component of $ \vv{A} $ in the direction of $ \vv{B} $"
+\begin{tikzpicture}
+    \draw[very thick, <->] (0,0) -- (0,3) node [above] { $+\hat{y}$ };
+    \draw[very thick, <->] (0,0) -- (3,0) node [right] { $+\hat{x}$ };
+    \draw[thick, ->, red] (0,0) -- (45:3) node [midway, above, sloped] { $\|\vv{A}\|$ };
+
+    \draw[transparent] (0,0) -- (45:0.5) [above] node (theta) {};
+    \path[blue, bend right, ->] (0.5,0) edge (theta); 
+\end{tikzpicture}
+
+Begin by finding the component of $ \vv{A} $ in the direction of $ \vv{B} $
 \begin{align*}
-    \vv{A} \cdot \vv{B} & = 
 \end{align*}
 
 \subsection{173 (b)}

@@ -1,0 +1,94 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+\renewcommand{\contentsname}{Homework: Section 1.5}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\tableofcontents
+\newpage
+
+\section{Practice Problems}
+
+\subsection{Problem 1}
+
+Find the general solution of the differential equation. Then, use the initial condition to find the corresponding particular solution.
+$$ \frac{dy}{dx} - 4y = 6e^{4x} \text{, } y(0) = 0 $$
+\begin{align*}
+    \frac{dy}{dx} - 4y & = 6e^{4x} \text{ already separated} \\
+                       & \therefore P(x) = -4, \rho(x) = e^{\int(-4)dx} \\
+    y(x) & = e^{\int(4)dx} \left[ \int \left( 6e^{4x}e^{\int(-4)dx} \right) dx + C \right] \\
+         & = e^{4x} \int \left( 6e^{4x}e^{-4x} \right)dx + Ce^{4x} \\
+         & = e^{4x} \int (6)dx + Ce^{4x} \\
+    y(0) & = e^{4(0)} (6(0)) + Ce^{4(0)} = 0 \\
+    C & = 0 \\
+\end{align*}
+\begin{equation*}
+    \boxed{
+        y(x) = \frac{6x}{e^{-4x}} + Ce^{4x}, y(0) \rightarrow y(x) = \frac{6x}{e^{-4x}}
+    }
+\end{equation*}
+
+\subsection{Problem 2}
+
+Find the general solution of the differential equation. Then, use the initial condition to find the corresponding particular solution.
+$$ xy' + 5y = 6x $$
+First multiply each side by the integrating factor $ \frac{1}{x} $ to get the form $ y' + P(x)y = Q(x), y(3) = 6 $
+\begin{align*}
+    y' + \frac{5}{x}y & = 6 \\
+                      & \therefore P(x) = \frac{5}{x}, \rho(x) = e^{\int(\frac{5}{x})dx} \\
+    y(x) & = e^{-\int(\frac{5}{x})dx} \left[ \int \left( 6e^{\int(\frac{5}{x})dx} \right) dx + C \right]
+         & = x^{-5} \left[ \int (6x^5)dx + C \right] \\
+         & = x^{-5} \left[ x^6 + C \right] \\
+         & = x + Cx^{-5} \\
+    y(3) & = (3) + C(3)^{-5} = 6 \\
+    \frac{1}{243}C & = 3 \\
+    C & = 729
+\end{align*}
+\begin{equation*}
+    \boxed{
+        y(x) = x + Cx^{-5}, y(3) \rightarrow y(x) = x + 729x^{-5}
+    }
+\end{equation*}
+
+\end{document}

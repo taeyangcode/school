@@ -273,6 +273,33 @@ $$ \rho(x) = e^{\int \rho(x)dx} $$
 
 \hr
 
+Given the differential equation
+$$ \frac{dy}{dx} = 2xy \text{ where } (y > 0) $$
+This can be turned into
+$$ \frac{dy}{y} = 2xdx $$
+Which can be rewritten as
+$$ \frac{1}{y} \cdot \frac{dy}{dx} = 2x $$
+Which can be rewritten as the derivative of the integral of each side
+$$ D_x(\ln(y)) = D_x(x^2) $$
+Integrating both sides with respect to $ x $ gives the same general solution $ \ln(y) = x^2 + C $ shown before.
+
+The differential equation was able to be solved by first multiplying both of its sides by a factor – known as an \textit{integrating factor} – chosen so that both sides of the resulting equation couldbe recognized as a derivative. More generally, an \textbf{integrating factor} for a differential equation by $ \rho(x,y) $ yields an equation in which each side is recognizable as a derivative. In some cases integrating factors involve both of the variables $ x $ and $ y $; however the second solution of the above equation was based on the integrating factor $ \rho(y) = \frac{1}{y} $, which depends only on $ y $.
+
+\hr
+
+A \textbf{linear first-order equation} is a differential equation of the form
+$$ \frac{dy}{dx} + P(x)y = Q(x) $$
+It is assumed that the coefficient functions $ P(x) $ and $ Q(x) $ are continuous on some interval on the $ x $-axis. Assuming that the necessary integrals can be found, the general linear equation can always be sovled by multiplying by the integrating factor
+$$ \rho(x) = e^{\int P(x)dx} $$
+Which is expanded to
+$$ e^{\int P(x)dx}\frac{dy}{dx} + P(x)e^{\int P(x)dx}y = Q(x)e^{\int P(x)dx} $$
+And as the derivative of the integral of the function $ P(x) $ is equal to the function itself, the equation can be again rewritten as
+$$ D_x \left[ y(x) \cdot e^{\int P(x)dx} \right] = Q(x)e^{\int P(x)dx} $$
+And when integrating both sides
+$$ y(x)e^{\int P(x)dx} = \int \left(Q(x)e^{\int P(x)dx} \right)dx + C $$
+Solving for the function $ y $
+$$ y(x) = e^{-\int P(x)dx} \left[ \int \left(Q(x)e^{\int P(x)dx} \right)dx + C \right] $$
+
 \subsection{Substitution Methods and Exact Equations}
 
 \end{document}

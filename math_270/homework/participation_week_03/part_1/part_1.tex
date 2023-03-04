@@ -1,0 +1,152 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 03 Participation Assignment (1 of 3)}
+\date{03 March 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 1}
+To test for a first order differential equation to be exact or not, we must write it in the form of $ M(x,y)dx + N(x,y)dy = 0 $. Determine whether the given equation is exact or not. (For your own practice, you may also identify the equation as separable or linear as well as exact equation).
+
+\subsection{a)}
+$$ (2x + yx^{-1})dx + (xy - 1)dy = 0 $$
+\begin{align*}
+	\frac{\partial M}{\partial y} & = \frac{\partial}{\partial y} \left( 2x + yx^{-1} \right) \\
+	& = (0) + x^{-1} \\
+	& = x^{-1} \\
+	\frac{\partial N}{\partial x} & = \frac{\partial}{\partial x} \left( xy - 1 \right) \\
+	& = y - (0) \\
+	& = y
+\end{align*}
+\begin{equation*}
+	\boxed{
+		\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x} \therefore \text{not exact}
+	}
+\end{equation*}
+
+\subsection{b)}
+$$ (2y^3 + 2y^2)dx + (3xy^2 + 2xy)dy = 0 $$
+\begin{align*}
+	\frac{\partial M}{\partial y} & = \frac{\partial}{\partial y} \left( 2y^3 + 2y^2 \right) \\
+								  & = 6y^2 + 4y \\
+	\frac{\partial N}{\partial x} & = \frac{\partial}{\partial x} \left( 3xy^2 + 2xy \right) \\
+								  & = 3y^2 + 2y
+\end{align*}
+\begin{equation*}
+	\boxed{
+		\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x} \therefore \text{not exact}
+	}
+\end{equation*}
+
+\subsection{c)}
+$$ (2x + y)dx + (x - 2y)dy = 0 $$
+\begin{align*}
+	\frac{\partial M}{\partial y} & = \frac{\partial}{\partial y} \left( 2x + y \right) \\
+								  & = (0) + 1 \\
+	\frac{\partial N}{\partial x} & = \frac{\partial}{\partial x} \left( x - 2y \right) \\
+								  & = 1 - (0)
+\end{align*}
+\begin{equation*}
+	\boxed{
+		\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} \therefore \text{exact}
+	}
+\end{equation*}
+
+\subsection{d)}
+$$ (y^2 + 2xy)dx - x^2dy = 0 $$
+\begin{align*}
+	\frac{\partial M}{\partial y} & = \frac{\partial}{\partial y} \left( y^2 + 2xy \right) \\
+								  & = 2y + 2x \\
+	\frac{\partial N}{\partial x} & = \frac{\partial}{\partial x} \left( -x^2 \right) \\
+								  & = -2x
+\end{align*}
+\begin{equation*}
+	\boxed{
+		\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x} \therefore \text{not exact}
+	}
+\end{equation*}
+
+\subsection{e)}
+$$ (x^2\sin(x) + 4y)dx + xdy = 0 $$
+\begin{align*}
+	\frac{\partial M}{\partial y} & = \frac{\partial}{\partial y} \left( x^2\sin(x) + 4y \right) \\
+								  & = (0) + 4 \\
+								  & = 4 \\
+	\frac{\partial N}{\partial x} & = \frac{\partial}{\partial x} \left( x \right) \\
+								  & = 1
+\end{align*}
+\begin{equation*}
+	\boxed{
+		\frac{\partial M}{\partial y} \neq \frac{\partial N}{\partial x} \therefore \text{not exact}
+	}
+\end{equation*}
+
+\subsection{f)}
+$$ [\sin(xy) + xy\cos(xy)]dx + [1 + x^2\cos(xy)]dy = 0 $$
+\begin{align*}
+	\frac{\partial M}{\partial x} & = \frac{\partial}{\partial x} \left( \sin(xy) + xy\cos(xy) \right) \\
+								  & = x\cos(xy) + (x \cdot \cos(xy)) + (-x\sin(xy) \cdot xy) \\
+								  & = 2x\cos(xy) -x^2y\sin(xy) \\
+	\frac{\partial N}{\partial x} & = \frac{\partial}{\partial x} \left( 1 + x^2\cos(xy) \right) \\
+								  & = (0) + (2x \cdot \cos(xy)) + (-y\sin(xy) \cdot x^2) \\
+								  & = 2x\cos(xy) -x^2y\sin(xy)
+\end{align*}
+\begin{equation*}
+	\boxed{
+		\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} \therefore \text{exact}
+	}
+\end{equation*}
+
+\end{document}

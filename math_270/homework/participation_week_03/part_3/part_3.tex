@@ -1,0 +1,157 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 03 Participation Assignment (3 of 3)}
+\date{03 March 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 3}
+For section 5.1 and 5.2, it is about some concepts behind the higher order of linear differential equation and some theorems that tell us about the existence of the solution and the form of the solution (superposition of linear combination of fundamental solution set). One of the concepts for us to test if solutions/functions are linearly independent is to calculate the Wronskian of the set of function. (Of course, we can always use the definition by setting the linear combination to be 0 and then try to solve for the coefficients).
+
+Here comes the questions. Calculate the Wronskian, $ W(y_1,y_2,\cdots,y_n) $, of the following set of functions and then conclude if the set is linear independent or not:
+
+\subsection{1)}
+$$ y_1 = \sin(2x), y_2 = \cos(2x) $$
+\begin{align*}
+	y_1' & = 2\cos(2x) \\
+	y_2' & = -2\sin(2x) \\
+	W & = \begin{bmatrix}
+		\sin(2x) & \cos(2x) \\
+		2\cos(2x) & -2\sin(2x)
+	\end{bmatrix} \\
+	  & = \left( \sin(2x) \cdot -2\sin(2x) \right) - \left( \cos(2x) \cdot 2\cos(2x) \right) \\
+	  & = -2\sin^2(2x) - 2\cos^2(2x) \\
+	  & = -2 \left( \sin^2(2x) + \cos^2(2x) \right) \\
+	  & = -2
+\end{align*}
+\begin{equation*}
+	\boxed{
+		W(y_1,y_2) = -2 \neq 0 \therefore \text{linearly independent on each point of } I
+	}
+\end{equation*}
+
+\subsection{2)}
+$$ y_1 = e^{-3x}, y_2 = xe^{-3x} $$
+\begin{align*}
+	y_1' & = -3e^{-3x} \\
+	y_2' & = (1) \cdot e^{-3x} + (-3e^{-3x} \cdot x) \\
+		 & = e^{-3x} - 3xe^{-3x} \\
+	W & = \begin{bmatrix}
+		e^{-3x} & xe^{-3x} \\
+		-3e^{-3x} & e^{-3x} - 3xe^{-3x} \\
+	\end{bmatrix} \\
+	  & = \left( e^{-3x} \cdot \left( e^{-3x} - 3xe^{-3x} \right) \right) - \left( xe^{-3x} \cdot -3e^{-3x} \right) \\
+	  & = e^{-6x}(1 - 3x) + 3xe^{-6x} \\
+	  & = (e^{-6x})(1) \\
+	  & = e^{-6x}
+\end{align*}
+\begin{equation*}
+	\boxed{
+		W(y_1,y_2) = e^{-6x} \neq 0 \therefore \text{linearly independent on each point of } I
+	}
+\end{equation*}
+
+\subsection{3)}
+$$ y_1 = e^{-2x}\cos(x), y_2 = e^{-2x}\sin(x) $$
+\begin{align*}
+	y_1' & = \left( -2e^{-2x} \cdot \cos(x) \right) + \left( -\sin(x) \cdot e^{-2x} \right) \\
+		 & = -2\cos(x)e^{-2x} - \sin(x)e^{-2x} \\
+		 & = e^{-2x} \left( -2\cos(x) - \sin(x) \right) \\
+	y_2' & = \left( -2e^{-2x} \cdot \sin(x) \right) + \left( \cos(x) \cdot e^{-2x} \right) \\
+		 & = e^{-2x} \left( -2\sin(x) + \cos(x) \right) \\
+	W & = \begin{bmatrix}
+		e^{-2x}\cos(x) & e^{-2x}\sin(x) \\
+		e^{-2x} \left( -2\cos(x) - \sin(x) \right) & e^{-2x} \left( -2\sin(x) + \cos(x) \right)
+	\end{bmatrix} \\
+	  & = \left( e^{-2x}\cos(x) \cdot e^{-2x} \left( -2\sin(x) + \cos(x) \right) \right) - \left( e^{-2x}\sin(x) \cdot e^{-2x} \left( -2\cos(x) - \sin(x) \right) \right) \\
+	  & = \left( e^{-4x} \left( \cos^2(x) - 2 \sin(x)\cos(x) \right) \right) + \left( e^{-4x} \left( 2\cos(x)\sin(x) + \sin^2(x) \right) \right) \\
+	  & = e^{-4x}
+\end{align*}
+\begin{equation*}
+	\boxed{
+		W(y_1,y_2) = e^{-4x} \neq 0 \therefore \text{linearly independent on each point of } I
+	}
+\end{equation*}
+
+\subsection{4)}
+$$ y_1 = e^x, y_2 = xe^x, y_3 = x^2e^x $$
+\begin{align*}
+	y_1' & = e^x \\
+	y_1'' & = e^x \\
+	y_2' & = (1) \cdot e^x + e^x \cdot x \\
+		 & = e^x \left( 1 + x \right) \\
+	y_2'' & = e^x + \left( (1) \cdot e^x + e^x \cdot x \right) \\
+		  & = e^x + e^x + xe^x \\
+		  & = e^x \left(1 + 1 + x\right) \\
+		  & = e^x \left(2 + x\right) \\
+	y_3' & = (2x) \cdot e^x + e^x \cdot x^2 \\
+		 & = e^x \left( 2x + x^2 \right) \\
+	y_3'' & = \left( 2 \cdot e^x + e^x \cdot 2x \right) + \left( 2x \cdot e^x + e^x \cdot x^2 \right) \\
+		  & = 2e^x + 2xe^x + 2xe^x + x^2e^x \\
+		  & = e^x \left( 2 + 4x + x^2 \right) \\
+	W & = \begin{bmatrix}
+		e^x & xe^x & x^2e^x \\
+		e^x & e^x \left( 1 + x \right) & e^x \left(x^2 + 2x \right) \\
+		e^x & e^x \left( 2 + x \right) & e^x \left( x^2 + 4x + 2 \right)
+	\end{bmatrix} \\
+	  & = 2e^{3x}
+\end{align*}
+\begin{equation*}
+	\boxed{
+		W(y_1,y_2,y_3) = 2e^{3x} \neq 0 \therefore \text{linearly independent on each point of } I
+	}
+\end{equation*}
+
+\end{document}

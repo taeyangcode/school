@@ -1,0 +1,71 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\section{Propagation of Errors}
+
+\subsection{1}
+
+Known Errors
+\begin{itemize}[label=]
+	\item 
+		$$ f = 8.1\tan(x) $$
+	\item
+		\begin{align*}
+			x & = 21.3\degree \pm 0.5\degree \\
+			  & = 21.3\degree \left(\frac{\pi}{180\degree}\right) \pm 0.5\degree \left(\frac{\pi}{180\degree}\right) \\
+			  & = 0.372 \pm \SI{0.02}{\radian}
+		\end{align*}
+\end{itemize}
+
+\begin{align*}
+	% \frac{\delta f}{f} 
+\end{align*}
+
+\end{document}

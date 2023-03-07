@@ -48,4 +48,13 @@
 % Command `\hr` to insert horizontal rules
 \newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
 
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
 \end{document}

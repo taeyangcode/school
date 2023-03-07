@@ -1,0 +1,130 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 01 and Week 02 Participation Assignment (4 of 4)}
+\date{24 February 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 4}
+First order linear differential equation has the form of $ \frac{dy}{dx} + p(x) \cdot y = q(x) $. Determine whether the given equation is linear or not (You may review on separable if you would like to identify as separable). If it is linear, identify p(x) and q(x). Pay attention that the coefficient of $ \frac{dy}{dx} $ in the form must be 1.
+
+\subsection{Problem 1}
+$$ x^2\frac{dy}{dx} + \sin(x) - y = 0 $$
+\begin{align*}
+    x^2\frac{dy}{dx} + \sin(x) - y & = 0 \\
+    x^2\frac{dy}{dx} - y & = -\sin(x) \\
+    \frac{dy}{dx} - \frac{1}{x^2}(y) & = \frac{-\sin(x)}{x^2}
+\end{align*}
+\begin{equation*}
+    \boxed{
+        \text{Linear: } p(x) = \frac{-1}{x^2} \text{, } q(x) = \frac{-\sin(x)}{x^2}
+    }
+\end{equation*}
+
+\subsection{Problem 2}
+$$ \frac{dx}{dt} + xt = e^x $$
+\begin{equation*}
+    \boxed{
+        \text{Nonlinear: Can't arrange into first-order linear differential equation form.}
+    }
+\end{equation*}
+
+\subsection{Problem 3}
+$$ \left(t^2 + 1\right)\frac{dy}{dt} = yt - y $$
+\begin{align*}
+    \left(t^2 + 1\right)\frac{dy}{dt} & = yt - y \\
+    \left(t^2 + 1\right)\frac{dy}{dt} & = y\left(t - 1\right) \\
+    \frac{dy}{dt} \cdot \frac{1}{y} = \frac{t - 1}{t^2 + 1}
+\end{align*}
+\begin{equation*}
+    \boxed{
+        \text{Nonlinear: Can't arrange into first-order linear differential equation form.}
+    }
+\end{equation*}
+
+\subsection{Problem 4}
+$$ 3t = e^t\frac{dy}{dt} + y\ln(t) $$
+\begin{align*}
+    3t & = e^t\frac{dy}{dt} + y\ln(t) \\
+    \frac{dy}{dt} + \frac{\ln(t)}{e^t} \cdot y & = \frac{3t}{e^t}
+\end{align*}
+\begin{equation*}
+    \boxed{
+        \text{Linear: } p(t) = \frac{\ln(t)}{e^t} \text{, } q(t) = \frac{3t}{e^t}
+    }
+\end{equation*}
+
+\subsection{Problem 5}
+$$ x\frac{dx}{dt} + t^2x = \sin(t) $$
+\begin{align*}
+    x\frac{dx}{dt} + t^2x & = \sin(t) \\
+    x\left(\frac{dx}{dt} + t^2\right) & = \sin(t)
+\end{align*}
+\begin{equation*}
+    \boxed{
+        \text{Nonlinear: Can't arrange into first-order linear differential equation form.}
+    }
+\end{equation*}
+
+\subsection{Problem 6}
+$$ 3r = \frac{dr}{d\theta} - \theta^3 $$
+\begin{align*}
+    3r & = \frac{dr}{d\theta} - \theta^3 \\
+    \frac{dr}{d\theta} - 3r & = \theta^3
+\end{align*}
+\begin{equation*}
+    \boxed{
+        \text{Linear: } p(\theta) = -3 \text{, } q(\theta) = \theta^3
+    }
+\end{equation*}
+
+\end{document}

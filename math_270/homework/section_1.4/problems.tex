@@ -1,0 +1,224 @@
+\documentclass{article}
+
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage{enumitem}
+
+\renewcommand{\contentsname}{Homework: Section 1.4}
+
+\begin{document}
+
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\newpage
+    \tableofcontents
+\newpage
+
+\section{Practice Problems}
+
+\subsection{Problem 1}
+
+Find the explicit general solution of the given differential equation.
+$$ \frac{dy}{dx} + 7xy = 0 $$
+
+\begin{align*}
+    \frac{dy}{dx} & = -7xy \\
+    \int \frac{1}{y}dy & = \int -7xdx \\
+    ln|y| & = -\frac{7}{2}x^2 + C \\
+    e^{ln|y|} & = e^{-\frac{7}{2}x^2 + C} \\
+    y(x) & = e^{-\frac{7}{2}x^2}e^{C}
+\end{align*}
+\begin{equation*}
+    \boxed{y(x) = Ce^{-\frac{7}{2}x^2}}
+\end{equation*}
+
+\subsection{Problem 2}
+
+Find the implicit general solution of the differential equation given. Assume $ x $ and $ y $ are non-zero.
+$$ \frac{dy}{dx} = \frac{\left( x - 3 \right) y^5}{x^2 \left( 6y^2 - y \right)} $$
+
+\begin{align*}
+    \int \frac{\left( 6y^2 - y \right)}{y^5} dy & = \int \frac{\left( x - 3 \right)}{x^2} dx \\
+    \int \frac{6}{y^3}dy - \frac{1}{y^4}dy & = \int \frac{1}{x}dx - \frac{3}{x^2}dx \\
+    \frac{-3}{y^2} + \frac{1}{3y^3} & = \ln|x| + \frac{3}{x} + C
+\end{align*}
+\begin{equation*}
+    \boxed{\frac{-3}{y^2} + \frac{1}{3y^3} - \ln|x| - \frac{3}{x} = C}
+\end{equation*}
+
+\subsection{Problem 3}
+
+Find the explicit particular solution of the initial value problem given.
+$$ \frac{dy}{dx} = ye^{7x} \text{, } y(0) = 2e $$
+
+\begin{align*}
+    \int \frac{1}{y}dy & = \int e^{7x} dx \\
+    \ln|y| & = \frac{1}{7}e^{7x} + C \\
+    y & = e^{\frac{1}{7}e^{7x}+C} \\
+    y & = Ce^{\frac{1}{7}e^{7x}}
+\end{align*}
+\begin{align*}
+    Ce^{\frac{1}{7}e^{7x}} & = 2e \text{, $ y(0) = 2e $} \\
+    Ce^{\frac{1}{7}e^{7(0)}} & = 2e \\
+    Ce^{\frac{1}{7}} & = 2e \\
+    C & = 2e^{\frac{6}{7}}
+\end{align*}
+\begin{equation*}
+    \boxed{y = \left( 2e^\frac{6}{7} \right) e^{\frac{1}{7}e^{7x}}}
+\end{equation*}
+
+\subsection{Problem 4}
+
+Find the explicit particular solution of the differential equation for the initial value provided.
+$$ \frac{dy}{dx} = 3x^3y - y \text{, } y(1) = -7 $$
+
+\begin{align*}
+    \left( \frac{1}{y} \right) \frac{dy}{dx} & = \left( 3x^3y - y \right) \left( \frac{1}{y} \right) \\
+    \int \left( \frac{1}{y} \right) dy & = \int \left( 3x^3 - 1 \right) dx \\
+    \ln|y| & = \frac{3}{4}x^4 - x + C \\
+    e^{\ln|y|} & = e^{\frac{3}{4}x^4 - x + C} \\
+    y & = Ce^{\frac{3}{4}x^4 - x}
+\end{align*}
+\begin{align*}
+    Ce^{\frac{3}{4}(1)^4 - (1)} & = -7 \text{, } y(1) = -7 \\
+    Ce^{\frac{3}{4} - 1} & = -7 \\
+    C & = \frac{-7}{e^{\frac{-1}{4}}} = -7e^{\frac{1}{4}}
+\end{align*}
+\begin{equation*}
+    \boxed{y = \left( -7e^{\frac{1}{4}} \right) e^{\frac{3}{4}x^4 - x}}
+\end{equation*}
+
+\subsection{Problem 5}
+
+Find the explicit particular solution of the differential equation for the initial value provided.
+$$ x\frac{dy}{dx} - y = 2x^2y \text{, } y(1) = 1 $$
+
+\begin{align*}
+    x\frac{dy}{dx} & = 2x^2y + y \\
+    x\frac{dy}{dx} & = y \left( 2x^2 + 1 \right) \\
+    \int \frac{1}{y}dy & = \int \frac{2x^2 + 1}{x} dx \\
+    \ln|y| & = \int 2xdx + \int \frac{1}{x}dx \\
+    \ln|y| & = x^2 + \ln|x| + C \\
+    e^{\ln|y|} & = e^{x^2 + \ln|x| + C} \\
+    y & = Ce^{x^2 + \ln|x|}
+\end{align*}
+\begin{align*}
+    Ce^{x^2 + \ln|x|} & = 1 \text{, } y(1) = 1 \\
+    Ce & = 1 \\
+    C & = \frac{1}{e}
+\end{align*}
+\begin{equation*}
+    \boxed{y = \left( \frac{1}{e} \right) e^{x^2 + \ln|x|}}
+\end{equation*}
+
+\subsection{Problem 6}
+
+Find an explicit particular solution of the following initial value problem.
+$$ \frac{dy}{dx} = 11e^{5x-4y} \text{, } y(0) = 0 $$
+
+\begin{align*}
+    \frac{dy}{dx} & = 11e^{5x}e^{-4y} \\
+    \int \frac{1}{e^{-4y}}dy & = \int 11e^{5x}dx \\
+    \int e^{4y}dy & = \int 11e^{5x} dx \\
+    \frac{1}{4}e^{4y} & = \frac{11}{5}e^{5x} + C \\
+    e^{4y} & = \frac{44}{5}e^{5x} + 4C \\
+    4y & = \ln \left( \frac{44}{5}e^{5x} + 4C \right) \\
+    y & = \frac{\ln \left( \frac{44}{5}e^{5x} + 4C \right)}{4}
+\end{align*}
+\begin{align*}
+    \frac{\ln \left( \frac{44}{5}e^{5(0)} + 4C \right)}{4} & = 0 \text{, } y(0) = 0 \\
+    \frac{\ln \left( \frac{44}{5} + 4C \right)}{4} & = 0 \\
+    \frac{44}{5} + 4C & = 1 \\
+    4C & = \frac{-39}{5} \\
+    C & = \frac{-39}{20}
+\end{align*}
+\begin{equation*}
+    \boxed{y = \frac{\ln \left(\frac{44}{5}e^{5x} - \frac{39}{5} \right)}{4}}
+\end{equation*}
+
+Another example:
+$$ \frac{dy}{dx} = 9e^{4x-y} \text{, } y(0) = 0 $$
+
+\begin{align*}
+    \frac{dy}{dx} & = 9e^{4x}e^{-y} \\
+    \int e^ydy & = \int 9e^{4x} dx \\
+    e^y & = \frac{9}{4}e^{4x} + C \\
+    y & = \ln \left( \frac{9}{4}e^{4x} + C \right)
+\end{align*}
+\begin{align*}
+    \ln \left(\frac{9}{4}e^{4(0)} + C \right) & = 0 \text{, } y(0) = 0 \\
+    \frac{9}{4} + C & = 1 \\
+    C & = \frac{-5}{4}
+\end{align*}
+\begin{equation*}
+    \boxed{y = \ln \left( \frac{9}{4}e^{4x} - \frac{5}{4} \right)}
+\end{equation*}
+
+\subsection{Problem 7}
+
+The intensity of light I through a lake at a depth of x meters is given by the following formula.
+$$ \frac{dI}{dx} = \left( -1.59 \right) I $$
+\begin{enumerate}[label=(\textbf{\alph*})]
+    \item At what depth is the intensity of the light half that of the intensity at the surface, $ I_0 $ ?
+    \item At $ 5 $ meters deep, what is the intensity of the light as a fraction of $ I_0 $ ?
+    \item How many meters deep will the intensity of light be $ 9\% $ of the intensity of the light at the surface?
+\end{enumerate}
+
+(\textbf{a})
+
+First find the intensity at the surface $ I_0 $
+\begin{align*}
+    \frac{dI}{dx} & = \left( -1.59 \right) I \\
+    \int \frac{1}{I}dI & = \int -1.59dx \\
+    \ln|I| & = -1.59x + C \text{, ($ C $ can be ignored here)} \\
+    I = Ce^{-1.59x} & = e^{-1.59x}
+\end{align*}
+Surface is when $ x = 0 \text{m} $
+\begin{align*}
+    I_0 & = e^{-1.59(0)} \\
+        & = 1 \\
+        & \therefore \text{ half of $ I_0 $ would be $ 0.5 $}
+\end{align*}
+Now finding intensity
+\begin{align*}
+    e^{-1.59x} & = 0.5 \\
+    -1.59x & = \ln(0.5) \\
+\end{align*}
+\begin{equation*}
+    \boxed{x = 0.436 \text{m, rounded to the nearest thousandth}}
+\end{equation*}
+
+(\textbf{b})
+
+Simply substitude $ x = 5 $m
+\begin{align*}
+    I & = e^{-1.59(5)} \\
+      & = 0.000353
+\end{align*}
+\begin{equation*}
+    \boxed{I = 3.53 \times 10^{-4}}
+\end{equation*}
+
+(\textbf{c})
+
+First find $ 9\% $ of $ I_0 $
+\begin{align*}
+    I = 0.09 \cdot I_0 & = 0.09 \\
+\end{align*}
+Now find $ x $ for when $ I = 0.09 $
+\begin{align*}
+    e^{-1.59x} & = 0.09 \\
+    -1.59x & = \ln(0.09) \\
+    x & = \frac{\ln(0.09)}{-1.59}
+\end{align*}
+\begin{equation*}
+    \boxed{x = 1.514 \text{m, rounded to the nearest hundredth}}
+\end{equation*}
+
+\subsection{Problem 8}
+
+Problem revoked by instructor
+
+\end{document}

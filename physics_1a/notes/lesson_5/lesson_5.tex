@@ -1,0 +1,179 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI unit display
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\section{A Review of 2A Error Theory}
+
+If
+$$ x = x_{\text{best}} \pm \delta x $$
+– Where $ x_{\text{best}} $ is th ebest guess at the measurement and $ \delta x $ is the uncertainty – on a measurement device uncertainty is the the resolution
+
+\begin{enumerate}[label=\text{Rule} \arabic*:]
+    \item $ \delta x $ has same units as $ x_{\text{best}} $
+    \item $ \delta x $ always is rounded to one sig. fig.
+    \item $ x_\text{best} $ \underline{must} have the same precision as $ \delta x $
+\end{enumerate}
+For example \SI{6.87415}{\cm} $ \pm $ \SI{0.5}{\mm}, turn this into properly reported value:
+\begin{enumerate}[label=\text{Step} \arabic*:]
+    \item Same units \SI{68.7415}{\mm} $ \pm $ \SI{0.5}{\mm}
+    \item Round $ x_{\text{best}} $ to match $ \delta x $
+        $$ \SI{68.7 \pm 0.5}{\mm} $$
+\end{enumerate}
+
+\hr
+
+$$ x_{\text{best}} \pm \delta x $$
+$$ y_{\text{best}} \pm \delta y $$
+for $ x_{\text{best}} \pm y_{\text{best}} $
+$$ \delta_{x + y} = \delta_x + delta_y $$
+$$ \delta{x - y} = \delta_x + delta_y $$
+
+for $ x_{\text{best}} \cdot y_{\text{best}} $ or $ \frac{x_{\text{best}}}{y_{\text{best}}} $
+$$ \frac{\delta_{xy}}{xy} = \frac{\delta_x}{x} + \frac{\delta_y}{y} $$
+where $ \frac{\delta_y}{y} $ is the fractional error, relative error, or percent error
+
+$$ \delta f = \frac{\partial f}{\partial x} \Biggr|_{x_{\text{best}}} \delta x $$
+$$ \frac{df}{dx} = \frac{df}{dx} $$
+$$ df = \frac{df}{dx}dx $$
+
+For determinate errors:
+$$ \delta f = \sum \frac{\partial f}{\partial x_i}\delta{x_i} $$
+in 2D:
+$$ \delta f = \left| \frac{\partial f}{\partial x} \right| \delta x + \left| \frac{\partial f}{\partial y} \right| \delta y $$
+
+\hr
+
+Given
+$$ f = x + y $$
+Taking the partial derivative in respect to $ x $
+$$ \frac{\partial f}{\partial x} = 1 $$
+Taking the partial derivative in respect to $ y $
+$$ \frac{\partial f}{\partial y} = 1 $$
+$$ \delta f = (1)(\delta x) + (1)(\delta y) = \delta x + \delta y $$
+
+\hr
+
+Given
+$$ f = xy $$
+$$ \frac{\partial f}{\partial x} = y $$
+$$ \frac{\partial f}{\partial y} = x $$
+$$ \delta f = y \delta x + x \delta y $$
+Now dividing by $ f $ (which is equal to $ xy $)
+$$ \frac{\delta f}{f} = \frac{y\delta x}{xy} + \frac{x\delta y}{xy} = \frac{\delta x}{x} + \frac{\delta y}{y} $$
+
+\hr
+
+Given
+$$ f = ax^n $$
+$$ \frac{\partial f}{\partial x} = \left| anx^{n-1} \right| $$
+$$ \frac{\partial f}{f} = \frac{\frac{\partial f}{\partial x}\delta x}{f} $$
+$$ \frac{\partial f}{f} = \left| \frac{anx^{n-1}}{ax^n}\delta x \right| $$
+$$ \frac{\partial f}{f} = \left| n\frac{\delta x}{x} \right| $$
+
+\hr
+
+deviation = $ \bar{x} - x_i $
+
+Root Mean Square
+$$ \sigma_x - \sqrt{\frac{\sum (\bar{x}-x_i)^2}{N}} $$
+Where $ \sigma_x $ is standard deviation
+
+The best value for statistical data is given by the average
+$$ x_{\text{best}} = \bar{x} = \frac{\sum x_i}{N} $$
+
+$ \delta_x $ for a statistical spread is:
+$$ \delta_x = \frac{\sigma_x}{\sqrt{N}} $$
+
+\begin{align*}
+	x_\text{best} & = \bar{x} \pm \frac{\sigma_x}{\sqrt{N}} \\
+				  & = \SI{1.960462}{\second} \pm \SI{0.069127}{\second} \\
+				  & = \SI{1.96 \pm 0.07}{\second}
+\end{align*}
+\begin{equation*}
+	\boxed{
+		x_\text{best} = \SI{1.96 \pm 0.07}{\second}
+	}
+\end{equation*}
+
+\hr
+
+$$ \omega = \sqrt{\frac{g}{l}} $$
+$$ \frac{2\pi}{T} = \sqrt{\frac{g}{l}} $$
+$$ T = 2\pi l^{\sfrac{1}{2}} g^{-\sfrac{1}{2}} $$
+$$ g^{\sfrac{1}{2}} = 2\pi l^{\sfrac{1}{2}} T^{-1} $$
+$$ g = 4pi^2 l T^{-2} $$
+
+\hr
+
+For \underline{statistical} uncertainties
+$$ \delta f = \sqrt{ \left( \frac{\partial f}{\partial x}\delta x \right)^2 + \left( \frac{\partial f}{\partial y}\delta y \right)^2 } $$
+$$ \frac{\partial g}{\partial l} = 4\pi^2T^{-2} $$
+$$ \frac{\partial g}{\partial T} = (-2)4\pi^2lT^{-3} $$
+
+\hr
+
+\begin{align*}
+	\frac{\delta g}{g} & = \frac{\sqrt{ \left( \frac{\partial g}{\partial l}\delta l \right)^2 + \left( \frac{\partial g}{\partial T}\delta T \right)^2 }}{g} \\
+	\frac{\delta g}{g} & = \sqrt{ \left( \frac{\partial g}{\partial l}\frac{\delta l}{g} \right)^2 + \left( \frac{\partial g}{\partial l}\frac{\delta T}{g} \right)^2 } \\
+	\frac{\partial g}{g} & = \sqrt{\left( \frac{\partial l}{l} \right)^2 + 4 \left(\frac{\partial T}{T} \right)^2} \\
+	& = \sqrt{\left( \frac{2}{100} \right)^2 + 4 \left( \frac{0.07}{1.96} \right)^2} \\
+	& = 7%
+\end{align*}
+\begin{align*}
+	g & = 4\pi^2lT^{-2} \\
+	  & = 4\pi^2(\SI{1.00}{\meter})(\SI{1.96}{\second}^{-2} \\
+	g & = \SI{10.27655602}{\meter \per \second^2}
+\end{align*}
+\begin{align*}
+	\delta g & = (0.07)(\SI{10.27655}{\meter \per \second^2} \\
+			 & = \SI{0.7}{\meter \per \second^2} \\
+	g & = \SI{10.3 \pm 0.7}{\meter \per \second^2}
+\end{align*}
+
+\end{document}

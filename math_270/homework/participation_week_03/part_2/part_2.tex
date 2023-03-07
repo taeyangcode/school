@@ -1,0 +1,141 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 03 Participation Assignment (2 of 3)}
+\date{03 March 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 2}
+Identify the equation as homogeneous, Bernoulli, or of the form $ y' = G(ax + by + c) $
+
+\subsection{a)}
+$$ 2xydx + (y^2 - x^2)dy = 0 $$
+\begin{align*}
+	(y^2 - x^2)dy & = -2xydx \\
+	\frac{dy}{dx} & = \frac{-2xy}{y^2 - x^2} \\
+				  & = \frac{-2xy}{x^2(\frac{y^2}{x^2} - 1)} \\
+				  & = \frac{-2y}{x(\frac{y^2}{x^2} - 1)}
+\end{align*}
+\begin{equation*}
+	\boxed{\text{homogeneous}}
+\end{equation*}
+
+\subsection{b)}
+$$ (y - 4x - 1)^2dx - dy = 0 $$
+\begin{align*}
+	dy & = (y - 4x - 1)^2dx \\
+	\frac{dy}{dx} & = (y - 4x - 1)^2
+\end{align*}
+\begin{equation*}
+	\boxed{
+		y' = G(ax + by + c)
+	}
+\end{equation*}
+
+\subsection{c)}
+$$ \frac{dy}{dx} + \frac{y}{x} - x^3y^2 = 0 $$
+\begin{align*}
+	\frac{dy}{dx} + \left( \frac{1}{x} \right)y & = (x^3)y^2
+\end{align*}
+\begin{equation*}
+	\boxed{\text{Bernoulli}}
+\end{equation*}
+
+\subsection{d)}
+$$ xdy - ydx = \sqrt{xy}dx $$
+\begin{align*}
+	(x)dy & = \sqrt{xy}dx + (y)dx \\
+	(x)dy & = dx \left( \sqrt{xy} + y \right) \\
+	\frac{dy}{dx} & = \frac{\left( \sqrt{xy} + y \right)}{x} \\
+				  & = \frac{\sqrt{xy}}{x} + \frac{y}{x} \\
+				  & = \frac{\sqrt{x^2(\frac{y}{x})}}{x} + \frac{y}{x} \\
+				  & = \frac{x\sqrt{\frac{y}{x}}}{x} + \frac{y}{x} \\
+				  & = \sqrt{\frac{y}{x}} + \frac{y}{x}
+\end{align*}
+\begin{equation*}
+	\boxed{\text{homogeneous}}
+\end{equation*}
+\begin{align*}
+	(x)\frac{dy}{dx} - y & = \sqrt{xy} \\
+	\frac{dy}{dx} - \left( \frac{1}{x} \right) y & = \frac{\sqrt{xy}}{x} \\
+	\frac{dy}{dx} - \left( \frac{1}{x} \right) y & = \left( \frac{\sqrt{x}}{x} \right) y^{\sfrac{1}{2}}
+\end{align*}
+\begin{equation*}
+	\boxed{\text{Bernoulli}}
+\end{equation*}
+
+\subsection{e)}
+$$ \frac{dy}{dx} = \sqrt{x + y} - 1 $$
+\begin{align*}
+	\frac{dy}{dx} & = \sqrt{x(1 + \frac{y}{x})} - 1
+\end{align*}
+\begin{equation*}
+	\boxed{\text{homogeneous}}
+\end{equation*}
+
+\subsection{f)}
+$$ \left( ye^{-2x} + y^3 \right)dx - e^{-2x}dy = 0 $$
+\begin{align*}
+	\left( e^{-2x} \right)dy & = \left( ye^{-2x} + y^3 \right)dx \\
+	\frac{dy}{dx} & = \frac{ye^{-2x} + y^3}{e^{-2x}} \\
+				  & = \frac{ye^{-2x}}{e^{-2x}} + \frac{y^3}{e^{-2x}} \\
+				  & = y + \frac{y^3}{e^{-2x}} \\
+	\frac{dy}{dx} - y & = \left( \frac{1}{e^{-2x}} \right) y^3
+\end{align*}
+\begin{equation*}
+	\boxed{\text{Bernoulli}}
+\end{equation*}
+
+\end{document}

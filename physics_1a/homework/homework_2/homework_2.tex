@@ -1,0 +1,204 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+\renewcommand{\contentsname}{Force Statics}
+
+\title{Homework 1}
+\author{Corey Mostero}
+\date{Student ID: 256652}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Book}
+
+\subsection{5.2}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\sum F_y & = 0 \\
+			T_\text{wall, b} - w_b & = 0 \\
+			T_\text{wall, b} & = w_b
+		\end{align*}
+		\bc{T_\text{wall, b} = w_b}
+
+	\item
+		\begin{align*}
+			\sum F_y^{(b_1)} & = 0 \\
+			T_{b_2,b_1} - w_{b_1} & = 0 \\
+			T_{b_2,b_1} & = w_{b_1} \\
+			\sum F_y^{(b_2)} & = 0 \\
+			T_{b_1,b_2} - w_{b_2} & = 0 \\
+			T_{b_1,b_2} & = w_{b_2} \\
+			T_{b_2,b_1} + T_{b_1,b_2} & = w_{b_1} + w_{b_2}
+		\end{align*}
+		where $$ T_{b_1,b_2} = T_{b_2,b_1} \And w_{b_1} = w_{b_2} $$
+		\begin{align*}
+			T + T & = w + w \\
+			2T & = 2w \\
+			T & = w
+		\end{align*}
+		\bc{T = w}
+
+	\item
+		\begin{align*}
+			\sum F_y^{(b_1)} & = 0 \\
+			T_{b_2,b_1} - w & = 0 \\
+			T_{b_2,b_1} & = w \\
+			\sum F_y^{(b_2)} & = 0 \\
+			T_{b_1,b_2} - w & = 0 \\
+			T_{b_1,b_2} & = w
+		\end{align*}
+		where $$ T_{b_1,b_2} = T_{b_2,b_1} $$
+		\begin{align*}
+			T + T & = w + w \\
+			2T & = 2w \\
+			T & = w
+		\end{align*}
+		\bc{T = w}
+\end{enumerate}
+
+\subsection{5.6}
+\begin{align*}
+	b & = \text{ball} \\
+	m & = \SI{3620}{\kilogram} \\
+	\theta_{T_B,\hat{y}} & = 40\degree
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			T_B & = ? \\
+			\cos(\theta) & = \frac{m_bg}{T_B} \\
+			T_B & = \frac{m_bg}{\cos(\theta)} \\
+				& = \frac{ \SI{3620}{\kilogram} \cdot \SI{10}{\meter \per \second \squared} }{ \cos(40\degree) } \\
+			T_B & = \SI{47255.7}{\newton}
+		\end{align*}
+		\bc{T_B = \SI{47.3e3}{\newton}}
+	\item
+		\begin{align*}
+			T_A & = ? \\
+			\theta_{T_B, \hat{x}} & = ? \\
+			\theta_{T_B, \hat{x}} & = 90\degree - \theta_{T_B, \hat{y}} \\
+								  & = 90\degree - 40\degree \\
+			\theta_{T_B, \hat{x}} & = 50\degree \\
+			\cos(\theta_{T_B, \hat{x}}) & = \frac{T_{B_x}}{T_B} \\
+			T_{B_x} & = \left( T_B \right) \cos \left( \theta_{T_B, \hat{x}} \right) \\
+					& = \left( \SI{47.3e3}{\newton} \right) \cos \left( 50\degree \right) \\
+			T_{B_x} & = \SI{30403.9}{\newton} \\
+			\sum F_x^{(b)} & = 0 \\
+			T_{B_x} - T_A & = 0 \\
+			T_A & = T_{B_x} \\
+			T_A & = \SI{30403.9}{\newton}
+		\end{align*}
+		\bc{T_A = \SI{30.4e3}{\newton}}
+\end{enumerate}
+
+\subsection{5.62}
+\begin{align*}
+	T_{r,p_1} & = ? \\
+	T_{w,p_1} & = ? \\
+	w & = m_wg \\
+	T_{p_2,p_1} & = ? \\
+	T_{r,p_2} & = ? \\
+	\vec{F} & = ?
+\end{align*}
+Based on the free body diagrams, it can be concluded that
+\begin{equation} \label{eq:1}
+	T_{r,p_1} = T_{p_2,p_1} = \vec{F}
+\end{equation}
+as they share a common rope.
+
+Therefore the forces of $ p_1 $ in the $ \hat{y} $ direction can be found as
+\begin{align*}
+	\sum F_y^{(p_1)} & = 0 \\
+	T_{r,p_1} + T_{p_2,p_1} - T_{w,p_1} & = 0 \\
+	T_{w,p_1} & = 2T
+\end{align*}
+Finding $ T_{p_1,w} $ from the free body diagram of the weight
+\begin{align*}
+	\sum F_y^{(\text{weight})} & = 0 \\
+	T_{p_1,w} - w & = 0 \\
+	T_{p_1,w} & = w
+\end{align*}
+In order to withhold Newton's third law, the combined tension of $ T_{r,p_1} $ and $ T_{p_2,p_1} $ must equal $ T_{w,p_1} $ (as shown in Equation \ref{eq:1})
+\begin{align*}
+	2T & = T_{w,p_1} \\
+	   & = w \\
+	T & = \frac{w}{2}
+\end{align*}
+It can therefore be concluded that (according to \textit{(1)}) $ \vec{F} $ must equal $ T $, finding the magnitude in terms of $ w $
+\bc{\vec{F} = T = \frac{w}{2}}
+
+\subsection{5.64}
+
+\subsection{5.79}
+
+\section{Lab Manuel}
+
+\subsection{270}
+
+\subsection{273}
+
+\subsection{274}
+
+\subsection{287}
+
+\subsection{290}
+
+\end{document}

@@ -8,6 +8,7 @@
 \renewcommand{\contentsname}{Chapter 1 - First-Order Differential Equations}
 
 \begin{document}
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
 
 \newpage
     \tableofcontents
@@ -157,5 +158,148 @@ then two successive differentiations yield
     y''(x) & = -9A\cos(3x) - 9B\sin(3x) = -9y(x)
 \end{align*}
 for all $ x $.
+
+\subsection{Slope Fields and Solution Curves}
+-
+
+\subsection{Separable Equations and Applications}
+
+\textbf{Video Lecture}:
+
+We have a function:
+$$ \frac{dy}{dx} = f(x,y) $$
+If $ \frac{dy}{dx} $ can be rewritten, or factored as a product
+$$ \phi(x) \psi(y) \text{, where} $$
+$$ \frac{1}{\psi(y)}dy = \phi(x)dx $$
+then it can be called \textbf{separable}.
+
+\hr
+
+If function $ f(x,y) $ does not involve the variable $ y $, then solving the first-order differential equation
+$$ \frac{dy}{dx} = f(x,y) $$
+is found by integrating.
+
+\textbf{Example 1}
+
+Find the general solution of
+$$ \frac{dy}{dx} = -6x $$
+
+The solution can be found by
+\begin{align}
+    y(x) & = \int -6xdx \\
+         & = -3x^2 + C
+\end{align}
+
+\hr
+
+If instead $ f(x,y) $ \textit{does} involve the dependent variable $ y $, then we can no longer solve the equation merely by integrating both sides. For example, the first-order differential equation
+\begin{equation}
+    \frac{dy}{dx} = -6xy
+\end{equation}
+differs due to the factor $ y $ appearing on the right-hand side.
+
+Although the differential equation cannot be solved by integrating both sides, it can be solved by methods which are based on the idea of ``integrating both sides." The idea to is to rewrite the given equation in a form that, while equivalent to the given equation, allows both sides to be integrated directly, thus leading to the solution of the original differnetial equation. The method focused on here is the \textit{seperation of variables}.
+
+Using the function (3)
+$$ \frac{dy}{dx} = -6xy $$
+we can apply the separation of variables by first noting that the right-hand function can be viewed as the product of two expressions; one involving only the independent variable $ x $, and the other involving only the dependent variable $ y $:
+\begin{equation}
+    \frac{dy}{dx} = \left( -6x \right) \cdot y
+\end{equation}
+Next, one can informally break up the left-hand side derivative into ``free-floating" differentials $ dx $ and $ dy $ shown as such
+\begin{align}
+    \frac{dy}{dx} & = \left( -6x \right) \cdot y \\
+    \frac{dy}{dx} (dx) & = \left( -6x \right) \cdot y (dx) \text{, multiply $ dx $ on both sides} \\
+    dy \left( \frac{1}{y} \right) & = \left( -6x \right) dx \cdot y \left( \frac{1}{y} \right) \text{, multiply $ \frac{1}{y} $ on both sides} \\
+    \frac{dy}{y} & = -6xdx
+\end{align}
+A differential equation with equivalence to (3) has been reached, but with the variables $ x $ and $ y $ seperated, which allows integration on each side. The left-hand side is integrated with respect to $ y $ (with no ``interference" from the variable $ x $), and \textit{vice versa} for the right-hand side.
+\begin{align}
+    \int \frac{dy}{y} & = \int -6xdx \\
+    \ln|y| & = -3x^2 + C
+\end{align}
+This results in the general solution of (3) \textit{implicitly}. One can continue to solve for $ y $ to give the \textit{explicit} general solution
+\begin{align}
+    e^{\ln|y|} & = \pm e^{-3x^2 + C} \\
+    y(x) & = \pm e^{-3x^2}e^C \\
+         & = Ae^{-3x^2}
+\end{align}
+where $ A $ represents the constant $ \pm e^C $, which can take on any nonzero value. If an initial condition is imposed – $ y(0) = 7 $, then $ A $ can be found as $ A = 7 $, yielding
+\begin{equation}
+    y(x) = 7e^{-3x^2}
+\end{equation}
+
+\hr
+
+In general, the first-order differential equation is called \textbf{separable} provided that $ f(x,y) $ can be written as the product of a function $ x $ and a function $ y $:
+$$ \frac{dy}{dx} = f(x,y) = g(x)k(y) = \frac{g(x)}{h(y)} $$
+where $ h(y) = \frac{1}{k(y)} $. In this case the variables $ x $ and $ y $ can be \textit{separated} – isoloated on opposite sides of an equation – by writing informally the equation
+$$ h(y)dy = g(x)dx $$
+
+\hr
+
+\textbf{Example 2}
+
+Solve the differential equation
+\begin{align*}
+    \frac{dy}{dx} & = \frac{4 - 2x}{3y^2 - 5} \\
+    dy \cdot \frac{1}{dx} & = \frac{4 - 2x}{3y^2 - 5} \\
+    \int \left( 3y^2 - 5 \right) dy & = \int \left( 4 - 2x \right) dx \\
+    y^3 - 5y & = -x^2 + 4x + C \text{, isolating $ C $} \\
+    y^3 - 5y + x^2 - 4x & = C \\
+    F(x,y) & = y^3 - 5y + x^2 - 4x
+\end{align*}
+Find where the function may be discontinuous
+\begin{align*}
+    \frac{4 - 2x}{3y^2 - 5} \\
+    3y^2 - 5 & = 0 \\
+    3y^2 & = 5 \\
+    y & = \pm \sqrt{\frac{5}{3}}
+\end{align*}
+This shows that $ y $ is discontinuous on positive and negative $ \sqrt{\frac{5}{3}} $.
+
+\subsection{Linear First-Order Equations}
+
+\textbf{Video Lecture}:
+
+In the form:
+$$ \frac{dy}{dx} + \rho(x)y = q(x) $$
+Find the integrating factor:
+$$ \rho(x) = e^{\int \rho(x)dx} $$
+\begin{enumerate}
+    \item Integrate $ \int \rho(x)dx $ and let $ c = 0 $
+    \item $ \rho(x) = e^{\int \rho(x)dx} $
+\end{enumerate}
+
+\hr
+
+Given the differential equation
+$$ \frac{dy}{dx} = 2xy \text{ where } (y > 0) $$
+This can be turned into
+$$ \frac{dy}{y} = 2xdx $$
+Which can be rewritten as
+$$ \frac{1}{y} \cdot \frac{dy}{dx} = 2x $$
+Which can be rewritten as the derivative of the integral of each side
+$$ D_x(\ln(y)) = D_x(x^2) $$
+Integrating both sides with respect to $ x $ gives the same general solution $ \ln(y) = x^2 + C $ shown before.
+
+The differential equation was able to be solved by first multiplying both of its sides by a factor – known as an \textit{integrating factor} – chosen so that both sides of the resulting equation couldbe recognized as a derivative. More generally, an \textbf{integrating factor} for a differential equation by $ \rho(x,y) $ yields an equation in which each side is recognizable as a derivative. In some cases integrating factors involve both of the variables $ x $ and $ y $; however the second solution of the above equation was based on the integrating factor $ \rho(y) = \frac{1}{y} $, which depends only on $ y $.
+
+\hr
+
+A \textbf{linear first-order equation} is a differential equation of the form
+$$ \frac{dy}{dx} + P(x)y = Q(x) $$
+It is assumed that the coefficient functions $ P(x) $ and $ Q(x) $ are continuous on some interval on the $ x $-axis. Assuming that the necessary integrals can be found, the general linear equation can always be sovled by multiplying by the integrating factor
+$$ \rho(x) = e^{\int P(x)dx} $$
+Which is expanded to
+$$ e^{\int P(x)dx}\frac{dy}{dx} + P(x)e^{\int P(x)dx}y = Q(x)e^{\int P(x)dx} $$
+And as the derivative of the integral of the function $ P(x) $ is equal to the function itself, the equation can be again rewritten as
+$$ D_x \left[ y(x) \cdot e^{\int P(x)dx} \right] = Q(x)e^{\int P(x)dx} $$
+And when integrating both sides
+$$ y(x)e^{\int P(x)dx} = \int \left(Q(x)e^{\int P(x)dx} \right)dx + C $$
+Solving for the function $ y $
+$$ y(x) = e^{-\int P(x)dx} \left[ \int \left(Q(x)e^{\int P(x)dx} \right)dx + C \right] $$
+
+\subsection{Substitution Methods and Exact Equations}
 
 \end{document}

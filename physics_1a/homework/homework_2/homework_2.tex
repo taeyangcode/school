@@ -186,8 +186,137 @@ It can therefore be concluded that (according to \textit{(1)}) $ \vec{F} $ must 
 \bc{\vec{F} = T = \frac{w}{2}}
 
 \subsection{5.64}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+	\item
+		\begin{align*}
+			m_\text{ball} & = ? \\
+			\theta_{\hat{x},\text{ramp}} & = 35.0\degree \\
+			T_{\text{ramp},\text{ball}} & = ?
+		\end{align*}
+		Determine the normal force
+		\begin{align*}
+			\cos(\theta) & = \frac{N_{\text{ball}y}}{N_\text{ball}} \\
+			N_\text{ball} & = \frac{N_{\text{ball}y}}{\cos(\theta)} \\
+			\text{as well as: } N_{\text{ball}y} & = N_\text{ball}\cos(\theta)
+		\end{align*}
+		To find $ N_{\text{ball}y} $, utilize the forces in the $ \hat{y} $ direction
+		\begin{align*}
+			\sum F_y^\text{(ball)} & = 0 \\
+			N_{\text{ball}y} - m_\text{ball}g & = 0 \\
+			N_{\text{ball}y} & = m_\text{ball}g \\
+			N_\text{ball}\cos(\theta) & = m_\text{ball}g \\
+			N_\text{ball} & = \frac{m_\text{ball}g}{\cos(\theta)} \\
+						  & = \frac{m_\text{ball}\SI{10}{\meter \per \second \squared}}{\cos(35.0\degree)} \\
+			N_\text{ball} & = (m_\text{ball})(\SI{12.2}{\meter \per \second \squared})
+		\end{align*}
+		\bc{N_\text{ball} = (m_\text{ball})(\SI{12.2}{\meter \per \second \squared})}
+	\item
+		Finding the tension in the wire requires finding the forces in $ \hat{x} $ direction
+		\begin{align*}
+			\sum F_x^\text{(ball)} & = 0 \\
+			T_{\text{ramp},\text{ball}} - N_{\text{ball}x} & = 0
+		\end{align*}
+		Finding $ N_{\text{ball}x} $
+		\begin{align*}
+			\sin(\theta) & = \frac{N_{\text{ball}x}}{N_\text{ball}} \\
+			N_{\text{ball}x} & = N_\text{ball}\sin(\theta)
+		\end{align*}
+		And using the value in the force equation above
+		\begin{align*}
+			T_{\text{ramp},\text{ball}} & = N_\text{ball}\sin(\theta) \\
+										& = (m_\text{ball})(\SI{12.2}{\meter \per \second \squared})\sin(35.0\degree) \\
+			T_{\text{ramp},\text{ball}} & = (m_\text{ball})(\SI{7.00}{\meter \per \second \squared})
+		\end{align*}
+		\bc{T_{\text{ramp},\text{ball}} = (m_\text{ball})(\SI{7.00}{\meter \per \second \squared})}
+\end{enumerate}
 
 \subsection{5.79}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			N_A & = ? \\
+			N_B & = ? \\
+			N_A & = N_B \text{, Newton's Third Law} \\
+			N & = ? \\
+			m_Ag & = \SI{1.20}{\newton} \\
+			m_Bg & = \SI{3.60}{\newton} \\
+			\mu_k & = 0.300 \\
+			f & = \mu_kN \\
+			\vec{F} & = ?
+		\end{align*}
+		In order to find $ \vec{F} $, the normal force is needed which can be found by observing the forces in the $ \hat{y} $ direction
+		\begin{align*}
+			\sum \vec{F}_{\hat{y}}^\text{(A)} & = 0 \\
+			N_A - m_Ag & = 0 \\
+			N_A & = m_Ag
+		\end{align*}
+		\begin{align*}
+			\sum \vec{F}_{\hat{y}}^\text{(B)} & = 0 \\
+			N - m_Bg - N_B & = ? \\
+			N & = m_Bg + N_B \\
+			  & = m_Bg + m_Ag \\
+			  & = \SI{1.20}{\newton} + \SI{3.60}{\newton} \\
+			N & = \SI{4.80}{\newton}
+		\end{align*}
+		$$ f = \mu_kN = (0.300)(\SI{4.80}{\newton}) = \SI{1.44}{\newton} $$
+		Now finding $ \vec{F} $
+		\begin{align*}
+			\sum \vec{F}_{\hat{x}}^{(B)} & = 0 \\
+			-\vec{F} + f & = 0 \\
+			\vec{F} & = f \\
+					& = \SI{1.44}{\newton} \\
+			\vec{F} & = \SI{1.44}{\newton}
+		\end{align*}
+		\bc{\vec{F} = \SI{1.44}{\newton}}
+	\item
+		\begin{align*}
+			N_A & = ? \\
+			N_B & = ? \\
+			N_A & = N_B \\
+			f_A & = ? \\
+			f_B & = ? \\
+			f_A & = f_B \text{, Newton's Third Law} \\
+			T_{\text{wall},A} & = ? \\
+			m_Ag & = \SI{1.20}{\newton} \\
+			N & = ? \\
+			m_Bg & = \SI{3.60}{\newton} \\
+			\vec{F} & = ?
+		\end{align*}
+		First determine the forces in the $ \hat{x} $ direction of block $ A $ to find tension
+		\begin{align*}
+			\sum \vec{F}_{\hat{x}}^{(A)} & = 0 \\
+			T_{\text{wall},A} - f_A & = 0 \\
+			f_A & = T_{\text{wall},A}
+		\end{align*}
+		Similarly to part \textbf{(a)}, find $ N_A $ using the $ \hat{y} $ forces of block $ A $
+		\begin{align*}
+			\sum \vec{F}_{\hat{y}}^{(A)} & = 0 \\
+			N_A - m_Ag & = 0 \\
+			N_A & = m_Ag \\
+			N_A & = \SI{1.20}{\newton}
+		\end{align*}
+		The friction of block $ A $ upon block $ B $ can now be calculated, and further utilized through $ f_B $ due to Newton's Third Law
+		$$ f_A = \mu_k N_A = (0.300)(\SI{1.20}{\newton}) = \SI{0.360}{\newton} $$
+		Find $ N $ to aid in finding the friction between the ground and block $ B $
+		\begin{align*}
+			\sum \vec{F}_{\hat{y}}^{(B)} & = 0 \\
+			N - m_Bg - N_B & = 0 \\
+			N & = m_Bg + N_B \\
+			  & = \SI{3.60}{\newton} + \SI{1.20}{\newton} \\
+			N & = \SI{4.80}{\newton}
+		\end{align*}
+		Solve for the forces in the $ \hat{x} $ direction of block $ B $ to finally compute the pulling force
+		\begin{align*}
+			\sum \vec{F}_{\hat{x}}^{(B)} & = 0 \\
+			f + f_B - \vec{F} & = 0 \\
+			\vec{F} & = f + f_B \\
+					& = \mu_k N + \SI{0.360}{\newton} \\
+					& = (0.300)(\SI{4.80}{\newton}) + \SI{0.360}{\newton} \\
+			\vec{F} & = \SI{1.80}{\newton}
+		\end{align*}
+		\bc{\vec{F} = \SI{1.80}{\newton}}
+\end{enumerate}
 
 \section{Lab Manuel}
 

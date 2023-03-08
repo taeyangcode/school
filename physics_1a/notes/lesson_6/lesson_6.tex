@@ -57,6 +57,11 @@
 	\end{equation*}
 }
 
+% Defining inch as a valid unit in SI commands
+\let\DeclareUSUnit\DeclareSIUnit
+\let\US\SI
+\DeclareUSUnit\inch{in}
+
 \tableofcontents
 
 \section{Torque}
@@ -75,10 +80,10 @@ With torque, you are allowed to move vectors along the line of action. Any force
 \subsection{Two Equations of Static Equilibrium}
 
 \begin{equation}
-	\sum F = 0, (\frac{d\vec{v}}{dt} = 0)
+	\sum F = 0, \left( \frac{d\vec{v}}{dt} = 0 \right)
 \end{equation}
 \begin{equation}
-	\sum \tau = 0, (\frac{d\vec{\omega}}{dt} = 0)
+	\sum \tau = 0, \left( \frac{d\vec{\omega}}{dt} = 0 \right)
 \end{equation}
 
 \subsection{Example \ref{example:1}} \label{example:1}
@@ -104,5 +109,69 @@ Two children $ m_1 = \SI{20}{\kilogram} $ and $ m_2 = \SI{35}{\kilogram} $ wish 
 	r_{m_2} & = \SI{1.14}{\meter}
 \end{align*}
 \bc{r_{m_2} = \SI{1.14}{\meter}}
+
+\hr
+
+\subsection{Example \ref{example:2}} \label{example:2}
+\begin{align*}
+	r_F & = \SI{12}{\inch} \\
+	r_M & = \SI{6}{\inch} \\
+	F & = \SI{220}{\newton} \\
+	mg & = \SI{1.5}{\newton} \\
+	N & = ? \\
+	r_N & = \SI{1}{\inch} \\
+	F_H & = ?
+\end{align*}
+\begin{align*}
+	\sum \tau & = 0 \\
+	(r_{F_\text{app}})(F_\text{app}) + (r_m)(mg) - (r_N)(N) & = 0 \\
+	(r_N)(N) & = (r_{F_\text{app}})(F_\text{app}) + (r_m)(mg) \\
+	N & = \frac{(r_{F_\text{app}})(F_\text{app}) + (r_m)(mg)}{(r_N)} \\
+	  & = \frac{ (\SI{12}{\inch})(\SI{220}{\newton}) + (\SI{6}{\inch})(\SI{1.5}{\newton}) }{\SI{1}{\inch}} \\
+	N & = \SI{2650}{\newton}
+\end{align*}
+\bc{N = \SI{2650}{\newton}}
+\begin{align*}
+	\sum F_y & = 0 \\
+	F + mg - N - F_H & = 0 \\
+	F_H & = F + mg - N \\
+		& = \SI{220}{\newton} + \SI{1.5}{\newton} - \SI{2650}{\newton} \\
+	F_H & = \SI{-2430}{\newton}
+\end{align*}
+\bc{F_H = \SI{-2430}{\newton}}
+
+\subsection{Example \ref{example:3}} \label{example:3}
+\begin{align*}
+	\sum \tau & = 0 \\
+	\frac{L}{3}T\sin(\theta) - \frac{L}{2}w - Lw & = 0 \\
+	\frac{L}{3}T\sin(\theta) & = \frac{L}{2}w + Lw \\
+	\frac{T\sin(\theta)}{3} & = \frac{w}{2} + w \\
+	T\sin(\theta) & = \frac{3}{2}w + 3w \\
+				  & = \frac{9}{2}w
+\end{align*}
+\begin{align*}
+	\sum F_x & = 0 \\
+	-T\cos(\theta) + N & = 0 \\
+	T\cos(\theta) & = N \\
+\end{align*}
+$$ f = \mu N = \mu T\cos(\theta) $$
+\begin{align*}
+	\sum \tau & = 0 \\
+	-\frac{fL}{3} - \frac{Lw}{6} - \frac{2Lw}{3} & = 0 \\
+	-\frac{f}{3} & = \frac{w}{6} + \frac{2w}{3} \\
+	f & = -3 \left( \frac{w}{6} + \frac{2w}{3} \right) \\
+	  & = -\frac{w}{2} - 2w \\
+	f & = \left| -\frac{5w}{2} \right| = \frac{5w}{2}
+\end{align*}
+\begin{align*}
+	T\cos(\theta) & = \frac{f}{\mu} \\
+				  & = \frac{5w}{2\mu}
+\end{align*}
+\begin{align*}
+	\frac{T\sin(\theta)}{T\cos(\theta)} & = \frac{\frac{9w}{2}}{\frac{5w}{2\mu}} \\
+	\tan(\theta) & = \frac{18\mu w}{10w} \\
+	\tan(\theta) & = \frac{9\mu}{2}
+\end{align*}
+\bc{\tan(\theta) = \frac{9\mu}{2}}
 
 \end{document}

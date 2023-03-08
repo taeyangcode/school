@@ -1,0 +1,108 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+\tableofcontents
+
+\section{Torque}
+\textbf{Torque $ (\vec{\tau}) $}
+$$ \vec{\tau} = \vec{r} \times \vec{F} $$
+\textbf{Torque} is a measure of a force's ability to rotate an object around a reference point
+
+$ \vec{r} \rightarrow $ ``lever arm" \\
+$ \vec{F} \rightarrow $ ``applied force"
+
+\textbf{line of action}: the direction that a vector points along \\
+With torque, you are allowed to move vectors along the line of action. Any force whose line of action goes through it contributes no torque.
+
+\hr
+
+\subsection{Two Equations of Static Equilibrium}
+
+\begin{equation}
+	\sum F = 0, (\frac{d\vec{v}}{dt} = 0)
+\end{equation}
+\begin{equation}
+	\sum \tau = 0, (\frac{d\vec{\omega}}{dt} = 0)
+\end{equation}
+
+\subsection{Example \ref{example:1}} \label{example:1}
+
+Two children $ m_1 = \SI{20}{\kilogram} $ and $ m_2 = \SI{35}{\kilogram} $ wish to play on an $ M = \SI{200}{\kilogram} $ $ L = \SI{4}{\meter} $ seesaw which is balanced in the middle. Child $ m_1 $ sites on the left end. Where must $ m_2 $ sit to balance the seesaw?
+\begin{align*}
+	m_1g & = \SI{20}{\kilogram} \cdot \SI{10}{\meter \per \second \squared} \\
+		 & = \SI{200}{\newton} \\
+	r_{m_1} & = \SI{2}{\meter} \\
+	m_2g & = \SI{35}{\kilogram} \cdot \SI{10}{\meter \per \second \squared} \\
+		 & = \SI{350}{\newton} \\
+	r_{m_2} & = ? \\
+	M & = \SI{200}{\kilogram} \cdot \SI{10}{\meter \per \second \squared} \\
+	  & = \SI{2000}{N} \\
+	N_M & = ?
+\end{align*}
+\begin{align*}
+	\sum \tau & = 0 \\
+	(r_{m_1})(m_1g) - (r_{m_2})(m_2g) & = 0 \\
+	r_{m_2}m_2g & = r_{m_1}m_1g \\
+	r_{m_2} & = \frac{m_1}{m_2}r_{m_2} \\
+			& = \left( \frac{\SI{20}{\kilogram}}{\SI{35}{\kilogram}} \right) \left( \SI{2}{\meter} \right) \\
+	r_{m_2} & = \SI{1.14}{\meter}
+\end{align*}
+\bc{r_{m_2} = \SI{1.14}{\meter}}
+
+\end{document}

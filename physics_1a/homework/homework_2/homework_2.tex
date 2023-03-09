@@ -366,14 +366,165 @@ It can therefore be concluded that (according to \textit{(1)}) $ \vec{F} $ must 
 		\end{align*}
 		\bc{\tan(\theta) = \frac{1}{3\sqrt{3}}}
 	\item
+		Part (b) is otherwise saying that the ratio of $ R $ to $ r $ must be
+		$$ R : r(1 + 2\sqrt{7}) $$
+		When observing the triangle
+		\begin{align*}
+			\sin(\theta) & = \frac{\text{opp.}_\text{small}}{r} \\
+			\text{opp.}_\text{small} & = r\sin(\theta)
+		\end{align*}
+		Both the hypotenuse and opposite side have been found for the smaller triangle, which when compared with the triangle made with radius $ R $, the opposite must also be calculated to find the ratio. The opposite side of the larger triangle can be seen to be the sum of the opposite of the smaller triangle, as well as the remaining distance. This remaining distance can be seen as $ r $, due to the remaining length being equivalent to its parallel side (quadrilateral).
+		\begin{align*}
+			\sin(\theta) & = \frac{r\sin(\theta) + r}{R}
+		\end{align*}
+		Now the ratio can be found
+		\begin{align*}
+			\frac{R}{r} & = \frac{r\sin(\theta) + r}{r\sin(\theta)} \\
+			\frac{R}{r} & = 1 + \frac{1}{\sin(\theta)} \\
+			R & = r \left( 1 + \frac{1}{\sin(\theta)} \right)
+		\end{align*}
+		Using the previous part to find $ \theta $
+		\begin{align*}
+			\tan(\theta) & = \frac{1}{3\sqrt{3}} \\
+			\theta & = \arctan \left( \frac{1}{3\sqrt{3}} \right) \\
+			R & = r \left( 1 + \frac{1}{\sin \left( \arctan \left( \frac{1}{3\sqrt{3}} \right) \right) } \right) \\
+			R & = r \left( 1 + 2\sqrt{7} \right)
+		\end{align*}
+		\bc{R = r \left( 1 + 2\sqrt{7} \right)}
 \end{enumerate}
 
 \subsection{273}
+\begin{align*}
+	\sum F_y & = 0 \\
+	dN\sin(\theta) - dw & = 0 \\
+	dN\sin(\theta) & = dw
+\end{align*}
+\begin{align*}
+	\sum F_x & = 0 \\
+	dN\cos(\theta) - T & = 0 \\
+	T & = dN\cos(\theta)
+\end{align*}
+\begin{align*}
+	\frac{dN\cos(\theta)}{dN\sin(\theta)} & = \frac{T}{dW} \\
+	T & = \cot(\theta)dW
+\end{align*}
+\begin{align*}
+	& \int_0^{2\pi} T d\phi \\
+	& = 2\pi T
+\end{align*}
+\begin{align*}
+	& \int_0^w \frac{gh}{r} dw \\
+	& = \frac{wgh}{r}
+\end{align*}
+\begin{align*}
+	2\pi T & = \frac{wgh}{r} \\
+	T & = \frac{wgh}{2\pi r}
+\end{align*}
+\bc{T = \frac{wgh}{2\pi r}}
 
 \subsection{274}
+*Each for only a vertical half of the triangle
+\begin{align*}
+	f_x & = f\cos(\theta) \\
+	f_y & = f\sin(\theta) \\
+	P_x & = P\sin(\theta) \\
+	P_y & = P\sin(\theta) \\
+	f & = \mu P
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\sum f_y & = 0 \\
+			2f\cos(\theta) - 2P\sin(\theta) - w & = 0 \\
+			2f\cos(\theta) - 2P\sin(\theta) & = w \\
+			2\mu P\cos(\theta) - 2P\sin(\theta) & = w \\
+			P \left( 2 ( \mu \cos(\theta) - \sin(\theta) ) \right) & = w \\
+			P & = \frac{w}{2 ( \mu \cos(\theta) - \sin(\theta) )}
+		\end{align*}
+		\bc{P = \frac{w}{2(\mu \cos(\theta) - \sin(\theta))}}
+	\item
+		\begin{align*}
+			\mu & = 0.5 \\
+			2\theta & = 40\degree \\
+			\theta & = 20\degree \\
+			P & = \frac{w}{2( \mu \cos(\theta) - \sin(\theta))} \\
+			  & = \frac{w}{2( 0.5 \cos(20\degree) - \sin(20\degree) )} \\
+			P & = 3.91w
+		\end{align*}
+		\bc{P = 3.91w}
+	\item
+		Using the $ \hat{y} $ forces and ignoring insignificant $ w $
+		\begin{align*}
+			2\mu P\cos(\theta) - 2P\sin(\theta) & = 0 \\
+			2(0.5) P\cos(\theta) & = 2P\sin(\theta) \\
+			P\cos(\theta) & = 2P\sin(\theta) \\
+			\tan(\theta) & = \sfrac{1}{2} \\
+			\theta & = \arctan(\sfrac{1}{2}) \\
+			\theta & = 26.6\degree
+		\end{align*}
+		\bc{2\theta = 53.2\degree}
+\end{enumerate}
 
 \subsection{287}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\sum F_y & = 0 \\
+			T\sin(\theta) - \frac{m_\text{chain}g}{2} & = 0 \\
+			T\sin(\theta) & = \frac{m_\text{chain}g}{2} \\
+			T & = \frac{m_\text{chain}g}{2\sin(\theta)}
+		\end{align*}
+		\bc{T = \frac{m_\text{chain}g}{2\sin(\theta)}}
+	\item
+		\begin{align*}
+			\sum F_x & = 0 \\
+			T_\text{low} - T\cos(\theta) & = 0 \\
+			T_\text{low} & = T\cos(\theta) \\
+						 & = \frac{m_\text{chain}g}{2\sin(\theta)}\cos(\theta) \\
+			T_\text{low} & = \frac{m_\text{chain}{g}\cot(\theta)}{2}
+		\end{align*}
+		\bc{T_\text{low} = \frac{m_\text{chain}{g}\cot(\theta)}{2}}
+\end{enumerate}
 
 \subsection{290}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\sum F_x & = 0 \\
+			T_2\cos(50\degree) - T_1\cos(40\degree) & = 0 \\
+			T_2\cos(50\degree) & = T_1\cos(40\degree) \\
+			T_2 & = \frac{T_1\cos(40\degree)}{\cos(50\degree)} \\
+		\end{align*}
+		\begin{align*}
+			\sum F_y & = 0 \\
+			T_1\sin(40\degree) + T_2\sin(50\degree) - m_\text{ball}g & = 0 \\
+			T_1\sin(40\degree) + \frac{T_1\cos(40\degree)}{\cos(50\degree)}\sin(50\degree) & = m_\text{ball}g \\
+			T_1 & = \frac{\SI{5.0}{\kilogram} \cdot \SI{10}{\meter \per \second \squared}}{\sin(40\degree) + \frac{cos(40\degree)}{\cos(50\degree)}\sin(50\degree)} \\
+			T_1 & = \SI{32.1}{\newton}
+		\end{align*}
+		\begin{align*}
+			T_2 & = \frac{T_1\cos(40\degree)}{\cos(50\degree)} \\
+				& = \frac{\SI{32.1}{\newton}\cos(40\degree)}{\cos(50\degree)} \\
+			T_2 & = \SI{38.3}{\newton}
+		\end{align*}
+		\bc{T_1 = \SI{32.1}{\newton}, T_2 = \SI{38.3}{\newton}}
+	\item
+		\begin{align*}
+			\sum F_y & = 0 \\
+			T_1\sin(60\degree) - m_\text{ball}g & = 0 \\
+			T_1\sin(60\degree) & = m_\text{ball}g \\
+			T_1 & = \frac{m_\text{ball}g}{\sin(60\degree)} \\
+				& = \frac{\SI{10}{\kilogram} \cdot \SI{10}{\meter \per \second \squared}}{\sin(60\degree)} \\
+			T_1 & = \SI{115.47}{\newton}
+		\end{align*}
+		\begin{align*}
+			\sum F_x & = 0 \\
+			T_2 - T_1\cos(60\degree) & = 0 \\
+			T_2 & = T_1\cos(60\degree) \\
+				& = \SI{115.47}{\newton}\cos(60\degree) \\
+			T_2 & = \SI{57.7}{\newton}
+		\end{align*}
+		\bc{T_1 = \SI{11.5e1}{\newton},T_2 = \SI{57.7}{\newton}}
+\end{enumerate}
 
 \end{document}

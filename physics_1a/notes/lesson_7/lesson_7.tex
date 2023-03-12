@@ -1,0 +1,128 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit\pound{lb}
+\DeclareSIUnit\foot{ft}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+\section{2D Torque}
+Verge of tipping location of $ N $ is at an extreme point
+
+\hr
+
+\subsection{Example 1} \label{example:1}
+\begin{align}
+	\sum F_x & = 0 \\
+	F - f & = 0 \\
+	F & = f \\
+	F & = \mu N
+\end{align}
+\begin{align}
+	\sum F_y & = 0 \\
+	N - mg & = 0 \\
+	N & = mg
+\end{align}
+\bc{ F = \mu mg }
+\begin{align}
+	\sum \tau_\star & = 0 \\
+	\frac{w}{2}mg - xN - hF & = 0 \\
+	xN & = \frac{w}{2}mg - hF \\
+	x & = \frac{ \frac{w}{s}mg - h(\mu mg) }{mg} \\
+	  & = \SI{0.125}{\meter} - (0.4)(\SI{0.125}{\meter}) \\
+	x & = \SI{0.075}{\meter}
+\end{align}
+\bc{x = \SI{0.075}{\meter}}
+\begin{align}
+	\sum \tau_\star & = 0 \\
+	\frac{w}{2}mg - hF & = 0 \\
+		h & = \frac{ \frac{w}{2}mg }{\mu mg} \\
+		  & = \frac{w}{2\mu} \\
+		  & = \frac{\SI{0.25}{\meter}}{2(0.4)} \\
+		h & = \SI{0.31}{\meter}
+\end{align}
+\bc{h = \SI{0.31}{\meter}}
+
+\hr
+
+\subsection{Example 2 - Lab Manual 381} \label{example:2}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item
+	\begin{align}
+		\sum F_y & = 0 \\
+		N_B + N_F - mg & = 0 \\
+		N_B + N_F & = \SI{80}{\pound}
+	\end{align}
+	\begin{align}
+		\sum F_x & = 0 \\
+		F - f_F - f_B & = 0 \\
+		F & = f_F + f_B \\
+		  & = \mu(N_B + N_F) \\
+		  & = (0.2)(\SI{80}{\pound}) \\
+		F & = \SI{16}{\pound}
+	\end{align}
+\item
+	\begin{align}
+		\sum \tau_\star & = 0 \\
+		\SI{2}{\foot}N_B + \SI{2}{\foot}N_F + \SI{3}{\foot}P & = 0
+	\end{align}
+\end{enumerate}
+
+\hr
+
+\subsection{Example 3} \label{example:3}
+
+\end{document}

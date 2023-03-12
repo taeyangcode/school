@@ -1,0 +1,119 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Numerical Approximation: Euler's Method}
+Given the initial value problem
+\cond{\frac{dy}{dx} = f(x,y),}{y(x_0) = y_0,}
+Euler's method with step size $ h $ consists of applying the iterative formula
+\cond{y_{n+1} = y_n + h \cdot f(x_n,y_n)}{(m \geq 0)}
+
+\hr
+
+\subsection{Example 1} \label{example:1}
+Apply Euler's method to approximate the solution of the initial value problem
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item first with step size $ h = 1 $ on the interval $ [0,5], $
+	\item then with the step size $ h = 0.2 $ on the interval $ [0,1], $
+\end{enumerate}
+\begin{equation*}
+	\cond{\frac{dy}{dx} = x + \frac{1}{5}y,}{y(0) = -3}
+\end{equation*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			x_0 & = 0 \\
+			y_0 & = -3 \\
+			f(x,y) & = x + \frac{1}{5}y \\
+			h & = 1
+		\end{align*}
+		\begin{align*}
+			y_1 = y_0 + h \cdot \left[ x_0 + \frac{1}{5}y_0 \right] & = (-3) + (1) \left[ 0 + \frac{1}{5}(-3) \right] = -3.6 \\
+			y_2 = y_1 + h \cdot \left[ x_1 + \frac{1}{5}y_1 \right] & = (-3.6) + (1) \left[ 1 + \frac{1}{5}(-3.6) \right] = -3.32 \\
+			y_3 & = (-3.32) + (1) \left[ 2 + \frac{1}{5}(-3.32) \right] = -1.984 \\
+			y_4 & = (-1.984) + (1) \left[ 3 + \frac{1}{5}(-1.984) \right] = 0.6192 \\
+			y_5 & = (0.6912) + (1) \left[ 4 + \frac{1}{5}(0.6912) \right] \approx 4.7430
+		\end{align*}
+	\item
+		\begin{align*}
+			x_0 & = 0 \\
+			y_0 & = -3 \\
+			f(x,y) & = x + \frac{1}{5}y \\
+			h & = 0.2
+		\end{align*}
+		\begin{align*}
+			y_1 = y_0 + h \cdot \left[ x_0 + \frac{1}{5}y_0 \right] & = (-3) + (0.2) \left[ 0 + \frac{1}{5}(-3) \right] = -3.12 \\
+			y_2 & = (-3.12) + (0.2) \left[ 0.2 + \frac{1}{5}(-3.12) \right] \approx -3.205 \\
+			y_3 & \approx (-3.205) + (0.2) \left[ 0.4 + \frac{1}{5}(-3.205) \right] \approx -3.253 \\
+			y_4 & \approx (-3.253) + (0.2) \left[ 0.6 + \frac{1}{5}(-3.253) \right] \approx -3.263 \\
+			y_5 & \approx (-3.263) + (0.2) \left[ 0.8 + \frac{1}{5}(-3.263) \right] \approx -3.234
+		\end{align*}
+\end{enumerate}
+
+\end{document}

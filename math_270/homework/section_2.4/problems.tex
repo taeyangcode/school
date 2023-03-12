@@ -1,0 +1,157 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Section 2.4 - Homework Problems}
+
+\subsection{2.4.1}
+Apply Euler's method twice to approximate the solution to the initial value problem on the interval $ \left[ 0,\frac{1}{2} \right] $, first with step size $ h = 0.25 $, then with step size $ h = 0.1 $. Compare the three-decimal place values of the two approximations at $ x = \frac{1}{2} $ with the value of $ y \left( \frac{1}{2} \right) $ of the actual solution. (Round to three decimal places)
+$$ y' = -y, y(0) = 7, y(x) = 7e^{-x} $$
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			x_0 & = 0 \\
+			y_0 & = 7 \\
+			f(x,y) & = -y \\
+			h & = 0.25
+		\end{align*}
+		\begin{align*}
+			y_1 & = (7) + (0.25) \left[ -(7) \right] = 5.25 \\
+			y_2 & = (5.25) + (0.25) \left[ -(5.25) \right] = 3.9375
+		\end{align*}
+		The Euler approximation when $ h = 0.25 $ of $ y \left( \frac{1}{2} \right) $ is \bc{3.938}
+	\item
+		\begin{align*}
+			x_0 & = 0 \\
+			y+0 & = 7 \\
+			f(x,y) & = -y \\
+			h & = 0.1
+		\end{align*}
+		\begin{align*}
+			y_1 & = (7) + (0.1) \left[ -(7) \right] = 6.3 \\
+			y_2 & = (6.3) + (0.1) \left[ -(6.3) \right] = 5.67 \\
+			y_3 & = (5.67) + (0.1) \left[ -(5.67) \right] = 5.103 \\
+			y_4 & = (5.103) + (0.1) \left[ -(5.103) \right] = 4.5927 \\
+			y_5 & = (4.5927) + (0.1) \left[ -(4.5927) \right] = 4.13343
+		\end{align*}
+		The Euler approximation when $ h = 0.1 $ of $ y \left( \frac{1}{2} \right) $ is \bc{4.133}
+	\item
+		\begin{align*}
+			y & = \left( 7e^{-x} \right) \\
+			  & = \left( 7e^{-\frac{1}{2}} \right) \\
+			y & = 4.24571
+		\end{align*}
+		The value of $ y \left( \frac{1}{2} \right) $ using the actual solution is \bc{4.246}
+	\item
+		The approximation $ 4.133 $, using the \underline{lesser} value of $ h $, is closer to the value of $ y \left( \frac{1}{2} \right) $ found using the actual solution.
+\end{enumerate}
+
+\subsection{2.4.7}
+Apply Euler's method twice to approximate the solution to the initial value problem on the interval $ \left[ 0,\frac{1}{2} \right] $, first with step size $ h = 0.25 $, then with step size $ h = 0.1 $. Compare the three-decimal-place values of the two approximations at $ x = \frac{1}{2} $ with the value of $ y \left( \frac{1}{2} \right) $ of the actual solution. (Round to three decimal places)
+$$ y' = -3x^2y, y(0) = 8, y(x) = 8e^{-x^3} $$
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			x_0 & = 0 \\
+			y_0 & = 8 \\
+			f(x,y) & = -3x^2y \\
+			h & = 0.25
+		\end{align*}
+		\begin{align*}
+			y_1 & = (8) + (0.25) \left[ -3(0)^2(8) \right] = 8 \\
+			y_2 & = (8) + (0.25) \left[ -3(0.25)^2(8) \right] = 7.625
+		\end{align*}
+		The Euler approximation when $ h = 0.25 $ of $ y \left( \frac{1}{2} \right) $ is \bc{7.625}
+	\item
+		\begin{align*}
+			x_0 & = 0 \\
+			y_0 & = 8 \\
+			f(x,y) & = -3x^2y \\
+			h & = 0.1
+		\end{align*}
+		\begin{align*}
+			y_1 & = (8) + (0.1) \left[ -3(0)^2(8) \right] = 8 \\
+			y_2 & = (8) + (0.1) \left[ -3(0.1)^2(8) \right] = 7.976 \\
+			y_3 & = (7.976) + (0.1) \left[ -3(0.2)^2(7.976) \right] \approx 7.88029 \\
+			y_4 & \approx (7.88029) + (0.1) \left[ -3(0.3)^2(7.88029) \right] \approx 7.66752 \\
+			y_5 & \approx (7.66752) + (0.1) \left[ -3(0.4)^2(7.66752) \right] \approx 7.29948
+		\end{align*}
+		The Euler approximation when h $ h = 0.1 $ of $ y \left( \frac{1}{2} \right) $ is \bc{7.299}
+	\item
+		\begin{align*}
+			y & = 8e^{-x^3} \\
+			  & = 8e^{-(\frac{1}{2})^3} \\
+			y & = 7.05998
+		\end{align*}
+		The value of $ y \left( \frac{1}{2} \right) $ using the actual solution is \bc{7.060}
+	\item
+		The approximation $ 7.299 $, using the \underline{lesser} value of $ h $, is closer to the value of $ y \left( \frac{1}{2} \right) $ found using the actual solution.
+\end{enumerate}
+
+\end{document}

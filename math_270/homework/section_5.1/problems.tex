@@ -1,0 +1,212 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\section{Section 5.1}
+
+\subsection{5.1.9}
+A homogeneous second-order linear differential equation, two functions $ y_1 $ and $ y_2 $, and a pair of initial conditions are given. First verify that $ y_1 $ and $ y_2 $ are solutions of the differential equation. Then find a particular solution of the form $ y = c_1y_1 + c_2y_2 $ that satisfies the given initial conditions. Primes denote derivatives with respect to $ x $.
+$$ y'' + 2y' + y = 0; y_1 = e^{-x}, y_2 = xe^{-x}; y(0) = 9, y'(0) = -10 $$
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item \textbf{Why is the function $ y_1 = e^{-x} $ a solution to the differential equation?} \\
+		The function $ y_1 = e^{-x} $ is a solution because when the function, its first derivative $ y_1' = -e^{-x} $ and its second derivative, $ y_1'' = e^{-x} $, are substituted into the equation, the result is a true statement.
+	\item \textbf{Why is the function $ y_2 = xe^{-x} $ a solution to the differential equation?} \\
+		The function $ y_2 = xe^{-x} $ is a solution because when the function, its derivative, $ y_2' = e^{-x} - xe^{-x} $, and its second derivative, $ y_2'' = -e^{-x} - e^{-x} + xe^{-x} $, are substituted into the equation, the result is a true statement.
+	\item The particular solution of the form $ y = c_1y_1 + c_2y_2 $ that satisfies the initial conditions $ y(0) = 9 $ and $ y'(0) = -10 $ is $ y = 9e^{-x} - xe^{-x} $.
+\end{enumerate}
+
+\subsection{5.1.11}
+A homogeneous second-order linear differential equation, two functions $ y_1 $ and $ y_2 $, and a pair of initial conditions are given. First verify that $ y_1 $ and $ y_2 $ are solutions of the differential equation. Then find a particular solution of the form $ y = c_1y_1 + c_2y_2 $ that satisfies the given initial conditions. Primes denote derivatives with respect to $ x $.
+$$ y'' - 2y' + 2y = 0; y_1 = e^x\cos(x), y_2 = e^x\sin(x); y(0) = 11, y'(0) = 14 $$
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item The function $ y_1 = e^x\cos(x) $ is a solution because when the function its first derivative $ y_1' = e^x\cos(x) - e^x\sin(x) $, and its second derivative, $ y_1'' = e^x\cos(x) - e^x\sin(x) - e^x\sin(x) - e^x\cos(x) $, are substituted into the equation, the result is a true statement.
+	\item The function $ y_2 = e^x\sin(x) $ is a solution because when the function, its first derivative, $ y_2' = e^x\sin(x) + e^x\cos(x) $, and its second derivative, $ y_2'' = e^x\sin(x) + e^x\cos(x) + e^x\cos(x) - e^x\sin(x) $, are substituted into the equation, the result is a true statement.
+	\item The particular solution of the form $ y = c_1y_1 + c_2y_2 $ that satisfies the initial conditions $ y(0) = 11 $ and $ y'(0) = 14 $ is
+		\begin{align*}
+			y & = c_1y_1 + c_2y_2 \\
+			y & = c_1 \left( e^x\cos(x) \right) + c_2 \left( e^x\sin(x) \right) \\
+			c_1 \left( e^0\cos(0) \right) + c_2 \left( e^0\sin(0) \right) & = 11 \\
+			c_1 & = 11 \\
+			y & = c_1 \left( e^x\cos(x) \right) + c_2 \left( e^x\sin(x) \right) \\
+			y' & = c_1 \left( e^x\cos(x) - e^x\sin(x) \right) + c_2 \left( e^x\sin(x) + e^x\cos(x) \right) \\
+			14 & = (11) \left( e^0\cos(0) - e^0\sin(0) \right) + c_2 \left( e^0\sin(0) + e^0\cos(0) \right) \\
+			14 & = (11) + c_2 \\
+			c_2 & = 3 \\
+			y & = (11)(e^x\cos(x)) + (3)(e^x\sin(x))
+		\end{align*}
+		\bc{y = (11)(e^x\cos(x)) + (3)(e^x\sin(x))}
+\end{enumerate}
+
+\subsection{5.1.19}
+Show that $ y_1 = 1 $ and $ y_2 = \sqrt{x} $ are solutions of $ yy'' + (y')^2 = 0 $, but that their sum $ y = y_1 + y_2 $ is not a solution.
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			y_1 & = 1 \\
+			y_1' & = 0 \\
+			y_1'' & = 0 \\
+			yy'' + (y')^2 & = 0 \\
+			(1)(0) + (0)^2 & = 0 \\
+			0 & = 0
+		\end{align*}
+	\item
+		\begin{align*}
+			y_2 & = \sqrt{x} \\
+			y_2' & = \frac{1}{2}x^{-\sfrac{1}{2}} \\
+			y_2'' & = -\frac{1}{4}x^{-\sfrac{3}{2}} \\
+			yy'' + (y')^2 & = 0 \\
+			(\sqrt{x}) \left( -\frac{1}{4}x^{-\sfrac{3}{2}} \right) + \left( \frac{1}{2}x^{-\sfrac{1}{2}} \right)^2 & = 0 \\
+			-\frac{1}{4x} + \frac{1}{4x} & = 0 \\
+			0 & = 0
+		\end{align*}
+	\item \textbf{Now consider the function $ y = y_1 + y_2 $.}
+		\begin{align*}
+			y & = y_1 + y_2 \\
+			y & = (1) + (\sqrt{x}) \\
+			y' & = 0 + \frac{1}{2}x^{-\sfrac{1}{2}} \\
+			y' & = \frac{1}{2}x^{-\sfrac{1}{2}} \\
+			y'' & = -\frac{1}{4}x^{-\sfrac{3}{2}}
+		\end{align*}
+	\item \textbf{For the function $ y = y_1 + y_2 $:}
+		\begin{align*}
+			yy'' & = \left( 1 + \sqrt{x} \right) \left( -\frac{1}{4}x^{-\sfrac{3}{2}} \right) \\
+			yy'' & = -\frac{1 + \sqrt{x}}{4x^{\sfrac{3}{2}}}
+		\end{align*}
+		\begin{align*}
+			(y')^2 & = \left( \frac{1}{2}x^{-\sfrac{1}{2}} \right)^2 \\
+			(y')^2 & = \frac{1}{4x}
+		\end{align*}
+	\item \textbf{Why is the proof complete?} \\
+		For the function $ y = y_1 + y_2 $, when the expressions above for $ yy'' $ and $ (y')^2 $ are substituted into the equation, the result is a false statement.
+\end{enumerate}
+
+\subsection{5.1.24}
+Determine whether the functions $ y_1 $ and $ y_2 $ are linearly dependent on the interval $ (0,1) $.
+$$ y_1 = \sin(t)\cos(t), y_2 = 3\sin(2t) $$
+\begin{align*}
+	y_2 & = 3\sin(2t) = 6\sin(t)\cos(t) \\
+	y_1 & \equiv y_2
+\end{align*}
+
+\subsection{5.1.31}
+Show that $ y_1 = \sin(x^2) $ and $ y_2 = \cos(x^2) $ are linearly independent functions, but that their Wronskian vanishes at $ x = 0 $. Why does this imply that there is no differential equation of the form $ y'' + p(x)y' + q(x)y = 0 $, with both $ p $ and $ q $ continuous everywhere, having both $ y_1 $ and $ y_2 $ as solutions?
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item Two functions defined on an open interval I are said to be linearly independent on I provided that \underline{neither is a constant multiple of the other.}
+	\item
+		The functions $ y_1 = \sin(x^2) $ and $ y_2 = \cos(x^2) $ are linearly independent because $ \frac{y_1}{y_2} = \tan(x^2) $ \underline{is not} a constant-valued function and $ \frac{y_2}{y_1} = \cot(x^2) $ \underline{is not} a constant-valued function.
+	\item
+		Given two function $ f $ and $ g $, the Wronskian of $ f $ and $ g $ is the determinant defined as follows.
+		$$ W(f,g) = \begin{bmatrix} f & g \\ f' & g' \end{bmatrix} = fg' - f'g $$
+	\item
+		The Wronskian for these functions, $ W(\sin(x^2), \cos(x^2)) = -2x $, vanishes at $ x = 0 $ because it has a factor of $ x $.
+\end{enumerate}
+
+\subsection{5.1.33}
+Find a general solution to the differential equation given below. Primes denote derivatives with respect to $ t $.
+$$ y'' + 4y' - 21y = 0 $$
+\begin{align*}
+	r^2 + 4r - 21 & = 0 \\
+	(r - 3)(r + 7) & = 0 \\
+	r & = 3, -7 \\
+	y & = c_1(e^{3t}) + c_2(e^{-7t})
+\end{align*}
+
+\subsection{5.1.35}
+Find a general solution to the differential equation given below. Primes denote derivatives with respect to $ x $.
+$$ y'' + 8y' = 0 $$
+\begin{align*}
+	r^2 + 8r & = 0 \\
+	r & = 0, -8 \\
+	y & = c_1 + c_2(e^{-8x})
+\end{align*}
+
+\subsection{5.1.37}
+Find a general solution to the differential equation given below. Primes denote derivatives with respect to $ x $.
+$$ 6y'' - 5y' - y = 0 $$
+\begin{align*}
+	6r^2 - 5r - 1 & = 0 \\
+	r & = 1, -\frac{1}{6} \\
+	y & = c_1(e^x) + c_2(e^{-\sfrac{x}{6}})
+\end{align*}
+
+\subsection{5.1.38}
+$$ 12y'' + 5y' - 3y = 0 $$
+\begin{align*}
+	12r^2 + 5r - 3 & = 0 \\
+	r & = \frac{1}{3}, -\frac{3}{4} \\
+	y & = c_1(e^{\sfrac{t}{3}}) + c_2(e^{-\sfrac{3t}{4}})
+\end{align*}
+
+\subsection{5.1.39}
+$$ 9y'' + 6y' + y = 0 $$
+\begin{align*}
+	9r^2 + 6r + 1 & = 0 \\
+	r & = -\frac{1}{3} \\
+	y(x) & = c_1(e^{-\sfrac{x}{3}}) + xc_2(e^{-\sfrac{x}{3}})
+\end{align*}
+
+\end{document}

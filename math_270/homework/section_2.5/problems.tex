@@ -1,0 +1,166 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\section{Section 2.5}
+
+\subsection{2.5.1}
+Apply the improved Euler method to approximate the solution on the interval $ [0, 0.5] $ with step size $ h = 0.1 $. Construct a table showing values of the approximate solution and the actual solution at the points $ x = 0.1, 0.2, 0.3, 0.4, 0.5 $.
+$$ y' = -3y, y(0) = 7; y(x) = 7e^{-3x} $$
+Improved Euler's method:
+\begin{align*}
+	k_1 & = f(x_n,y_n) \\
+	u_{n+1} & = y_n + h \cdot k_1 \\
+	k_2 & = f(x_{n+1},u_{n+1}) \\
+	y_{n+1} & = y_n + h \cdot \frac{1}{2}(k_1 + k_2)
+\end{align*}
+\begin{align*}
+	k_1 & = -3(7) = -21 \\
+	u_1 & = (7) + (0.1)(-21) = 4.9 \\
+	k_2 & = -3(4.9) = -14.7 \\
+	y_1 & = (7) + (0.05)(-21 + (-14.7)) = 5.2150
+\end{align*}
+\begin{align*}
+	k_1 & = -3(5.2150) = -15.645 \\
+	u_2 & = (5.2150) + (0.1)(-15.645) = 3.6505 \\
+	k_2 & = -3(3.6505) = -10.9515 \\
+	y_2 & = (5.2150) + (0.05)(-15.645+(-10.9515)) = 3.8852
+\end{align*}
+\begin{align*}
+	k_1 & = -3(3.8852) = -11.6555 \\
+	u_3 & = (3.8852) + (0.1)(-11.6555) = 2.71965 \\
+	k_2 & = -3(2.71965) = -8.15895 \\
+	y_3 & = 3.8852 + (0.05)(-11.6555 + (-8.15895)) = 2.89448
+\end{align*}
+\begin{align*}
+	k_1 & = -3(2.89448) = -8.68343 \\
+	u_4 & = (2.89448) + (0.1)(-8.68343) = 2.02613 \\
+	k_2 & = -3(2.02613) = -6.0784 \\
+	y_4 & = 2.89448 + (0.05)(-8.6843 + (-6.0784)) = 2.15639
+\end{align*}
+\begin{align*}
+	k_1 & = -3(2.15639) = -6.46916 \\
+	u_5 & = 2.15639 + (0.1)(-6.46916) = 1.50947 \\
+	k_2 & = -3(1.50947) = -4.52841 \\
+	k_5 & = 2.15639 + (0.05)(-6.46916 + (-4.52841)) = 1.60651
+\end{align*}
+\begin{tabular}{ | c | c | c | c | c | c | }
+	\textbf{$ x_n $} & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 \\
+	\hline
+	\textbf{Actual $ y \left( x_n \right) $} & 5.1857 & 3.8417 & 2.8460 & 2.1084 & 1.5619 \\
+	\hline
+	\textbf{Improved Euler $ y_n $} & 5.2150 & 3.8852 & 2.8945 & 2.1564 & 1.6065
+\end{tabular}
+
+\subsection{2.5.5}
+$$ y' = y - x - 1, y(0) = 1, y(x) = 2 + x - e^x $$
+Improved Euler's method:
+\begin{align*}
+	k_1 & = f(x_n,y_n) \\
+	u_{n+1} & = y_n + h \cdot k_1 \\
+	k_2 & = f(x_{n+1},u_{n+1}) \\
+	y_{n+1} & = y_n + h \cdot \frac{1}{2}(k_1 + k_2)
+\end{align*}
+\begin{align*}
+	k_1 & = 1 - 0 - 1 = 0 \\
+	u_1 & = 1 + (0.1)(0) = 1 \\
+	k_2 & = 1 - 0.1 - 1 = -0.1 \\
+	y_1 & = 1 + (0.05)(0 + (-0.1)) = 0.9950
+\end{align*}
+\begin{align*}
+	k_1 & = 0.9950 - 0.1 - 1 = -0.105 \\
+	u_2 & = 0.9950 + (0.1)(-0.105) = 0.9845 \\
+	k_2 & = 0.9845 - 0.2 - 1 = -0.2155 \\
+	y_2 & = 0.9950 + (0.05)(-0.105 + (-0.2155)) = 0.978975
+\end{align*}
+\begin{align*}
+	k_1 & = 0.978975 - 0.2 - 1 = -0.221025 \\
+	u_3 & = 0.978975 + (0.1)(-0.221025) = 0.956873 \\
+	k_2 & = 0.956873 - 0.3 - 1 = -0.343128 \\
+	y_3 & = 0.978975 + (0.05)(-0.221025 + (-0.343128)) = 0.950767
+\end{align*}
+\begin{align*}
+	k_1 & = 0.950767 - 0.3 - 1 = -0.349233 \\
+	u_4 & = 0.950767 + (0.1)(-0.349233) = 0.915844 \\
+	k_2 & = 0.915844 - 0.4 - 1 = -0.484794 \\
+	y_4 & = 0.950767 + (0.05)(-0.349233 + (-0.484794)) = 0.909098
+\end{align*}
+\begin{align*}
+	k_1 & = 0.909098 - 0.4 - 1 = -0.490902 \\
+	u_5 & = 0.909098 + (0.1)(-0.490902) = 0.860008 \\
+	k_2 & = 0.860008 - 0.5 - 1 = -0.639992 \\
+	y_5 & = 0.909098 + (0.05)(-0.490902 + (-0.639992)) = 0.852553
+\end{align*}
+\begin{tabular}{ | c | c | c | c | c | c | }
+	\textbf{$ x_n $} & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 \\
+	\hline
+	\textbf{Actual $ y \left( x_n \right) $} & 0.9948 & 0.9786 & 0.9501 & 0.9082 & 0.8513 \\
+	\hline
+	\textbf{Improved Euler $ y_n $} & 0.9950 & 0.9790 & 0.9508 & 0.9091 & 0.8526
+\end{tabular}
+
+\end{document}

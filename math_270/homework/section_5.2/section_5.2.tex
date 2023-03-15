@@ -1,0 +1,143 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Section 5.2}
+
+\subsection{5.2.1}
+Show directly that the given functions are linearly dependent on the real line. That is, find a nontrivial linear combination of the following functions that vanishes identically.
+$$ f(x) = 6x, g(x) = 4x^2, h(x) = 6x - 21x^2 $$
+Enter the non-trivial linear combination.
+$$ (24)6x + (-126)4x^2 + (-24)(6x - 21x^2) = 0 $$
+
+\subsection{5.2.4}
+Show directly that the given functions are linearly dependent on the real line. That is, find a nontrivial linear combination of the following functions that vanishes identically.
+$$ f(x) = 23, g(x) = 3\sin^2(x), h(x) = 5\cos^2(x) $$
+Enter the non-trivial linear combination.
+$$ (15)(23) + (-115)(3\sin^2(x)) + (-69)(5\cos^2(x)) = 0 $$
+
+\subsection{5.2.7}
+Use the Wronskian to determine if the given functions are linearly independent on the indicated interval.
+$$ f(x) = 19, g(x) = 5x, h(x) = 5x^2 \text{; the real line} $$
+The Wronskian $ W(f,g,h) = 950 $. As $ W $ is never $ 0 $ on the real line $ f(x), g(x), $ and $ h(x) $ are linearly independent.
+
+\subsection{5.2.13}
+
+A third-order homogeneous linear equation and three linearly independent solutions are given below. Find a particular solution satisfying the given initial conditions.
+$$ y^{(3)} + 2y'' - y' - 2y = 0; y(0) = 8, y'(0) = 12, y''(0) = 0; $$
+$$ y_1 = e^x, y_2 = e^{-x}, y_3 = e^{-2x} $$
+\begin{align*}
+	y(x) & = c_1e^x + c_2e^{-x} + c_3e^{-2x} \\
+	y(0) & = c_1e^0 + c_2e^0 + c_3e^0 = 8 \\
+		 & = c_1 + c_2 + c_3 = 8 \\
+	c_1 & = 8 - c_2 - c_3 \\
+	y'(x) & = c_1e^x - c_2e^{-x} - 2c_3e^{-2x} \\
+	y'(0) & = c_1e^0 - c_2e^0 - 2c_3e^0 = 12 \\
+		  & = c_1 - c_2 - 2c_3 = 12 \\
+	y''(x) & = c_1e^x + c_2e^{-x} + 4c_3e^{-2x} \\
+	y''(0) & = c_1e^0 + c_2e^0 + 4c_3e^0 = 0 \\
+		   & = c_1 + c_2 + 4c_3 = 0 \\
+	(8 - c_2 - c_3) + c_2 + 4c_3 & = 0 \\
+	8 + 3c_3 & = 0 \\
+	3c_3 & = -8 \\
+	c_3 & = -\frac{8}{3} \\
+	c_2 & = -c_1 - c_3 + 8 \\
+	c_1 - (-c_1 - c_3 + 8) - 2c_3 & = 12 \\
+	2c_1 - c_3 & = 20 \\
+	2c_1 - \left( -\frac{8}{3} \right) & = 20 \\
+	c_1 & = \frac{20 - \frac{8}{3}}{2} \\
+	c_1 & = \frac{26}{3} \\
+	\frac{26}{3} + c_2 - \frac{8}{3} & = 8 \\
+	c_2 & = 2
+\end{align*}
+\bc{y(x) = \frac{26}{3}e^x + 2e^{-x} - \frac{8}{3}e^{-2x}}
+
+\subsection{5.2.19}
+A third-order homogeneous linear equation and three linearly independent solutions are given below. Find a particular solution satisfying the given initial conditions.
+$$ x^3y^{(3)} - 3x^2y'' + 6xy' - 6y = 0; y(1) = 9, y'(1) = 15, y''(1) = 28; $$
+$$ y_1 = x, y_2 = x^2, y_3 = x^3 $$
+\begin{align*}
+	y(x) & = c_1x + c_2x^2 + c_3x^3 \\
+	y'(x) & = c_1 + 2c_2x + 3c_3x^2 \\
+	y''(x) & = 2c_2 + 6c_3x \\
+	y''(1) & = 2c_2 + 6c_3(1) = 28 \\
+	c_2 & = 14 - 3c_3 \\
+	y'(1) & = c_1 + 2(14 - 3c_3)(1) + 3c_3(1) = 15 \\
+	c_1 + 28 - 6c_3 + 3c_3 & = 15 \\
+	c_1 & = -13 + 3c_3 \\
+	y(1) & = (-13 + 3c_3)(1) + (14 - 3c_3)(1)^2 + c_3(1)^3 = 9 \\
+	c_3 & = 8 \\
+	2c_2 + 6(8)(1) & = 28 \\
+	c_2 & = -10 \\
+	c_1 + (-10) + (8) & = 9 \\
+	c_1 & = 11
+\end{align*}
+\bc{y(x) = 11x - 10x^2 + 8x^3}
+
+\end{document}

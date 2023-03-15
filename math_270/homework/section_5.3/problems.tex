@@ -1,0 +1,152 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\newcommand{\iu}{\mathrm{i}\mkern1mu}
+
+\tableofcontents
+
+\section{Section 5.3}
+
+\subsection{5.3.1}
+Find the general solution of the differential equation.
+$$ y'' - 289y = 0 $$
+\begin{align*}
+	r^2 - 289 & = 0 \\
+	r & = 17, -17 \\
+	y(x) & = c_1e^{17x} + c_2^{-17x}
+\end{align*}
+
+\subsection{5.3.3}
+Find the general solution of the differential equation.
+$$ y'' + y' - 56y = 0 $$
+\begin{align*}
+	r^2 + r - 56 & = 0 \\
+	r & = 7, -8 \\
+	y(t) & = c_1e^{7t} + c_2e^{-8t}
+\end{align*}
+
+\subsection{5.3.4}
+Find a general solution.
+$$ 4y'' + 7y' - 2y = 0 $$
+\begin{align*}
+	4r^2 + 7r - 2 & = 0 \\
+	r & = \frac{1}{4}, -2 \\
+	y(t) & = c_1e^{\sfrac{t}{4}} + c_2e^{-2t}
+\end{align*}
+
+\subsection{5.3.5}
+Find a general solution to the given differential equation.
+$$ 4w'' + 12w' + 9w = 0 $$
+\begin{align*}
+	4r^2 + 12r + 9 & = 0 \\
+	r & = -\frac{3}{2} \\
+	w(t) & = c_1e^{-\sfrac{3t}{2}} + c_2te^{-\sfrac{3t}{2}}
+\end{align*}
+
+\subsection{5.3.7}
+Find the general solution of the differential equation.
+$$ 36y'' - 84y' + 49y = 0 $$
+\begin{align*}
+	36r^2 - 84r + 49 & = 0 \\
+	r & = \frac{7}{6} \\
+	y(x) & = c_1e^{\sfrac{7x}{6}} + xc_2e^{\sfrac{7x}{6}}
+\end{align*}
+
+\subsection{5.3.9}
+The auxiliary equation for the given differential equation has complex roots. Find a general solution.
+$$ y'' - 10y' + 29y = 0 $$
+\begin{align*}
+	r^2 - 10r + 29 & = 0 \\
+	r & = 5 \pm 2\iu \\
+	y(t) & = c_1e^{5t}\cos(2t) + c_2e^{5t}\sin(2t)
+\end{align*}
+
+\subsection{5.3.11}
+Find the general solution of the differential equation.
+$$ y^{(4)} - 32y^{(3)} + 256y'' = 0 $$
+\begin{align*}
+	r^4 - 32r^3 + 256r^2 & = 0 \\
+	r & = 0, 0, 16, 16 \\
+	y(x) & = c_1 + c_2x + c_3e^{16x} + c_4xe^{16x}
+\end{align*}
+
+\subsection{5.3.13}
+Find the general solution of the differential equation.
+$$ 9y^{(3)} + 12y'' + 4y' = 0 $$
+\begin{align*}
+	9r^3 + 12r^2 + 4r & = 0 \\
+	r & = 0, -\frac{2}{3}, -\frac{2}{3} \\
+	y(x) & = c_1 + c_2e^{-\sfrac{2x}{3}} + c_3xe^{-\sfrac{2x}{3}}
+\end{align*}
+
+\subsection{5.3.18}
+$$ 81y^{(4)} = y $$
+\begin{align*}
+\end{align*}
+
+\end{document}

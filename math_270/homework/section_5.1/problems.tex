@@ -209,4 +209,45 @@ $$ 9y'' + 6y' + y = 0 $$
 	y(x) & = c_1(e^{-\sfrac{x}{3}}) + xc_2(e^{-\sfrac{x}{3}})
 \end{align*}
 
+\subsection{5.1.44}
+The equation below is a general solution to a homogeneous second-order differential equation $ ay'' + by' + cy = 0 $ with constant coefficients. Find such an equation.
+$$ y(x) = c_1e^{7x} + c_2e^{-7x} $$
+What are the simplest integer coefficients $ a > 0, b, $ and $ c $ for a homogeneous second-order differential equation with the given general solution?
+\begin{align*}
+	r & = 7, -7 \\
+	(r + 7)(r - 7) & = 0 \\
+	r^2 - 49 & = 0
+\end{align*}
+\bc{r^2 - 49 = 0}
+
+\subsection{5.1.45}
+The equation below is a general solution to a homogeneous second-order differential equation $ ay'' + by' + cy = 0 $ with constant coefficients. Find such an equation.
+$$ y(x) = c_1e^{-2x} + c_2xe^{-2x} $$
+\begin{align*}
+	r & = -2 \\
+	(r + 2)^2 & = 0 \\
+	r^2 + 4r + 4 & = 0
+\end{align*}
+\bc{r^2 + 4r + 4 = 0}
+
+\subsection{5.1.52}
+A second-order Euler equation is one of the form $ ax^2y'' + bxy' + cy = 0 $, where $ a, b, $ and $ c $ are constants. If $ x > 0 $, then the substitution $ v = \ln(x) $ transforms the equation into the constant coefficient linear equation below, with independent variable $ v $.
+$$ a\frac{d^2y}{dv^2} + (b - a)\frac{dy}{dv} + cy = 0 $$
+Make the substitution $ v = \ln(x) $ to find the general solution of $ x^2y'' + xy' -4y = 0 $, for $ x > 0 $.
+\begin{align*}
+	v & = \ln(x) \\
+	x & = e^v \\
+	y' & = e^{-v}\frac{dy}{dv} \\
+	y'' & = e^{-2v} \left( \frac{d^2y}{dv^2} - \frac{dy}{dv} \right) \\
+	e^{2v} \left( e^{-2v} \left( \frac{d^2y}{dv^2} - \frac{dy}{dv} \right) \right) + e^v \left( e^{-v}\frac{dy}{dv} \right) - 4y & = 0 \\
+	\left( \frac{d^2y}{dv^2} - \frac{dy}{dv} \right) + \frac{dy}{dv} - 4y & = 0 \\
+	\frac{d^2y}{dv^2} - 4y & = 0 \\
+	r^2 - 4 & = 0 \\
+	r^2 & = 4 \\
+	r & = 2, -2 \\
+	y & = c_1e^{2v} + c_2e^{-2v} \\
+	y & = c_1e^{2\ln(x)} + c_2e^{-2\ln(x)}
+\end{align*}
+\bc{y = c_1e^{2\ln(x)} + c_2e^{-2\ln(x)}}
+
 \end{document}

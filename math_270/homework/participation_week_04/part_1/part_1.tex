@@ -1,0 +1,145 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 04 Participation Assignment (1 of 2)}
+\date{10 March 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 1}
+One of the most important steps on solving higher order linear differential equation with constant coefficients is to identify the characteristic/auxiliary polynomial. Then from the roots (single roots, repeated roots or complex roots), we can determine the solution to the homogeneous equation.
+
+For this exercise, we would like to practice on the relation between the roots and the solutions (not only from the roots to the solution, but also from the solution/function to the roots):
+
+\subsection{1)}
+\begin{align*}
+	r_1 & = -1 \\
+	r_2 & = 5 \\
+	p(r) & = (r - r_1)(r - r_2) \\
+		 & = (r - (-1))(r - 5) \\
+	p(r) & = r^2 -4x - 5
+\end{align*}
+\bc{p(r) = r^2 -4x - 5}
+
+\subsection{2)}
+\begin{align*}
+	r_1 & = -1 \\
+	r_2 & = -1 \\
+	p(r) & = (r - r_1)(r - r_2) \\
+		 & = (r + 1)(r + 1) \\
+	p(r) & = r^2 + 2r + 1
+\end{align*}
+\bc{p(r) = r^2 + 2r + 1}
+
+\subsection{3)}
+\begin{align*}
+	r_1 & = 4 \\
+	r_2 & = -4 \\
+	p(r) & = (r - r_1)(r - r_2) \\
+		 & = (r - 4)(r - (-4)) \\
+	p(r) & = r^2 + 16
+\end{align*}
+\bc{p(r) = r^2 + 16}
+
+\subsection{4)}
+\begin{align*}
+	r_1 & = -3 - 2i \\
+	r_2 & = -3 + 2i \\
+	p(r) & = (r - r_1)(r - r_2) \\
+		 & = (r - (-3 - 2i))(r - (-3 + 2i)) \\
+	p(r) & = r^2 + 6r + 13
+\end{align*}
+\bc{p(r) = r^2 + 6r + 13}
+
+\subsection{5)}
+\begin{align*}
+	r_1 & = -3 \\
+	r_2 & = -3 \\
+	r_3 & = -3 \\
+	p(r) & = (r - r_1)(r - r_2)(r - r_3) \\
+		 & = (r - (-3))(r - (-3))(r - (-3)) \\
+	p(r) & = r^3 + 9r^2 + 27r + 27
+\end{align*}
+\bc{p(r) = r^3 + 9r^2 + 27r + 27}
+
+\subsection{6)}
+\begin{align*}
+	r_1 & = \pm1 \\
+	r_2 & = \pm1 \\
+	p(r) & = (r - r_1)(r - r_2) \\
+		 & = (r - (-1))^2(r - 1)^2 \\
+	p(r) & = r^4 + 2r^2 + 1
+\end{align*}
+\bc{p(r) = r^4 + 2r^2 + 1}
+
+\subsection{7)}
+\begin{align*}
+	r_1 & = -5 \pm 4i \\
+	r_2 & = -5 \pm 4i \\
+	p(r) & = (r - r_1)(r - r_2) \\
+		 & = (r - (-5 + 4i))^2(r - (-5 - 4i))^2 \\
+	p(r) & = r^4 + 20r^3 + 182r^2 + 820r + 168
+\end{align*}
+\bc{p(r) = r^4 + 20r^3 + 182r^2 + 820r + 168}
+
+\end{document}

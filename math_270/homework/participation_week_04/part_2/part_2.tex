@@ -1,0 +1,128 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 04 Participation Assignment (2 of 2)}
+\date{10 March 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 2}
+When we try to use the method of Undetermined Coefficients, the most important step is to write the correct form of the particular solution based on the given f(x) and the roots of the homogeneous equation.
+
+For this exercise, we would like to practice on how to write the form of a particular solution for the given differential equations (Do not solve for it, just write the form of a particular solution):
+
+\subsection{a)}
+\begin{align*}
+	y'' + y & = \sin(x) + x\cos(x) + e^{3x} \\
+	r^2 + r & = 0 \\
+	r & = 0,-1 \\
+	y_p(x) & = A\sin(x) + B\cos(x) + Cx^2\sin(x) - Dx\cos(x) + Ee^{3x}
+\end{align*}
+\bc{y_p(x) = A\sin(x) + B\cos(x) + Cx^2\sin(x) - Dx\cos(x) + Ee^{3x}}
+
+\subsection{b)}
+\begin{align*}
+	y'' - y & = e^x + x^2e^{2x} \\
+	r^2 - r & = 0 \\
+	r & = 1,0 \\
+	y_p(x) & = Ae^x + Bx^2e^{2x} + Cxe^{2x} + De^{2x}
+\end{align*}
+\bc{y_p(x) = Ae^x + Bx^2e^{2x} + Cxe^{2x} + De^{2x}}
+
+\subsection{c)}
+\begin{align*}
+	y'' - y -2y & = e^x\sin(x) - x^2 \\
+	r^2 - r - 2 & = 0 \\
+	r & = 2,-1 \\
+	y_p(x) & = Ae^x\sin(x) - Be^x\cos(x) + Cx^2 + Dx
+\end{align*}
+\bc{y_p(x) = Ae^x\sin(x) - Be^x\cos(x) + Cx^2 + Dx}
+
+\subsection{d)}
+\begin{align*}
+	y'' + 5y' + 6y & = \sin(x) + \cos(2x) \\
+	r^2 + 5r + 6 & = 0 \\
+	r & = -2,-3 \\
+	y_p(x) & = A\cos(x) + B\sin(x) + C\cos(2x) + D\sin(2x)
+\end{align*}
+\bc{y_p(x) = A\cos(x) + B\sin(x) + C\cos(2x) + D\sin(2x)}
+
+\subsection{e)}
+\begin{align*}
+	y'' - 4y' + 5y & = e^{2x} + 3\cos(x) + e^{2x}\sin(x) \\
+	r^2 - 4r + 5 & = 0 \\
+	r & = 2 \pm i \\
+	y_p(x) & = Ae^{2x} + B\cos(x) + C\sin(x) + De^{2x}\sin(x) + E^{2x}\cos(x)
+\end{align*}
+\bc{y_p(x) = Ae^{2x} + B\cos(x) + C\sin(x) + De^{2x}\sin(x) + E^{2x}\cos(x)}
+
+\subsection{f)}
+\begin{align*}
+	y'' - 4y' + 4y = x^2e^{2x} - e^{2x} \\
+	r^2 - 4r + 4 & = 0 \\
+	r & = 2 \\
+	y_p(x) & = Ax^2e^{2x} + Bxe^{2x} + Ce^{2x} + De^{2x}
+\end{align*}
+\bc{y_p(x) = Ax^2e^{2x} + Bxe^{2x} + Ce^{2x} + De^{2x}}
+
+\end{document}

@@ -1,0 +1,144 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{1D Motion}
+\begin{align}
+	\vec{v} & \equiv \frac{d\vec{x}}{dt} \\
+	\vec{a} & \equiv \frac{d\vec{v}}{dt}
+\end{align}
+
+\subsection{Kinematics - Constant Acceleration}
+When doing calculus you must establish \underline{Boundary Conditions} - A point in time where we know the values of the function.
+
+\subsection{$ v = v_0 + at $ (No $ \Delta x $)}
+During the equation of motion:
+\begin{align}
+	a & = const \\
+	t & = 0; x = x_0, v = v_0
+\end{align}
+We want $ x(t) $. Start by finding velocity:
+\begin{align}
+	a & = \frac{dv}{dt} \\
+	dv & = adt \\
+	\int dv & = \int \left( a \right) dt \\
+	v & = at + C \quad \text{at } t = 0, v = v_0 \\
+	v_0 & = (0) + C \\
+	C & = v_0 \\
+	v & = v_0 + at
+\end{align}
+
+\subsection{Equation of Motion - $ x - x_0 + v_0t + \frac{1}{2}at^2 $ (No $ v $)}
+Integrate $ v $ to get $ x(t) $:
+\begin{align}
+	v & = \frac{dx}{dt} \\
+	v_0 + at & = \frac{dx}{dt} \\
+	\int_{x_0}^x dx & = \int_0^t \left( v_0 + at \right) dt \\
+	x - x_0 & = v_0t + \frac{1}{2}at^2 - 0 - 0 \\
+x(t) & = x_0 + v_0t + \frac{1}{2}at^2
+\end{align}
+$ x $ as a function of $ t $ is called the ``equation of motion"
+
+\subsection{$ x = x_0 + \bar{v}t $ or $x = x_0 + \left( \frac{v_0 + v}{2} \right) t $ (No $ a $)}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+	\item $$ v = v_0 + at $$
+	\item $$ a = \frac{v - v_0}{t} $$
+	\item Plug (1) into (2)
+		\begin{align}
+			x & = x_0 + v_0t + \frac{1}{2}at^2 \\
+			x & = x_0 + v_0t + \frac{1}{2} \left( \frac{v - v_0}{t} \right) t^2 \\
+			x & = x_0 + \left( \frac{1}{2}v_0 + \frac{1}{2}v \right) t \\
+			x & = x_0 + \left( \frac{v_0 + v}{2} \right) t
+		\end{align}
+\end{enumerate}
+
+\subsection{$ v^2 = v_0^2 + 2a\Delta x $ (No $ t $)}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+	\item $ v = v_0 + at $
+	\item $ t = \frac{v - v_0}{a} $
+	\item Plug (1) into (3)
+		\begin{align}
+			x & = x_0 + \left( \frac{v_0 + v}{2} \right) \left( \frac{v - v_0}{a} \right) \\
+			2a\Delta x & = (v + v_0)(v - v_0)
+		\end{align}
+\end{enumerate}
+
+\subsection{$ x = x_0 - vt + \frac{1}{2}at^2 $ (No $ v_0 $)}
+No derivation given.
+
+\subsection{Relation}
+\begin{itemize}
+	\item Slope of velocity $ \rightarrow $ acceleration
+	\item Slope of position $ \rightarrow $ velocity
+	\item Concavity of position $ \rightarrow $ acceleration
+	\item Derivative $ \rightarrow $ slope
+	\item Integral $ \rightarrow $ area
+\end{itemize}
+
+\end{document}

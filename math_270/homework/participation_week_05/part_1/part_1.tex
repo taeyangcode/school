@@ -1,0 +1,137 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 05 Participation Assignment (1 of 2)}
+\date{17 March 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 1}
+When we use the method of Undetermined Coefficients to find a participation solution for a given differential equation (non-homogeneous), it is limited to the case that $ f(x) $  is in the form of sine function, cosine function, exponential function, polynomial and product/sum of the functions mentioned. This method won't work if $ f(x) = \sec(3x) $, for example, $ y'' + 9y = 2\sec(3x) $. Then we will use another method called Variation of Parameter.
+
+Let's use this method to solve the differential equation $ y'' + 9y = 2\sec(3x) $
+
+\subsection{1}
+\begin{align*}
+	y'' + 9y & = 2\sec(3x) \\
+	r^2 + 9 & = 0 \\
+	r & = 0 \pm 3i \\
+	y(x) & = c_1\cos(3x) + c_2\sin(3x) \\
+	y_1(x) & = \cos(3x) \\
+	y_1'(x) & = -3\sin(3x) \\
+	y_2(x) & = \sin(3x) \\
+	y_2'(x) & = 3\cos(3x)
+\end{align*}
+\begin{align*}
+	W & = 
+		\begin{vmatrix}
+			\cos(3x) & \sin(3x) \\
+			-3\sin(3x) & 3\cos(3x)
+		\end{vmatrix} \\
+	  & = \cos(3x) \cdot 3\cos(3x) - \sin(3x) \cdot -3\sin(3x) \\
+	W & = 3\cos^2(3x) + 3\sin^2(3x) \\
+	W & = 3 \left( \cos^2(3x) + \sin^2(3x) \right) \\
+	W & = 3
+\end{align*}
+\begin{align*}
+	W_1 & =
+		\begin{vmatrix}
+			0 & \sin(3x) \\
+			2\sec(3x) & 3\cos(3x)
+		\end{vmatrix} \\
+	W_1 & = -2\tan(3x)
+\end{align*}
+\begin{align*}
+	W_2 & =
+		\begin{vmatrix}
+			\cos(3x) & 0 \\
+			-3\sin(3x) & 2\sec(3x)
+		\end{vmatrix} \\
+	W_2 & = 2
+\end{align*}
+\begin{align*}
+	\int \frac{W_1}{W} dx & = \int \frac{-2\tan(3x)}{3} dx \\
+						  & = -\frac{2}{3} \int \frac{\sin(3x)}{\cos(3x)} dx \\
+						  & = \frac{2}{3 \cdot 3} \int \frac{1}{u} du \\
+	\int \frac{W_1}{W} dx & = \frac{2}{9} \ln(\cos(3x)) + C_3
+\end{align*}
+\begin{align*}
+	\int \frac{W_2}{W} dx & = \int \frac{2}{3} dx \\
+	\int \frac{W_2}{W} dx & = \frac{2x}{3} + C_4
+\end{align*}
+\begin{align*}
+	y(x) & = \left( \frac{2}{9} \ln(\cos(3x)) + C_3 \right) \cos(3x) + \left( \frac{2x}{3} + C_4 \right) \sin(3x) \\
+	y(x) & = \frac{2}{9}\ln(\cos(3x))\cos(3x) + C_3\cos(3x) + \frac{2}{3}x\sin(3x) + C_4\sin(3x)
+\end{align*}
+\bc{y(x) = \frac{2}{9}\ln(\cos(3x))\cos(3x) + C_3\cos(3x) + \frac{2}{3}x\sin(3x) + C_4\sin(3x)}
+
+\end{document}

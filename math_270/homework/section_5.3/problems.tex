@@ -145,8 +145,85 @@ $$ 9y^{(3)} + 12y'' + 4y' = 0 $$
 \end{align*}
 
 \subsection{5.3.18}
-$$ 81y^{(4)} = y $$
+Find the general solution of the differential equation.
+$$ 256y^{(4)} = y $$
 \begin{align*}
+	256y^{(4)} - y & = 0 \\
+	256r^4 - 1 & = 0 \\
+	r & = 0 \pm \frac{1}{4}, 0 \pm \frac{1}{4}i \\
+	y(x) & = c_1e^{\frac{x}{4}} + c_2e^{-\frac{x}{4}} + c_3\cos \left( \frac{x}{4} \right) + c_4\sin \left( \frac{x}{4} \right)
+\end{align*}
+
+\subsection{5.3.19}
+Find three linearly independent solutions of the given third-order differential equation and write a general solution as an arbitrary linear combination of them.
+$$ z''' + 7z'' - 5z' - 75z = 0 $$
+\begin{align*}
+	r^3 + 7r^2 - 5r - 75 & = 0 \\
+	r & = -5, -5, 3 \\
+	z(t) & = c_1e^{-5t} + c_2te^{-5t} + c_3e^{3t}
+\end{align*}
+
+\subsection{5.3.21}
+Find the unique solution of the second-order initial value problem.
+$$ y'' + 2y' - 15y = 0, y(0) = -1, y'(0) = -11 $$
+\begin{align*}
+	r^2 + 2r - 15 & = 0 \\
+	r & = -5, 3 \\
+	y(x) & = c_1e^{-5x} + c_2e^{3x} \\
+	y'(x) & = -5c_1e^{-5x} + 3c_2e^{3x} \\
+	y''(x) & = 25c_1e^{-5x} + 9c_2e^{3x}
+\end{align*}
+\begin{align*}
+	y(0) & = c_1e^{-5(0)} + c_2e^{3(0)} = -1 \\
+	c_1 + c_2 & = -1 \\
+	c_1 & = -1 - c_2 \\
+	y'(0) & = -5c_1e^{-5(0)} + 3c_2e^{3(0)} = -11 \\
+	-5c_1 + 3c_2 & = -11 \\
+	-5( -1 - c_2 ) + 3c_2 & = -11 \\
+	c_2 & = -2 \\
+	c_1 & = -1 - (-2) \\
+	c_1 & = 1 \\
+	y(x) & = e^{-5x} + -2e^{3x}
+\end{align*}
+\bc{y(x) = e^{-5x} + -2e^{3x}}
+
+\subsection{5.3.23}
+Solve the given initial value problem.
+$$ y'' + 4y' + 29y = 0; y(0) = 3, y'(0) = -3 $$
+\begin{align*}
+	r^2 + 4r + 29 & = 0 \\
+	r & = -2 \pm 5i \\
+	y(t) & = c_1e^{-2t}\cos(5t) + c_2e^{-2t}\sin(5t)
+\end{align*}
+\begin{align*}
+	y(t) & = c_1e^{-2t}\cos(5t) + c_2e^{-2t}\sin(5t) \\
+	y(0) & = c_1e^{-2(0)}\cos(5(0)) + c_2e^{-2t(0)}\sin(5(0)) = 3 \\
+	c_1 & = 3 \\
+	y'(t) & = c_1(-e^{-2t}(5\sin(5t) + 2\cos(5t))) + c_2(-e^{-2t}(2\sin(5t) - 5\cos(5t))) \\
+	y'(0) & = c_1(-e^{2(0)}(5\sin(5(0)) + 2\cos(5(0)))) + c_2(-e^{-2(0)}(2\sin(5(0)) - 5\cos(5(0)))) = -3 \\
+	-2c_1 + 5c_2 & = -3 \\
+	-2(3) + 5c_2 & = -3 \\
+	c_2 & = \frac{3}{5} \\
+	y(t) & = 3e^{-2t}\cos(5t) + \frac{3}{5}e^{-2t}\sin(5t)
+\end{align*}
+\bc{y(t) = 3e^{-2t}\cos(5t) + \frac{3}{5}e^{-2t}\sin(5t)}
+
+\subsection{5.3.39}
+Find a linear homogeneous constant-coefficient equation with the given general solution.
+$$ (A + Bx + Cx^2 + Dx^3)e^{4x} $$
+\bc{y^{(4)} - 16y^{(3)} + 96y'' - 256y' + 256y = 0}
+
+\subsection{5.3.54}
+A third-order Euler equation is one of the form $ ax^3y''' + bx^2y'' + cxy' + ky = 0 $, where $ a $, $ b $, $ c $, and $ k $ are constants. If $ x > 0 $, then the substitution $ v = \ln(x) $ transforms the equation into the constant coefficient linear equation below, with independent variable $ v $.
+$$ a \frac{d^3y}{dv^3} + (b - 3a) \frac{d^2y}{dv^2} + (c - b + 2a)\frac{dy}{dv} + ky = 0 $$
+Make the substitution $ v = \ln(x) $ to find the general solution of $ 2x^3y''' + 12x^2y'' + 8xy' = 0 $ for $ x > 0 $.
+\begin{align*}
+	2y''' + (12- 3(2))y'' + (8 - 12 + 2(2))y' & = 0 \\
+	2y''' + 6y'' & = 0 \\
+	2r^3 + 6y^2 & = 0 \\
+	r & = 0, 0, -3 \\
+	y(v) & = c_1 + c_2v + c_3e^{-3v} \\
+	y(x) & = c_1 + c_2\ln(x) + \frac{c_3}{x^3}
 \end{align*}
 
 \end{document}

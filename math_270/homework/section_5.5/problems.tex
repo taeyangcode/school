@@ -1,0 +1,165 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Section 5.5}
+
+\subsection{5.5.2}
+Find a particular solution $ y_p $ of the following equation using the Method of Undetermined Coefficients. Primes denote the derivatives with respect to $ x $.
+$$ y'' - y' - 2y = 4x + 6 $$
+\begin{align*}
+	r^2 - r - 2 & = 0 \\
+	r & = 2, -1 \\
+	y(x) & = c_1e^{2x} + c_2e^{-x} \\
+	y_p(x) & = Ax + B \\
+	y_p'(x) & = A \\
+	y_p''(x) & = 0
+\end{align*}
+\begin{align*}
+	(0) - (A) - 2(Ax + B) & = 4x + 6 \\
+	-2Ax - A - 2B & = 4x + 6 \\
+	-2A & = 4 \\
+	A & = -2 \\
+	-A - 2B & = 6 \\
+	-(-2) - 2B & = 6 \\
+	B & = -2 \\
+	y(x) & = -2x - 2
+\end{align*}
+\bc{y(x) = -2x - 2}
+
+\subsection{5.5.3}
+Find a particular solution $ y_p $ of the following equation using the Method of Undetermined Coefficients. Primes denote the derivatives with respect to $ x $.
+$$ y'' - y' - 6y = 20\sin(3x) $$
+\begin{align*}
+	r^2 - r - 6 & = 0 \\
+	r & = 3, -2 \\
+	y(x) & = c_1e^{3x} + c_2e^{-2x} \\
+	y_p(x) & = A\cos(3x) + B\sin(3x) \\
+	y_p'(x) & = -3A\sin(3x) + 3B\cos(3x) \\
+	y_p''(x) & = -9A\cos(3x) + -9B\sin(3x) \\
+	20\sin(3x) & = (-9A\cos(3x) + -9B\sin(3x)) - (-3A\sin(3x) + 3B\cos(3x)) - 6(A\cos(3x) + B\sin(3x))
+\end{align*}
+\begin{align*}
+	\cos(3x)(-9A - 3B - 6A) + \sin(3x)(-9B + 3A - 6B) & = 20\sin(3x) \\
+	-9A - 3B - 6A & = 0 \\
+	-15A - 3B & = 0 \\
+	B & = -5A \\
+	-9B + 3A - 6B & = 20 \\
+	-15B + 3A & = 20 \\
+	-15(-5A) + 3A & = 20 \\
+	A & = \frac{10}{39} \\
+	B & = -5 \left( \frac{10}{39} \right) \\
+	B & = -\frac{50}{39} \\
+	y(x) & = \frac{10}{39}\cos(3x) - \frac{50}{39}\sin(3x)
+\end{align*}
+\bc{y(x) = \frac{10}{39}\cos(3x) - \frac{50}{39}\sin(3x)}
+
+\subsection{5.5.4}
+Find a particular solution $ y_p $ of the following equation using the Method of Undetermined Coefficients. Primes denote the derivatives with respect to $ x $.
+$$ y'' - 4y' + 5y = xe^x $$
+\begin{align*}
+	r^2 - 4r + 5 & = 0 \\
+	r & = 2 \pm 1i \\
+	y(x) & = c_1e^{2x}\cos(x) + c_2e^{2x}\sin(x) \\
+	y_p(x) & = (Ax + B)Ce^x \\
+	y_p(x) & = e^x(Ax + B) \\
+	y_p'(x) & = e^x(Ax + A + B) \\
+	y_p''(x) & = e^x(Ax + 2A + B) \\
+	xe^x & = (e^x(Ax + 2A + B)) - 4(e^x(Ax + A + B)) + 5(e^x(Ax + B))
+\end{align*}
+\begin{align*}
+	xe^x(A - 4A + 5A) + e^x(2A + B - 4A - 4B + 5B) & = xe^x \\
+	A - 4A + 5A & = 1 \\
+	A & = \frac{1}{2} \\
+	2A + B - 4A - 4B + 5B & = 0 \\
+	-2A + 2B & = 0 \\
+	-2 \left( \frac{1}{2} \right) + 2B & = 0 \\
+	B & = \frac{1}{2} \\
+	y(x) & = e^x \left( \frac{x}{2} + \frac{1}{2} \right)
+\end{align*}
+\bc{y(x) = e^x \left( \frac{x}{2} + \frac{1}{2} \right)}
+
+\subsection{5.5.10}
+Find a particular solution $ y_p $ of the following equation using the Method of Undetermined Coefficients. Primes denote the derivatives with respect to $ x $.
+$$ y'' + 9y = 4\cos(3x) + 6\sin(3x) $$
+\begin{align*}
+	r^2 + 9 & = 0 \\
+	r & = 0 \pm 3i \\
+	y(x) & = c_1\cos(3x) + c_2\sin(3x) \\
+	y_p(x) & = A\cos(3x) + B\sin(3x) \\
+	y_p'(x) & = -3A\sin(3x) + 3B\cos(3x) \\
+	y_p''(x) & = -9A\cos(3x) - 9B\sin(3x) \\
+			 & (-9A\cos(3x) - 9B\sin(3x)) + 9(A\cos(3x) + B\sin(3x)) \\
+			 & = 4\cos(3x) + 6\sin(3x)
+\end{align*}
+\begin{align*}
+	\cos(3x)(-9A + 9A) + \sin(3x)(-9B + 9B) & = 4\cos(3x) + 6\sin(3x)
+\end{align*}
+
+\end{document}

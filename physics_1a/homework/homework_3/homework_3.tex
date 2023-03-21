@@ -1,0 +1,252 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\renewcommand{\contentsname}{Torque Statics}
+
+\title{Homework 3}
+\author{Corey Mostero}
+\date{Student ID: 256652}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Book}
+
+\subsection{11.14}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+	\item
+		\begin{align*}
+			l_\text{b} & = \SI{9.00}{\meter} \\
+			w_\text{b} & = \SI{300}{\newton} \\
+			x_\text{B,A} & = \SI{5.00}{\meter} \\
+			w_\text{p} & = \SI{600}{\newton}
+		\end{align*}
+		\begin{align*}
+			\sum \tau_\star & = 0 \\
+			(F_A)(\SI{5}{\meter}) & = (w_\text{p})(\SI{5}{\meter} - x) + (w_\text{b})(\SI{2.5}{\meter}) \\
+			F_A & = \left( \SI{0.2}{\per \meter} \right) \left( (\SI{600}{\newton})(\SI{5}{\meter} - x) + (\SI{300}{\newton})(\SI{2.5}{\meter}) \right) \\
+			(0) & = \SI{600}{\newton} - (\SI{120}{\newton \per \meter})x + \SI{150}{\newton} \\
+			(\SI{120}{\newton \per \meter})x & = \SI{750}{\newton} \\
+			x & = \SI{6.25}{\meter}
+		\end{align*}
+		$$ x = \SI{6.25}{\meter} - x_\text{B,A} = \SI{1.25}{\meter} $$
+		\bc{\SI{1.25}{\meter}}
+	\item
+		\begin{align*}
+			x_\text{p} & = \SI{7.00}{\meter} \\
+			w_\text{p} & = \SI{600}{\newton} \\
+			x_\text{b} & = \SI{2.5}{\meter} \\
+			w_\text{b} & = \SI{300}{\newton} \\
+			x_\text{B} & = ? \\
+			F_\text{B} & = \SI{900}{\newton} \\
+			x_\text{A} & = 0 \\
+			F_\text{A} & = 0
+		\end{align*}
+		\begin{align*}
+			\sum \tau_\star & = 0 \\
+			(w_\text{b})(x_\text{b}) + (w_\text{p})(x_\text{p}) & = (F_\text{b})(x_\text{b}) \\
+			x_\text{b} & = \frac{(\SI{300}{\newton})(\SI{2.5}{\meter}) + (\SI{600}{\newton})(\SI{7.00}{\meter})}{\SI{900}{\newton})} \\
+			x_\text{b} & = \SI{1.5}{\meter}
+		\end{align*}
+		\bc{x_\text{b} = \SI{1.5}{\meter}}
+\end{enumerate}
+
+\subsection{11.16}
+\begin{align*}
+	l_\text{(b)eam} & = \SI{4.00}{\meter} \\
+	l_\text{(c)able} & = \SI{5.00}{\meter} \\
+	l_\text{(w)all} & = \SI{3.00}{\meter} \\
+	w_\text{b} & = \SI{190}{\newton} \\
+	w_\text{(o)bject} & = \SI{300}{\newton} \\
+	\theta_\text{c,b} & = \SI{36.87}{\degree}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			T & = ? \\
+			T_y & = T\sin(\theta_\text{c,b}) \\
+			\sum \tau_\star & = 0 \\
+			\left( \frac{l_\text{b}}{2} \right)(w_\text{b}) + (l_\text{b})(w_\text{o}) & = (l_\text{b})(T_y) \\
+			T & = \frac{ \left( \frac{\SI{4.00}{\meter}}{2} \right)(\SI{190}{\newton}) + (\SI{4.00}{\meter})(\SI{300}{\newton}) }{(\SI{4.00}{\meter})(\sin(\SI{36.87}{\degree}))} \\
+			T & = \SI{658.3}{\newton}
+		\end{align*}
+		\bc{T = \SI{658.3}{\newton}}
+	\item
+		\begin{align*}
+			F_x & = ? \\
+			\sum F_x & = 0 \\
+			F_x & = T_x \\
+				& = T\cos(\theta_\text{c,b}) \\
+				& = (\SI{658.3}{\newton})(\cos(\SI{36.87}{\degree}) \\
+			F_x & = \SI{526.6}{\newton}
+		\end{align*}
+		\begin{align*}
+			F_y & = ? \\
+			\sum F_y & = 0 \\
+			F_y + T_y & = w_\text{b} + w_\text{o} \\
+			F_y + (\SI{658.3}{\newton})(\sin(\SI{36.87}{\degree})) & = \SI{190}{\newton} + \SI{300}{\newton} \\
+			F_y & = \SI{190}{\newton} + \SI{300}{\newton} - (\SI{658.3}{\newton})(\sin(\SI{36.87}{\degree}) \\
+			F_y & = \SI{95.02}{\newton}
+		\end{align*}
+		\bc{F_x = \SI{526.6}{\newton}, F_y = \SI{95.02}{\newton}}
+\end{enumerate}
+
+\subsection{11.23}
+\begin{align*}
+	F_1 & = F_2 = \SI{6.30}{\newton} \\
+	l_{F_1,O} & = \SI{3.00}{\meter}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			l & = ? \\
+			\sum \tau_\star & = \SI{6.50}{\newton \meter} \\
+			(F_2)(l_{F_1,0} + l) & = \SI{6.50}{\newton \meter} + (F_1)(l_{F_1,O}) \\
+			(\SI{6.30}{\newton})(\SI{3.00}{\meter} + l) & = \SI{6.50}{\newton \meter} + (\SI{6.30}{\newton})(\SI{3.00}{\newton}) \\
+			l & = \SI{1.032}{\meter}
+		\end{align*}
+		\bc{l = \SI{1.032}{\meter}}
+	\item
+		\bc{\text{clockwise}}
+	\item
+		\begin{align*}
+			l & = ? \\
+			F_2 & = 0 \\
+			\sum \tau_\star & = (\SI{6.50}{\newton \meter})(\SI{3.00}{\meter} + l) \\
+			-(F_1)(l) & = (\SI{6.50}{\newton \meter}) \\
+			-(\SI{6.30}{\newton})(l) & = (\SI{6.50}{\newton \meter}) \\
+			l & = \SI{-1.032}{\meter}
+		\end{align*}
+		\bc{l = \SI{-1.032}{\meter}}
+\end{enumerate}
+
+\subsection{11.45}
+\begin{align*}
+	h & = \SI{0.300}{\meter} \\
+	x & = \SI{0.080}{\meter} \\
+	\theta & = \SI{60}{\degree} \\
+	F_1 & = ? \\
+	F_2 & = ?
+\end{align*}
+\begin{align*}
+	\sum \tau_\star & = 0 \\
+	(F_2)(h) - ({F_1}_y)(x) & = 0 \\
+	(F_2)(\SI{0.300}{\meter}) & = (F_1\sin(\SI{60}{\degree}))(\SI{0.080}{\meter}) \\
+	F_1 & = F_2(4.330)
+\end{align*}
+\bc{F_1 = F_2(4.330)}
+
+\subsection{11.49}
+\begin{align*}
+	\theta & = \SI{25.0}{\degree} \\
+	\phi & = \SI{35.0}{\degree} \\
+	l_\text{cog} & = \SI{1.1}{\meter} \\
+	w_{\text{p}} & = \SI{82.0}{\kilogram} \\
+	l_\text{(h)ands} & = \SI{1.40}{\meter} \\
+	l_\text{(p)erson} & = \SI{1.90}{\meter}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			T & = ? \\
+			\cos(\phi) & = \frac{l_{\text{cog}_x}}{l_\text{cog}} \\
+			l_{\text{cog}_x} & = (\SI{1.1}{\meter})(\cos(\SI{35.0}{\degree})) \\
+			l_{\text{cog}_x} & = \SI{0.9011}{\meter} \\
+			\psi & = \SI{90}{\degree} - \phi \\
+				 & = \SI{90}{\degree} - \SI{35.0}{\degree} \\
+			\psi & = \SI{55.0}{\degree} \\
+			\sin(\psi) & = \frac{l_{\text{h}_x}}{l_\text{h}} \\
+			l_{\text{h}_x} & = (\SI{1.40}{\meter})(\sin(\SI{55.0}{\degree})) \\
+			l_{\text{h}_x} & = \SI{1.147}{\meter} \\
+			\cos(\theta) & = \frac{T_y}{T} \\
+			T_y & = T\cos(\theta) \\
+			\sum \tau_\star & = 0 \\
+			(w_\text{p})(l_{\text{cog}_x}) & = (l_{h_x})(T\cos(\theta)) \\
+			T & = \frac{(\SI{82.0}{\kilogram})(\SI{10}{\meter \per \second \squared})(\SI{0.9011}{\meter})}{(\SI{1.147}{\meter})(\cos(\SI{25.0}{\degree}))} \\
+			T & = \SI{710.1}{\newton}
+		\end{align*}
+\end{enumerate}
+
+\subsection{11.53}
+
+\subsection{11.71}
+
+\subsection{11.75}
+
+\subsection{11.81}
+
+\section{Lab Manual}
+
+\subsection{370}
+
+\subsection{372}
+
+\end{document}

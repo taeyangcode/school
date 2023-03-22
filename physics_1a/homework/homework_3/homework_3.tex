@@ -209,37 +209,143 @@
 	\theta & = \SI{25.0}{\degree} \\
 	\phi & = \SI{35.0}{\degree} \\
 	l_\text{cog} & = \SI{1.1}{\meter} \\
-	w_{\text{p}} & = \SI{82.0}{\kilogram} \\
+	m_{\text{p}} & = \SI{82.0}{\kilogram} \\
 	l_\text{(h)ands} & = \SI{1.40}{\meter} \\
 	l_\text{(p)erson} & = \SI{1.90}{\meter}
 \end{align*}
 \begin{enumerate}[label=\textbf{(\alph*)}]
 	\item
 		\begin{align*}
-			T & = ? \\
-			\cos(\phi) & = \frac{l_{\text{cog}_x}}{l_\text{cog}} \\
-			l_{\text{cog}_x} & = (\SI{1.1}{\meter})(\cos(\SI{35.0}{\degree})) \\
-			l_{\text{cog}_x} & = \SI{0.9011}{\meter} \\
-			\psi & = \SI{90}{\degree} - \phi \\
-				 & = \SI{90}{\degree} - \SI{35.0}{\degree} \\
-			\psi & = \SI{55.0}{\degree} \\
-			\sin(\psi) & = \frac{l_{\text{h}_x}}{l_\text{h}} \\
-			l_{\text{h}_x} & = (\SI{1.40}{\meter})(\sin(\SI{55.0}{\degree})) \\
-			l_{\text{h}_x} & = \SI{1.147}{\meter} \\
-			\cos(\theta) & = \frac{T_y}{T} \\
-			T_y & = T\cos(\theta) \\
 			\sum \tau_\star & = 0 \\
-			(w_\text{p})(l_{\text{cog}_x}) & = (l_{h_x})(T\cos(\theta)) \\
-			T & = \frac{(\SI{82.0}{\kilogram})(\SI{10}{\meter \per \second \squared})(\SI{0.9011}{\meter})}{(\SI{1.147}{\meter})(\cos(\SI{25.0}{\degree}))} \\
-			T & = \SI{710.1}{\newton}
+			(T_y)(l_\text{h}) & = (w_\text{p})(l_\text{cog})(\cos(\phi)) \\
+			T & = (\frac{m_\text{p})(\SI{10}{\meter \per \second \squared})(l_\text{cog})(\cos(\phi))}{(l_\text{h})(\cos(\phi - \theta))} \\
+			T & = \frac{(\SI{82.0}{\kilogram})(\SI{10}{\meter \per \second \squared})(\SI{1.1}{\meter})(\cos(\SI{35.0}{\degree}))}{(\SI{1.40}{\meter})(\cos(\SI{10}{\degree}))} \\
+			T & = \SI{535.9}{\newton}
 		\end{align*}
+		\bc{T = \SI{535.9}{\newton}}
+	\item
+		\begin{align*}
+			\sum F_x & = 0 \\
+			N & = T_x \\
+			N & = (\SI{535.9}{\newton})(\sin(\SI{25.0}{\degree}) \\
+			N & = \SI{226.5}{\newton}
+		\end{align*}
+		\begin{align*}
+			\sum F_y & = 0 \\
+			Ty + f & = w_p \\
+			(\SI{535.9}{\newton})(\cos(\SI{25.0}{\degree})) + f & = (\SI{82.0}{\kilogram})(\SI{10}{\meter \per \second \squared}) \\
+			f & = \SI{334.3}{\newton}
+		\end{align*}
+		\bc{N = \SI{226.5}{\newton}, f = \SI{334.3}{\newton}}
+	\item
+		\begin{align*}
+			f & = \mu N \\
+			\mu & = \frac{f}{N} \\
+				& = \frac{\SI{334.3}{\newton}}{\SI{226.5}{\newton}} \\
+			\mu & = 1.476
+		\end{align*}
+		\bc{\mu = 1.476}
 \end{enumerate}
 
 \subsection{11.53}
+\begin{align*}
+	l_\text{(b)eam} & = \SI{1.50}{\meter} \\
+	m_\text{b} & = \SI{19.0}{\kilogram} \\
+	m_\text{(s)ign} & = \SI{35.0}{\kilogram} \\
+	l_\text{s} & = \SI{1.20}{\meter} \\
+	x_{w_b,w_a} & = \SI{32.0}{\centi \meter} \\
+	l_\text{(c)able} & = \SI{2.20}{\meter}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\cos(\theta) & = \frac{\SI{1.5}{\meter}}{\SI{2.2}{\meter}} \\
+			\theta & = \SI{68.2}{\degree} \\
+			T_\text{w} & = \frac{(m_\text{s})(\SI{10}{\meter \per \second \squared})}{2} \\
+					   & = \frac{(\SI{35.0}{\kilogram})(\SI{10}{\meter \per \second \squared})}{2} \\
+			T_\text{w} & = \SI{175}{\newton} \\
+			\sum \tau_\star & = 0 \\
+			(T_y)(l_\text{b}) & = (w_\text{b}) \left( \frac{l_\text{b}}{2} \right) + (T_\text{w})(l_\text{b} + x_{w_b,w_a}) \\
+			T & = \frac{(\SI{190.0}{\newton})(\SI{0.75}{\meter}) + (\SI{175}{\newton})(\SI{1.50}{\meter} + \SI{0.32}{\meter})}{(\SI{1.50}{\meter})(\sin(\SI{68.2}{\degree})} \\
+			T & = \SI{331.0}{\newton}
+		\end{align*}
+		\bc{T = \SI{331.0}{\newton}}
+	\item
+		\begin{align*}
+			\sum F_y & = 0 \\
+			F_y + T_y & = w_\text{b} + 2T_\text{w} \\
+			F_y & = (\SI{190.0}{\newton}) + 2(\SI{175}{\newton}) - (\SI{331.0}{\newton})(\sin(\SI{68.2}{\degree})) \\
+			F_y & = \SI{232.7}{\newton}
+		\end{align*}
+		\bc{F_y = \SI{232.7}{\newton}}
+\end{enumerate}
 
 \subsection{11.71}
+\begin{align*}
+	m_\text{crate} & = \SI{200}{\kilogram} \\
+	l_\text{crate} & = \SI{1.25}{\meter} \\
+	h_\text{crate} & = \SI{0.500}{\meter} \\
+	\theta & = \SI{45.0}{\degree} \\
+	F_1 & = ? \\
+	F_2 & = ?
+\end{align*}
+\begin{align*}
+	\cos(\theta) & = \frac{x_\text{cog}}{\frac{1}{2}l_\text{crate}} \\
+	x_\text{cog} & = (\SI{0.625}{\meter})(\cos(\SI{45.0}{\degree})) \\
+	x_\text{cog} & = \SI{0.442}{\meter} \\
+	\cos(\theta) & = \frac{x_{F_2}}{\SI{1.25}{\meter}} \\
+	x_{F_2} & = \SI{0.884}{\meter}
+\end{align*}
+\begin{align*}
+	\sum \tau_\star & = 0 \\
+	(F_2)(x_{F_2}) & = (w_\text{crate})(x_\text{cog}) \\
+	F_2 & = \frac{(\SI{2000}{\newton})(\SI{0.442}{\meter})}{\SI{0.884}{\meter}} \\
+	F_2 & = \SI{1000}{\newton} \\
+	\sum F_y & = 0 \\
+	F_1 + F_2 & = w_\text{crate} \\
+	F_1 & = \SI{2000}{\newton} - \SI{1000}{\newton} \\
+	F_1 & = \SI{1000}{\newton}
+\end{align*}
+\bc{F_1 = \SI{1000}{\newton}, F_2 = \SI{1000}{\newton}}
+They share an equal upward force on the crate.
 
 \subsection{11.75}
+\begin{align*}
+	l_\text{gate} & = \SI{4.00}{\meter} \\
+	h_\text{gate} & = \SI{2.00}{\meter} \\
+	w_\text{gate} & = \SI{550}{\newton} \\
+	\theta & = \SI{30.0}{\degree} \\
+	T & = ? \\
+	T_x & = T\cos(30\degree) \\
+	T_y & = T\sin(30\degree) \\
+	l_\text{cog} & = \SI{2.00}{\meter}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\sum \tau_\star & = 0 \\
+			(T_y)(l_\text{gate}) + (T_x)(h_\text{gate}) & = (w_\text{gate})\left(\frac{1}{2}l_\text{gate}\right) \\
+			T & = \frac{(\SI{550}{\newton})(\SI{2.00}{\meter})}{\sin(\SI{30}{\degree})(\SI{4.00}{\meter}) + (\cos(\SI{30}{\degree}))(\SI{2.00}{\meter})} \\
+			T & = \SI{294.7}{\newton}
+		\end{align*}
+		\bc{T = \SI{294.7}{\newton}}
+	\item
+		\begin{align*}
+			\sum F_x & = 0 \\
+			F_x & = T_x \\
+			F_x & = (\SI{294.7}{\newton})(\cos(\SI{30}{\degree})) \\
+			F_x & = \SI{255.2}{\newton}
+		\end{align*}
+		\bc{F_x = \SI{255.2}{\newton}}
+	\item
+		\begin{align*}
+			\sum F_y & = 0 \\
+			F_{y_B} + F_{y_A} + T_y & = w_\text{gate} \\
+			F_{y_B} + F_{y_A} & = \SI{550}{\newton} - (\SI{294.7}{\newton})(\sin(\SI{30}{\degree})) \\
+			F_{y_B} + F_{y_A} & = \SI{401.5}{\newton}
+		\end{align*}
+		\bc{F_{y_B} + F_{y_A} = \SI{401.5}{\newton}}
+\end{enumerate}
 
 \subsection{11.81}
 

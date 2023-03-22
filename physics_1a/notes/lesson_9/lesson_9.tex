@@ -1,0 +1,277 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{One More 1D Motion Problem}
+
+\subsection{Finding Drag}
+
+\begin{equation}
+	F_\text{drag} = -bv
+\end{equation}
+Find the equation of motion if:
+\begin{align*}
+	\sum F & = ma \\
+	-v & = ma
+\end{align*}
+\begin{equation}
+	a = -\frac{b}{m}v
+\end{equation}
+\begin{align*}
+	\frac{dv}{dt} & = -\frac{b}{m}v \\
+	\int_{v_0}^v \frac{dv}{v} & = \int_0^t -\frac{b}{m}dt \\
+	\ln\left(\frac{v}{v_0}\right) & = -\frac{b}{m}(t - 0) \\
+	\frac{v}{v_0} & = e^{-\frac{b}{m}t} \\
+	v & = v_0e^{-\frac{b}{m}t}
+\end{align*}
+\begin{equation}
+	v = \frac{dx}{dt}
+\end{equation}
+\begin{align*}
+	\frac{dx}{dt} & = v_0e^{-\frac{b}{m}t} \\
+	\int dx = \int v_0e^{-\frac{b}{m}t}dt \\
+	x + C & = v_0 \int e^{-\frac{b}{m}t}dt \\
+	x + C & = -\frac{v_0m}{be^{\frac{b}{m}}}, \quad \text{at} \quad t = 0; x = 0 \\
+	C & = -\frac{mv_0}{b}
+\end{align*}
+\begin{align*}
+	x + C & = -\frac{mv_0}{b}e^{-\frac{b}{m}t} \\
+	x + \left( -\frac{mv_0}{b} \right) & = -\frac{mv_0}{b}e^{-\frac{b}{m}t} \\
+	x & = \frac{mv_0}{b} \left( 1 - e^{-\frac{b}{m}t} \right)
+\end{align*}
+\begin{equation}
+	x = \frac{mv_0}{b} \left( 1 - e^{-\frac{b}{m}t} \right)
+\end{equation}
+
+\section{2D (Projectile) Motion}
+
+Previously Known Kinematic Equations:
+\begin{enumerate}
+	\item
+		$$ v = v_0 + at $$
+	\item
+		$$ x = x_0 + v_0t + \frac{1}{2}at^2 $$
+	\item
+		$$ x = x_0 + \frac{1}{2}(v + v_0)t $$
+	\item
+		$$ v^2 = v_0^2 + 2a\Delta x $$
+	\item
+		$$ x = x_0 + vt - \frac{1}{2}at^2 $$
+\end{enumerate}
+
+Converted to 2D Kinematics:
+\begin{enumerate}
+	\item
+		$$ \vec{v} = \vec{v}_0 + \vec{a}t $$
+	\item
+		$$ \vec{x} = \vec{x_0} + \vec{v}_0t + \frac{1}{2}\vec{a}t^2 $$
+	\item
+		$$ \vec{x} = \vec{x_0} + \frac{1}{2}(\vec{v} + \vec{v}_0)t $$
+	\item
+		$$ \vec{v}^2 = \vec{v_0}^2 + 2\vec{a} \cdot \Delta \vec{x} $$
+	\item
+		$$ \vec{x} = \vec{x_0} + \vec{v}t - \frac{1}{2}\vec{a}t^2 $$
+\end{enumerate}
+
+\subsection{Assumptions}
+
+\begin{enumerate}
+	\item
+		An object in free fall is subject only to gravity
+		$$ a_x = 0 $$
+		$$ a_y = \pm g (down) $$
+	\item
+		Vector components act completely independently
+
+		\begin{tabular}{ c | c }
+			\textbf{x (horizontal)} & \textbf{y (vertical)} \\
+			\hline
+			$ v_x = v_{0_x} = C $ & $ v_y = v_{0_y} + a_yt $ \\
+			$ x = x_0 + v_{0_x}t $ & $ y = y_0 + v_{0_y}t + \frac{1}{2}a_yt^2 $ \\
+									  & $ y = y_0 + \frac{1}{2}(v_{0_y} + v_y)t $ \\
+									  & $ v_y^2 = v_{0_y}^2 + 2a\Delta y $ \\
+									  & $ y = y_0 + v_yt - \frac{1}{2}a_yt^2 $
+		\end{tabular}
+	\item
+		Any object in free fall is a projectile
+\end{enumerate}
+
+\subsection{Homework Sketches}
+
+Required Elements
+\begin{enumerate}
+	\item
+		Any variable
+	\item
+		Any location of interest should be indexed
+	\item
+		Path of motion
+	\item
+		Any vectors need arrows
+	\item
+		Origin \& positive directions
+\end{enumerate}
+
+\subsection{Example One}
+
+\begin{align*}
+	\theta & = \SI{30.0}{\degree} \\
+	v_0 & = \SI{45}{\meter \per \second} \\
+	a_y & = \SI{-10}{\meter \per \second \squared} \\
+	x_0 & = 0 \\
+	y_0 & = 0
+\end{align*}
+Find total time off the ground $ t $
+\begin{align*}
+	\cos(\theta) & = \frac{v_{0_x}}{v_0} \\
+	v_{0_x} & = (\SI{45}{\meter \per \second})(\cos(\SI{30.0}{\degree})) \\
+	v_{0_x} & = \SI{38.97}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	\sin(\theta) & = \frac{x_{0_y}}{v_0} \\
+	v_{0_y} & = (\SI{45}{\meter \per \second})(\sin(\SI{30.0}{\degree})) \\
+	v_{0_y} & = \SI{22.5}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	v_y & = v_{0_y} + a_yt_1 \\
+	t_1 & = \frac{v_{1_y} - v_{0_y}}{a_y} \\
+	t_1 & = \frac{\SI{-22.5}{\meter \per \second} - \SI{22.5}{\meter \per \second}}{\SI{-10}{\meter \per \second \squared}} \\
+	t_1 & = \SI{4.5}{\second}
+\end{align*}
+\bc{t_1 = \SI{4.5}{\second}}
+Find total distance traveled $ x_1 $
+\begin{align*}
+	x_1 & = x_0 + v_{0_x}t \\
+	x_1 & = (0) + (\SI{39.0}{\meter \per \second})(\SI{4.5}{\second}) \\
+	x_1 & = \SI{176}{\meter}
+\end{align*}
+\bc{x_1 = \SI{176}{\meter}}
+
+Find the maximum height $ y_2 $
+\begin{align*}
+	v_{2_y}^2 & = v_{0_y}^2 + 2a_y(y_2 - y_0) \\
+	y_2 & = -\frac{v_{0_y}^2}{2a_y} \\
+	y_2 & = -\frac{(\SI{22.5}{\meter \per \second})^2}{2(\SI{-10}{\meter \per \second \squared})} \\
+	y_2 & = \SI{25.3}{\meter}
+\end{align*}
+\bc{y_2 = \SI{25.3}{\meter}}
+
+\subsection{Example Two}
+\begin{align*}
+	\Delta x & = \SI{88}{\meter} \\
+	t & = \SI{4.0}{\second} \\
+	\theta_0 & = \SI{30}{\degree}
+\end{align*}
+Find $ v_0, v_{0_x}, v_{0_y} $
+\begin{align*}
+	x & = x_0 + v_{0_x}t \\
+	v_{0_x} & = \frac{x - x_0}{t} \\
+			& = \frac{\SI{88}{\meter} - 0}{\SI{4.0}{\second}} \\
+	v_{0_x} & = \SI{22}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	\tan(\theta) & = \frac{v_{0_y}}{v_{0_x}} \\
+	v_{0_y} & = (v_{0_x})(\tan(\theta)) \\
+			& = (\SI{22}{\meter \per \second})(\tan(\SI{30}{\degree})) \\
+	v_{0_y} & = \SI{12.70}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	v_0 & = \sqrt{v_{0_x}^2 + v_{0_y}^2} \\
+		& = \sqrt{(\SI{22}{\meter \per \second})^2 + (\SI{12.70}{\meter \per \second})^2} \\
+	v_0 & = \SI{25.40}{\meter \per \second}
+\end{align*}
+\bc{v_{0_x} = \SI{22}{\meter \per \second}, v_{0_y} = \SI{12.70}{\meter \per \second}, v_0 = \SI{25.40}{\meter \per \second}}
+Find $ y_0, y $
+\begin{align*}
+	v_y & = v_{0_y} + a_yt \\
+	v_y & = (\SI{12.70}{\meter \per \second}) + (\SI{-10}{\meter \per \second \squared})(\SI{4.0}{\second}) \\
+	v_y & = \SI{-27.3}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	y & = y_0 + v_yt - \frac{1}{2}a_yt^2 \\
+	y & = (0) + (\SI{-27.3}{\meter \per \second})(\SI{4.0}{\second}) - \frac{1}{2}(\SI{-10}{\meter \per \second \squared})(\SI{4.0}{\second})^2 \\
+	y & = \SI{-29.2}{\meter}
+\end{align*}
+\bc{y_0 = 0, y = \SI{-29.2}{\meter}}
+Find time at maximum height
+\begin{align*}
+	v_y & = v_{0_y} + a_yt \\
+	(0) & = \SI{12.70}{\meter \per \second} + (\SI{-10}{\meter \per \second \squared})t \\
+	t & = \SI{1.27}{\second}
+\end{align*}
+\bc{t = \SI{1.27}{\second}}
+Find maximum height
+\begin{align*}
+	y & = y_0 + v_{0_y}t + \frac{1}{2}a_yt^2 \\
+	y & = (0) + (\SI{12.70}{\meter \per \second})(\SI{1.27}{\second}) + \frac{1}{2}(\SI{-10}{\meter \per \second \squared})(\SI{1.27}{\second})^2 \\
+	y & = \SI{8.065}{\meter}
+\end{align*}
+\bc{y = \SI{8.065}{\meter}}
+
+\end{document}

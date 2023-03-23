@@ -152,14 +152,171 @@ $$ y'' + 9y = 4\cos(3x) + 6\sin(3x) $$
 	r^2 + 9 & = 0 \\
 	r & = 0 \pm 3i \\
 	y(x) & = c_1\cos(3x) + c_2\sin(3x) \\
-	y_p(x) & = A\cos(3x) + B\sin(3x) \\
-	y_p'(x) & = -3A\sin(3x) + 3B\cos(3x) \\
-	y_p''(x) & = -9A\cos(3x) - 9B\sin(3x) \\
-			 & (-9A\cos(3x) - 9B\sin(3x)) + 9(A\cos(3x) + B\sin(3x)) \\
-			 & = 4\cos(3x) + 6\sin(3x)
+	y_p(x) & = Ax\cos(3x) + Bx\sin(3x) \\
+	y_p'(x) & = -3Ax\sin(3x) + B\sin(3x) + 3Bx\cos(3x) + A\cos(3x) \\
+	y_p''(x) & = -9Bx\sin(3x) - 6A\sin(3x) - 9Ax\cos(3x) + 6B\cos(3x)
 \end{align*}
 \begin{align*}
-	\cos(3x)(-9A + 9A) + \sin(3x)(-9B + 9B) & = 4\cos(3x) + 6\sin(3x)
+	& -9Bx\sin(3x) - 6A\sin(3x) - 9Ax\cos(3x) \\
+	& + 6B\cos(3x)) + 9(Ax\cos(3x) + Bx\sin(3x)) = 4\cos(3x) + 6\sin(3x) \\
+	6B & = 4 \\
+	B & = \frac{2}{3} \\
+	-6A & = 6 \\
+	A & = -1 \\
+	y(x) & = -x\cos(3x) + \frac{2}{3}x\sin(3x)
+\end{align*}
+\bc{y(x) = -x\cos(3x) + \frac{2}{3}x\sin(3x)}
+
+\subsection{5.5.13}
+Find a particular solution $ y_p $ of the following equation using the Method of Undetermined Coefficients. Primes denote the derivatives with respect to $ t $.
+$$ y'' + 7y' + 14y = 1096e^{2t}\cos(8t) $$
+\begin{align*}
+	r^2 + 7r + 14 & = 0 \\
+	r & = -\frac{7}{2} \pm \frac{\sqrt{7}}{2}i \\
+	y(t) & = c_1e^{-\frac{7}{2}x}\cos\left(\frac{\sqrt{7}}{2}\right) + c_2e^{-\frac{7}{2}x}\sin\left(\frac{\sqrt{7}}{2}\right) \\
+	y_p(t) & = e^{2t}(A\cos(8t) + B\sin(8t)) \\
+		   & = e^{2t}A\cos(8t) + e^{2t}B\sin(8t) \\
+	y_p'(t) & = 2Be^{2t}\sin(8t) - 8Ae^{2t}\sin(8t) + 8Be^{2t}\cos(8t) + 2Ae^{2t}\cos(8t) \\
+	y_p''(t) & = -60Be^{2t}\sin(8t) - 32Ae^{2t}\sin(8t) + 32Be^{2t}\cos(8t) - 60Ae^{2t}\cos(8t)
+\end{align*}
+\begin{align*}
+	32B - 60A + 7(8B + 2A) + 14(A) & = 1096 \\
+	88B - 32A & = 1096 \\
+	A & = -\frac{137 - 11B}{4} \\
+	-60B - 32A + 7(2B - 8A) + 14(B) & = 1096 \\
+	-32B - 88A & = 0 \\
+	-32B - 88 \left( -\frac{137 - 11B}{4} \right) & = 0 \\
+	B & = 11 \\
+	A & = -4 \\
+	y(t) & = e^{2t}(-4\cos(8t) + 11\sin(8t))
+\end{align*}
+\bc{y(t) = e^{2t}(-4\cos(8t) + 11\sin(8t))}
+
+\subsection{5.5.23}
+Using the Method of Undetermined Coefficients, determine the form of a particular solution for the differential equation. (Do not evaluate coefficients.)
+$$ y'' + 16y = 7t^3\sin(4t) $$
+\begin{align*}
+	r^2 + 16r & = 0 \\
+	r & = 0 \pm 4i \\
+	y(t) & = c_1\cos(4t) + c_2\sin(4t) \\
+	y_p(t) & = t(A_3t^3 + A_2t^2 + A_1t + A_0)\cos(6t) + t(B_3t^3 + B_2t^2 + B_1t + B_0)\sin(6t)
+\end{align*}
+
+\subsection{5.5.33}
+Solve the following initial value problem.
+$$ y'' + 64y = \sin(2x); \quad y(0) = 1, y'(0) = 0 $$
+\begin{align*}
+	r^2 + 64 & = 0 \\
+	r & = 0 \pm 8i \\
+	y_c(x) & = c_1\cos(8x) + c_2\sin(8x) \\
+	y_p(x) & = A\cos(2x) + B\sin(2x) \\
+	y_p'(x) & = -2A\sin(2x) + 2B\cos(2x) \\
+	y_p''(x) & = -4A\cos(2x) - 4B\sin(2x)
+\end{align*}
+\begin{align*}
+	-4B + 64(B) & = 1 \\
+	B & = \frac{1}{60} \\
+	-4A + 64(A) & = 0 \\
+	A & = 0 \\
+	y_p(x) & = \frac{1}{60}\sin(2x)
+\end{align*}
+\begin{align*}
+	y(x) & = c_1\cos(8x) + c_2\sin(8x) + \frac{1}{60}\sin(2x) \\
+	y(0) & = c_1\cos(8(0)) + c_2\sin(8(0)) + \frac{1}{60}\sin(2(0)) = 1 \\
+	c_1 & = 1 \\
+	y'(x) & = -8c_1\sin(8x) + 8c_2\cos(8x) + \frac{1}{30}\cos(2x) \\
+	y'(0) & = -8c_1\sin(8(0)) + 8c_2\cos(8(0)) + \frac{1}{30}\cos(2(0)) = 0 \\
+	8c_2 + \frac{1}{30} = 0 \\
+	c_2 & = -\frac{1}{240} \\
+	y(x) & = \cos(8x) - \frac{\sin(8x)}{240} + \frac{\sin(2x)}{60}
+\end{align*}
+\bc{y(x) = \cos(8x) - \frac{\sin(8x)}{240} + \frac{\sin(2x)}{60}}
+
+\subsection{5.5.35}
+Solve the following initial value problem.
+$$ y'' - 2y' + 2y = x + 2; \quad y(0) = 3, y'(0) = 0 $$
+\begin{align*}
+	r^2 - 2r + 2 & = 0 \\
+	r & = 1 \pm 1i \\
+	y_c(x) & = c_1e^x\cos(x) + c_2e^x\sin(x) \\
+	y_p(x) & = Ax + B \\
+	y_p'(x) & = A \\
+	y_p''(x) & = 0
+\end{align*}
+\begin{align*}
+	0 - 2(A) + 2(Ax + B) & = x + 2 \\
+	2A & = 1 \\
+	A & = \frac{1}{2} \\
+	-2A + 2B & = 2 \\
+	B & = \frac{2 + 2(\sfrac{1}{2})}{2} \\
+	B & = \frac{3}{2} \\
+	y_p(x) & = \frac{x}{2} + \frac{3}{2}
+\end{align*}
+\begin{align*}
+	y(x) & = c_1e^x\cos(x) + c_2e^x\sin(x) + \frac{x}{2} + \frac{3}{2} \\
+	y(0) & = c_1e^0\cos(0) + c_2e^0\sin(0) + \frac{0}{2} + \frac{3}{2} = 3 \\
+	c_1 & = \frac{3}{2} \\
+	y'(x) & = c_2e^x\sin(x) - c_1e^x\sin(x) + c_2e^x\cos(x) + c_1e^x\cos(x) + \frac{1}{2} \\
+	y'(0) & = c_2e^0\sin(0) - c_1e^0\sin(0) + c_2e^0\cos(0) + c_1e^0\cos(0) + \frac{1}{2} = 0 \\
+	c_2 + \frac{3}{2} + \frac{1}{2} & = 0 \\
+	c_2 & = -2 \\
+	y(x) & = \frac{3}{2}\cos(x) - 2e^x\sin(x) + \frac{x}{2} + \frac{3}{2}
+\end{align*}
+\bc{y(x) = \frac{3}{2}\cos(x) - 2e^x\sin(x) + \frac{x}{2} + \frac{3}{2}}
+
+\subsection{5.5.49}
+Use the method of variation of parameters to find a particular solution of the following differential equation.
+$$ y'' - 12y' + 36y = 4e^{6x} $$
+\begin{align*}
+	r^2 - 12r + 36 & = 0 \\
+	r & = 6, 6 \\
+	y_c(x) & = c_1e^{6x} + c_2xe^{6x} \\
+	y_1(x) & = e^{6x} \\
+	y_1'(x) & = 6e^{6x} \\
+	y_2(x) & = xe^{6x} \\
+	y_2'(x) & = e^{6x} + 6xe^{6x}
+\end{align*}
+\begin{align*}
+	W & =
+		\begin{vmatrix}
+			e^{6x} & xe^{6x} \\
+			6e^{6x} & e^{6x} + 6xe{6x}
+		\end{vmatrix} = e^{12x} \\
+	W_1 & =
+		\begin{vmatrix}
+			0 & xe^{6x} \\
+			4e^{6x} & 6xe^{6x}
+		\end{vmatrix} = -4e^{12x}x \\
+	W_2 & =
+		\begin{vmatrix}
+			e^{6x} & 0 \\
+			6e^{6x} & 4e^{6x}
+		\end{vmatrix} = 4e^{12x} \\
+	c_1'(x) & = \frac{W_1}{W} = -4x \\
+	\int c_1'(x) & = -2x^2 \\
+	c_2'(x) & = \frac{W_2}{W} = 4 \\
+	\int c_2'(x) & = 4x \\
+	y_p(x) & = -2x^2e^{6x} + 4x^2e^{6x}
+\end{align*}
+
+\subsection{5.5.51}
+Use the method of variation of parameters to find a particular solution of the following differential equation.
+$$ y'' + 36y = \cos(2x) $$
+\begin{align*}
+	r^2 + 36r & = 0 \\
+	r & = 0 \pm 6i \\
+	y_c(x) & = c_1\cos(6x) + c_2\sin(6x) \\
+	y_1(x) & = \cos(6x) \\
+	y_1'(x) & = -6\sin(6x) \\
+	y_2(x) & = \sin(6x) \\
+	y_2'(x) & = 6\cos(6x)
+\end{align*}
+\begin{align*}
+	W & =
+		\begin{vmatrix}
+			\cos(6x) & \sin(6x) \\
+			-6\sin(6x) & 6\cos(6x)
+		\end{vmatrix} = 6 \\
 \end{align*}
 
 \end{document}

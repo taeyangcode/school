@@ -1,0 +1,106 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Section 3.2}
+
+\subsection{3.2.1}
+The following linear system is in echelon form. Solve the linear system by back substitution.
+\begin{equation*}
+	\left\{
+		\begin{aligned}
+			x_1 + x_2 + 2x_3 & = 2 \\
+			x_2 + 3x_3 & = 4 \\
+			x_3 & = 3
+		\end{aligned}
+	\right.
+\end{equation*}
+\begin{align*}
+	x_2 + 3(3) & = 4 \\
+	x_2 & = -5 \\
+	x_1 + (-5) + 2(3) & = 2 \\
+	x_1 & = 1
+\end{align*}
+\bc{x_1 = 1, x_2 = -5, x_3 = 3}
+
+The following linear system is in echelon form. Solve the linear system by back substitution.
+\begin{equation*}
+	\left\{
+		\begin{aligned}
+			x_1 - 9x_2 + x_3 & = 18 \\
+			x_2 + x_3 & = 2
+		\end{aligned}
+	\right.
+\end{equation*}
+\begin{align*}
+	x_1 - 10x_2 & = 16 \\
+	x_2 & = 2 - x_3
+\end{align*}
+
+\end{document}

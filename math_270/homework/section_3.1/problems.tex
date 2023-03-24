@@ -94,4 +94,157 @@ Use the method of elimination to determine whether the given linear system is co
 \end{align*}
 \bc{\text{Unique solution:} \quad x = -6, y = 4}
 
+\subsection{3.1.5}
+Use the method of elimination to determine whether the given linear system is consistent or inconsistent. If the linear system is consistent, find the solution if it is unique; otherwise, describe the infinite solution set in terms of an arbitrary parameter $ t $.
+\begin{equation*}
+	\left\{
+		\begin{aligned}
+			x + 5y & = 18 \\
+			3x + 15y & = 55
+		\end{aligned}
+	\right.
+\end{equation*}
+\begin{align*}
+	& \left\{
+		\begin{aligned}
+			-3x - 15y & = -54 \\
+			3x + 15y & = 55
+		\end{aligned}
+	\right. \\
+	0 + 0 & = 1
+\end{align*}
+\bc{\text{Linear system is inconsistent and no solution exists}}
+
+\subsection{3.1.7}
+Use the method of elimination to determine whether the given linear system is consistent or inconsistent. If the linear system is consistent, find the solution if it is unique; otherwise, describe the infinite solution set in terms of an arbitrary parameter
+\begin{equation*}
+	\left\{
+		\begin{aligned}
+			x - 4y & = -8 \\
+			-2x + 8y & = 16
+		\end{aligned}
+	\right.
+\end{equation*}
+\begin{align*}
+	\left\{
+		\begin{aligned}
+			2x - 8y & = -16 \\
+			-2x + 8y & = 16
+		\end{aligned}
+	\right. \\
+	0 & = 0 \\
+	x - 2t & = -15 \\
+	x & = 2t - 15
+\end{align*}
+\bc{\text{Infinite many solutions}, x = 2t - 15}
+
+\subsection{3.1.9}
+Use the method of elimination to determine whether the given linear system is consistent or inconsistent. If the linear system is consistent, find the solution if it is unique; otherwise, describe the infinite solution set in terms of an arbitrary parameter $ t $.
+\begin{equation*}
+	\left\{
+		\begin{aligned}
+			x + 4y + z & = -3 \\
+			2x + y - 4z & = -16 \\
+			x + 6y + 2z & = -3
+		\end{aligned}
+	\right.
+\end{equation*}
+\begin{align*}
+	\left\{
+		\begin{aligned}
+			x + 4y + z & = -3 \\
+			x + 6y + 2z & = -3
+		\end{aligned}
+	\right. \\
+	-2y - z & = 0 \\
+	z & = -2y \\
+	\left\{
+		\begin{aligned}
+			2x + 8y + 2z & = -6 \\
+			2x + y - 4z & = -16 \\
+		\end{aligned}
+	\right. \\
+	7y + 6z & = 10 \\
+	7y + 6(-2y) & = 10 \\
+	y & = -2 \\
+	z & = -2(-2) \\
+	z & = 4 \\
+	x + 4(-2) + 4 & = -3 \\
+	x & = 1
+\end{align*}
+\bc{x = 1, y = -2, z = 4}
+
+\subsection{3.1.19}
+Use the method of elimination to determine whether the given linear system is consistent or inconsistent. If the linear system is consistent, find the solution if it is unique; otherwise, describe the infinite solution set in terms of an arbitrary parameter $ t $.
+\begin{equation*}
+	\left\{
+		\begin{aligned}
+			x - 2y + 2 & = -1 \\
+			2x - y - 8z & = 31 \\
+			x - y - 2z & = 10
+		\end{aligned}
+	\right.
+\end{equation*}
+\begin{align*}
+	x & = 2y - 2z - 1 \\
+	2(2y - 2z - 1) - y - 8z & = 31 \\
+	y & = 4z + 11 \\
+	x & = 2(4z + 11) - 2z - 1 \\
+	x & = 6z + 21 \\
+	(6z + 21) - (4z + 11) - 2z & = 10 \\
+	(6z - 4z - 2z) & = (-21 + 11 + 10) \\
+	0 & = 0, \quad \text{Infinite many solutions} \\
+	  & \left\{
+		\begin{aligned}
+			x & = 6t + 21 \\
+			y & = 4t + 11
+		\end{aligned}
+	\right.
+\end{align*}
+\bc{
+	\left\{
+		\begin{aligned}
+			x & = 6t + 21 \\
+			y & = 4t + 11
+		\end{aligned}
+	\right.
+}
+
+\subsection{3.1.23}
+A second-order differential equation and its general solution $ y(x) $ are given. Determine the constants $ A $ and $ B $ so as to find a solution of the differential equation that satisfies the given initial conditions involving $ y(0) $ and $ y'(0) $.
+$$ y'' + 9y = 0, y(x) = A\cos(3x) + B\sin(3x), y(0) = 3, y'(0) = 27 $$
+\begin{align*}
+	y(x) & = A\cos(3x) + B\sin(3x) \\
+	y'(x) & = -3A\sin(3x) + 3B\cos(3x) \\
+	y''(x) & = -9A\cos(3x) - 9B\sin(3x)
+\end{align*}
+\begin{align*}
+	y(0) & = A\cos(3(0)) + B\sin(3(0)) = 3 \\
+	A & = 3 \\
+	y'(0) & = -3(3)\sin(3(0)) + 3B\cos(3(0)) = 27 \\
+	B & = 9
+\end{align*}
+\bc{A = 3, B = 9}
+
+\subsection{3.1.25}
+A second-order differential equation and its general solution $ y(x) $ are given. Determine the constants $ A $ and $ B $ so as to find a solution of the differential equation that satisfies the given initial conditions involving $ y(0) $ and $ y'(0) $.
+$$ y'' - 9y = 0, y(x) = Ae^{3x} + Be^{-3x}, y(0) = 12, y'(0) = 6 $$
+\begin{align*}
+	y(x) & = Ae^{3x} + Be^{-3x} \\
+	y'(x) & = 3Ae^{3x} - 3Be^{-3x} \\
+	y''(x) & = 9Ae^{3x} + 9Be^{-3x}
+\end{align*}
+\begin{align*}
+	y(0) & = Ae^{3(0)} + Be^{-3(0)} = 12 \\
+	A + B & = 12 \\
+	A & = 12 - B \\
+	y'(0) & = 3Ae^{3(0)} - 3Be^{-3(0)} = 6 \\
+	3A - 3B & = 6 \\
+	3(12 - B) - 3B & = 6 \\
+	B & = 5 \\
+	A + (5) & = 12 \\
+	A & = 7
+\end{align*}
+\bc{A = 7, B = 5}
+
 \end{document}

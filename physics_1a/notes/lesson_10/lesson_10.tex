@@ -1,0 +1,94 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit\feet{ft}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Range Equation}
+$$ R = \frac{v_0^2\sin(2\theta)}{g} $$
+Only valid of $ \Delta y = 0 $
+
+\subsection{Lab Problem - 676}
+\begin{align*}
+	R & = \frac{v_0^2\sin(2\theta)}{g} \\
+	v_0 & = \sqrt{\frac{Rg}{\sin(2\theta)}} \\
+	v_0 & = \sqrt{\frac{(\SI{192}{\feet})(\SI{-32.17}{\feet \per \second \squared})}{\sin(2(\SI{37}{\degree}))}} \\
+	v_0 & = \SI{79.18}{\feet \per \second}
+\end{align*}
+\begin{align*}
+	0 & = \SI{160}{\feet} + (\SI{-79.18}{\feet \per \second})(\cos(53\degree))t + \frac{1}{2}(\SI{-32.17}{\feet \per \second \squared})t^2 \\
+	t & = \SI{2.003}{\second}
+\end{align*}
+\begin{align*}
+	x & = x_0 + v_{0_x}t \\
+	x & = 0 + (\SI{79.18}{\feet \per \second})(\sin(\SI{53}{\degree}))(\SI{2.003}{\second}) \\
+	x & = \SI{126.7}{\feet}
+\end{align*}
+\bc{x & = \SI{126.7}{\feet}}
+
+\end{document}

@@ -1,0 +1,161 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Part 2}
+Now, let's continue with the same augmented matrix
+$$
+	[A|\vec{b}] = \begin{bmatrix}
+		3 & -15 & -5 & 2 & | & 27 \\
+		-2 & 10 & 3 & -4 & | & -28 \\
+		5 & -25 & -2 & -1 & | & 15
+	\end{bmatrix}
+$$
+\hr
+\begin{align*}
+	R_1 & = r_1 + r_2 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & -2 & -2 & | & -1 \\
+		-2 & 10 & 3 & -4 & | & -28 \\
+		5 & -25 & -2 & -1 & | & 15
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	R_2 & = r_2 + 2r_1 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & -2 & -2 & | & -1 \\
+		0 & 0 & -1 & -8 & | & -30 \\
+		5 & -25 & -2 & -1 & | & 15
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	R_3 & = r_3 - 5r_1 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & -2 & -2 & | & -1 \\
+		0 & 0 & -1 & -8 & | & -30 \\
+		0 & 0 & 8 & 9 & | & 20
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	R_2 & = -r_2 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & -2 & -2 & | & -1 \\
+		0 & 0 & 1 & 8 & | & 30 \\
+		0 & 0 & 8 & 9 & | & 20
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	R_3 & = r_3 - 8r_2 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & -2 & -2 & | & -1 \\
+		0 & 0 & 1 & 8 & | & 30 \\
+		0 & 0 & 0 & -55 & | & -220
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	R_3 & = -\frac{1}{55}r_3 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & -2 & -2 & | & -1 \\
+		0 & 0 & 1 & 8 & | & 30 \\
+		0 & 0 & 0 & 1 & | & 4
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	R_1 & = r_1 + 2r_2 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & 0 & 14 & | & 59 \\
+		0 & 0 & 1 & 8 & | & 30 \\
+		0 & 0 & 0 & 1 & | & 4
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	R_2 & = r_2 - 8r_3 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & 0 & 14 & | & 59 \\
+		0 & 0 & 1 & 0 & | & -2 \\
+		0 & 0 & 0 & 1 & | & 4
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	R_1 & = r_3 - 14r_3 \\
+	[A|\vec{b}] & = \begin{bmatrix}
+		1 & -5 & 0 & 0 & | & 3 \\
+		0 & 0 & 1 & 0 & | & -2 \\
+		0 & 0 & 0 & 1 & | & 4
+	\end{bmatrix}
+\end{align*}
+\bc{\text{Reduced Row Echelon Form:} \quad
+	[A|\vec{b}] = \begin{bmatrix}
+		1 & -5 & 0 & 0 & | & 3 \\
+		0 & 0 & 1 & 0 & | & -2 \\
+		0 & 0 & 0 & 1 & | & 4
+	\end{bmatrix}
+}
+
+\end{document}

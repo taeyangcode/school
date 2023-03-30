@@ -1,0 +1,180 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 07 Participation Assignment (2 of 3)}
+\author{Corey Mostero}
+\date{31 March 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 2}
+Consider the following matrices:
+\begin{align*}
+	A & = \begin{bmatrix}
+		1 & -3 & 2 \\
+		5 & 4 & -1 \\
+		-3 & 2 & -4
+	\end{bmatrix} \\
+	B & = \begin{bmatrix}
+		7 & 1 & -4 \\
+		2 & -3 & 2 \\
+		-1 & -3 & 2
+	\end{bmatrix} \\
+	C & = \begin{bmatrix}
+		6 & -6 \\
+		6 & 7
+	\end{bmatrix} \\
+	D & = \begin{bmatrix}
+		\lambda - 5 & -1 & -1 \\
+		-1 & \lambda - 5 & -1 \\
+		-1 & -1 & \lambda - 5
+	\end{bmatrix} \\
+	E & = \begin{bmatrix}
+		3 & 2 & -4 & 1 \\
+		-2 & 1 & 0 & 3 \\
+		5 & 3 & 2 & -1 \\
+		2 & -5 & 3 & 6
+	\end{bmatrix}
+\end{align*}
+Perform the following calculations:
+\begin{enumerate}[label=\textbf{\arabic*).}]
+	\item $ \det(C) $ using the formula for two by two matrix.
+	\item $ \det(D) $ using the co-factor expansion.
+	\item $ \det(E) $ using row/column operations.
+\end{enumerate}
+
+Find $ \det(E) $ using elementary row/column operations
+
+\subsection{$ \det(C) $}
+\begin{align*}
+	\det(C) & = (6)(7) - (-6)(6) \\
+	\det(C) & = 78
+\end{align*}
+\bc{
+	\det(C) = 78
+}
+
+\subsection{$ \det(D) $}
+\begin{align*}
+	\det(D) & = 
+		(\lambda - 5) \det \begin{bmatrix} \lambda - 5 & -1 \\ -1 & \lambda - 5 \end{bmatrix} \\
+		& - (-1) \det \begin{bmatrix} -1 & -1 \\ -1 & \lambda - 5 \end{bmatrix} \\
+		& + (-1) \det \begin{bmatrix} -1 & \lambda - 5 \\ -1 & -1 \end{bmatrix} \\
+	\det(D) & = (\lambda - 5)(\lambda^2 - 10\lambda + 24) + (1)(-\lambda + 4) + (-1)(\lambda - 4) \\
+	\det(D) & = \lambda^3 - 15\lambda^2 + 72\lambda - 112
+\end{align*}
+\bc{
+	\det(D) = \lambda^3 - 15\lambda^2 + 72\lambda - 112
+}
+
+\subsection{$ \det(E) $}
+\begin{align*}
+	E_2 & = E_2 + \frac{2}{3}E_1 \\
+	E_3 & = E_3 - \frac{5}{3}E_1 \\
+	E_4 & = E_4 - \frac{2}{3}E_1 \\
+	E & = \begin{bmatrix}
+		3 & 2 & -4 & 1 \\
+		0 & \frac{7}{3} & -\frac{8}{3} & \frac{11}{3} \\
+		0 & -\frac{1}{3} & \frac{26}{3} & -\frac{8}{3} \\
+		0 & -\frac{19}{3} & \frac{17}{3} & \frac{16}{3}
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	E_3 & = E_3 + \frac{1}{7}E_2 \\
+	E_4 & = E_4 + \frac{19}{7}E_2 \\
+	E & = \begin{bmatrix}
+		3 & 2 & -4 & 1 \\
+		0 & \frac{7}{3} & -\frac{8}{3} & \frac{11}{3} \\
+		0 & 0 & \frac{58}{7} & -\frac{15}{7} \\
+		0 & 0 & -\frac{11}{7} & \frac{107}{7}
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	E_4 & = E_4 + \frac{11}{58}E_3 \\
+	E & = \begin{bmatrix}
+		3 & 2 & -4 & 1 \\
+		0 & \frac{7}{3} & -\frac{8}{3} & \frac{11}{3} \\
+		0 & 0 & \frac{58}{7} & -\frac{15}{7} \\
+		0 & 0 & 0 & \frac{863}{58}
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\det(E) & = (3) \left( \frac{7}{3} \right) \left( \frac{58}{7} \right) \left( \frac{863}{58} \right) \\
+	\det(E) & = 863
+\end{align*}
+\bc{
+	\det(E) = 863
+}
+
+\end{document}

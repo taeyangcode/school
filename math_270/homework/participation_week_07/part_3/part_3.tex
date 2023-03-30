@@ -1,0 +1,211 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 07 Participation Assignment (3 of 3)}
+\author{Corey Mostero}
+\date{31 March 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 3}
+Consider the matrix
+$$
+	\begin{bmatrix}
+		1 & -3 & 2 \\
+		5 & 4 & -1 \\
+		-3 & 2 & -4
+	\end{bmatrix}
+$$
+. Find the inverse of $ A $ using the method indicated:
+\begin{enumerate}[label=\textbf{\arabic*)}]
+	\item Use elementary row operations on $ [A|I] $ to convert it into $ [I|A^{-1}] $.
+	\item Use the adjoint matrix.
+\end{enumerate}
+
+\subsection{1)}
+\begin{align*}
+	[I|A^{-1}] & = \left[ \begin{array}{ccc|ccc}
+		1 & -3 & 2 & 1 & 0 & 0 \\
+		5 & 4 & -1 & 0 & 1 & 0 \\
+		-3 & 2 & -4 & 0 & 0 & 1
+	\end{array} \right]
+\end{align*}
+\begin{align*}
+	A_2 & = A_2 - 5A_1 \\
+	A_3 & = A_3 + 3A_1 \\
+	[I|A^{-1}] & = \left[ \begin{array}{ccc|ccc}
+		1 & -3 & 2 & 1 & 0 & 0 \\
+		0 & 19 & -11 & -5 & 1 & 0 \\
+		0 & -7 & 2 & 3 & 0 & 1
+	\end{array} \right]
+\end{align*}
+\begin{align*}
+	A_3 & = A_3 + \frac{7}{19}A_2 \\
+	[I|A^{-1}] & = \left[ \begin{array}{ccc|ccc}
+		1 & -3 & 2 & 1 & 0 & 0 \\
+		0 & 19 & -11 & -5 & 1 & 0 \\
+		0 & 0 & -\frac{39}{19} & \frac{22}{19} & \frac{7}{19} & 1
+	\end{array} \right]
+\end{align*}
+\begin{align*}
+	A_1 & = A_1 + \frac{3}{19}A_2 \\
+	[I|A^{-1}] & = \left[ \begin{array}{ccc|ccc}
+		1 & 0 & \frac{5}{19} & \frac{4}{19} & \frac{3}{19} & 0 \\
+		0 & 19 & -11 & -5 & 1 & 0 \\
+		0 & 0 & -\frac{39}{19} & \frac{22}{19} & \frac{7}{19} & 1
+	\end{array} \right]
+\end{align*}
+\begin{align*}
+	A_1 & = A_1 + \frac{5}{39}A_3 \\
+	[I|A^{-1}] & = \left[ \begin{array}{ccc|ccc}
+		1 & 0 & 0 & \frac{14}{39} & \frac{8}{39} & \frac{5}{39} \\
+		0 & 19 & -11 & -5 & 1 & 0 \\
+		0 & 0 & -\frac{39}{19} & \frac{22}{19} & \frac{7}{19} & 1
+	\end{array} \right]
+\end{align*}
+\begin{align*}
+	A_2 & = \frac{1}{19}A_2 \\
+	[I|A^{-1}] & = \left[ \begin{array}{ccc|ccc}
+		1 & 0 & 0 & \frac{14}{39} & \frac{8}{39} & \frac{5}{39} \\
+		0 & 1 & -\frac{11}{19} & -\frac{5}{19} & \frac{1}{19} & 0 \\
+		0 & 0 & -\frac{39}{19} & \frac{22}{19} & \frac{7}{19} & 1
+	\end{array} \right]
+\end{align*}
+\begin{align*}
+	A_2 & = A_2 - \frac{11}{39}A_3 \\
+	[I|A^{-1}] & = \left[ \begin{array}{ccc|ccc}
+		1 & 0 & 0 & \frac{14}{39} & \frac{8}{39} & \frac{5}{39} \\
+		0 & 1 & 0 & -\frac{23}{39} & -\frac{2}{39} & -\frac{11}{39} \\
+		0 & 0 & -\frac{39}{19} & \frac{22}{19} & \frac{7}{19} & 1
+	\end{array} \right]
+\end{align*}
+\begin{align*}
+	A_3 & = -\frac{19}{39}A_3 \\
+	[I|A^{-1}] & = \left[ \begin{array}{ccc|ccc}
+		1 & 0 & 0 & \frac{14}{39} & \frac{8}{39} & \frac{5}{39} \\
+		0 & 1 & 0 & -\frac{23}{39} & -\frac{2}{39} & -\frac{11}{39} \\
+		0 & 0 & 1 & -\frac{22}{39} & -\frac{7}{39} & -\frac{19}{39}
+	\end{array} \right]
+\end{align*}
+\bc{
+	[I|A^{-1}] = \left[ \begin{array}{ccc|ccc}
+		1 & 0 & 0 & \frac{14}{39} & \frac{8}{39} & \frac{5}{39} \\
+		0 & 1 & 0 & -\frac{23}{39} & -\frac{2}{39} & -\frac{11}{39} \\
+		0 & 0 & 1 & -\frac{22}{39} & -\frac{7}{39} & -\frac{19}{39}
+	\end{array} \right]
+}
+
+\subsection{2)}
+\begin{align*}
+	\det(A) & = (1)(4 \cdot -4 - -1 \cdot 2) - (-3)(5 \cdot -4 - -1 \cdot -3) + (2)(5 \cdot 2 - 4 \cdot -3) \\
+	\det(A) & = -39
+\end{align*}
+\begin{align*}
+	C & = \begin{bmatrix}
+		\det \begin{bmatrix} 4 & -1 \\ 2 & -4 \end{bmatrix} & \det \begin{bmatrix} 5 & -1 \\ -3 & -4 \end{bmatrix} & \det \begin{bmatrix} 5 & 4 \\ -3 & 2 \end{bmatrix} \\
+		\det \begin{bmatrix} -3 & 2 \\ 2 & -4 \end{bmatrix} & \det \begin{bmatrix} 1 & 2 \\ -3 & -4 \end{bmatrix} & \det \begin{bmatrix} 1 & -3 \\ -3 & 2 \end{bmatrix} \\
+		\det \begin{bmatrix} -3 & 2 \\ 4 & -1 \end{bmatrix} & \det \begin{bmatrix} 1 & 2 \\ 5 & -1 \end{bmatrix} & \det \begin{bmatrix} 1 & -3 \\ 5 & 4 \end{bmatrix}
+	\end{bmatrix} \\
+	C & = \begin{bmatrix}
+		-14 & -23 & 22 \\
+		8 & 2 & 7 \\
+		-5 & -11 & 19
+	\end{bmatrix} \\
+	\text{Adj} & = \begin{bmatrix}
+		-14 & -8 & -5 \\
+		23 & 2 & 11 \\
+		22 & 7 & 19
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A^{-1} & = \frac{1}{-39}\begin{bmatrix}
+		-14 & -8 & -5 \\
+		23 & 2 & 11 \\
+		22 & 7 & 19
+	\end{bmatrix} \\
+	A^{-1} & = \begin{bmatrix}
+		\frac{14}{39} & \frac{8}{39} & \frac{5}{39} \\
+		-\frac{23}{39} & -\frac{2}{39} & -\frac{11}{39} \\
+		-\frac{22}{39} & -\frac{7}{39} & -\frac{19}{39}
+	\end{bmatrix}
+\end{align*}
+\bc{
+	A^{-1} = \begin{bmatrix}
+		\frac{14}{39} & \frac{8}{39} & \frac{5}{39} \\
+		-\frac{23}{39} & -\frac{2}{39} & -\frac{11}{39} \\
+		-\frac{22}{39} & -\frac{7}{39} & -\frac{19}{39}
+	\end{bmatrix}
+}
+
+\end{document}

@@ -1,0 +1,133 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\section{Section 3.4}
+
+\subsection{3.4.1}
+Find $ 2A + 3B $
+$$
+	A = \begin{bmatrix}
+		5 & 5 \\
+		4 & 3
+	\end{bmatrix} \quad
+	B = \begin{bmatrix}
+		-6 & 8 \\
+		1 & -1
+	\end{bmatrix}
+$$
+\begin{align*}
+	2A + 3B & = \begin{bmatrix}
+		-8 & 34 \\
+		11 & 3
+	\end{bmatrix}
+\end{align*}
+\bc{
+	2A + 3B = \begin{bmatrix}
+		-8 & 34 \\
+		11 & 3
+	\end{bmatrix}
+}
+
+\subsection{3.4.2}
+Two matrices $ A $ and $ B $ and two numbers $ c $ and $ d $ are given. Compute the matrix $ cA + dB $.
+$$
+	A = \begin{bmatrix}
+		2 & 0 & -2 \\
+		-1 & 6 & 6
+	\end{bmatrix},
+	B = \begin{bmatrix}
+		-2 & 2 & 3 \\
+		5 & 2 & 5
+	\end{bmatrix},
+	c = 6, d = -4
+$$
+\begin{align*}
+	cA + dB & = \begin{bmatrix}
+		12 & 0 & -12 \\
+		-6 & 36 & 36
+	\end{bmatrix}
+	+ \begin{bmatrix}
+		8 & -8 & -12 \\
+		-20 & -8 & -20
+	\end{bmatrix} \\
+	cA + dB & = \begin{bmatrix}
+		20 & -8 & -24 \\
+		-26 & 28 & 16
+	\end{bmatrix}
+\end{align*}
+\bc{
+	cA + dB = \begin{bmatrix}
+		20 & -8 & -24 \\
+		-26 & 28 & 16
+	\end{bmatrix}
+}
+
+\end{document}

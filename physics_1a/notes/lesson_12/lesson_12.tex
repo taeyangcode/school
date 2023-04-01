@@ -1,0 +1,155 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Newton's Second Law w/ Acceleration}
+
+\subsection{Example}
+\begin{align*}
+	v_1 & = v \\
+	v_2 & = \frac{1}{2}v \\
+	a_1 & = a \\
+	a_2 & = \frac{1}{2}a \\
+	m_1 & = \SI{8}{\kilogram} \\
+	m_2 & = \SI{10}{\kilogram} \\
+	a_{m_1} & = ? \\
+	a_{m_2} & = ?
+\end{align*}
+\begin{align*}
+	\sum F_y^{(m_1)} & = 0 \\
+	N_{m_1} & = w_{m_1}
+\end{align*}
+\begin{align*}
+	\sum F_x^{(m_1)} & = -a_{m_1} \\
+	T_1 & = -a_{m_1}
+\end{align*}
+\begin{align*}
+	\sum F_y^{P} & = 0 \\
+	T_1 & = 2T_2 \\
+	T_2 & = \frac{1}{2}T_1
+\end{align*}
+\begin{align*}
+	\sum F_y^{(m_2)} & = -a_{m_2} \\
+	T_2 & = -w_{m_2} - a_{m_2}
+\end{align*}
+\begin{align*}
+	-w_{m_2} - a_{m_2} & = \frac{1}{2}T_1 \\
+	T_1 & = -2(w_{m_2} + a_{m_2})
+\end{align*}
+\begin{align*}
+	-2(w_{m_2} + a_{m_2}) & = -a_{m_1} \\
+	a_{m_1} & = 2(w_{m_2} + a_{m_2}) \\
+	a_{m_2} & = \frac{1}{2}a_{m_1} - w_{m_2}
+\end{align*}
+
+\subsection{Example - Lab Manual 592}
+\begin{align*}
+	m_1 & = \SI{10}{\kilogram} \\
+	m_2 & = \SI{5}{\kilogram} \\
+	m_3 & = \SI{3}{\kilogram} \\
+	\theta & = \SI{25}{\degree} \\
+	\phi & = \SI{65}{\degree}
+\end{align*}
+\begin{align*}
+	\sum F_x^{(m_3)} & = m_3a \\
+	f_{m_3} & = m_3a + T_2 + m_3g\sin(\theta) \\
+	T_2 & = \mu N_{m_3} - m_3a - m_3g\sin(\theta)
+\end{align*}
+\begin{align*}
+	\sum F_y^{(m_3)} & = 0 \\
+	N_{g,m_3} & = m_3g\cos(\theta) \\
+			  & = (\SI{3}{\kilogram})(\SI{10}{\meter \per \second \squared})\cos(\SI{25}{\degree}) \\
+	N_{g,m_3} & = \SI{27.2}{\newton}
+\end{align*}
+\begin{align*}
+	T_2 & = \mu N_{m_3} - m_3a - m_3g\sin(\theta) \\
+	T_2 & = \mu \SI{27.2}{\newton} - (\SI{3}{\kilogram})(\SI{2.35}{\meter \per \second \squared}) - (\SI{3}{\kilogram})(\SI{10}{\meter \per \second \squared})\sin(\SI{25}{\degree})
+\end{align*}
+\begin{align*}
+	\sum F_y^{(m_1)} & = -m_1a \\
+	T_1 & = m_1g - m_1a \\
+		& = (\SI{10}{\kilogram})(\SI{10}{\meter \per \second \squared}) - (\SI{10}{\kilogram})(\SI{2.35}{\meter \per \second \squared}) \\
+	T_1 & = \SI{76.5}{\newton}
+\end{align*}
+\begin{align*}
+	\sum F_y^{(m_2)} & = 0 \\
+	N_{g,m_2} & = m_2g \\
+			  & = (\SI{5}{\kilogram})(\SI{10}{\meter \per \second \squared}) \\
+	N_{g,m_2} & = \SI{50}{\newton}
+\end{align*}
+\begin{align*}
+	\sum F_x^{(m_2)} & = -m_2a \\
+	T_2 + f_{m_2} & = -m_2a + T_1 \\
+	T_2 + \mu N_{m_2} & = -m_2a + T_1 \\
+\end{align*}
+
+\end{document}

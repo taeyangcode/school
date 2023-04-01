@@ -1,0 +1,178 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit{\north}{N}
+\DeclareSIUnit{\south}{S}
+\DeclareSIUnit{\west}{W}
+\DeclareSIUnit{\east}{E}
+\DeclareSIUnit{\of}{ of }
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Book}
+
+\subsection{3.38}
+\begin{align*}
+	\Delta x_\text{B,A} & = \SI{1500}{\meter} = \SI{1.5}{\kilo \meter} \\
+	v_\frac{b}{w} & = \SI{4.00}{\kilo \meter \per \hour} \\
+	v_\frac{p}{w} & = \SI{4.00}{\kilo \meter \per \hour} \\
+	a & = 0 \\
+	v_w & = \SI{2.80}{\kilo \meter \per \hour}
+\end{align*}
+\begin{align*}
+	\Delta x & = v_ft_{b_0} - \frac{1}{2}at_{b_0}^2 \\
+	\SI{1.5}{\kilo \meter} & = (\SI{4.00}{\kilo \meter \per \hour} + \SI{2.80}{\kilo \meter \per \hour})t - \frac{1}{2}(0)t^2 \\
+	t_{b_0} & = \SI{0.221}{\hour}
+\end{align*}
+\begin{align*}
+	\Delta x & = v_ft_{b_1} - \frac{1}{2}at_{b_1}^2 \\
+	\SI{1.5}{\kilo \meter} & = (\SI{4.00}{\kilo \meter \per \hour} - \SI{2.80}{\kilo \meter \per \hour})t - \frac{1}{2}(0)t^2 \\
+	t_{b_1} & = \SI{1.25}{\hour}
+\end{align*}
+\begin{align*}
+	t_b & = \SI{0.221}{\hour} + \SI{1.25}{\hour} \\
+	t_b & = \SI{1.471}{\hour}
+\end{align*}
+\begin{align*}
+	2\Delta x & = v_ft_{p_1} - \frac{1}{2}at_{p_1}^2 \\
+	2(\SI{1.5}{\kilo \meter}) & = (\SI{4.00}{\kilo \meter \per \hour})t_{p_1} - \frac{1}{2}(0)t_{p_1}^2 \\
+	t_p & = \SI{0.75}{\hour}
+\end{align*}
+\bc{t_b = \SI{1.471}{\hour}, t_p = \SI{0.75}{\hour}}
+
+\subsection{3.41}
+\begin{align*}
+	\Delta x_r & = \SI{500}{\meter} \\
+	v_{\sfrac{w}{e}} & = 0\hat{x} + \SI{2.0}{\meter \per \second}\hat{y} \\
+	v_{\sfrac{b}{r}} & = \SI{4.2}{\meter \per \second}\hat{x} + 0\hat{y} \\
+	v_{\sfrac{b}{e}} & = \SI{4.2}{\meter \per \second}\hat{x} + \SI{2.0}{\meter \per \second}\hat{y}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			v_{\sfrac{b}{e}} & = \sqrt{(v_{r_x} + v_{b_x})^2 + (v_{r_y} + v_{b_y})^2} \\
+			  & = \sqrt{(0 + \SI{4.2}{\meter \per \second})^2 + (\SI{2.0}{\meter \per \second} + 0)^2} \\
+			v_{\sfrac{b}{e}} & = \SI{4.652}{\meter \per \second}
+		\end{align*}
+		\begin{align*}
+			\tan(\theta) & = \frac{ v_{ \sfrac{b}{e}_y} }{ v_{\sfrac{b}{e}_x} } \\
+			\theta & = \arctan \left( \frac{ v_{\sfrac{b}{e}_y} }{ v_{\sfrac{b}{e}_x} } \right) \\
+			\theta & = \arctan \left( \frac{\SI{2.0}{\meter \per \second}}{\SI{4.2}{\meter \per \second}} \right) \\
+			\theta & = \SI{25.46}{\degree}
+		\end{align*}
+		\bc{v_{\sfrac{b}{e}} = \SI{4.652}{\meter \per \second}, \theta = \SI{25.46}{\degree \south \of \east}}
+	\item
+		\begin{align*}
+			\Delta x_r & = v_{\sfrac{b}{e}_x}t - \frac{1}{2}at^2 \\
+			\SI{500}{\meter} & = (\SI{4.2}{\meter \per \second})t - \frac{1}{2}(0)t^2 \\
+			t & = \SI{119.0}{\second}
+		\end{align*}
+		\bc{t = \SI{119.0}{\second}}
+	\item
+		\begin{align*}
+			y_0 & = 0
+		\end{align*}
+		\begin{align*}
+			\Delta y & = v_{\sfrac{b}{e}_y}t - \frac{1}{2}at^2 \\
+			y_1 - 0 & = (\SI{2.0}{\meter \per \second})(\SI{119.0}{\second}) - \frac{1}{2}(0)(\SI{119.0}{\second}) \\
+			y_1 & = \SI{238.0}{\meter}
+		\end{align*}
+		\bc{\Delta y = \SI{238.0}{\meter}}
+\end{enumerate}
+
+\subsection{3.42}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\sin(\theta) & = \frac{ v_{\sfrac{w}{e}} }{ v_{\sfrac{b}{w}} } \\
+			\theta & = \arcsin \left( \frac{ v_{\sfrac{w}{e}} }{ v_{\sfrac{b}{w}} } \right) \\
+			\theta & = \arcsin \left( \frac{\SI{2.0}{\meter \per \second}}{\SI{4.2}{\meter \per \second}} \right) \\
+			\theta & = \SI{28.44}{\degree}
+		\end{align*}
+		\bc{\theta = \SI{28.44}{\degree}}
+	\item
+		\begin{align*}
+			v_{\sfrac{b}{e}} & = \sqrt{ (v_{\sfrac{b}{w}_x} + v_{\sfrac{w}{e}_x})^2 + (v_{\sfrac{b}{w}_y} + v_{\sfrac{w}{e}_y})^2 } \\
+			v_{\sfrac{b}{e}} & = \sqrt{ ((\SI{4.2}{\meter \per \second})\cos(\SI{28.44}{\degree}) + 0)^2 + ((\SI{4.2}{\meter \per \second})\sin(\SI{28.44}{\degree}) + \SI{2.0}{\meter \per \second})^2 } \\
+			v_{\sfrac{b}{e}} & = \SI{3.693}{\meter \per \second}
+		\end{align*}
+		\bc{v_{\sfrac{b}{e}} = \SI{3.693}{\meter \per \second}}
+	\item
+		\begin{align*}
+			\Delta x_r & = v_{\sfrac{b}{e}}t - \frac{1}{2}at^2 \\
+			\SI{500}{\meter} & = (\SI{3.693}{\meter \per \second})t - \frac{1}{2}(0)t^2 \\
+			t & = \SI{135.4}{\second}
+		\end{align*}
+		\bc{t = \SI{135.4}{\second}}
+\end{enumerate}
+
+\subsection{3.43}
+
+\end{document}

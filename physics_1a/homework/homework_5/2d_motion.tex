@@ -51,6 +51,10 @@
 % Change title of table of contents
 % \renewcommand{\contentsname}{Title}
 
+\title{Homework 5 - 2D Motion}
+\author{Corey Mostero - 2566652}
+\date{4 April 2023}
+
 \begin{document}
 
 % Command `\hr` to insert horizontal rules
@@ -73,6 +77,9 @@
 		$$ {#1} \quad {#2} $$
 	\fi
 }
+
+\maketitle
+\newpage
 
 \tableofcontents
 
@@ -154,9 +161,9 @@
 			\sin(\theta) & = \frac{ v_{\sfrac{w}{e}} }{ v_{\sfrac{b}{w}} } \\
 			\theta & = \arcsin \left( \frac{ v_{\sfrac{w}{e}} }{ v_{\sfrac{b}{w}} } \right) \\
 			\theta & = \arcsin \left( \frac{\SI{2.0}{\meter \per \second}}{\SI{4.2}{\meter \per \second}} \right) \\
-			\theta & = \SI{28.44}{\degree}
+			\theta & = \SI{28.44}{\degree \north \of \east}
 		\end{align*}
-		\bc{\theta = \SI{28.44}{\degree}}
+		\bc{\theta = \SI{28.44}{\degree \north \of \east}}
 	\item
 		\begin{align*}
 			v_{\sfrac{b}{e}} & = \sqrt{ (v_{\sfrac{b}{w}_x} + v_{\sfrac{w}{e}_x})^2 + (v_{\sfrac{b}{w}_y} + v_{\sfrac{w}{e}_y})^2 } \\
@@ -174,5 +181,99 @@
 \end{enumerate}
 
 \subsection{3.43}
+\begin{align*}
+	v_{\sfrac{w}{e}} & = (0)\hat{x} + (\SI{80.0}{\kilo \meter \per \hour})\hat{y}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			v_{\sfrac{a}{w}} & = \SI{320.0}{\kilo \meter \per \hour}
+		\end{align*}
+		\begin{align*}
+			\sin(\theta) & = \frac{v_{\sfrac{w}{e}_y}}{v_{\sfrac{a}{w}}} \\
+			\theta & = \arcsin \left( \frac{\SI{80.0}{\kilo \meter \per \hour}}{\SI{320.0}{\kilo \meter \per \hour}} \right) \\
+			\theta & = \SI{14.48}{\degree \north \of \west}
+		\end{align*}
+		\bc{\theta = \SI{14.48}{\degree \north \of \west}}
+	\item
+		\begin{align*}
+			\cos(\theta) & = \frac{v_{\sfrac{a}{e}}}{v_{\sfrac{a}{w}}} \\
+			v_{\sfrac{a}{e}} & = (v_{\sfrac{a}{w}})\cos(\theta) \\
+			v_{\sfrac{a}{e}} & = (\SI{320.0}{\kilo \meter \per \hour})\cos(\SI{14.48}{\degree}) \\
+			v_{\sfrac{a}{e}} & = \SI{309.8}{\kilo \meter \per \hour}
+		\end{align*}
+		\bc{v_{\sfrac{a}{e}} = \SI{309.8}{\kilo \meter \per \hour}}
+\end{enumerate}
+
+\section{Lab Manual}
+
+\subsection{473}
+\begin{align*}
+	v_{\sfrac{r}{b}} & = v \\
+	d_A & = d \\
+	v_{\sfrac{A}{r}} & = c \\
+	a_A & = 0 \\
+	d_B & = d \\
+	v_{\sfrac{B}{r}} & = c \\
+	a_B & = 0
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		First find $ t_A $. Subscripts $ 0, 1 $ denote the first and second trip (0-indexed).
+		\begin{align*}
+			\Delta x_0 & = v_{\sfrac{A}{r}}t_0 + \frac{1}{2}a_At_0^2 \\
+			d_A & = (c - v)t_0 + \frac{1}{2}(0)t_0^2 \\
+			t_0 & = \frac{ d_A }{ c - v }
+		\end{align*}
+		\begin{align*}
+			\Delta x_0 & = v_{\sfrac{A}{r}}t_0 + \frac{1}{2}a_At_0^2 \\
+			d_A & = (c + v)t_1 + \frac{1}{2}(0)t_1^2 \\
+			t_1 & = \frac{ d_A }{ c + v }
+		\end{align*}
+		\begin{align*}
+			t_A & = t_0 + t_1 \\
+			t_A & = \frac{d_A}{c - v} + \frac{d_A}{c + v} \\
+			t_A & = d_A \left( \frac{ 1 }{ c \left( 1 - \frac{v}{c} \right) } + \frac{ 1 }{ c \left( 1 + \frac{v}{c} \right) } \right) \\
+			t_A & = \frac{d_A}{c} \left( \frac{1}{1 - \frac{v}{c}} + \frac{1}{1 + \frac{v}{c}} \right) \\
+			t_A & = \frac{d_A}{c} \left( \frac{1 + \frac{v}{c}}{(1 - \frac{v}{c})(1 + \frac{v}{c})} + \frac{1 - \frac{v}{c}}{(1 + \frac{v}{c})(1 - \frac{v}{c})} \right) \\
+			t_A & = \frac{ 2\frac{d_A}{c} }{ -(\frac{v}{c})(\frac{v}{c}) + \frac{v}{c} - \frac{v}{c} + 1 } \\
+			t_A & = \frac{ 2\frac{d_A}{c} }{ 1 - (\frac{v}{c})^2 }
+		\end{align*}
+		\bc{ t_A = \frac{ 2\frac{d}{c} }{ 1 - (\frac{v}{c})^2 } }
+		Find $ t_B $. Subscripts $ 0, 1 $ denote the first and second trip (0-indexed).
+		\begin{align*}
+			v_{\sfrac{B}{r}}^2 - v_{\sfrac{r}{b}}^2 & = v_{\sfrac{B}{b}}^2 \\
+			v_{\sfrac{B}{b}} & = \sqrt{c^2 - v^2}
+		\end{align*}
+		\begin{align*}
+			2\Delta x & = v_{\sfrac{B}{b}}t_B + \frac{1}{2}a_Bt_B^2 \\
+			2d_B & = \left( \sqrt{c^2 - v^2} \right) t_B + \frac{1}{2}(0)t_B^2 \\
+			t_B & = \frac{2d_B}{\sqrt{c^2 \left( 1 - \frac{v^2}{c^2} \right) }} \\
+			t_B & = \frac{2d_B}{c\sqrt{1 - \frac{v^2}{c^2}}} \\
+			t_B & = \frac{ 2\frac{d_B}{c} }{ \sqrt{1 - \left( \frac{v}{c} \right)^2} }
+		\end{align*}
+		\bc{t_B = \frac{ 2\frac{d}{c} }{ \sqrt{1 - \left( \frac{v}{c} \right)^2} }}
+	\item
+		Utilize the negative binomial series $ (x + 1)^{-n} = 1 - nx + \frac{1}{2}n(n + 1)x^2 - \cdots $ as the prompt states that $ \frac{v}{c} << 1 $.
+		\begin{align*}
+			t_A - t_B & \approx \frac{v^2d}{c^3} \\
+			2\frac{d}{c} \left( 1 - \left( \frac{v}{c} \right)^2 \right)^{-1} - 2\frac{d}{c} \left( 1 - \left( \frac{v}{c} \right)^2 \right)^{-\sfrac{1}{2}} & \approx \frac{v^2d}{c^3} \\
+			2\frac{d}{c} \left( \left( 1 + \left( \frac{v}{c} \right)^2 \right) - \left( 1 + \frac{1}{2} \left( \frac{v}{c} \right)^2 \right) \right) & \approx \frac{v^2d}{c^3} \\
+			\frac{v^2d}{c^3} & \approx \frac{v^2d}{c^3}
+		\end{align*}
+		\bc{t_A - t_B \approx \frac{v^2d}{c^3}}
+\end{enumerate}
+
+\subsection{475}
+
+\subsection{477}
+
+\subsection{670}
+
+\subsection{672}
+
+\subsection{676}
+
+\subsection{678}
 
 \end{document}

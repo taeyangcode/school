@@ -34,6 +34,7 @@
 \DeclareSIUnit{\west}{W}
 \DeclareSIUnit{\east}{E}
 \DeclareSIUnit{\of}{ of }
+\DeclareSIUnit{\mile}{mi}
 %
 % More intuitive arrays/matrices
 \usepackage{array}
@@ -265,6 +266,34 @@
 \end{enumerate}
 
 \subsection{475}
+\begin{enumerate}[label=\textbf{(a)}]
+	\item
+		\begin{align*}
+			v_{\sfrac{p}{e}} & = (\SI{8}{\mile \per \hour}\sin(\theta))\hat{x} + (\SI{8}{\mile \per \hour}\cos(\theta))\hat{y} \\
+			v_{\sfrac{w}{e}} & = (0)\hat{x} + (\SI{20}{\mile \per \hour})\hat{y}
+		\end{align*}
+		\begin{align*}
+			\sin(\theta) & = \frac{v_{\sfrac{p}{e}}}{v_{\sfrac{w}{e}}} \\
+			\theta & = \arcsin \left( \frac{v_{\sfrac{p}{e}}}{v_{\sfrac{w}{e}}} \right) \\
+			\theta & = \arcsin \left( \frac{\SI{8}{\mile \per \hour}}{\SI{20}{\mile \per \hour}} \right) \\
+			\theta & = \SI{23.58}{\degree}
+		\end{align*}
+		\bc{\theta = \SI{23.58}{\degree}}
+	\item
+		\begin{align*}
+			\text{distance} & = D \\
+			\frac{dV}{dx} & = v_{\sfrac{r}{g}} \cdot A \\
+			\text{wetness} & = \frac{dV}{dx}t
+		\end{align*}
+		\begin{align*}
+			\text{wetness} & = (v_{\sfrac{r}{g}} \cdot A)t \\
+			t & = \frac{\Delta D}{v_{\sfrac{r}{g}}} \\
+			\text{wetness} & = \left( v_{\sfrac{r}{g}} \cdot A \right) \left( \frac{D}{v_{\sfrac{r}{g}}} \right) \\
+			\text{wetness} & = AD
+		\end{align*}
+		\bc{\text{wetness} = AD}
+		In the end, the angle that the rain hits the engineer ends up having no effect whether they are running or walking. More specifically, when the engineer walks, the value of theta is closer to $ \SI{90}{\degree} $ meaning the rainfall per distance $ \frac{dV}{dx} $ is of smaller volume. As the engineer runs faster, more rainfall will hit the engineer, though the speed at which they're traveling makes the total volume of rain hit the same (given adequate/perfectly consistent variables).
+\end{enumerate}
 
 \subsection{477}
 

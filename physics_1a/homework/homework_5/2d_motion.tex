@@ -35,6 +35,7 @@
 \DeclareSIUnit{\east}{E}
 \DeclareSIUnit{\of}{ of }
 \DeclareSIUnit{\mile}{mi}
+\DeclareSIUnit{\feet}{ft}
 %
 % More intuitive arrays/matrices
 \usepackage{array}
@@ -296,12 +297,84 @@
 \end{enumerate}
 
 \subsection{477}
+\begin{align*}
+	v_{\sfrac{A}{e}} & = \SI{50}{\mile \per \hour} \\
+	% v_{\sfrac{B}{e}} & = \SI{
+	d & = \SI{100}{\mile} \\
+	t & = \SI{0.5}{\hour}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+\end{enumerate}
 
 \subsection{670}
+\begin{align*}
+	\Delta x & = v\cos(\theta)t + \frac{1}{2}(0)t^2 \\
+	\Delta y & = v\sin(\theta)t - \frac{1}{2}gt^2 \\
+	\tan(\beta) & = \frac{ v\sin(\theta)t - \frac{1}{2}gt^2 }{ v\cos(\theta)t + \frac{1}{2}(0)t^2 } \\
+\end{align*}
 
 \subsection{672}
+\begin{align*}
+	\theta & = \SI{60}{\degree} \\
+	\phi & = \SI{40}{\degree} \\
+	v_o & = \SI{200}{\feet \per \second} \\
+	a_x & = 0
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			v_{f_x} & = v_{o_x} + a_xt \\
+			v_{f_x} & = (\SI{200}{\feet \per \second})\cos(\SI{60}{\degree}) + (0)t \\
+			v_{f_x} & = (\SI{200}{\feet \per \second})\cos(\SI{60}{\degree})
+		\end{align*}
+		\begin{align*}
+			v_{f_y} & = v_{o_y} + gt \\
+			v_{f_y} & = (\SI{200}{\feet \per \second})\sin(\SI{60}{\degree}) + (-\SI{32.17}{\feet \per \second \squared})t
+		\end{align*}
+		\begin{align*}
+			\tan(\phi) & = \frac{v_{f_y}}{v_{f_x}} \\
+			\tan(\SI{40}{\degree}) & = \frac{(\SI{200}{\feet \per \second})\sin(\SI{60}{\degree}) + (-\SI{32.17}{\feet \per \second \squared})t}{(\SI{200}{\feet \per \second})\cos(\SI{60}{\degree})} \\
+			t & = \SI{2.78}{\second}
+		\end{align*}
+		\bc{t = \SI{2.78}{\second}}
+	\item
+		\begin{align*}
+			\Delta y & = v_ot + \frac{1}{2}gt^2 \\
+			\Delta y & = (\SI{200}{\feet \per \second})(\SI{2.78}{\second}) + \frac{1}{2}(-\SI{32.17})(\SI{2.78}{\second})^2 \\
+			\Delta y & = \SI{431.7}{\feet}
+		\end{align*}
+		\bc{\Delta y = \SI{431.7}{\feet}}
+\end{enumerate}
 
 \subsection{676}
+\begin{align*}
+	v_{o_x} & = v_o\cos(\theta) = v_o\cos(\SI{37}{\degree}) \\
+	v_{o_y} & = v_o\sin(\theta) = v_o\sin(\SI{37}{\degree}) \\
+	a_x & = 0 \\
+	g & = -\SI{32.17}{\feet \per \second \squared}
+\end{align*}
+\begin{align*}
+	\Delta y & = v_{o_y}t + \frac{1}{2}gt^2 \\
+	0 & = (v_o\sin(\SI{37}{\degree}))t + \frac{1}{2}(-\SI{32.17}{\feet \per \second \squared})t^2 \\
+	t & = \frac{2\sin(\SI{37}{\degree})}{-\SI{32.17}{\feet \per \second \squared}}v_o
+\end{align*}
+\begin{align*}
+	\Delta x & = v_{o_x}t - \frac{1}{2}a_xt^2 \\
+	\SI{192}{\feet} & = (v_o\cos(\SI{37}{\degree}))(\frac{2\sin(\SI{37}{\degree})}{-\SI{32.17}{\feet \per \second \squared}}v_o) - 0 \\
+	v_o & = \SI{80.16}{\feet \per \second}
+\end{align*}
+\begin{align*}
+	\Delta y & = v_{o_y}t - \frac{1}{2}gt^2 \\
+	-\SI{160}{\feet} & = (\SI{80.16}{\feet \per \second})\sin(\SI{37}{\degree})t - \frac{1}{2}(\SI{32.17}{\feet \per \second})t^2 \\
+	t & = \SI{4.992}{\second}
+\end{align*}
+\begin{align*}
+	\Delta x & = v_o\cos(\theta)t - \frac{1}{2}a_xt^2 \\
+	\Delta x & = (\SI{80.16}{\feet \per \second})\cos(\SI{37}{\degree})(\SI{4.992}{\second}) - \frac{1}{2}(0)(\SI{4.992})^2 \\
+	\Delta x & = \SI{319.6}{\feet}
+\end{align*}
+\bc{\Delta x = \SI{319.6}{\feet}}
 
 \subsection{678}
 

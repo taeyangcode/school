@@ -1,5 +1,7 @@
 \documentclass{article}
 
+\usepackage{hyperref}
+
 % Document extensibility %
 %
 % Disables native paragraph indentation
@@ -84,6 +86,46 @@
 \newpage
 
 \tableofcontents
+
+\section{Problems}
+
+\subsection{A}
+\begin{align*}
+	(x_0, y_0) & = (0, 0) \\
+	\text{Initial speed} & = v_0 \\
+	\text{Initial angle} & = \theta \\
+	d & = R \\
+	\Delta x & = R \\
+	\Delta y & = 0
+\end{align*}
+\begin{enumerate}[label=\textbf{\alph*)}]
+	\item
+		\begin{align*}
+			\Delta x & = v_{0_x}t + \frac{1}{2}a_xt^2 \\
+			R & = v_0\cos(\theta)t + \frac{1}{2}(0)t^2 \\
+			R & = v_0\cos(\theta)t
+		\end{align*}
+		\begin{align*}
+			\Delta y & = v_{0_y}t + \frac{1}{2}gt^2 \\
+			0 & = v_0\sin(\theta)t + \frac{1}{2}gt^2 \\
+			t & = 0, \frac{2v_0\sin(\theta)}{g}
+		\end{align*}
+		\begin{align*}
+			R & = v_0\cos(\theta) \left( \frac{2v_0\sin(\theta)}{g} \right) \\
+			R & = \frac{\sin(2\theta)v_0^2}{g}
+		\end{align*}
+		\bc{R = \frac{\sin(2\theta)v_0^2}{g}}
+	\item
+		\begin{align*}
+			R(\theta) & = \frac{\sin(2\theta)v_0^2}{g} \\
+			R'(\theta) & = \frac{2v^2\cos(2\theta)}{g} \\
+			R'(\theta) & = 0 \\
+			\frac{2v^2\cos(2\theta)}{g} & = 0 \\
+			2v^2\cos(2\theta) & = 0 \\
+			\theta & = \frac{\pi}{4} (+ \pi n)
+		\end{align*}
+		\bc{\theta = \frac{\pi}{4} = \SI{45}{\degree}}
+\end{enumerate}
 
 \section{Book}
 
@@ -299,20 +341,32 @@
 \subsection{477}
 \begin{align*}
 	v_{\sfrac{A}{e}} & = \SI{50}{\mile \per \hour} \\
-	% v_{\sfrac{B}{e}} & = \SI{
+	v_{\sfrac{B}{e}} & = \SI{50}{\mile \per \hour} \\
 	d & = \SI{100}{\mile} \\
 	t & = \SI{0.5}{\hour}
 \end{align*}
 \begin{enumerate}[label=\textbf{(\alph*)}]
 	\item
+		\href{https://math.stackexchange.com/a/895981}{Reference}
+		\begin{align*}
+			(v_{\sfrac{A}{e}} + v_{\sfrac{B}{e}})t_n & = d - 2v_{\sfrac{A}{e}} \sum_{i = 1}^{n - 1} t_i \\
+			(\SI{50}{\mile \per \hour} + \SI{50}{\mile \per \hour})t_n & = \SI{100}{\mile} - 2(\SI{50}{\mile \per \hour}) \sum_{i = 1}^{n - 1} t_i \\
+			(\SI{100}{\mile \per \hour})t_n & = \SI{100}{\mile} - \SI{100}{\mile \per \hour} \sum_{i = 1}^{n - 1} t_i \\
+			t_n & = 1 - \sum_{i = 1}^{n - 1} t_i \\
+			t_n - t_{n - 1} & = -t_{n - 1} \\
+			t_n & = \frac{1}{1}t_{n - 1}
+		\end{align*}
 \end{enumerate}
 
 \subsection{670}
 \begin{align*}
-	\Delta x & = v\cos(\theta)t + \frac{1}{2}(0)t^2 \\
-	\Delta y & = v\sin(\theta)t - \frac{1}{2}gt^2 \\
-	\tan(\beta) & = \frac{ v\sin(\theta)t - \frac{1}{2}gt^2 }{ v\cos(\theta)t + \frac{1}{2}(0)t^2 } \\
+	\cos(\theta) & = \frac{\text{adj.}}{v_o} \\
+	\text{adj.} & = (v_o)(\cos(\theta)) \\
+	\cos(\beta) & = \frac{x}{\text{adj.}} \\
+	\cos(\beta) & = \frac{x}{(v_o)\cos(\theta)} \\
+	x & = (v_o)\cos(\theta)\cos(\beta)
 \end{align*}
+\bc{x = (v_o)\cos(\theta)\cos(\beta)}
 
 \subsection{672}
 \begin{align*}
@@ -377,5 +431,38 @@
 \bc{\Delta x = \SI{319.6}{\feet}}
 
 \subsection{678}
+\begin{align*}
+	v_0 & = \SI{160}{\feet \per \second} \\
+	\theta & = \SI{53}{\degree} \\
+	\phi & = \SI{45}{\degree}
+\end{align*}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			v_{o_x} & = v_{f_x} \\
+			v_o\cos(\SI{53}{\degree}) & = v_f\cos(\SI{45}{\degree}) \\
+			v_f & = \frac{(\SI{160}{\feet \per \second})\cos(\SI{53}{\degree})}{\cos(\SI{45}{\degree})} \\
+			v_f & = \SI{136.2}{\feet \per \second}
+		\end{align*}
+		\begin{align*}
+			v_{f_y} & = v_{o_y} + gt \\
+			t & = \frac{v_{f_y} - v_{o_y}}{g} \\
+			t & = \frac{-\SI{136.2}{\feet \per \second}\sin(\SI{45}{\degree}) - (\SI{160}{\feet \per \second})\sin(\SI{53}{\degree})}{-\SI{32.17}{\feet \per \second \squared}} \\
+			t & = \SI{6.967}{\second}
+		\end{align*}
+		\bc{t = \SI{6.967}{\second}}
+	\item
+		\begin{align*}
+			\Delta x & = v_{o_x}t + \frac{1}{2}a_xt^2 \\
+			\Delta x & = (\SI{160}{\feet \per \second}\cos(\SI{53}{\degree}))(\SI{6.967}{\second}) + \frac{1}{2}(0)(\SI{6.967}{\second}) \\
+			\Delta x & = \SI{670.9}{\feet}
+		\end{align*}
+		\begin{align*}
+			\Delta y & = v_{o_y}t + \frac{1}{2}gt^2 \\
+			\Delta y & = (\SI{160}{\feet \per \second}\sin(\SI{53}{\degree}))(\SI{6.967}{\second}) + \frac{1}{2}(-\SI{32.17}{\feet \per \second \squared})(\SI{6.967}{\second})^2 \\
+			\Delta y & = \SI{109.5}{\feet}
+		\end{align*}
+		\bc{(\SI{670.9}{\feet}, \SI{109.5}{\feet})}
+\end{enumerate}
 
 \end{document}

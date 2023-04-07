@@ -40,6 +40,7 @@
 %
 % Image insertion
 \usepackage{graphicx}
+\graphicspath{ {./} }
 
 % Document content %
 %
@@ -101,6 +102,52 @@ What is the range of force values for which the system is static?
 	m_2 & = \SI{5}{\kilogram} \\
 	\mu_{\text{max}} & = 0.4 \\
 	a & = ?
+\end{align*}
+
+\subsection{Example 4}
+\includegraphics{"./drawing.eps"}
+\begin{align*}
+	m_1 & = \SI{2}{\kilogram} \\
+	m_2 & = \SI{5}{\kilogram} \\
+	u_{\text{max}} & = 0.5 \\
+	u_k & = 0.2 \\
+	a_\text{bottom}  & = a_\text{top} = a \\
+	F & = ?
+\end{align*}
+How much force is needed to move the bottom block while the top stays static?
+\begin{align*}
+	\sum F_y^{(m_2 + m_1)} & = 0 \\
+	N_{g,b} & = (m_1 + m_2)g
+\end{align*}
+\begin{align*}
+	\sum F_x^{(m_2 + m_1)} & = 0 \\
+	F & = f_{g,b} \\
+	F & = \mu_\text{max}N_{g,b} \\
+	F & = \mu_\text{max}(m_2 + m_1)g \\
+	F & = 0.5(\SI{70}{\newton}) \\
+	F & = \SI{35}{\newton}
+\end{align*}
+\begin{align*}
+	\sum F_y^{(m)} & = 0 \\
+	N_{t,b} & = mg
+\end{align*}
+\begin{align*}
+	\sum F_x^{(m)} & = ma \\
+	f_{t,b} & = ma \\
+	a & = \frac{f_{t,b}}{m} \\
+	a & = \frac{\mu_\text{max}mg}{g} \\
+	a & = \mu_\text{max}g = (0.5)(\SI{10}{\meter \per \second \squared}) \\
+	a & = \SI{5}{\meter \per \second \squared}
+\end{align*}
+\begin{align*}
+	\sum F_y^{(m_2 + m_1)} & = 0 \\
+	N_{g,b} & = (m_1 + m_2)g = \SI{70}{\newton}
+\end{align*}
+\begin{align*}
+	\sum F_x^{(m_2 + m_1)} & = (m_2 + m_1)a \\
+	F - f_{g,b} & = (m_2 + m_1)a \\
+	F & = (m_1 + m_2)a + \mu_kN_{g,b} \\
+	F & = \SI{49}{\newton}
 \end{align*}
 
 \end{document}

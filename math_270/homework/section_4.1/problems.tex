@@ -69,38 +69,56 @@
 	\fi
 }
 
-\section{Friction}
+\tableofcontents
 
-\subsection{Example 1}
+\section{Section 4.1}
 
-\subsection{Example 2}
+\subsection{4.1.1}
+Find $ |a - b|, 2a + b, 3a - 4b $
+\begin{equation*}
+	a =
+		\begin{bmatrix}
+			5 \\
+			5 \\
+			-6
+		\end{bmatrix},
+	b =
+		\begin{bmatrix}
+			2 \\
+			-2 \\
+			-5
+		\end{bmatrix}
+\end{equation*}
 \begin{align*}
-	\mu_R & = 0.1 \\
-	\mu_{\text{max}} & = 0.3 \\
-	m & = \SI{1}{\kilogram} \\
-	\theta & = \SI{15}{\degree}
+	\|a - b\| & =
+		\begin{bmatrix}
+			3 \\
+			7 \\
+			-1
+		\end{bmatrix} \\
+			  & = \sqrt{(3)^2 + (7)^1 + (-1)^2} \\
+	\|a - b\| & = \sqrt{59}
 \end{align*}
-What is the range of force values for which the system is static?
+\bc{\|a - b\| = \sqrt{59}}
 \begin{align*}
-	\sum F_x^{\text{min}} & = 0 \\
-	N & = F_{\text{min}}\sin(\theta)
+	2a + b & =
+		\begin{bmatrix}
+			12 \\
+			8 \\
+			-17
+		\end{bmatrix} \\
+	2a + b & = <12,8,-17>
 \end{align*}
+\bc{2a + b = <12,8,-17>}
 \begin{align*}
-	\sum F_y^{\text{min}} & = 0 \\
-	f_{\text{min}} + F_{\text{min}}\cos(\theta) & = mg \\
-	\mu_{\text{max}}(F_{\text{min}}\sin(\theta)) + F_{\text{min}}\cos(\theta) & = mg \\
-	F_{\text{min}} & = \frac{mg}{\cos(\theta) + \mu_{\text{max}}\sin(\theta)} \\
-	\therefore \quad F_{\text{max}} & = \frac{mg}{\cos(\theta) - \mu_{\text{min}}\sin(\theta)}
+	3a - 4b & =
+		\begin{bmatrix}
+			7 \\
+			23 \\
+			2
+		\end{bmatrix} \\
+	3a - 4b & = <7,23,2>
 \end{align*}
-
-\subsection{Example 3}
-\begin{align*}
-	F & = ? \\
-	m_1 & = \SI{10}{\kilogram} \\
-	\mu_k & = 0.1 \\
-	m_2 & = \SI{5}{\kilogram} \\
-	\mu_{\text{max}} & = 0.4 \\
-	a & = ?
-\end{align*}
+\bc{3a - 4b = <7,23,2>}
 
 \end{document}

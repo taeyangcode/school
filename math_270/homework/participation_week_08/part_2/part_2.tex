@@ -1,0 +1,241 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+\title{Week 08 Participation Part 2}
+\date{07 April 2023}
+\author{Corey Mostero}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 2}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+	\item $ W $ is the set of all vectors in $ \R{3} $ such that $ x_3 = 0 $.
+	\item $ W $ is the set of all vectors in $ \R{3} $ such that $ x_1 = 5x_2 $.
+	\item $ W $ is the set of all vectors in $ \R{3} $ such that $ x_2 = 1 $.
+	\item $ W $ is the set of all vectors in $ \R{3} $ such that $ x_1 + x_2 + x_3 = 1 $.
+	\item $ W $ is the set of all vectors in $ \R{4} $ such that $ x_1 + 2x_2 + 3x_3 + 4x_4 = 0 $.
+	\item $ W $ is the set of all vectors in $ \R{4} $ such that $ x_1 = 3x_3 $ and $ x_2 = 4x_4 $.
+	\item $ W $ is the set of all vectors in $ \R{2} $ such that $ \|x_1\| = \|x_2 \|$.
+	\item $ W $ is the set of all vectors in $ \R{2} $ such that $ (x_1)^2 + (x_2)^2 = 0 $.
+	\item $ W $ is the set of all vectors in $ \R{2} $ such that $ (x_1)^2 + (x_2)^2 = 1 $.
+	\item $ W $ is the set of all vectors in $ \R{2} $ such that $ \|x_1\| + \|x_2\| = 1 $.
+	\item $ W $ is the set of all vectors in $ \R{4} $ such that $ x_1 + x_2 = x_3 + x_4 $.
+	\item $ W $ is the set of all vectors in $ \R{4} $ such that $ x_1x_2 = x_3x_4 $.
+	\item $ W $ is the set of all vectors in $ \R{4} $ such that $ x_1x_2x_3x_4 = 0 $.
+	\item $ W $ is the set of all vectors in $ \R{4} $ whose components are all nonzero.
+\end{enumerate}
+For the above definitions, give an example of an element that belongs to the set $ W $ and an example of elements that does not belong to the set $ W $.
+
+\subsection{1.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 1, 0> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1, 1> $
+			\item $ \vec{v}_3 = <2, 2, 2> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{2.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <5, 1, 1> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <6, 1, 1> $
+			\item $ \vec{v}_3 = <7, 1, 1> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{3.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 1, 1> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <2, 2, 2> $
+			\item $ \vec{v}_3 = <3, 3, 3> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{4.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 0, 0> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1, 1> $
+			\item $ \vec{v}_3 = <2, 2, 2> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{5.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <0, 0, 0, 0> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1, 1, 1> $
+			\item $ \vec{v}_3 = <2, 2, 2, 2> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{6.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <3, 4, 1, 1> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1, 1, 1> $
+			\item $ \vec{v}_3 = <2, 2, 2, 2> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{7.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 1> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 2> $
+			\item $ \vec{v}_3 = <2, 1> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{8.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <0, 0> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1> $
+			\item $ \vec{v}_3 = <2, 2> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{9.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 0> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1> $
+			\item $ \vec{v}_3 = <2, 2> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{10.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 0> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1> $
+			\item $ \vec{v}_3 = <2, 2> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{11.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 1, 1, 1> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1, 2, 2> $
+			\item $ \vec{v}_3 = <2, 2, 1, 1> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{12.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 1, 1, 1> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_1 = <1, 1, 2, 2> $
+			\item $ \vec{v}_2 = <2, 2, 1, 1> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{13.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <0, 0, 0, 1> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 1, 1, 1> $
+			\item $ \vec{v}_3 = <2, 2, 2, 2> $
+		\end{enumerate}
+\end{enumerate}
+
+\subsection{14.}
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item $ \vec{v}_1 = <1, 1, 1, 1> $
+	\item
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item $ \vec{v}_2 = <1, 0, 0, 0> $
+			\item $ \vec{v}_3 = <0, 0, 0, 1> $
+		\end{enumerate}
+\end{enumerate}
+
+\end{document}

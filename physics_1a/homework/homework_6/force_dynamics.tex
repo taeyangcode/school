@@ -434,10 +434,10 @@
 	\node (origin) {block};
 	\node (above_right) [above right = of origin] {$ T, f_\text{slant, block} $};
 	\node (above_left) [above left = of origin] {$ N_\text{slant, block} $};
-	\node (below_left) [below left = of origin] {$ a $};
 	\node (below) [below = of origin] {$ w_\text{block} $};
+	\node (left) [left = of origin] {$ a $};
 
-	\foreach \node in {above_right, above_left, below_left, below}
+	\foreach \node in {above_right, above_left, below, left}
 		\draw[black, thick, ->] (origin) -- (\node);
 \end{tikzpicture}
 
@@ -464,15 +464,7 @@
 \end{tikzpicture}
 
 \begin{align*}
-	\sum F_y^{(b)} & = 0 \\
-	N_{s, b} - w_b & = 0 \\
-	N_{s, b} & = w_b
-\end{align*}
-\begin{align*}
-	\sum F_x^{(b)} & = -m_ba \\
-	T + f_{s, b} & = -m_ba \\
-	T + \mu N_{s, b} & = -m_ba \\
-	a & = -\frac{T + \mu N_{s, b}}{m_b}
+	\sum F_x^{(b)} & = -m_ba\cos(\theta)
 \end{align*}
 
 \subsection{575}

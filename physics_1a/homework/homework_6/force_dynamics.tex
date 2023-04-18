@@ -422,9 +422,58 @@
 
 \subsection{571}
 \begin{tikzpicture}
+	\node[circle, fill, inner sep = 1pt] (origin) {};
+	\node (y) [above left = of origin] {$ +y $};
+	\node (x) [above right = of origin] {$ +x $};
+
+	\foreach \node in {y, x}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+\begin{tikzpicture}
 	\node (origin) {block};
 	\node (above_right) [above right = of origin] {$ T, f_\text{slant, block} $};
+	\node (above_left) [above left = of origin] {$ N_\text{slant, block} $};
+	\node (below_left) [below left = of origin] {$ a $};
+	\node (below) [below = of origin] {$ w_\text{block} $};
+
+	\foreach \node in {above_right, above_left, below_left, below}
+		\draw[black, thick, ->] (origin) -- (\node);
 \end{tikzpicture}
+
+\begin{tikzpicture}
+	\node[circle, fill, inner sep = 1pt] (origin) {};
+	\node (y) [above = of origin] {$ +y $};
+	\node (x) [right = of origin] {$ +x $};
+
+	\foreach \node in {y, x}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node (origin) {slant};
+	\node (above) [above = of origin] {$ N_\text{floor, slant} $};
+	\node (right) [right = of origin] {$ a $};
+	\node (below_right) [below right = of origin] {$ N_\text{block, slant} $};
+	\node (below) [below = of origin] {$ w_\text{slant} $};
+	\node (below_left) [below left = of origin] {$ f_\text{block, slant} $};
+	\node (left) [left = of origin] {$ f_\text{floor, slant} $};
+
+	\foreach \node in {above, right, below_right, below, below_left, left}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+\begin{align*}
+	\sum F_y^{(b)} & = 0 \\
+	N_{s, b} - w_b & = 0 \\
+	N_{s, b} & = w_b
+\end{align*}
+\begin{align*}
+	\sum F_x^{(b)} & = -m_ba \\
+	T + f_{s, b} & = -m_ba \\
+	T + \mu N_{s, b} & = -m_ba \\
+	a & = -\frac{T + \mu N_{s, b}}{m_b}
+\end{align*}
 
 \subsection{575}
 

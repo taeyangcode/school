@@ -424,7 +424,7 @@
 \begin{tikzpicture}
 	\node[circle, fill, inner sep = 1pt] (origin) {};
 	\node (y) [above left = of origin] {$ +y $};
-	\node (x) [above right = of origin] {$ +x $};
+	\node (x) [below left = of origin] {$ +x $};
 
 	\foreach \node in {y, x}
 		\draw[black, thick, ->] (origin) -- (\node);
@@ -464,13 +464,274 @@
 \end{tikzpicture}
 
 \begin{align*}
-	\sum F_x^{(b)} & = -m_ba\cos(\theta)
+	\sum F_x^{(\text{slant})} & = m_sa \\
+	-f_{f, s} - f_{b, s}\cos(\theta) + N_{b, s}\sin(\theta) & = m_sa \\
+	a & = \frac{-f_{f, s} - f_{b, s}\cos(\theta) + N_{b, s}\sin(\theta)}{m_s} \\
+	a & = \frac{-\mu N_{f, s} - \mu N_{b, s}\cos(\theta) + N_{b, s}\sin(\theta)}{m_s}
+\end{align*}
+\begin{align*}
+	\sum F_y^{(\text{slant})} & = 0 \\
+	N_{f, s} - f_{b, s}\sin(\theta) - N_{b, s}\cos(\theta) - w_s & = 0 \\
+	N_{f, s} & = \mu N_{b, s}\sin(\theta) + N_{b, s}\cos(\theta) + m_sg
+\end{align*}
+\begin{align*}
+	\sum F_y^{(\text{block})} & = 0 \\
+	N_{s, b} - w_b\cos(\theta) + m_ba\sin(\theta) & = 0
+\end{align*}
+\begin{align*}
+	\sum F_x^{(\text{block})} & = m_ba \\
+	-T - f_{s, b} + w_b\sin(\theta) + m_ba\cos(\theta) & = m_ba
 \end{align*}
 
 \subsection{575}
 
+\begin{tikzpicture}
+	\node[fill, circle, inner sep = 1pt] (origin) {};
+	\node (y) [above = of origin] {$ +y $};
+	\node (x) [right = of origin] {$ +x $};
+
+	\foreach \node in {y, x}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node (origin) {$ \text{car}_1 $};
+	\node (above) [above = of origin] {$ N_{3, 1} $};
+	\node (below) [below = of origin] {$ m_1g $};
+	\node (right) [right = of origin] {$ T_{2, 1}, a $};
+
+	\foreach \node in {above, below, right}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{tikzpicture}
+	\node (origin) {$ \text{car}_3 $};
+	\node (above) [above = of origin] {$ N_{g, 3} $};
+	\node (right) [right = of origin] {$ F, a $};
+	\node (below) [below = of origin] {$ m_3g, N_{1, 3} $};
+
+	\foreach \node in {above, right, below}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{tikzpicture}
+	\node (origin) {$ \text{block}_2 $};
+	\node (above_right) [above right = of origin] {$ T_{1, 2} $};
+	\node (below) [below = of origin] {$ m_2g $};
+	\node (left) [left = of origin] {$ a $};
+
+	\foreach \node in {above_right, below, left}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{align*}
+	m_1 & = \SI{5}{\kilogram} \\
+	m_2 & = \SI{4}{\kilogram} \\
+	m_3 & = \SI{21}{\kilogram} \\
+	F & = ?
+\end{align*}
+\begin{align*}
+	\sum F_y^{(\text{car}_1)} & = 0 \\
+	N_{3, 1} & = m_1g \\
+	N_{3, 1} & = (\SI{5}{\kilogram})(\SI{10}{\meter \per \second \squared}) \\
+	N_{3, 1} & = \SI{50}{\newton}
+\end{align*}
+\begin{align*}
+	\sum F_y^{(\text{car}_3)} & = 0 \\
+	N_{g, 3} & = m_3g + N_{1, 3} \\
+	N_{g, 3} & = (\SI{21}{\kilogram})(\SI{10}{\meter \per \second \squared}) + \SI{50}{\newton} \\
+	N_{g, 3} & = \SI{260}{\newton}
+\end{align*}
+\begin{align*}
+	\sum F_y^{(\text{block}_2)} & = 0 \\
+	T_{1, 2}\cos(\theta) & = m_2g
+\end{align*}
+\begin{align*}
+	\sum F_x^{(\text{block}_2)} & = -m_2a \\
+	T_{1, 2}\sin(\theta) & = -m_2a \\
+	a & = -\frac{T_{1, 2}\sin(\theta)}{m_2}
+\end{align*}
+\begin{align*}
+	\sum F_x^{(\text{car}_1)} & = m_1a \\
+	T_{2, 1} & = m_1a \\
+	a & = \frac{T_{2, 1}}{m_1}
+\end{align*}
+\begin{align*}
+	-\frac{T_{1, 2}\sin(\theta)}{m_2} & = \frac{T_{2, 1}}{m_1} \\
+	-\frac{\sin(\theta)}{m_2} & = \frac{1}{m_1} \\
+	\theta & = \arcsin \left( -\frac{m_2}{m_1} \right) \\
+	\theta & = \arcsin \left( -\frac{\SI{4}{\kilogram}}{\SI{5}{\kilogram}} \right) \\
+	\theta & = -\SI{53.13}{\degree}
+\end{align*}
+\begin{align*}
+	T_{1, 2}\cos(\theta) & = m_2g \\
+	T_{1, 2} & = \frac{m_2g}{\cos(\theta)} \\
+	T_{1, 2} & = \frac{(\SI{4}{\kilogram})(\SI{10}{\meter \per \second \squared})}{\cos(-\SI{53.13}{\degree})} \\
+	T_{1, 2} & = \SI{66.67}{\newton}
+\end{align*}
+\begin{align*}
+	a & = \frac{T_{2, 1}}{m_1} \\
+	a & = \frac{\SI{66.67}{\newton}}{\SI{5}{\kilogram}} \\
+	a & = \SI{13.33}{\meter \per \second \squared}
+\end{align*}
+\begin{align*}
+	F & = (m_1 + m_2 + m_3)a \\
+	F & = (\SI{30}{\kilogram})(\SI{13.33}{\meter \per \second \squared}) \\
+	F & = \SI{399.9}{\newton}
+\end{align*}
+\bc{F = \SI{399.9}{\newton}}
+
 \subsection{577}
 
+\begin{tikzpicture}
+	\node[fill, circle, inner sep = 1pt] (origin) {};
+	\node (y) [above left = of origin] {$ +y $};
+	\node (x) [above right = of origin] {$ +x $};
+
+	\foreach \node in {y, x}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{tikzpicture}
+	\node (origin) {block 1};
+	\node (above_left) [above left = of origin] {$ N_{s, 1} $};
+	\node (below_right) [above right = of origin] {$ T_1, a_1 $};
+	\node (below_left) [below left = of origin] {$ f_1 $};
+	\node (below) [below = of origin] {$ m_1g $};
+
+	\foreach \node in {above_left, below_right, below_left, below}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+\hr
+
+\begin{tikzpicture}
+	\node[fill, circle, inner sep = 1pt] (origin) {};
+	\node (y) [above = of origin] {$ +y $};
+
+	\foreach \node in {y}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{tikzpicture}
+	\node (origin) {block 2};
+	\node (above) [above = of origin] {$ T_1 $};
+	\node (below) [below = of origin] {$ m_2g, T_2, a_1 $};
+
+	\foreach \node in {above, below}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{tikzpicture}
+	\node (origin) {pulley};
+	\node (above) [above = of origin] {$ 2T_2 $};
+	\node (below) [below = of origin] {$ T_3 $};
+
+	\foreach \node in {above, below}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{tikzpicture}
+	\node (origin) {block 3};
+	\node (above) [above = of origin] {$ T_3 $};
+	\node (below) [below = of origin] {$ m_3g, a_1 $};
+
+	\foreach \node in {above, below}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+\begin{enumerate}[label=\textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\sum F_y^{(b_1)} & = 0 \\
+			N_{s, 1} & = m_1g\cos(\theta)
+		\end{align*}
+		\begin{align*}
+			\sum F_x^{(b_1)} & = m_1a_1 \\
+			T_1 - f_1 - \frac{m_1g}{\sin(\theta)} & = m_1a_1 \\
+			T_1 - \mu N_{s, 1} & = m_1a_1 \\
+			a_1 & = \frac{T_1 - \mu m_1g\cos(\theta)}{m_1}
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{(b_2)} & = -m_2a_1 \\
+			T_1 - m_2g - T_2 & = -m_2a_1 \\
+			a_1 & = \frac{-T_1 + m_2g + T_2}{m_2}
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{(p)} & = 0 \\
+			2T_2 & = T_3 \\
+			T_2 & = \frac{1}{2}T_3
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{(b_3)} & = -m_3a_1 \\
+			T_3 - m_3g & = -m_3a_1 \\
+			T_3 & = -m_3a_1 + m_3g \\
+			a_1 & = \frac{-T_3 + m_3g}{m_3}
+		\end{align*}
+		\begin{align*}
+			T_2 & = \frac{1}{2}T_3 \\
+			T_2 & = \frac{-m_3a_1 + m_3g}{2}
+		\end{align*}
+\end{enumerate}
+
 \subsection{578}
+
+\begin{tikzpicture}
+	\node [circle, fill, inner sep = 1pt] (origin) {};
+	\node (y) [above = of origin] {$ +y $};
+	\node (x) [right = of origin] {$ +x $};
+
+	\foreach \node in {y, x}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node (origin) {$ M $};
+	\node (right) [right = of origin] {$ 2T, a_2 $};
+	\node (below) [below = of origin] {$ Mg $};
+	\node (left) [left = of origin] {$ N_{m, M} $};
+	\node (above) [above = of origin] {$ N_{g, M}, T $};
+
+	\foreach \node in {right, below, left, above}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture} \hspace{1cm}
+\begin{tikzpicture}
+	\node (origin) {$ m $};
+	\node (above) [above = of origin] {$ T, a_1 $};
+	\node (right) [right = of origin] {$ N_{M, m}, a_2 $};
+	\node (below) [below = of origin] {$ mg $};
+
+	\foreach \node in {above, right, below}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{align*}
+	\sum F_y^{(M)} & = 0 \\
+	N_{g, M} + T & = Mg
+\end{align*}
+\begin{align*}
+	\sum F_x^{(M)} & = Ma_2 \\
+	2T & = N_{m, M} + Ma_2 \\
+	T & = \frac{N_{m, M} + Ma_2}{2}
+\end{align*}
+\begin{align*}
+	\sum F_y^{(m)} & = -ma_1 \\
+	T & = -ma_1 + mg
+\end{align*}
+\begin{align*}
+	\sum F_x^{(m)} & = ma_2 \\
+	N_{M, m} & = ma_2
+\end{align*}
+\begin{align*}
+	T & = \frac{N_{m, M} + Ma_2}{2} \\
+	T & = \frac{ma_2 + Ma_2}{2}
+\end{align*}
+\begin{align*}
+	T & = -ma_1 + mg \\
+	ma_1 & = mg - T \\
+	a_1 & = \frac{mg - T}{m} \\
+	a_1 & = \frac{mg - \frac{ma_2 + Ma_2}{2}}{m} \\
+	a_1 & = \frac{4mg}{5m + M} \\
+	a_1 & = \frac{4(\SI{0.5}{\kilogram})(\SI{10}{\meter \per \second \squared})}{5(\SI{0.5}{\kilogram}) + \SI{3.0}{\kilogram})} \\
+	a_1 & = \SI{3.636}{\meter \per \second \squared}
+\end{align*}
+\begin{align*}
+	\Delta x & = v_ot + \frac{1}{2}a_1t^2 \\
+	\SI{1.6}{\meter} & = (0)t + \frac{1}{2}(\SI{3.636}{\meter \per \second \squared})t^2 \\
+	t & = \pm \SI{0.9381}{\second}
+\end{align*}
+\bc{t = \SI{0.9381}{\second}}
 
 \end{document}

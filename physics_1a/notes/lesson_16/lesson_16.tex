@@ -1,0 +1,289 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+\DeclareSIUnit\mile{mi}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Energy Ext.}
+
+In 1D
+\begin{equation}
+	\vec{F} = - \frac{\partial \text{PE}}{\partial x} \hat{x}
+\end{equation}
+\begin{equation}
+	\text{PE}_g = mgy \rightarrow \vec{F} = -mg \hat{y}
+\end{equation}
+
+Potential Energy is only based on position.
+
+\hr
+
+\underline{871:}
+\begin{itemize}
+	\item $ k $ = Kinetic Energy
+	\item $ u $ = Potential Energy
+	\item $ H $ = Total Energy
+\end{itemize}
+
+\section{Hooke's Law}
+
+\begin{equation}
+	\vec{F}_s = -k\vec{x}
+\end{equation}
+
+\subsection{Example}
+
+\begin{align*}
+	\sum F & = 0 \\
+	kx - mg & = 0 \\
+	k & = \frac{mg}{x} \\
+	k & = \frac{(\SI{17}{\gram})(\SI{1000}{\centi \meter \per \second \squared})}{\SI{10}{\centi \meter}} \\
+	k & = \SI{1700}{\dyne \per \centi \meter}
+\end{align*}
+\bc{k = \SI{1700}{\dyne \per \centi \meter}}
+
+\subsection{Series and Parallel Springs}
+
+Series
+\begin{align*}
+	F_1 & = F_2 \\
+	\Delta x_1 & \neq \Delta x_2
+\end{align*}
+
+Parallel:
+\begin{align*}
+	\Delta x_1 & = \Delta x_2 \\
+	F_1 \neq F_2
+\end{align*}
+
+Replace Parallel Springs with $ k_{eq} $
+\begin{align*}
+	\sum F_{eq} & = 0 \\
+	mg & = k_{eq} \Delta x
+\end{align*}
+\begin{align*}
+	\sum F_{1, 2} & = 0 \\
+	mg & = k_1 \Delta x_1 + k_2 \Delta x_2 \\
+	k_{eq} \Delta x_{eq} & = k_1 \Delta x_1 + k_2 \Delta x_2 \\
+	\Delta x_{eq} & = \Delta x_1 = \Delta x_2
+\end{align*}
+\begin{align*}
+	k_{\parallel} & = k_1 + k_2 \\
+	\frac{1}{k_s} & = \frac{1}{k_1} + \frac{1}{k_2}
+\end{align*}
+
+\hr
+
+\underline{Find out the work done against a spring}
+
+Recall:
+\begin{align*}
+	W & = \int \vec{F} \cdot d\vec{x} \\
+	\text{PE} & = -W
+\end{align*}
+\begin{align*}
+	\text{PE}_s & = - \int_0^x (-kx) dx \\
+	\text{PE}_s & = \frac{1}{2}kx^2
+\end{align*}
+Potential Energy: \bc{\text{PE}_s = \frac{1}{2}kx^2}
+$ x = 0 $ at equilibrium
+
+The only time the final height depends on the shape of the path is when there is friction.
+
+\subsection{Example}
+
+Variables
+\begin{align*}
+	k & = \SI{200}{\newton \per \meter} \\
+	x_1 & = \SI{0.5}{\meter} \\
+	m & = \SI{1}{\kilogram} \\
+	v_1 & = 0 \\
+	v_2 & = ? \\
+	v_3 & = 0 \\
+	h_3 & = ?
+\end{align*}
+\begin{align*}
+	E_1 & = E_3 \\
+	\frac{1}{2}kx_1^2 & = mgh_3 \\
+	h_3 & = \frac{kx^2}{2mg} \\
+	h_3 & = \frac{(\SI{200}{\newton \per \meter})(\SI{0.5}{\meter})^2}{2(\SI{10}{\newton})} \\
+	h_3 & = \SI{2.5}{\meter}
+\end{align*}
+\bc{h_3 = \SI{2.5}{\meter}}
+
+\section{Power}
+
+\begin{equation}
+	\text{Power} = \frac{\text{Energy}}{\text{Time}}
+\end{equation}
+\bc{P = \frac{dE}{dt}}
+Definition of Power
+\begin{align*}
+	P & = \frac{d \left( \int \vec{F} \cdot d\vec{x} \right)}{dt} \\
+	P & = \frac{d \left( \frac{1}{2}mv^2 \right)}{dt} \\
+	P & = \frac{1}{2} \frac{d}{dt} \left[ mv^2 \right] \\
+	P & = \frac{1}{2} (\dot{m}v)v + \frac{1}{2}m(2v\dot{v})
+\end{align*}
+In the case that $ m $ doesn't change ($ \dot{m} = 0 $)
+\begin{align*}
+	P & = (ma)v \\
+	P & = \vec{F} \cdot \vec{v}
+\end{align*}
+\bc{P = \vec{F} \cdot \vec{v}}
+
+\section{Momentum}
+
+Recall:
+\begin{equation}
+	\vec{F} = \frac{d\vec{p}}{dt}
+\end{equation}
+\begin{equation}
+	\vec{P} \equiv m\vec{v}
+\end{equation}
+Momentum - ``how hard is it to reduce $ \vec{v} $ to zero?"
+
+$ \vec{P} $ is a vector that points in the same direction as $ \vec{v} $. $ \vec{P} $ is conserved.
+$$ KE = \frac{p^2}{2m}; F = \frac{d\vec{P}}{dt} $$
+
+Collision \textrightarrow Momentum
+\begin{align}
+	\sum \vec{P}_i & = \sum \vec{P}_f \\
+	\sum \vec{P}_{i_x} & = \sum \vec{P}_{f_x} \\
+	\sum \vec{P}_{i_y} & = \sum \vec{P}_{f_y} \\
+	\sum \vec{P}_{i_z} & = \sum \vec{P}_{f_z}
+\end{align}
+
+\subsection{2D Momentum Conservation:}
+
+Situation - Two masses (vehicles) are colliding
+\begin{align*}
+	M & = \SI{3000}{\kilogram} \\
+	u_i & = \SI{90}{\mile \per \hour} \\
+	m & = \SI{2500}{\kilogram} \\
+	v_i & = \SI{75}{\mile \per \hour} \\
+	v_f & = ? \\
+	\phi & = ? \\
+	\theta_f & = \SI{30}{\degree} \\
+	u_f & = \SI{60}{\mile \per \hour}
+\end{align*}
+\begin{align*}
+	\sum \vec{P}_{i_x} & = \sum \vec{P}_{f_x} \\
+	Mu_i - mv_i & = Mu_f\cos(\theta_f) - mv_f\cos(\phi_f) \\
+	mv_f\cos(\phi_f) & = Mu_f\cos(\theta_f) - Mu_i + mv_i
+\end{align*}
+\begin{align*}
+	\sum \vec{P}_{i_y} & = \sum \vec{P}_{f_y} \\
+	0 & = mv_f\sin(\phi_f) - Mu_f\sin(\theta_f) \\
+	mv_f\sin(\phi_f) & = Mu_f\sin(\theta_f)
+\end{align*}
+\begin{align*}
+	\tan(\phi_f) & = \frac{Mu_f\sin(\theta_f)}{Mu_f\cos(\theta_f) - Mu_i + mv_i} \\
+	\phi_f & = \arctan \left[ \frac{(\SI{3000}{\kilogram})(\SI{60}{\mile \per \hour})(\sin(\SI{30}{\degree}))}{(\SI{3000}{\kilogram})(\SI{60}{\mile \per \hour})(\cos(\SI{30}{\degree})) - (\SI{3000}{\kilogram})(\SI{90}{\mile \per \hour}) + (\SI{2500}{\kilogram})(\SI{75}{\mile \per \hour})} \right] \\
+	\phi_f & = \SI{51}{\degree}
+\end{align*}
+\bc{\phi_f = \SI{51}{\degree}}
+\begin{align*}
+	mv_f\sin(\phi_f) & = Mu_f\sin(\theta_f) \\
+	v_f & = \left[ \frac{M}{m} \frac{\sin(\theta_f)}{\sin(\phi_f)} \right] u_f \\
+	v_f & = \frac{(\SI{3000}{\kilogram})(\sin(\SI{30}{\degree}))(\SI{60}{\mile \per \hour})}{(\SI{2500}{\kilogram})(\sin(\SI{51}{\degree}))} \\
+	v_f & = \SI{46}{\mile \per \hour}
+\end{align*}
+\bc{v_f = \SI{46}{\mile \per \hour}}
+
+\section{Collisions}
+
+\underline{Perfectly Elastic ($ \epsilon = 1 $):}
+
+Energy is conserved.
+
+\underline{Partially Elastic ($ 0 < \epsilon <  1 $):}
+
+Bounre; Energy not conserved.
+
+\underline{Inelastic ($ \epsilon = 0 $):}
+
+Two objects stick together or explode.
+
+\hr
+
+Is the car collision elastic?
+\begin{align*}
+	\frac{1}{2}mv_i^2 + \frac{v}{2}Mu_i^2 & = \frac{1}{2}mv_f^2 + \frac{1}{2}Mu_f^2 \\
+	(\SI{2500}{\kilogram})(\SI{75}{\mile \per \hour})^2 + (\SI{3000}{\kilogram})(\SI{90}{\mile \per \hour})^2 & = (\SI{2500}{\kilogram})(\SI{46}{\mile \per \hour})^2 + (\SI{3000}{\kilogram})(\SI{60}{\mile \per \hour})^2 \\
+	\SI{3.8e7}{\kilogram \mile \per \hour} & = \SI{1.6e7}{\kilogram \mile \per \hour}
+\end{align*}
+\bc{\SI{3.8e7}{\kilogram \mile \per \hour} \neq \SI{1.6e7}{\kilogram \mile \per \hour} \therefore \text{ Partially Elastic}}
+
+\end{document}

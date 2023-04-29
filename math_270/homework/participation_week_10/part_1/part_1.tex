@@ -1,0 +1,274 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\DeclareMathOperator{\colspace}{colspace}
+\DeclareMathOperator{\rowspace}{rowspace}
+\DeclareMathOperator{\nullspace}{nullspace}
+\DeclareMathOperator{\rref}{rref}
+
+\title{Week 10 Participation Assignment (1 of 2)}
+\author{Corey Mostero - 2566652}
+\date{28 April 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 1}
+
+Let's consider the following matrix
+\begin{equation*}
+	A = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		-4 & 3 & 11 & 4 & 2 & 3 & -17 \\
+		-3 & 2 & 6 & 1 & 1 & 1 & -16 \\
+		1 & 4 & 40 & 37 & 12 & 17 & 24 \\
+		-5 & 3 & 7 & -1 & 0 & 1 & -22
+	\end{bmatrix}
+\end{equation*}
+
+We can define the following subspaces:
+\begin{equation*}
+	W_1 = \colspace(A), W_2 = \rowspace(A), W_3 = \nullspace(A)
+\end{equation*}
+Questions:
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item
+		Write $ W_1 $, $ W_2 $ as spaces of vectors. Make sure you write all the vectors as $ \langle x_1, x_2, x_3, \cdots, x_k \rangle $.
+	\item
+		Identify the ambient spaces of $ \colspace(A) $, $ \rowspace(A) $, and $ \nullspace(A) $.
+	\item
+		Next, we can define $ W_1^\perp $, $ W_2^\perp $, $ W_3^\perp $. Then what are the ambient spaces of the orthogonal complements?
+\end{enumerate}
+
+\subsection{1)}
+
+\subsubsection{Find $ \rref(A) $}
+\begin{align*}
+	A_2 & = 3A_2 + 4A_1 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		-3 & 2 & 6 & 1 & 1 & 1 & -16 \\
+		1 & 4 & 40 & 37 & 12 & 17 & 24 \\
+		-5 & 3 & 7 & -1 & 0 & 1 & -22
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A_3 & = A_3 + A_1 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		0 & 1 & 9 & 8 & 3 & 3 & -1 \\
+		1 & 4 & 40 & 37 & 12 & 17 & 24 \\
+		-5 & 3 & 7 & -1 & 0 & 1 & -22
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A_3 & = 5A_3 - A_2 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		0 & 0 & 0 & 0 & 1 & -2 & -14 \\
+		1 & 4 & 40 & 37 & 12 & 17 & 24 \\
+		-5 & 3 & 7 & -1 & 0 & 1 & -22
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A_4 & = 3A_4 - A_1 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		0 & 0 & 0 & 0 & 1 & -2 & -14 \\
+		0 & 13 & 117 & 104 & 34 & 49 & 57 \\
+		-5 & 3 & 7 & -1 & 0 & 1 & -22
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A_4 & = 5A_4 - 13A_2 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		0 & 0 & 0 & 0 & 1 & -2 & -14 \\
+		0 & 0 & 0 & 0 & -12 & 24 & 168 \\
+		-5 & 3 & 7 & -1 & 0 & 1 & -22
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A_4 & = A_4 + 12A_3 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		0 & 0 & 0 & 0 & 1 & -2 & -14 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		-5 & 3 & 7 & -1 & 0 & 1 & -22
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	& \text{Swap } A_4, A_5 \\
+	A_4 & = 3A_4 + 5A_1 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		0 & 0 & 0 & 0 & 1 & -2 & -14 \\
+		0 & 4 & 36 & 32 & 10 & 13 & 9 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A_4 & = 5A_4 - 4A_2 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		0 & 0 & 0 & 0 & 1 & -2 & -14 \\
+		0 & 0 & 0 & 0 & -6 & -3 & 9 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A_4 & = A_4 + 6A_3 \\
+	A & = \begin{bmatrix}
+		3 & -1 & 3 & 7 & 2 & 2 & 15 \\
+		0 & 5 & 45 & 40 & 14 & 17 & 9 \\
+		0 & 0 & 0 & 0 & 1 & -2 & -14 \\
+		0 & 0 & 0 & 0 & 0 & -15 & -75 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	A_1 & = \frac{1}{3}A_1 \\
+	A_2 & = \frac{1}{5}A_2 \\
+	A_4 & = -\frac{1}{15}A_4 \\
+	A & = \begin{bmatrix}
+		1 & -\frac{1}{3} & 1 & \frac{7}{3} & \frac{2}{3} & \frac{2}{3} & 5 \\
+		0 & 1 & 9 & 8 & \frac{14}{5} & \frac{17}{5} & \frac{9}{5} \\
+		0 & 0 & 0 & 0 & 1 & -2 & -14 \\
+		0 & 0 & 0 & 0 & 0 & 1 & 5 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+Using calculator to find reduced form:
+\bc{
+	\rref(A) = \begin{bmatrix}
+		1 & 0 & 4 & 5 & 0 & 0 & 3 \\
+		0 & 1 & 9 & 8 & 0 & 0 & -4 \\
+		0 & 0 & 0 & 0 & 1 & 0 & -4 \\
+		0 & 0 & 0 & 0 & 0 & 1 & 5 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0
+	\end{bmatrix}
+}
+
+\begin{align*}
+	& W_1 = \colspace(A) = \\
+	& \text{span} \left(
+		c_1 \begin{bmatrix} 3 \\ -4 \\ -3 \\ 1 \\ -5 \end{bmatrix}
+		+ c_2 \begin{bmatrix} -1 \\ 3 \\ 2 \\ 4 \\ 3 \end{bmatrix}
+		+ c_3 \begin{bmatrix} 3 \\ 11 \\ 6 \\ 40 \\ 7 \end{bmatrix}
+		+ c_4 \begin{bmatrix} 7 \\ 4 \\ 1 \\ 37 \\ -1 \end{bmatrix}
+		+ c_5 \begin{bmatrix} 2 \\ 2 \\ 1 \\ 12 \\ 0 \end{bmatrix}
+		+ c_6 \begin{bmatrix} 2 \\ 3 \\ 1 \\ 17 \\ 1 \end{bmatrix}
+		+ c_7 \begin{bmatrix} 15 \\ -17 \\ -16 \\ 24 \\ -22 \end{bmatrix}
+	\right)
+\end{align*}
+
+\begin{align*}
+	& W_2 = \rowspace(A) = \\
+	& \text{span} \left(
+		c_1 \begin{bmatrix} 3 \\ -1 \\ 3 \\ 7 \\ 2 \\ 2 \\ 15 \end{bmatrix}
+		+ c_2 \begin{bmatrix} -4 \\ 3 \\ 11 \\ 4 \\ 2 \\ 3 \\ -17 \end{bmatrix}
+		+ c_3 \begin{bmatrix} -3 \\ 2 \\ 6 \\ 1 \\ 1 \\ 1 \\ -16 \end{bmatrix}
+		+ c_4 \begin{bmatrix} 1 \\ 4 \\ 40 \\ 37 \\ 12 \\ 17 \\ 24 \end{bmatrix}
+		+ c_5 \begin{bmatrix} -5 \\ 3 \\ 7 \\ -1 \\ 0 \\ 1 \\ -22 \end{bmatrix}
+	\right)
+\end{align*}
+
+\subsection{2)}
+
+\begin{enumerate}[label = \textbf{ $ W_\arabic* $ ambient space: }]
+	\item $ \mathbb{R}^7 $
+	\item $ \mathbb{R}^5 $
+	\item $ \mathbb{R}^7 $
+\end{enumerate}
+
+\subsection{3)}
+
+\begin{enumerate}[label = \textbf{ $ W_\arabic*^\perp $ ambient space: }]
+	\item $ \mathbb{R}^7 $
+	\item $ \mathbb{R}^5 $
+	\item $ \mathbb{R}^7 $
+\end{enumerate}
+
+\end{document}

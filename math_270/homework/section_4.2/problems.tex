@@ -1,0 +1,313 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\DeclareMathOperator{\rref}{rref}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\newcommand{\matr}[1]{\mathbf{#1}}
+
+\tableofcontents
+
+\section{Section 4.2}
+
+\subsection{4.2.15}
+
+Find the solution vectors $ \vec{u} $ and $ \vec{v} $ such that the solution space is the set of all linear combinations of the form $ s\vec{u} + t\vec{v} $.
+\begin{equation*}
+	\systeme{
+		x_1 - 4x_2 + x_3 - 8x_4 = 0,
+		x_1 + 2x_2 + x_3 + 16x_4 = 0,
+		x_1 + x_2 + x_3 + 12x_4 = 0
+	}
+\end{equation*}
+
+Find $ \rref(\matr{A}) $
+\begin{align*}
+	\matr{A} & = \begin{bmatrix}
+		1 & -4 & 1 & -8 \\
+		1 & 2 & 1 & 16 \\
+		1 & 1 & 1 & 12
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = \matr{A}_2 - \matr{A}_1 \\
+	\matr{A}_2 & = \frac{1}{6}\matr{A}_2 \\
+	\matr{A}_3 & = \matr{A}_3 - \matr{A}_1 \\
+	\matr{A} & = \begin{bmatrix}
+		1 & -4 & 1 & -8 \\
+		0 & 1 & 0 & 4 \\
+		0 & 5 & 0 & 20
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_3 & = \matr{A}_3 - 5\matr{A}_2 \\
+	\matr{A}_1 & = \matr{A}_1 + 4\matr{A}_2 \\
+	\matr{A} & = \begin{bmatrix}
+		1 & 0 & 1 & 8 \\
+		0 & 1 & 0 & 4 \\
+		0 & 0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{equation*}
+	\rref(\matr{A}) = \begin{bmatrix}
+		1 & 0 & 1 & 8 \\
+		0 & 1 & 0 & 4 \\
+		0 & 0 & 0 & 0
+	\end{bmatrix}
+\end{equation*}
+
+Find the system solution
+\begin{equation*}
+	\systeme{
+		x_1 + x_3 + 8x_4 = 0,
+		x_2 + 4x_4 = 0,
+		0 = 0
+	}
+\end{equation*}
+From the $ \rref(\matr{A}) $ and system of equations, the leading variables  $ x_1, x_2 $ and free variables $ x_3, x_4 $ can be determined. Solving for the leading variables:
+\begin{align*}
+	x_1 + x_3 + 8x_4 & = 0 \\
+	x_1 & = -x_3 - 8x_4
+\end{align*}
+\begin{align*}
+	x_2 + 4x_4 & = 0 \\
+	x_2 & = -4x_4
+\end{align*}
+Thus the solution can be found as:
+\begin{align*}
+	\vec{x} & =
+		\begin{bmatrix}
+			x_1 \\
+			x_2 \\
+			x_3 \\
+			x_4
+		\end{bmatrix} \\
+	\vec{x} & =
+		\begin{bmatrix}
+			-x_3 - 8x_4 \\
+			-4x_4 \\
+			x_3 \\
+			x_4
+		\end{bmatrix} \\
+	\vec{x} & =
+		\begin{bmatrix}
+			-x_3 \\
+			0 \\
+			x_3 \\
+			0
+		\end{bmatrix}
+		+ \begin{bmatrix}
+			-8x_4 \\
+			-4x_4 \\
+			0 \\
+			x_4
+		\end{bmatrix} \\
+	\vec{x} & =
+		x_3 \begin{bmatrix}
+			-1 \\
+			0 \\
+			1 \\
+			0
+		\end{bmatrix}
+		+ x_4 \begin{bmatrix}
+			-8 \\
+			-4 \\
+			0 \\
+			1
+		\end{bmatrix}
+\end{align*}
+Therefore the system can be described in the form $ \vec{x} = s\vec{x_3} + t\vec{x_4} $:
+\bc{
+	\vec{x} = 
+		s \begin{bmatrix}
+			-1 \\
+			0 \\
+			1 \\
+			0
+		\end{bmatrix}
+		+ t \begin{bmatrix}
+			-8 \\
+			-4 \\
+			0 \\
+			1
+		\end{bmatrix}
+}
+
+\subsection{4.2.21}
+
+Reduce the given system to echelon form to find a single solution vector $ \vec{u} $ such that the solution space is the set of all scalar multiples of $ \vec{u} $.
+\begin{equation*}
+	\systeme{
+		x_1 + 7x_2 + 3x_3 - 4x_4 = 0,
+		2x_1 + 7x_2 + 3x_3 - x_4 = 0,
+		3x_1 + 5x_2 + 2x_3 + 3x_4 = 0
+	}
+\end{equation*}
+
+Begin with finding $ \rref(\matr{A}) $:
+\begin{align*}
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 7 & 3 & -4 \\
+			2 & 7 & 3 & -1 \\
+			3 & 5 & 2 & 3
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = \matr{A}_2 - 2\matr{A}_1 \\
+	\matr{A}_3 & = \matr{A}_3 - 3\matr{A}_1 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 7 & 3 & -4 \\
+			0 & -7 & -3 & 7 \\
+			0 & -16 & -7 & 15
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_1 & = \matr{A}_1 + \matr{A}_2 \\
+	\matr{A}_2 & = -\frac{1}{7}\matr{A}_2 \\
+	\matr{A}_3 & = \matr{A}_3 + 16\matr{A}_2 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 0 & 0 & 3 \\
+			0 & 1 & \frac{3}{7} & -1 \\
+			0 & 0 & -\frac{1}{7} & -1
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = \matr{A}_2 - \matr{A}_3 \\
+	\matr{A}_3 & = -7\matr{A}_3 \\
+	\matr{A}_2 & = \matr{A}_2 - \frac{4}{7}\matr{A}_3 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 0 & 0 & 3 \\
+			0 & 1 & 0 & -4 \\
+			0 & 0 & 1 & 7
+		\end{bmatrix}
+\end{align*}
+The system of equations can be found as:
+\begin{align*}
+	& \systeme{
+		x_1 + 3x_4 = 0,
+		x_2 - 4x_4 = 0,
+		x_3 + 7x_4 = 0
+	} \\
+	& \systeme{
+		x_1 = -3x_4,
+		x_2 = 4x_4,
+		x_3 = -7x_4
+	}
+\end{align*}
+Aliasing $ x_4 = s $, and finding $ \vec{x} $ in the form $ \vec{x} = s\vec{u} $:
+\begin{align*}
+	\vec{x} & =
+		\begin{bmatrix}
+			x_1 \\
+			x_2 \\
+			x_3 \\
+			x_4
+		\end{bmatrix} \\
+	\vec{x} & =
+		\begin{bmatrix}
+			-3x_4 \\
+			4x_4 \\
+			-7x_4 \\
+			x_4
+		\end{bmatrix} \\
+	\vec{x} & =
+		\begin{bmatrix}
+			-3s \\
+			4s \\
+			-7s \\
+			s
+		\end{bmatrix} \\
+	\vec{x} & =
+		s \begin{bmatrix}
+			-3 \\
+			4 \\
+			-7 \\
+			1
+		\end{bmatrix}
+\end{align*}
+\bc{
+	\vec{x} =
+		s \begin{bmatrix}
+			-3 \\
+			4 \\
+			-7 \\
+			1
+		\end{bmatrix}
+}
+
+\end{document}

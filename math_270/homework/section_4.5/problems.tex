@@ -1,0 +1,362 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\newcommand{\matr}[1]{\mathbf{#1}}
+\newcommand{\rows}{\text{rowspace}}
+\newcommand{\cols}{\text{colspace}}
+\newcommand{\rref}{\text{rref}}
+\newcommand{\set}[1]{\mathit{#1}}
+
+\tableofcontents
+
+\section{Section 4.5}
+
+\subsection{4.5.1}
+
+Find both a basis for the row space and a basis for the column space of the given matrix $ \matr{A} $.
+\begin{equation*}
+	\begin{bmatrix}
+		1 & 3 & 2 \\
+		1 & 2 & 6 \\
+		2 & 5 & 8
+	\end{bmatrix}
+\end{equation*}
+
+Find $ \rref(\matr{A}) $:
+\begin{align*}
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 3 & 2 \\
+			1 & 2 & 6 \\
+			2 & 5 & 8
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = \matr{A}_2 - \matr{A}_1 \\
+	\matr{A}_3 & = \matr{A}_3 - 2\matr{A}_1 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 3 & 2 \\
+			0 & -1 & 4 \\
+			0 & -1 & 4
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_3 & = \matr{A}_3 + \matr{A}_2 \\
+	\matr{A}_2 & = -1\matr{A}_2 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 3 & 2 \\
+			0 & 1 & -4 \\
+			0 & 0 & 0
+		\end{bmatrix}
+\end{align*}
+\begin{mdframed}
+	A basis for the row space is
+	$ \left\{ \begin{bmatrix} 1 \\ 3 \\ 2 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ -4 \end{bmatrix} \right\} $.
+	
+	A basis for the column space is
+	$ \left\{ \begin{bmatrix} 1 \\ 1 \\ 2 \end{bmatrix}, \begin{bmatrix} 3 \\ 2 \\ 5 \end{bmatrix} \right\} $.
+\end{mdframed}
+
+\subsection{4.5.3}
+
+Find both a basis for the row space and a basis for the column space of the given matrix $ \matr{A} $.
+\begin{align*}
+	\begin{bmatrix}
+		1 & -3 & -2 & -5 \\
+		4 & -7 & -3 & -5 \\
+		1 & 3 & 4 & 13
+	\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & -3 & -2 & -5 \\
+			4 & -7 & -3 & -5 \\
+			1 & 3 & 4 & 13
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = \matr{A}_2 - 4\matr{A}_1 \\
+	\matr{A}_2 & = \frac{1}{5}\matr{A}_2 \\
+	\matr{A}_3 & = \matr{A}_3 - \matr{A}_1 \\
+	\matr{A}_3 & = \frac{1}{6}\matr{A}_3 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & -3 & -2 & -5 \\
+			0 & 1 & 1 & 3 \\
+			0 & 1 & 1 & 3
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_3 & = \matr{A}_3 - \matr{A}_2 \\
+	\matr{A}_1 & = \matr{A}_1 + 3\matr{A}_2 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 0 & 1 & 4 \\
+			0 & 1 & 1 & 3 \\
+			0 & 0 & 0 & 0
+		\end{bmatrix}
+\end{align*}
+\begin{mdframed}
+	A basis for the row space is
+	$ \left\{
+		\begin{bmatrix} 1 \\ 0 \\ 1 \\ 4 \end{bmatrix},
+		\begin{bmatrix} 0 \\ 1 \\ 1 \\ 3 \end{bmatrix}
+	\right\} $
+	
+	A basis for the column space is
+	$ \left\{
+		\begin{bmatrix} 1 \\ 4 \\ 1 \end{bmatrix},
+		\begin{bmatrix} -3 \\ -7 \\ 3 \end{bmatrix}
+	\right\} $
+\end{mdframed}
+
+\subsection{4.5.9}
+
+Find both a basis for the row space and a basis for the column space of the given matrix $ \matr{A} $.
+\begin{align*}
+	\begin{bmatrix}
+		5 & 1 & 2 & 9 \\
+		10 & 7 & 5 & 7 \\
+		5 & 16 & 3 & 13 \\
+		15 & 28 & 9 & 9
+	\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+	\matr{A} & =
+		\begin{bmatrix}
+			5 & 1 & 2 & 9 \\
+			10 & 7 & 5 & 7 \\
+			5 & 16 & 3 & 13 \\
+			15 & 28 & 9 & 9
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = \matr{A}_2 - 2\matr{A}_1 \\
+	\matr{A}_3 & = \matr{A}_3 - \matr{A}_1 \\
+	\matr{A}_4 & = \matr{A}_4 - 3\matr{A}_1 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			5 & 1 & 2 & 9 \\
+			0 & 5 & 1 & -11 \\
+			0 & 15 & 1 & 4 \\
+			0 & 25 & 3 & -18
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_3 & = \matr{A}_3 - 3\matr{A}_2 \\
+	\matr{A}_4 & = \matr{A}_4 - 5\matr{A}_2 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			5 & 1 & 2 & 9 \\
+			0 & 5 & 1 & -11 \\
+			0 & 0 & -2 & 37 \\
+			0 & 0 & -2 & 37
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_4 & = \matr{A}_4 - \matr{A}_3 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			5 & 1 & 2 & 9 \\
+			0 & 5 & 1 & -11 \\
+			0 & 0 & -2 & 37 \\
+			0 & 0 & 0 & 0
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = 2\matr{A}_2 + \matr{A}_3 \\
+	\matr{A}_2 & = \frac{1}{5}\matr{A}_2 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			5 & 1 & 2 & 9 \\
+			0 & 2 & 0 & 3 \\
+			0 & 0 & -2 & 37 \\
+			0 & 0 & 0 & 0
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_1 & = 2\matr{A}_1 - \matr{A}_2 \\
+	\matr{A}_1 & = \matr{A}_1 + 2\matr{A}_3 \\
+	\matr{A}_1 & = \frac{1}{10}A_1 \\
+	\matr{A}_2 & = \frac{1}{2}A_2 \\
+	\matr{A}_3 & = -\frac{1}{2}A_3 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 0 & 0 & \frac{89}{10} \\
+			0 & 1 & 0 & \frac{3}{2}\\
+			0 & 0 & 1 & -\frac{37}{2} \\
+			0 & 0 & 0 & 0
+		\end{bmatrix}
+\end{align*}
+\begin{mdframed}
+	A basis for the row space is
+	$ \left\{
+		\begin{bmatrix} 1 \\ 0 \\ 0 \\ \frac{89}{10} \end{bmatrix},
+		\begin{bmatrix} 0 \\ 1 \\ 0 \\ \frac{3}{2} \end{bmatrix},
+		\begin{bmatrix} 0 \\ 0 \\ 1 \\ -\frac{37}{2} \end{bmatrix}
+	\right\} $
+	
+	A basis for the column space is
+	$ \left\{
+		\begin{bmatrix} 5 \\ 10 \\ 5 \\ 15 \end{bmatrix},
+		\begin{bmatrix} 1 \\ 7 \\ 16 \\ 28 \end{bmatrix},
+		\begin{bmatrix} 2 \\ 5 \\ 3 \\ 9 \end{bmatrix}
+	\right\} $
+\end{mdframed}
+
+\subsection{4.5.13}
+
+A set $ \set{S} $ of vectors in $ \mathbb{R}^4 $ is given. Find a subset of $ \set{S} $ that forms a basis for the subspace of $ \mathbb{R}^4 $ spanned by $ \set{S} $.
+\begin{equation*}
+	\vec{v}_1 = \begin{bmatrix} 2 \\ 2 \\ -2 \\ 6 \end{bmatrix},
+	\vec{v}_2 = \begin{bmatrix} 2 \\ 23 \\ -44 \\ 30 \end{bmatrix},
+	\vec{v}_3 = \begin{bmatrix} 5 \\ 26 \\ -47 \\ 39 \end{bmatrix}
+\end{equation*}
+
+\begin{align*}
+	\matr{A} & =
+		\begin{bmatrix}
+			2 & 2 & 5 \\
+			2 & 23 & 26 \\
+			-2 & -44 & -47 \\
+			6 & 30 & 39
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = \matr{A}_2 - \matr{A}_1 \\
+	\matr{A}_3 & = \matr{A}_3 + \matr{A}_1 \\
+	\matr{A}_4 & = \matr{A}_4 - 3\matr{A}_1 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			2 & 2 & 5 \\
+			0 & 21 & 21 \\
+			0 & -42 & -42 \\
+			0 & 24 & 24
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & = \frac{1}{21}\matr{A}_2 \\
+	\matr{A}_3 & = -\frac{1}{42}\matr{A}_3 \\
+	\matr{A}_4 & = \frac{1}{24}\matr{A}_4 \\
+	\matr{A}_4 & = \matr{A}_4 - \matr{A}_3 \\
+	\matr{A}_3 & = \matr{A}_3 - \matr{A}_2 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			2 & 2 & 5 \\
+			0 & 1 & 1 \\
+			0 & 0 & 0 \\
+			0 & 0 & 0
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_1 & = \matr{A}_1 - 2\matr{A}_2 \\
+	\matr{A}_1 & = \frac{1}{2}\matr{A}_1 \\
+	\matr{A} & =
+		\begin{bmatrix}
+			1 & 0 & \frac{3}{2} \\
+			0 & 1 & 1 \\
+			0 & 0 & 0 \\
+			0 & 0 & 0
+		\end{bmatrix}
+\end{align*}
+\begin{mdframed}
+	A basis for the row space is
+	$ \left\{
+		\begin{bmatrix} 1 \\ 0 \\ \frac{3}{2} \end{bmatrix},
+		\begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}
+	\right\} $
+	
+	A basis for the column space is
+	$ \left\{
+		\begin{bmatrix} 2 \\ 2 \\ -2 \\ 6 \end{bmatrix},
+		\begin{bmatrix} 2 \\ 23 \\ -44 \\ 30 \end{bmatrix}
+	\right\} $
+
+	A basis for the subspace is given by
+	$ \left\{
+		\begin{bmatrix} 2 \\ 2 \\ -2 \\ 6 \end{bmatrix},
+		\begin{bmatrix} 2 \\ 23 \\ -44 \\ 30 \end{bmatrix}
+	\right\} $
+\end{mdframed}
+
+\end{document}

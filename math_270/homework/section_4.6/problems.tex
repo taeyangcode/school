@@ -1,0 +1,153 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\newcommand{\matr}[1]{\mathbf{#1}}
+
+\tableofcontents
+
+\section{Section 4.6}
+
+\subsection{4.6.1}
+
+Determine whether the following vectors are mutually orthogonal.
+\begin{equation*}
+	\vec{u}_1 = (1, -2, 1),
+	\vec{u}_2 = (0, 1, 2),
+	\vec{u}_3 = (-5, -2, 1)
+\end{equation*}
+\begin{align*}
+	\vec{u}_1 \cdot \vec{u}_2 & = 1 \cdot 0 + -2 \cdot 1 + 1 \cdot 2 = 0 \therefore \vec{u}_1 \perp \vec{u}_2 \\
+	\vec{u}_1 \cdot \vec{u}_3 & = 1 \cdot -5 + -2 \cdot -2 + 1 \cdot 1 = 0 \therefore \vec{u}_1 \perp \vec{u}_3 \\
+	\vec{u}_2 \cdot \vec{u}_3 & = 0 \cdot -5 + 1 \cdot -2 + 2 \cdot 1 = 0 \therefore \vec{u}_2 \perp \vec{u}_3
+\end{align*}
+\begin{mdframed}
+	The vectors are mutually orthogonal because each pair of distinct vectors is orthogonal.
+\end{mdframed}
+
+\subsection{4.6.5}
+
+The three vertices $ A $, $ B $, and $ C $, of a triangle are given. Prove that the triangle is a right triangle by showing that its sides $ a $, $ b $, and $ c $ satisfy the Pythagorean relation $ a^2 + b^2 = c^2 $.
+
+Find the length of each side $ a $, $ b $, and $ c $.
+\begin{align*}
+	d(B, C) & = \sqrt{ (3 - 4)^2 + (8 - 9)^2 + (3 - 6)^2 + (5 - 3)^2 } \\
+	d(B, C) & = \sqrt{15}
+\end{align*}
+\begin{align*}
+	d(A, C) & = \sqrt{ (3 - 4)^2 + (8 - 7)^2 + (3 - 5)^2 + (5 - 8)^2 } \\
+	d(A, C) & = \sqrt{15}
+\end{align*}
+\begin{align*}
+	d(A, B) & = \sqrt{ ((4 - 4)^2 + (9 - 7)^2 + (6 - 5)^2 + (3 - 8)^2 } \\
+	d(A, B) & = \sqrt{30}
+\end{align*}
+As the distance $ d(A, B) $ is the longest of the three sides, it is therefore the hypotenuse.
+\begin{align*}
+	a^2 + b^2 & = c^2 \\
+	(\sqrt{15})^2 + (\sqrt{15})^2 & = (\sqrt{30})^2 \\
+	0 & = 0
+\end{align*}
+
+\subsection{4.6.13}
+
+The vector $ \vec{v}_1 = \begin{bmatrix} 1 \\ -7 \\ 8 \end{bmatrix} $ spans a subspace $ \matr{V} $ of the indicated Euclidean space. Find a basis for the orthogonal complement $ \matr{V}^\perp $ of $ \matr{V} $.
+\begin{align*}
+	\matr{V} & = \begin{bmatrix} 1 & -7 & 8 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	x_1 - 7x_2 + 8x_3 & = 0 \\
+	x_1 & = 7x_2 - 8x_3 \\
+	\matr{V}^\perp & =
+		\begin{bmatrix}
+			7x_2 - 8x_3 \\
+			x_2 \\
+			x_3
+		\end{bmatrix} \\
+	\matr{V}^\perp & =
+		x_2 \begin{bmatrix} 7 \\ 1 \\ 0 \end{bmatrix}
+		+ x_3 \begin{bmatrix} -8 \\ 0 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{mdframed}
+	A basis for the orthogonal complement $ \matr{V}^\perp $ is
+	$ \left\{
+		\begin{bmatrix} 7 \\ 1 \\ 0 \end{bmatrix},
+		\begin{bmatrix} -8 \\ 0 \\ 1 \end{bmatrix}
+	\right\} $
+\end{mdframed}
+
+\end{document}

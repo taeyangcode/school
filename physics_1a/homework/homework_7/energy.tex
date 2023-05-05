@@ -240,13 +240,67 @@
 
 \begin{align*}
 	m_1 = m_2 = m_3 & = \SI{8.50}{\kilogram} \\
-	k & = \SI{7.80}{\kilo \newton \per \meter} \\
+	k & = \SI{7.80}{\kilo \newton \per \meter} = \SI{7.80e3}{\newton \per \meter} \\
 	x & = \SI{12.0}{\centi \meter}
 \end{align*}
 
 \begin{enumerate}[label = \textbf{(\alph*)}]
-	\item Draw a free-body diagram of each mass.
+	\item Draw a free-body diagram of each mass. \\
+		\begin{tikzpicture}
+			\node[circle, fill, inner sep = 1pt] (origin) {};
+			\node [below = of origin] (y) {$ +\hat{y} $};
+			\node [right = of origin] (x) {$ +\hat{x} $};
+
+			\foreach \node in {y, x}
+				\draw[black, thick, ->] (origin) -- (\node);
+		\end{tikzpicture}
+
+		\begin{tikzpicture}
+			\node (origin) {$ m_1 $};
+			\node (above) [above = of origin] {$ kx_1 $};
+			\node (below) [below = of origin] {$ m_1g, kx_2 $};
+
+			\foreach \node in {above, below}
+				\draw[black, thick, ->] (origin) -- (\node);
+		\end{tikzpicture}
+		\begin{tikzpicture}
+			\node (origin) {$ m_2 $};
+			\node (above) [above = of origin] {$ kx_2 $};
+			\node (below) [below = of origin] {$ m_2g, kx_3 $};
+
+			\foreach \node in {above, below}
+				\draw[black, thick, ->] (origin) -- (\node);
+		\end{tikzpicture}
+		\begin{tikzpicture}
+			\node (origin) {$ m_3 $};
+			\node (above) [above = of origin] {$ kx_3 $};
+			\node (below) [below = of origin] {$ m_3g $};
+
+			\foreach \node in {above, below}
+				\draw[black, thick, ->] (origin) -- (\node);
+		\end{tikzpicture}
 	\item How long is each spring when hanging as shown?
+		\begin{align*}
+			\sum F_y^{(m_3)} & = 0 \\
+			kx_3 & = m_3g \\
+			x_3 & = \frac{m_3g}{k} \\
+			x_3 & = \frac{(\SI{8.50}{\kilogram})(\SI{10}{\meter \per \second \squared})}{\SI{7.80e3}{\newton \per \meter}} \\
+			x_3 & = \SI{0.011}{\meter}
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{(m_2)} & = 0 \\
+			kx_2 & = m_2g + kx_3 \\
+			x_2 & = \frac{m_2g + kx_3}{k} \\
+			x_2 & = \frac{(\SI{8.50}{\kilogram})(\SI{10}{\meter \per \second \squared}) + (\SI{7.80e3}{\newton \per \meter})(\SI{0.011}{\meter})}{\SI{7.80e3}{\newton \per \meter}} \\
+			x_2 & = \SI{0.022}{\meter}
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{(m_1)} & = 0 \\
+			kx_1 & = m_1g + kx_2 \\
+			x_1 & = \frac{m_1g + kx_2}{k} \\
+			x_1 & = \frac{(\SI{8.50}{\kilogram})(\SI{10}{\meter \per \second \squared}) + (\SI{7.80e3}{\newton \per \meter})(\SI{0.022}{\meter})}{\SI{7.80e3}{\newton \per \meter}} \\
+			x_1 & = \SI{0.033}{\meter}
+		\end{align*}
 \end{enumerate}
 
 \subsection{6.45}

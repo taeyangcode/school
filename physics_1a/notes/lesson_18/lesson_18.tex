@@ -1,0 +1,222 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Energy}
+
+\subsection{Example}
+
+\begin{align*}
+	h_{0_b} & = \SI{1}{\meter} \\
+	h_{1_b} & = \SI{0.7}{\meter} \\
+	h_{0_t} & = \SI{0.8}{\meter} \\
+	h_{1_t} & = \SI{0.4}{\meter}
+\end{align*}
+\begin{align*}
+	\epsilon & = \left| \frac{v_{ref_f}}{v_{ref_i}} \right| \\
+	mgh & = \frac{1}{2}mv^2 \\
+	v_i & = \sqrt{2gh_0} \\
+	v_f & = \sqrt{2gh_1}
+\end{align*}
+\begin{align*}
+	\epsilon & = \sqrt{ \frac{2gh_1}{2gh_0} } \\
+	\epsilon & = \sqrt{ \frac{h_1}{h_0} } \\
+	\epsilon_b & = 0.84 \\
+	\epsilon_t & = 0.71
+\end{align*}
+A basketball and tennis ball are dropped so that the tennis ball sits on top of the basket ball. $ m_{tb} = \SI{0.0568}{\kilogram} $, $ m_{bb} = \SI{0.4848}{\kilogram} $, $ h_{o_b} = \SI{1.5}{\meter} $, $ D_b = \SI{0.20}{\meter} $.
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item How fast does the basketball hit the ground?
+		\begin{align*}
+			E_{1.5_m} & = E_{0_m} \\
+			m_{bb}gh_0 & = \frac{1}{2}m_{bb}u_A^2 \\
+			u_A & = \sqrt{2gh_0} \\
+			u_A & = \SI{5.5}{\meter \per \second}
+		\end{align*}
+	\item How fast does the basketball rebound?
+		\begin{align*}
+			u_B & = \epsilon u_A \\
+			u_B & = (0.84)(\SI{5.5}{\meter \per \second}) \\
+			u_B & = \SI{4.6}{\meter \per \second} = u_i \\
+			v_i & = \SI{5.5}{\meter \per \second}
+		\end{align*}
+	\item How fast does the tennis ball hit the basketball?
+		\begin{align*}
+			v_{CM} & = \frac{m_{TB}v_i + m_{BB}u_i}{m_{TB} + m_{BB}} \\
+			v_{CM} & = \frac{(\SI{0.0568}{\kilogram})(\SI{5.5}{\meter \per \second}) - (\SI{0.4848}{\kilogram})(\SI{4.6}{\meter \per \second})}{\SI{0.0568}{\kilogram} + \SI{0.4848}{\kilogram}} \\
+			v_{CM} & = \SI{-3.54}{\meter \per \second}
+		\end{align*}
+		\begin{tabular}{ | c | c | c | c | }
+			\hline
+			initial & LAB & $ -v_{CM} $ & ZMF \\
+			\hline
+			$ \vec{v} $ & \SI{5.5}{\meter \per \second} & \SI{3.54}{\meter \per \second} & \SI{9.04}{\meter \per \second} \\
+			\hline
+			$ \vec{u} $ & \SI{-4.6}{\meter \per \second} & \SI{3.54}{\meter \per \second} & \SI{-1.06}{\meter \per \second} \\
+			\hline
+		\end{tabular}
+		\begin{align*}
+			v_f^{ZMF} & = -\epsilon v_i^{ZMF} \\
+			v_f^{ZMF} & = -(0.71)(\SI{9.04}{\meter \per \second}) \\
+			v_f^{ZMF} & = \SI{-6.42}{\meter \per \second}
+		\end{align*}
+		\begin{align*}
+			v_f^{LAB} & = v_{CM} + v_f^{ZMF} \\
+			v_f^{LAB} & = \SI{-6.42}{\meter \per \second} - \SI{3.54}{\meter \per \second} \\
+			v_f^{LAB} & = \SI{-9.96}{\meter \per \second}
+		\end{align*}
+	\item How high does the tennis ball go?
+		\begin{align*}
+			E_c & = E_2 \\
+			\frac{1}{2}mv_c^2 + mgh_c & = \frac{1}{2}mv_2^2 + mgh_2 \\
+			\frac{1}{2}v_c^2 + gh_c & = 0 + gh_2 \\
+			h_2 & = \frac{v_c^2 + gh_c}{2g} \\
+			h_2 & = \frac{(\SI{9.9}{\meter \per \second})^2 + (\SI{10}{\meter \per \second \squared})(\SI{0.2}{\meter})}{2(\SI{10}{\meter \per \second \squared})} \\
+			h_2 & = \SI{5.0005}{\meter}
+		\end{align*}
+\end{enumerate}
+
+\section{Momentum Conservation - Rockets}
+
+\subsection{Tsiolkovsky Rocket}
+
+\begin{equation}
+	\sum \vec{F}_{ext} = \frac{d\vec{p}}{dt}
+\end{equation}
+Momentum of rocket:
+\begin{align*}
+	P_i & = mv + vdm
+\end{align*}
+If the rocket speeds up:
+\begin{align*}
+	P_f & = m(v + dv) + udm
+\end{align*}
+What is the limit definition of the derivative?
+\begin{align*}
+	\frac{dp}{dt} \lim_{\Delta t \rightarrow 0} \frac{\Delta p}{\Delta t} & = \frac{P_f - P_i}{dt} \\
+	\frac{dp}{dt} & = \frac{mv + mdv + udm - mv - vdm}{dt} \\
+	\frac{dp}{dt} & = m\frac{dv}{dt} + (u - v)\frac{dm}{dt} \\
+	\frac{dp}{dt} & = m\frac{dv}{dt} + u_{rel}\frac{dm}{dt}
+\end{align*}
+\begin{equation}
+	\sum F = \frac{dp}{dt} = m\frac{dv}{dt} + u_{rel}\frac{dm}{dt}
+\end{equation}
+
+\subsection{Free Space Rocket}
+
+\begin{align*}
+	\sum F & = \frac{dp}{dt} \\
+	0 & = \frac{dp}{dt} \\
+	0 & = m\frac{dv}{dt} + u_{rel}\frac{dm}{dt}
+\end{align*}
+\begin{align*}
+	\text{initial mass} & = m_0 + \Delta m \\
+	\text{final mass} & = m_0 \\
+	v_f - v_i & = \Delta v \quad \text{(Overall change in speed)}
+\end{align*}
+\begin{align*}
+	m\frac{dv}{dt} + u_{rel}\frac{dm}{dt} & = 0 \\
+	mdv + u_{rel}dm & = 0 \\
+	mdv & = -u_{rel}dm \\
+	dv & = -\frac{u_{rel}}{m}dm \\
+	\int_{v_i}^{v_f} dv & = -u_{rel} \int_{m_0 + \Delta m}^{m_0} \frac{1}{m} dm \\
+	\Delta v & = -u_{rel}\ln \left( \frac{m_0}{m_0 + \Delta m} \right) \\
+	\Delta v & = u_{rel}\ln \left( \frac{m_0 + \Delta m}{m_0} \right)
+\end{align*}
+\begin{equation}
+	\Delta v = u_{rel}\ln \left( \frac{m_0 + \Delta m}{m_0} \right)
+\end{equation}
+
+\subsection{Rocket Against Gravity}
+
+\begin{align*}
+	\sum F & = \frac{dp}{dt} \\
+	m\frac{dv}{dt} + u_{rel}\frac{dm}{dt} + mg + gdm & = 0 \\
+	mdv + u_{rel}dm + mgdt + gdmdt & = 0 \quad \text{(The $ dmdt $ can be assumed to equal $ 0 $)} \\
+	dv + \frac{u_{rel}}{m}dm + gdt & = 0 \\
+	dv & = -\frac{u_{rel}}{m}dm - gdt \\
+	\int_{v_i}^{v_f} dv & = -u_{re} \int_{m + \Delta m}^{m_0} \frac{1}{m} dm - g\int_{t_i}^{t_f} dt \\
+	\Delta v & = u_{rel} \ln \left( \frac{m_0 + \Delta m}{m_0} \right) - g\Delta t
+\end{align*}
+\begin{equation}
+	\Delta v = u_{rel} \ln \left( \frac{m_0 + \Delta m}{m_0} \right) - g\Delta t
+\end{equation}
+
+\end{document}

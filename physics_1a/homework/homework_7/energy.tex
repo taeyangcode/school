@@ -285,27 +285,67 @@
 			kx_3 & = m_3g \\
 			x_3 & = \frac{m_3g}{k} \\
 			x_3 & = \frac{(\SI{8.50}{\kilogram})(\SI{10}{\meter \per \second \squared})}{\SI{7.80e3}{\newton \per \meter}} \\
-			x_3 & = \SI{0.011}{\meter}
+			x_3 & = \SI{0.011}{\meter} = \SI{1.1}{\centi \meter}
 		\end{align*}
 		\begin{align*}
 			\sum F_y^{(m_2)} & = 0 \\
 			kx_2 & = m_2g + kx_3 \\
 			x_2 & = \frac{m_2g + kx_3}{k} \\
 			x_2 & = \frac{(\SI{8.50}{\kilogram})(\SI{10}{\meter \per \second \squared}) + (\SI{7.80e3}{\newton \per \meter})(\SI{0.011}{\meter})}{\SI{7.80e3}{\newton \per \meter}} \\
-			x_2 & = \SI{0.022}{\meter}
+			x_2 & = \SI{0.022}{\meter} = \SI{2.2}{\centi \meter}
 		\end{align*}
 		\begin{align*}
 			\sum F_y^{(m_1)} & = 0 \\
 			kx_1 & = m_1g + kx_2 \\
 			x_1 & = \frac{m_1g + kx_2}{k} \\
 			x_1 & = \frac{(\SI{8.50}{\kilogram})(\SI{10}{\meter \per \second \squared}) + (\SI{7.80e3}{\newton \per \meter})(\SI{0.022}{\meter})}{\SI{7.80e3}{\newton \per \meter}} \\
-			x_1 & = \SI{0.033}{\meter}
+			x_1 & = \SI{0.033}{\meter} = \SI{3.3}{\centi \meter}
 		\end{align*}
+		\begin{mdframed}
+			Spring 1: $ \SI{12.0}{\centi \meter} + x_1 = \SI{15.3}{\centi \meter} $ \\
+			Spring 2: $ \SI{12.0}{\centi \meter} + x_2 = \SI{14.2}{\centi \meter} $ \\
+			Spring 3: $ \SI{12.0}{\centi \meter} + x_3 = \SI{13.1}{\centi \meter} $
+		\end{mdframed}
 \end{enumerate}
 
 \subsection{6.45}
 
+\begin{align*}
+	F(x) & = \SI{18.0}{\newton} - (\SI{0.530}{\newton \per \meter})x \\
+	m & = \SI{5.00}{\kilogram} \\
+	v_0 & = 0 \\
+	x_0 & = 0 \\
+	x_1 & = \SI{11.0}{\meter} \\
+	v_1 & = ? \\
+	E_i & = 0
+\end{align*}
+What is its speed after it has traveled \SI{11.0}{\meter}?
+\begin{align*}
+	W & = \int_{x_0}^{x_1} \left( F(x) \right) dx \\
+	W & = \int_{0}^{\SI{11.0}{\meter}} \left( \SI{18.0}{\newton} - (\SI{0.530}{\newton \per \meter})x \right) dx \\
+	W & = \left. \left[ (\SI{18.0}{\newton})x - (\SI{0.265}{\newton \per \meter})x^2 \right] \right|_{0}^{\SI{11.0}{\meter}} \\
+	W & = \left[ (\SI{18.0}{\newton})(\SI{11.0}{\meter}) - (\SI{0.265}{\newton \per \meter})(\SI{11.0}{\meter})^2 \right] - 0 \\
+	W & = \SI{165.935}{\joule}
+\end{align*}
+\begin{align*}
+	W & = E_f - E_i, & \text{$ E_i = 0 $ as $ v_0 = 0 $} \\
+	W & = E_f \\
+	W & = \frac{1}{2}mv_f^2 \\
+	v_f & = \sqrt{ \frac{2W}{m} } \\
+	v_f & = \sqrt{ \frac{2(\SI{165.935}{\joule})}{\SI{5.00}{\kilogram}} } \\
+	v_f & = \SI{8.15}{\meter \per \second}
+\end{align*}
+\bc{ v_f = \SI{8.15}{\meter \per \second} }
+
 \subsection{6.48}
+
+\begin{align*}
+	d & = \SI{5.0}{\kilo \meter} \\
+	v_\text{run} & = \SI{10}{\kilo \meter \per \hour} \\
+	E_\text{run} & = \SI{700}{\watt} \\
+	v_\text{walk} & = \SI{3.0}{\kilo \meter \per \hour} \\
+	E_\text{walk} & = \SI{290}{\watt}
+\end{align*}
 
 \subsection{6.51}
 

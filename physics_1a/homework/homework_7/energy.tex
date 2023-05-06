@@ -342,10 +342,44 @@ What is its speed after it has traveled \SI{11.0}{\meter}?
 \begin{align*}
 	d & = \SI{5.0}{\kilo \meter} \\
 	v_\text{run} & = \SI{10}{\kilo \meter \per \hour} \\
-	E_\text{run} & = \SI{700}{\watt} \\
+	P_\text{run} & = \SI{700}{\watt} \\
 	v_\text{walk} & = \SI{3.0}{\kilo \meter \per \hour} \\
-	E_\text{walk} & = \SI{290}{\watt}
+	P_\text{walk} & = \SI{290}{\watt}
 \end{align*}
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item Which choice would burn up more energy, and how much energy (in joules) would it burn?
+		\begin{align*}
+			d & = v_\text{run}t_\text{run} \\
+			t_\text{run} & = \frac{d}{v_\text{run}} \\
+			t_\text{run} & = \frac{\SI{5.0}{\kilo \meter}}{\SI{10}{\kilo \meter \per \hour}} \\
+			t_\text{run} & = \SI{0.5}{\hour}
+		\end{align*}
+		\begin{align*}
+			P & = \frac{W}{t} \\
+			W_\text{run} & = P_\text{run}t_\text{run} \\
+						 & = (\SI{700}{\watt})(\SI{0.5}{\hour}) \\
+						 & = \SI{350}{\watt \hour} \\
+			W_\text{run} & = (\SI{350}{\watt \hour}) \left( \frac{\SI{3600}{\second}}{\SI{1}{\hour}} \right) = \SI{1260000}{\joule} = \SI{1.26e6}{\joule}
+		\end{align*}
+		\begin{align*}
+			t_\text{walk} = \frac{d}{v_\text{walk}} \\
+			t_\text{walk} & = \frac{\SI{5.0}{\kilo \meter}}{\SI{3.0}{\kilo \meter \per \hour}} \\
+			t_\text{walk} & = \SI{1.667}{\hour}
+		\end{align*}
+		\begin{align*}
+			W_\text{walk} & = P_\text{walk}t_\text{walk} \\
+						  & = (\SI{290}{\watt})(\SI{1.667}{\hour}) \\
+						  & = \SI{483.43}{\watt \hour} \\
+			W_\text{walk} & = (\SI{483.43}{\watt \hour}) \left( \frac{\SI{3600}{\second}}{\SI{1}{\hour}} \right) = \SI{1.74e6}{\joule}
+		\end{align*}
+		\begin{mdframed}
+			Walking will take more energy than running.
+		\end{mdframed}
+	\item Why does the more intense exercise burn up less energy than the less intense exercise?
+		\begin{mdframed}
+			Because I will have to take a longer time to arrive at the physics lab by walking, it takes up more energy.
+		\end{mdframed}
+\end{enumerate}
 
 \subsection{6.51}
 

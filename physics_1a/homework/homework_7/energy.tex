@@ -383,9 +383,104 @@ What is its speed after it has traveled \SI{11.0}{\meter}?
 
 \subsection{6.51}
 
+\begin{align*}
+	h & = \SI{10}{\meter} \\
+	m_\text{student} & = \SI{71}{\kilogram} \\
+	P & = \SI{500}{\watt} \\
+	t & = ?
+\end{align*}
+How long would it take the student to travel up the three flights of stairs?
+\begin{align*}
+	P & = \frac{W}{t} \\
+	t & = \frac{W}{P} \\
+	t & = \frac{wh}{P} \\
+	t & = \frac{(\SI{71}{\kilogram})(\SI{10}{\meter \per \second \squared})(\SI{10}{\meter})}{\SI{500}{\watt}} \\
+	t & = \SI{14.2}{\second}
+\end{align*}
+\bc{ t = \SI{14.2}{\second} }
+
 \subsection{7.5}
 
+\begin{align*}
+	y_0 & = \SI{20.8}{\meter} \\
+	v_0 & = \SI{11.5}{\meter \per \second} \\
+	\theta & = \SI{50.1}{\degree}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item \label{7.5.a} What is the speed of the ball just before it strikes the ground?
+		\begin{align*}
+			E_0 & = E_1 \\
+			\frac{1}{2}mv_0^2 + mgh_0 & = \frac{1}{2}mv_1^2 + mgh_1 \\
+			v_1 & = \sqrt{ v_0^2 + 2gh_0 - gh_1 } \\
+			v_1 & = \sqrt{ (\SI{11.5}{\meter \per \second}))^2 + 2(\SI{10}{\meter \per \second \squared})(\SI{20.8}{\meter}) - (\SI{10}{\meter \per \second \squared})(0) } \\
+			v_1 & = \SI{23.41}{\meter \per \second}
+		\end{align*}
+		\bc{ v_1 = \SI{23.41}{\meter \per \second} }
+	\item \label{7.5.b} What is the answer for part \ref{7.5.a} if the initial velocity is at an angle of \SI{50.1}{\degree} \textit{below} the horizontal?
+		\begin{align*}
+			\theta & = \SI{-50.1}{\degree}
+		\end{align*}
+		\begin{align*}
+			v_1 & = \sqrt{ v_0^2 + 2gh_0 - gh_1 } \\
+			v_1 & = \sqrt{ (\SI{11.5}{\meter \per \second}))^2 + 2(\SI{10}{\meter \per \second \squared})(\SI{20.8}{\meter}) - (\SI{10}{\meter \per \second \squared})(0) } \\
+			v_1 & = \SI{23.41}{\meter \per \second}
+		\end{align*}
+		\bc{ v_1 = \SI{23.41}{\meter \per \second} }
+	\item If the affects of air resistance are included, will part \ref{7.5.a} or \ref{7.5.b} give the higher speed?
+		\begin{mdframed}
+			In part \ref{7.5.b}, the tennis ball is thrown directly at the ground resulting in a shorter distance and time traveled. As the tennis ball is in the air for less time and distance, air resistance will likely have less of an overall effect when compared with throwing it above the horizontal.
+		\end{mdframed}
+\end{enumerate}
+
 \subsection{7.9}
+
+\begin{align*}
+	m & = \SI{0.20}{\kilogram} \\
+	v_0 & = 0 \\
+	R & = \SI{0.50}{\meter} \\
+	W_f & = \SI{-0.22}{\joule} \\
+	y_A & = 0 \\
+\end{align*}
+\begin{tikzpicture}
+	\node[circle, fill, inner sep = 1pt] (origin) {};
+	\node [below = of origin] (y) {$ +\hat{y} $};
+	\node [right = of origin] (x) {$ +\hat{x} $};
+
+	\draw[black, thick, ->] (origin) -- (y);
+	\draw[black, thick, ->] (origin) -- (x);
+\end{tikzpicture}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Between points $ A $ and $ B $, how much work is done on the rock by
+		\begin{enumerate}[label = \textbf{(\roman*)}]
+			\item the normal force?
+				\begin{mdframed}
+					$$ W_N = 0 $$
+					Forces perpendicular to the displacement have 0 work done.
+				\end{mdframed}
+			\item gravity?
+				\begin{align*}
+					W_g & = E_B - E_A \\
+					W_g & = mgy_B - mgy_A \\
+					W_g & = (\SI{0.20}{\kilogram})(\SI{10}{\meter \per \second \squared})(\SI{0.50}{\meter}) - (\SI{0.20}{\kilogram})(\SI{10}{\meter \per \second \squared})(\SI{0}{\meter}) \\
+					W_g & = \SI{1.00}{\joule}
+				\end{align*}
+				\bc{ W_g = \SI{1.00}{\joule} }
+		\end{enumerate}
+	\item What is the speed of the rock as it reaches point $ B $?
+		\begin{align*}
+			W & = E_B - E_A \\
+			W_g - W_f & = \frac{1}{2}mv_1^2 - \frac{1}{2}mv_0^2 \\
+			v_1 & = \sqrt{ 2 \left( \frac{W_g - W_f}{m} \right) } \\
+			v_1 & = \sqrt{ 2 \left( \frac{\SI{1.00}{\joule} - \SI{0.22}{\joule}}{\SI{0.20}{\kilogram}} \right) } \\
+			v_1 & = \SI{2.79}{\meter \per \second}
+		\end{align*}
+		\bc{ v_1 = \SI{2.79}{\meter \per \second} }
+	\item Of the three forces acting on the rock as it slides down the bowl, which (if any) are constant and which are not? Explain.
+		\begin{itemize}
+			\item $ W_N $ - As explained above, as the normal force is consistently perpendicular with the surface the rock is on, it is constant (0).
+			\item $ W_f $ - 
+		\end{itemize}
+\end{enumerate}
 
 \subsection{7.35}
 

@@ -48,6 +48,7 @@
 %
 % Image insertion
 \usepackage{graphicx}
+\graphicspath{ {./} }
 
 % Document content %
 %
@@ -477,12 +478,48 @@ How long would it take the student to travel up the three flights of stairs?
 		\bc{ v_1 = \SI{2.79}{\meter \per \second} }
 	\item Of the three forces acting on the rock as it slides down the bowl, which (if any) are constant and which are not? Explain.
 		\begin{itemize}
-			\item $ W_N $ - As explained above, as the normal force is consistently perpendicular with the surface the rock is on, it is constant (0).
-			\item $ W_f $ - 
+			\item $ W_N $ - The work done by normal force is only zero when it is entirely orthogonal to the direction of motion, but as the rock rolls on the \textit{curve}, the angle between the direction of motion and the normal force is no longer perpendicular resulting in a \textbf{non-constant} work done by the normal force.
+			\item $ W_f $ - Since the work done by $ W_N $ varies, the work done by friction varies resulting in it also being \textbf{non-constant}.
+				\begin{equation*}
+					W_f = F_fd\cos(\theta) = \mu Nd\cos(\theta)
+				\end{equation*}
+			\item $ W_g $ - As long as the mass of the rock is constant, and the rock is continuously in contact with the bowl (not falling), the work down by gravity is \textbf{constant}.
 		\end{itemize}
+	\item Just as the rock reaches point $ B $, what is the normal force on it due to the bottom of the bowl? \\
+		\begin{tikzpicture}
+			\node (origin) {rock};
+			\node [above = of origin] (above) {$ N, a $};
+			\node [below = of origin] (below) {$ mg $};
+			\node [left = of origin] (left) {$ f $};
+
+			\foreach \node in {above, below, left}
+				\draw[black, thick, ->] (origin) -- (\node);
+		\end{tikzpicture}
+		\begin{align*}
+			\sum F & = -ma_{cen} \\
+			mg & = N - ma_{cen} \\
+			N & = mg + m \left( \frac{v_1^2}{R} \right) \\
+			N & = (\SI{0.20}{\kilogram})(\SI{10}{\meter \per \second \squared}) + (\SI{0.20}{\kilogram}) \left( \frac{(\SI{2.79}{\meter \per \second})^2}{\SI{0.50}{\meter}} \right) \\
+			N & = \SI{5.11}{\newton}
+		\end{align*}
+		\bc{ N = \SI{5.11}{\newton} }
 \end{enumerate}
 
 \subsection{7.35}
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			F(r) & = \frac{dU}{dr} = \frac{d}{dr} \left( \left( \frac{a}{r^{12}} \right) - \left( \frac{b}{r^6} \right) \right) \\
+			F(r) & = \frac{12a}{r^{13}} - \frac{6b}{r^6}
+		\end{align*}
+		\begin{itemize}
+			\item $$ U(r) $$
+				\includegraphics[width = 200pt]{graph_1.png}
+			\item $$ F(r) $$
+				\includegraphics[width = 100pt]{graph_2.png}
+		\end{itemize}
+\end{enumerate}
 
 \subsection{7.40}
 

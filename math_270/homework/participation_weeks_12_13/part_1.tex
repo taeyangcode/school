@@ -1,0 +1,168 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 12 and Week 13 Participation Assignment (1 of 3)}
+\date{12 May 2023}
+\author{Corey Mostero - 2566652}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\newcommand{\vect}[1]{ \textbf{#1} }
+\newcommand{\matr}[1]{ \textbf{\textit{#1}} }
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 1}
+
+\begin{enumerate}[label = \textbf{\alph*)}]
+	\item
+		Write the given system in the matrix form $ \mathbf{x' = Ax + f} $. Then identify whether it is a homogeneous or non-homogeneous equation.
+		\begin{enumerate}[label = \textbf{\arabic*)}]
+			\item
+				\systeme*{
+					x'(t) = 3x(t) - y(t) + t^2,
+					y'(t) = -x(t) + 2y(t) + e^t
+				}
+			\item
+				\systeme*{
+					\frac{dx}{dt} = x + y + z,
+					\frac{dy}{dt} = 2x - y + 3z,
+					\frac{dz}{dt} = x + 5z
+				}
+		\end{enumerate}
+	\item
+		Rewrite the given scalar equation as a first order system and then express the system in the matrix form $ \mathbf{x' = Ax + f} $.
+		$$ y''(t) - 3y'(t) - 10y(t) = \sin(t) $$
+\end{enumerate}
+
+\subsection{a)}
+
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item
+		\begin{align*}
+			\frac{d}{dt} \begin{bmatrix} x(t) \\ y(t) \end{bmatrix} & = \begin{bmatrix} 3 & -1 \\ -1 & 2 \end{bmatrix} \begin{bmatrix} x(t) \\ y(t) \end{bmatrix} + \begin{bmatrix} t^2 \\ e^t \end{bmatrix}
+		\end{align*}
+		The system can also be expressed similarly if we let $ \vect{x} = \begin{bmatrix} x(t) \\ y(t) \end{bmatrix} $ and $ \vect{x}' = \begin{bmatrix} x'(t) \\ y'(t) \end{bmatrix} $.
+		\begin{align*}
+			\vect{x}' & = \matr{A}\vect{x} + \vect{f} \\
+			\vect{x}' & = \begin{bmatrix} 3 & -1 \\ -1 & 2 \end{bmatrix} \vect{x} + \begin{bmatrix} t^2 \\ e^t \end{bmatrix}
+		\end{align*}
+	\item
+		\begin{align*}
+			\frac{d}{dt} \begin{bmatrix} x(t) \\ y(t) \\ z(t) \end{bmatrix} & =
+				\begin{bmatrix}
+					1 & 1 & 1 \\
+					2 & -1 & 3 \\
+					1 & 0 & 5
+				\end{bmatrix}
+				\begin{bmatrix} x(t) \\ y(t) \\ z(t) \end{bmatrix} + 0
+		\end{align*}
+		If we let $ \vect{x} = \begin{bmatrix} x(t) \\ y(t) \\ z(t) \end{bmatrix} $ and $ \vect{x}' = \begin{bmatrix} x'(t) \\ y'(t) \\ z'(t) \end{bmatrix} $:
+		\begin{align*}
+			\vect{x} & = \matr{A}\vect{x} + \vect{f} \\
+			\vect{x}' & =
+				\begin{bmatrix}
+					1 & 1 & 1 \\
+					2 & -1 & 3 \\
+					1 & 0 & 5
+				\end{bmatrix} \vect{x}
+		\end{align*}
+\end{enumerate}
+
+\subsection{b)}
+
+$$ y''(t) - 3y'(t) - 10y(t) = \sin(t) $$
+Let $ x_0 = y'(t), x_1 = y''(t) $; $ \therefore x_1' = y''(t) $. A linear system of ODE can now be constructed.
+\begin{align*}
+	y''(t) & = 3y'(t) + 10y(t) + \sin(t) \\
+	x_1 & = 3x_0 + 10y + \sin(t) \\
+	x_0 & = y'(t)
+\end{align*}
+\begin{align*}
+	\frac{d}{dt} \begin{bmatrix} y \\ x_0 \end{bmatrix} & =
+		\begin{bmatrix}
+			0 & 1 \\
+			10 & 3
+		\end{bmatrix}
+		\begin{bmatrix} y \\ x_0 \end{bmatrix}
+		+ \begin{bmatrix} \sin(t) \\ \sin(t) \end{bmatrix}
+\end{align*}
+
+\end{document}

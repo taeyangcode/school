@@ -511,7 +511,7 @@ How long would it take the student to travel up the three flights of stairs?
 	\item
 		\begin{align*}
 			F(r) & = \frac{dU}{dr} = \frac{d}{dr} \left( \left( \frac{a}{r^{12}} \right) - \left( \frac{b}{r^6} \right) \right) \\
-			F(r) & = \frac{12a}{r^{13}} - \frac{6b}{r^6}
+			F(r) & = \frac{12a}{r^{13}} - \frac{6b}{r^7}
 		\end{align*}
 		\begin{itemize}
 			\item $$ U(r) $$
@@ -519,20 +519,282 @@ How long would it take the student to travel up the three flights of stairs?
 			\item $$ F(r) $$
 				\includegraphics[width = 100pt]{graph_2.png}
 		\end{itemize}
+	\item Find the equilibrium distance between the two atoms. Is this equilibrium stable?
+		\begin{align*}
+			\frac{12a}{r^{13}} - \frac{6b}{r^7} & = 0 \\
+			\frac{12a}{r^{13}} & = \frac{6b}{r^7} \\
+			12a & = 6br^6 \\
+			r & = \sqrt[6]{ \frac{2a}{b} }
+		\end{align*}
+		The equilibrium is stable.
+	\item What minimum energy must be added to the molecule to \textit{dissociate} it – that is, to separate the two atoms to an infinite distance apart? \\
+		\begin{align*}
+			-U & = -\frac{a}{r^{12}} + \frac{b}{r^6} \\
+			-U & = -\frac{a}{(\sqrt[6]{ \frac{a}{b} })^{12}} + \frac{b}{(\sqrt[6]{ \frac{a}{b} })^6} \\
+			-U & = \frac{b^2}{4a}
+		\end{align*}
+		\bc{-U = \frac{b^2}{4a}}
+	\item Find the values of the constants $ a $ and $ b $.
+		\begin{align*}
+			d & = \SI{1.13e-10}{\meter} \\
+			E & = \SI{1.54e-18}{\joule} \\
+			a & = ? \\
+			b & = ?
+		\end{align*}
+		\begin{align*}
+			r & = d \\
+			\sqrt[6]{ \frac{2a}{b} } & = \SI{1.13e-10}{\meter} \\
+			\frac{2a}{b} & = \SI{2.08e-60}{\meter \tothe 6} \\
+			a & = (\SI{1.04e-60}{\meter \tothe 6})b
+		\end{align*}
+		\begin{align*}
+			U & = E \\
+			\frac{b^2}{4a} & = \SI{1.54e-18}{\joule} \\
+			\frac{b^2}{4(\SI{1.04e-60}{\meter \tothe 6})b} & = \SI{1.54e-18}{\joule} \\
+			b & = \SI{6.41e-78}{\joule \meter \tothe 6}
+		\end{align*}
+		\begin{align*}
+			a & = (\SI{1.04e-60}{\meter \tothe 6})b \\
+			a & = (\SI{1.04e-60}{\meter \tothe 6})(\SI{6.41e-78}{\joule \meter \tothe 6}) \\
+			a & = \SI{6.67e-138}{\joule \meter \tothe {12}}
+		\end{align*}
+		\bc{ a = \SI{6.67e-138}{\joule \meter \tothe {12}}, b = \SI{6.41e-78}{\joule \meter \tothe 6} }
 \end{enumerate}
 
 \subsection{7.40}
 
+\begin{align*}
+	m & = \SI{2.00}{\kilogram} \\
+	k & = \SI{400}{\newton \per \meter} \\
+	x & = \SI{0.220}{\meter} \\
+	\theta & = \SI{37.0}{\degree} \\
+	v_1 & = ? \\
+	x_1 & = ?
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item What is the speed of the block as it slides along the horizontal surface after having left the spring?
+		\begin{align*}
+			E_{spring} & = E_p \\
+			\frac{1}{2}kx^2 & = \frac{1}{2}mv_1^2 \\
+			v_1 & = x\sqrt{ \frac{k}{m} } \\
+			v_1 & = (\SI{0.220}{\meter}) \sqrt{ \frac{\SI{400}{\newton \per \meter}}{\SI{2.00}{\kilogram}} } \\
+			v_1 & = \SI{3.11}{\meter \per \second}
+		\end{align*}
+		\bc{ v_1 = \SI{3.11}{\meter \per \second} }
+	\item How far does the block travel up the incline before starting to slide back down?
+		\begin{align*}
+			E_{spring} & = E_p \\
+			\frac{1}{2}kx^2 & = mgd\sin(\theta) \\
+			d & = \frac{kx^2}{2mg\sin(\theta)} \\
+			d & = \frac{(\SI{400}{\newton \per \meter})(\SI{0.220}{\meter})}{2(\SI{2.00}{\kilogram})(\SI{10}{\meter \per \second \squared})\sin(\SI{37.0}{\degree})} \\
+			d & = \SI{0.804}{\meter}
+		\end{align*}
+		\bc{ d = \SI{0.804}{\meter} }
+\end{enumerate}
+
 \subsection{7.58}
+
+\begin{align*}
+	\text{truck mass} & = m \\
+	\text{first slope angle} & = \alpha \\
+	\text{initial speed} & = v_0 \\
+	\text{distance} & = L_0 \\
+	\text{second slope angle} & = \beta \\
+	\text{second slope coefficient of rolling friction} & = \mu_r \\
+	\text{max distance up second ramp} & = L_1 = ?
+\end{align*}
+\begin{tikzpicture}
+	\node[circle, fill, inner sep = 1pt] (origin) {};
+	\node [above right = of origin] (y) {$ +\hat{y} $};
+	\node [below right = of origin] (x) {$ +\hat{x} $};
+
+	\foreach \node in {y, x}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{tikzpicture}
+	\node (origin) {truck (first slope)};
+	\node [above right = of origin] (above_right) {$ N $};
+	\node [below = of origin] (below) {$ mg $};
+
+	\foreach \node in {above_right, below}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\node[circle, fill, inner sep = 1pt] (origin) {};
+	\node [above left = of origin] (y) {$ +\hat{y} $};
+	\node [above right = of origin] (x) {$ +\hat{x} $};
+
+	\foreach \node in {y, x}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{tikzpicture}
+	\node (origin) {truck (second slope)};
+	\node [above left = of origin] (above_left) {$ N $};
+	\node [below = of origin] (below) {$ mg $};
+	\node [below left = of origin] (below_left) {$ f $};
+
+	\foreach \node in {above_left, below, below_left}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+
+Since the distance the truck halts at is being found, it can be assumed that $ v_1 = 0 $.
+\begin{align*}
+	E_k + E_p & = E_k + E_p - W_f \\
+	\frac{1}{2}mv_0^2 + mgL_0\sin(\alpha) & = \frac{1}{2}mv_1^2 + mgL_1\sin(\beta) - \mu N \\
+	\frac{1}{2}mv_0^2 + mgL_0\sin(\alpha) & = 0 + mgL_1\sin(\beta) - (-\mu_r mgL_1\cos(\beta)) \\
+	L_1 & = \frac{v_0^2 + 2\sin(\alpha)gL_0}{2g(\mu \cos(\beta) + \sin(\beta))}
+\end{align*}
+\bc{ L_1 = \frac{v_0^2 + 2\sin(\alpha)gL_0}{2g(\mu \cos(\beta) + \sin(\beta))} }
 
 \section{Lab Manual}
 
 \subsection{871}
 
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			F_y & = -\frac{dU(r)}{dy} \\
+			F_y & = -\frac{d}{dy} \left( mgy \right) \\
+			F_y & = -mg
+		\end{align*}
+		The slope of the force is the weight of the object at any point $ y $.
+	\item
+		\begin{align*}
+			U & = \int \left( kx \right) dx \\
+			U & = \frac{1}{2}kx^2 + C
+		\end{align*}
+		``$ K $ must always be positive at all positions. Also, $ K = H - U $. Therefore, $ H - U $ must always be positive, or, in other words, $ U $ cannot ever be greater than $ H $."
+		\begin{itemize}
+			\item U(x) \includegraphics[width = 200pt]{graph_3.png}
+			\item K(x) \includegraphics[width = 200pt]{graph_4.png}
+		\end{itemize}
+	\item \label{871.c}
+		\begin{align*}
+			F & = \frac{dU}{dr} = \frac{d}{dr} \left( \frac{-k}{r} \right) \\
+			F & = -\frac{k}{r^2}
+		\end{align*}
+	\item
+	\item Found in part \ref{871.c}: $$ F = -\frac{k}{r^2} $$
+	\item Yes because as \textbf{Figure 3} extends to $ \infty $ it gradually attracts towards \SI{0}{ergs}
+	\item
+		When $ H = \sfrac{1}{2} \times 10^{-12} $, it can move between $ r_0 < r <= r_6 $. \\
+		When $ H = -\sfrac{1}{2} \times 10^{-12} $, it can move between $ r_2 <= r <= r_4 $.
+	\item
+		A curve that approaches $ 0 $ as $ y \rightarrow \infty $.
+\end{enumerate}
+
 \subsection{876}
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			F_1 & = k_1x_1 \\
+			x_1 & = \frac{F_1}{k_1} \\
+			F_2 & = k_2x_1 \\
+			x_2 & = \frac{F_2}{k_2}
+		\end{align*}
+		\begin{align*}
+			\sum x & = x_1 + x_2 \\
+			\sum F & = \sum k x \\
+			x & = \frac{\sum F}{\sum k}
+		\end{align*}
+		\begin{align*}
+			\frac{F}{k_{eq}} & = \frac{F}{k_1} + \frac{F}{k_2} \\
+			\frac{1}{k_{eq}} & = \frac{1}{k_1} + \frac{1}{k_2} \\
+			k_{eq} & = \frac{k_1k_2}{k_1 + k_2}
+		\end{align*}
+	\item
+		\begin{align*}
+			W & = \int_0^x k_{eq}x dx \\
+			W & = \left[ \frac{1}{2}k_{eq}x^2 \right]_0^x \\
+			W & = \frac{1}{2}k_{eq}x^2
+		\end{align*}
+		\begin{align*}
+			F & = kx \\
+			x & = \frac{F}{k} \\
+			W & = \frac{1}{2}k_{eq} \left( \frac{F}{k} \right)^2 \\
+			W & = \frac{1}{2}\frac{F^2}{k_1} + \frac{1}{2}\frac{F^2}{k_2} \\
+			W & = \frac{1}{2}k_1x_1^2 + \frac{1}{2}k_2x_2^2
+		\end{align*}
+\end{enumerate}
 
 \subsection{884}
 
+\begin{align*}
+	r & = \SI{4}{ft} \\
+	\theta & = \SI{37}{\degree} \\
+	v_0 & = 0 \\
+	\mu & = 0.3
+\end{align*}
+\begin{tikzpicture}
+	\node[circle, fill, inner sep = 1pt] (origin) {};
+	\node [above = of origin] (y) {$ +\hat{y} $};
+	\node [right = of origin] (x) {$ +\hat{x} $};
+
+	\foreach \node in {y, x}
+		\draw[thick, black, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{align*}
+	W_{grav} + W_f & = E_1 - E_0 \\
+	-mgh - \mu mg\cos(\theta)\left( \frac{h}{\sin(\theta)} \right) & = 0 - mgr \\
+	h & = \frac{r}{\mu \cot(\theta) + 1} \\
+	h & = \frac{\SI{4}{ft}}{(0.3)\cot(\SI{37}{\degree}) + 1} \\
+	h & = \SI{2.86}{ft}
+\end{align*}
+\begin{align*}
+	W_f & = \left( \mu mg\cos(\theta) \right) \left( \frac{h}{\sin(\theta)} \right) \\
+	W_f & = \left( (0.3)\cos(\SI{37}{\degree})mg \right) \left( \frac{\SI{2.86}{ft}}{\sin(\SI{37}{\degree})} \right) \\
+	W_f & = (\SI{1.14}{ft})mg
+\end{align*}
+\bc{ W_f = (\SI{1.14}{ft})mg }
+
 \subsection{885}
+
+\begin{align*}
+	L & = \SI{2}{ft} \\
+	\theta & = \SI{60}{\degree} \\
+	y & = 0 \text{ at lowest point}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			E_{low} & = E_k + E_p \\
+			E_{low} & = \frac{1}{2}mv_{max}^2 + mgy \\
+			E_{low} & = \frac{1}{2}mv_{max}^2 + 0 \\
+			E_{low} & = \frac{1}{2}mv_{max}^2
+		\end{align*}
+		\begin{align*}
+			E_{high} & = E_k + E_p \\
+			E_{high} & = \frac{1}{2}mv^2 + mgy \\
+			E_{high} & = \frac{1}{2}m(0)^2 + mgy \\
+			E_{high} & = mgy
+		\end{align*}
+		\begin{align*}
+			E_{low} & = E_{high} \\
+			\frac{1}{2}mv_{max}^2 & = mgy \\
+			v_{max} & = \sqrt{2gy}, \quad \text{The height of the bob is non-constant, and can be found as $ L(1 - \cos(\theta)) $} \\
+			v_{max} & = \sqrt{2g L(1 - \cos(\theta))}
+		\end{align*}
+		\begin{align*}
+			v_{max} & = \sqrt{2g L(1 - \cos(\theta))} \\
+			v_{max} & = \sqrt{2(\SI{32.17}{ft \per \second \squared})(\SI{2}{ft})(1 - \cos(\SI{60}{\degree}))} \\
+			v_{max} & = \SI{8.02}{ft \per \second}
+		\end{align*}
+	\item
+		\begin{align*}
+			\frac{1}{2}mv_{max}^2 + mgh_0 & = \frac{1}{2}m \left( \frac{1}{2}v_{max} \right)^2 + mgL(1 - \cos(\theta)) \\
+			1 - \cos(\theta) & = \frac{\frac{1}{2}v_{max}^2 - \frac{1}{2}\left(\frac{1}{2}v_{max}\right)^2}{gL} \\
+			\theta & = \arccos \left( -\frac{\frac{1}{2}v_{max}^2 - \frac{1}{2}\left(\frac{1}{2}v_{max}\right)^2}{gL} + 1 \right) \\
+			\theta & = \arccos \left( -\frac{\frac{1}{2}(\SI{8.02}{ft \per \second})^2 - \frac{1}{2}\left(\frac{1}{2}(\SI{8.02}{ft \per \second})\right)^2}{(\SI{32.17}{ft \per \second \squared})(\SI{2}{ft})} + 1 \right) \\
+			\theta & = \SI{51.31}{\degree}
+		\end{align*}
+	\item
+		\begin{align*}
+			a & = \frac{v^2}{R} \\
+			a & = \frac{(\SI{8.02}{ft \per \second})^2}{\SI{2}{ft}} \\
+			a & = \SI{32.16}{ft \per \second \squared}
+		\end{align*}
+\end{enumerate}
 
 \end{document}

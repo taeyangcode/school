@@ -1,0 +1,155 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\tableofcontents
+
+\section{Non-inertial Reference Frame}
+
+\begin{itemize}
+	\item Inertial - No acceleration
+	\item Non Inertial - Yes acceleration
+		\begin{itemize}
+			\item Fictitious forces
+		\end{itemize}
+\end{itemize}
+
+\section{Centripetal Forces}
+
+\begin{itemize}
+	\item Centripetal Acceleration - $ a_c = v\omega $
+	\item Angular Acceleration (Angular, Linear) - $ R\omega^2 \leftrightarrows \frac{v^2}{R} $
+\end{itemize}
+
+\subsection{Example}
+
+\begin{align*}
+	R & = \SI{40}{\meter} \\
+	v & = \SI{7}{\meter \per \second} \\
+	\mu_{min} & = ?
+\end{align*}
+\begin{align*}
+	\sum F_z & = 0 \\
+	N & = mg
+\end{align*}
+\begin{align*}
+	\sum F_c & = \frac{mv^2}{R} \\
+	f & = \frac{mv^2}{R} \\
+	\mu g & = \frac{v^2}{R} \\
+	\mu & = \frac{v^2}{gR} \\
+	\mu & = \frac{(\SI{7}{\meter \per \second})^2}{(\SI{10}{\meter \per \second \squared})(\SI{40}{\meter})} \\
+	\mu & = 0.12
+\end{align*}
+
+\subsection{Example}
+
+\begin{align*}
+	R & = \SI{10}{\meter} \\
+	\theta & = \SI{36}{\degree} \\
+	\mu & = 0 \\
+	v & = 0
+\end{align*}
+\begin{align*}
+	\sum F_z & = 0 \\
+	N\sin(\theta) & = mg \\
+	N & = \frac{mg}{\cos(\theta)}
+\end{align*}
+\begin{align*}
+	\sum F_c & = ma_c \\
+	-f\cos(\theta) & = ma_c \\
+	-\mu mg\tan(\theta) + N\sin(\theta) & = \frac{mv^2}{R} \\
+	\left( \frac{mg}{\cos(\theta)} \right) \sin(\theta) & = \frac{mv^2}{R} \\
+	v & = \sqrt{ Rg\tan(\theta) }
+\end{align*}
+
+\subsection{Example}
+
+\begin{align*}
+	D & = \SI{4}{\meter} \\
+	\mu_{max} & = 0.4 \\
+	\omega & = ? \\
+	m & = \SI{60}{\kilogram}
+\end{align*}
+\begin{align*}
+	\sum F_z^{(m)} & = 0 \\
+	f & = mg \\
+	\mu N & = mg \\
+	N & = \frac{mg}{\mu}
+\end{align*}
+
+\end{document}

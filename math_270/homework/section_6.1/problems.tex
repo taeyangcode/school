@@ -155,4 +155,110 @@ Find the (real) eigenvalues and associated eigenvectors of the larger matrix \ma
 	\lambda = 3 & \rightarrow \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} y \\ y \end{bmatrix} = y \begin{bmatrix} 1 \\ 1 \end{bmatrix}
 \end{align*}
 
+\subsection{6.1.2}
+
+Find the (real) eigenvalues and associated eigenvectors of the given matrix \matr{A}. Find a basis of each eigenspace of dimension 2 or larger.
+\begin{equation*}
+	\begin{bmatrix}
+		6 & -7 \\
+		4 & -5
+	\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\left| \matr{A} - \lambda \vect{I} \right| & =
+		\begin{bmatrix}
+			6 - \lambda & -7 \\
+			4 & -5 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & = (6 - \lambda)(-5 - \lambda) - (-7)(4) \\
+	\det( \matr{A} - \lambda \vect{I} ) & = \lambda^2 - \lambda - 2 = (\lambda - 2)(\lambda + 1) \\
+	\lambda_{1,2} & = 2, -1
+\end{align*}
+\begin{align*}
+	\lambda_1 & = 2 \\
+	\left[ \matr{A} - \lambda_1 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		6 - 2 & -7 \\
+		4 & -5 - 2
+	\end{bmatrix} \vect{x} & = 0 \\
+	\begin{bmatrix}
+		4 & -7 \\
+		4 & -7
+	\end{bmatrix}
+	\begin{bmatrix}
+		x_1 \\
+		x_2
+	\end{bmatrix} & = 0 \\
+	(4)x_1 + (-7)x_2 & = 0 \\
+	(4)x_1 + (-7)x_2 & = 0
+\end{align*}
+\begin{align*}
+	(4)x_1 & = (7)x_2 \\
+	x_1 & = \left( \frac{7}{4} \right) x_2
+\end{align*}
+\begin{align*}
+	(4)x_1 + (-7)x_2 & = 0 \\
+	(4)\left( \frac{7}{4} \right) x_2 + (-7)x_2 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} \left( \frac{7}{4} \right) x_2 \\ x_2 \end{bmatrix} \\
+	\vect{x} & = x_2 \begin{bmatrix} \frac{7}{4} \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\lambda_2 & = -1 \\
+	\left[ \matr{A} - \lambda_2 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		6 - (-1) & -7 \\
+		4 & -5 - (-1)
+	\end{bmatrix} \vect{x} & = 0 \\
+	\begin{bmatrix}
+		7 & -7 \\
+		4 & -4
+	\end{bmatrix} \vect{x} & = 0 \\
+	\begin{bmatrix} 7 & -7 \\ 4 & -4 \end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} & = 0 \\
+	(7)x_1 + (-7)x_2 & = 0 \\
+	(4)x_1 + (-4)x_2 & = 0
+\end{align*}
+\begin{align*}
+	(7)x_1 + (-7)x_2 & = 0 \\
+	x_1 & = x_2
+\end{align*}
+\begin{align*}
+	(4)x_1 + (-4)x_2 & = 0 \\
+	x_1 & = x_2
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} x_2 \\ x_2 \end{bmatrix} \\
+	\vect{x} & = x_2 \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{mdframed}
+	Eigenvalues: $ \lambda_{1,2} = 2, -1 $ \\
+	Eigenvectors: $ \vect{x}_{1,2} = \begin{bmatrix} \frac{7}{4} \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ 1 \end{bmatrix} $
+\end{mdframed}
+
+\subsection{6.1.13}
+
+Find the (real) eigenvalues and associated eigenvectors of the larger matrix \matr{A}. Find a basis of each eigenspace of dimension 2 or larger.
+\begin{align*}
+	\begin{bmatrix}
+		3 & 0 & 0 \\
+		6 & -2 & -2 \\
+		-3 & 4 & 4
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left| \matr{A} - \lambda \vect{I} \right| & =
+		\begin{bmatrix}
+			3 - \lambda & 0 & 0 \\
+			7 & -2 - \lambda & -2 \\
+			-3 & 4 & 4 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(3 - \lambda)( (-2 - \lambda)(4 - \lambda) - (-2)(4) ) - 0 - 0 \\
+	\det( \matr{A} - \lambda \vect{I} ) & = -\lambda(\lambda - 3)(\lambda - 2) \\
+	\lambda_{1,2,3} & = 0, 3, 2
+\end{align*}
+
 \end{document}

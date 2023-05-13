@@ -1,0 +1,308 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 12 and Week 13 Participation Assignment (2 of 3)}
+\date{12 May 2023}
+\author{Corey Mostero - 2566652}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+\newcommand{\matr}[1]{\bm{#1}}
+
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 2}
+
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item
+		$ \begin{bmatrix}
+			-1 & -1 & 0 \\
+			2 & -1 & 1 \\
+			0 & 1 & -1
+		\end{bmatrix} $, the complex eigenvalues are $ {-1 + i, -1 - i} $
+	\item
+		$ \begin{bmatrix}
+			5 & -5 & -5 \\
+			-1 & 4 & 2 \\
+			3 & -5 & -3
+		\end{bmatrix} $, the complex eigenvalues are $ {2 + i, 2 - i} $
+\end{enumerate}
+Find the complex eigenvectors for the above matrices and write it as
+\begin{equation*}
+	\vec{a} + i\vec{b}, \vec{a} - i\vec{b}
+\end{equation*}
+
+\subsection{1)}
+\begin{align*}
+	\lambda_0 & = -1 + i \\
+	\lambda_1 & = -1 - i
+\end{align*}
+\begin{align*}
+	\matr{A} & = \begin{bmatrix}
+		-1 - \lambda_0 & -1 & 0 \\
+		2 & -1 - \lambda_0 & 1 \\
+		0 & 1 & -1 - \lambda_0
+	\end{bmatrix} \\
+	\matr{A} & = \begin{bmatrix}
+		-1 - (-1 + i) & -1 & 0 \\
+		2 & -1 - (-1 + i) & 1 \\
+		0 & 1 & -1 - (-1 + i)
+	\end{bmatrix} \\
+	\matr{A} & = \begin{bmatrix}
+		-i & -1 & 0 \\
+		2 & -i & 1 \\
+		0 & 1 & -i
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_1 & = \frac{1}{-i}\matr{A}_1 \\
+	\matr{A}_2 & \leftrightarrows \matr{A}_3 \\
+	\matr{A} & = \begin{bmatrix}
+		1 & -i & 0 \\
+		0 & 1 & -i \\
+		2 & -i & 1
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_3 & = \matr{A}_3 - 2\matr{A}_1 \\
+	\matr{A}_3 & = \matr{A}_3 - i\matr{A}_2 \\
+	\matr{A} & = \begin{bmatrix}
+		1 & -i & 0 \\
+		0 & 1 & -i \\
+		0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_1 & = \matr{A}_1 + (i)\matr{A}_2 \\
+	\matr{A} & = \begin{bmatrix}
+		1 & 0 & 1 \\
+		0 & 1 & -i \\
+		0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\begin{bmatrix}
+		1 & 0 & 1 \\
+		0 & 1 & -i \\
+		0 & 0 & 0
+	\end{bmatrix}
+	\begin{bmatrix} x_0 \\ x_1 \\ x_2 \end{bmatrix} & =
+	\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	(1)x_0 + (0)x_1 + (1)x_2 & = 0 \\
+	x_0 & = -x_2
+\end{align*}
+\begin{align*}
+	(0)x_0 + (1)x_1 + (-i)x_2 & = 0 \\
+	x_1 & = (i)x_2
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} -x_2 \\ (i)x_2 \\ x_2 \end{bmatrix} \\
+	\vect{x} & = x_2 \begin{bmatrix} -1 \\ i \\ 1 \end{bmatrix} \\
+	\vect{x} & = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix} + \begin{bmatrix} 0 \\ i \\ 0 \end{bmatrix} \\
+	\vect{x} & = \vect{a} + i\vect{b} \\
+	\vect{x} & = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix} + i\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}
+\end{align*}
+\bc{ \vect{x} = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix} + i\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} }
+
+\begin{align*}
+	\matr{A} & = \begin{bmatrix}
+		-1 - \lambda_1 & -1 & 0 \\
+		2 & -1 - \lambda_1 & 1 \\
+		0 & 1 & -1 - \lambda_1
+	\end{bmatrix} \\
+	\matr{A} & = \begin{bmatrix}
+		-1 - (-1 - i) & -1 & 0 \\
+		2 & -1 - (-1 - i) & 1 \\
+		0 & 1 & -1 - (-1 - i)
+	\end{bmatrix} \\
+	\matr{A} & = \begin{bmatrix}
+		i & -1 & 0 \\
+		2 & i & 1 \\
+		0 & 1 & i
+	\end{bmatrix} \\
+\end{align*}
+\begin{align*}
+	\matr{A}_2 & \leftrightarrows \matr{A}_3 \\
+	\matr{A}_1 & = \frac{1}{i}\matr{A}_1 \\
+	\matr{A} & =\begin{bmatrix}
+		1 & i & 0 \\
+		0 & 1 & i \\
+		2 & i & 1
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{A}_3 & = \matr{A}_3 - 2\matr{A}_1 \\
+	\matr{A}_3 & = \matr{A}_3 + i\matr{A}_2 \\
+	\matr{A}_1 & = \matr{A}_1 - i\matr{A}_2 \\
+	\matr{A} & =\begin{bmatrix}
+		1 & 0 & 1 \\
+		0 & 1 & i \\
+		0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	(0)x_0 + (1)x_1 + (i)x_2 & = 0 \\
+	x_1 & = (-i)x_2
+\end{align*}
+\begin{align*}
+	(1)x_0 + (0)x_1 + (1)x_2 & = 0 \\
+	x_0 & = -x_2
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} -x_2 \\ (-i)x_2 \\ x_2 \end{bmatrix} \\
+	\vect{x} & = x_2 \begin{bmatrix} -1 \\ -i \\ 1 \end{bmatrix} \\
+	\vect{x} & = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix} + i\begin{bmatrix} 0 \\ -1 \\ 0 \end{bmatrix}
+\end{align*}
+\bc{ \vect{x} = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix} - i\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} }
+
+\subsection{2)}
+
+\begin{align*}
+	\lambda_0 & = 2 + i \\
+	\lambda_1 & = 2 - i
+\end{align*}
+\begin{align*}
+	\matr{A} & = \begin{bmatrix}
+		5 - \lambda_0 & -5 & -5 \\
+		-1 & 4 - \lambda_0 & 2 \\
+		3 & -5 & -3 - \lambda_0
+	\end{bmatrix} \\
+	\matr{A} & = \begin{bmatrix}
+		3 - i & -5 & -5 \\
+		-1 & 2 - i & 2 \\
+		3 & -5 & -5 - i
+	\end{bmatrix} \\
+	\matr{A} & = \begin{bmatrix}
+		1 & 0 & -1 \\
+		0 & 1 & \frac{2}{5} + \frac{i}{5} \\
+		0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	(0)x_0 + (1)x_1 + \left( \frac{2}{5} + \frac{i}{5} \right)x_2 & = 0 \\
+	x_1 & = \left( - \frac{2}{5} - \frac{i}{5} \right)x_2
+\end{align*}
+\begin{align*}
+	(1)x_0 + (0)x_1 + (-1)x_2 & = 0 \\
+	x_0 & = x_2
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} x_2 \\ \left( - \frac{2}{5} - \frac{i}{5} \right)x_2 \\ x_2 \end{bmatrix} \\
+	\vect{x} & = \begin{bmatrix} 1 \\ -\frac{2}{5} \\ 1 \end{bmatrix} + i\begin{bmatrix} 0 \\ -\frac{1}{5} \\ 0 \end{bmatrix}
+\end{align*}
+\bc{ \vect{x} = \begin{bmatrix} 1 \\ -\frac{2}{5} \\ 1 \end{bmatrix} - i\begin{bmatrix} 0 \\ \frac{1}{5} \\ 0 \end{bmatrix} }
+\begin{align*}
+	\matr{A} & = \begin{bmatrix}
+		5 - \lambda_1 & -5 & -5 \\
+		-1 & 4 - \lambda_1 & 2 \\
+		3 & -5 & -3 - \lambda_1
+	\end{bmatrix} \\
+	\matr{A} & = \begin{bmatrix}
+		i + 3 & -5 & -5 \\
+		-1 & i + 2 & 2 \\
+		3 & -5 & i - 5
+	\end{bmatrix} \\
+	\matr{A} & = \begin{bmatrix}
+		1 & 0 & -1 \\
+		0 & 1 & \frac{2}{5} - \frac{i}{5} \\
+		0 & 0 & 0
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	(0)x_0 + (1)x_1 + \left( \frac{2}{5} - \frac{i}{5} \right)x_2 & = 0 \\
+	x_1 & = \left( -\frac{2}{5} + \frac{i}{5} \right)x_2
+\end{align*}
+\begin{align*}
+	(1)x_0 + (0)x_1 + (-1)x_2 & = 0 \\
+	x_0 & = x_2
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} x_2 \\ \left( -\frac{2}{5} + \frac{i}{5} \right)x_2 \\ x_2 \end{bmatrix} \\
+	\vect{x} & = \begin{bmatrix} 1 \\ -\frac{2}{5} \\ 1 \end{bmatrix} + i\begin{bmatrix} 0 \\ \frac{1}{5} \\ 0 \end{bmatrix}
+\end{align*}
+\bc{ \vect{x} = \begin{bmatrix} 1 \\ -\frac{2}{5} \\ 1 \end{bmatrix} + i\begin{bmatrix} 0 \\ \frac{1}{5} \\ 0 \end{bmatrix} }
+
+\end{document}

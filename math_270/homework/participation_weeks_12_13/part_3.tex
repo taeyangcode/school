@@ -81,4 +81,111 @@
 	\fi
 }
 
+\newcommand{\matr}[1]{\bm{#1}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+
+\section{Part 3}
+
+After finding the complex eigenvectors from the previous assignment, it's time to solve the system of first order linear differential equations $ \vec{x}' = A\vec{x} $ completely, where $ A $ is given as followed:
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item
+		$ \begin{bmatrix}
+			-1 & -1 & 0 \\
+			2 & -1 & 1 \\
+			0 & 1 & -1
+		\end{bmatrix} $
+	\item
+		$ \begin{bmatrix}
+			5 & -5 & -5 \\
+			-1 & 4 & 2 \\
+			3 & -5 & -3
+		\end{bmatrix} $
+\end{enumerate}
+
+\subsection{1)}
+
+\begin{equation*}
+	\vect{x} = \begin{bmatrix} -1 \\ 0 \\ 1 \end{bmatrix} + i\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\vect{x}(t) & = e^{(-1 + i)t} \begin{bmatrix} -1 \\ i \\ 1 \end{bmatrix} \\
+	\vect{x}(t) & = e^{-t}e^{it} \begin{bmatrix} -1 \\ i \\ 1 \end{bmatrix} \\
+	\vect{x}(t) & = e^{-t}(\cos(t) + i\sin(t)) \begin{bmatrix} -1 \\ i \\ 1 \end{bmatrix} \\
+	\vect{x}(t) & = e^{-t}
+		\begin{bmatrix}
+			-\cos(t) - i\sin(t) \\
+			i\cos(t) - \sin(t) \\
+			\cos(t) + i\sin(t)
+		\end{bmatrix} \\
+	\vect{x}(t) & = e^{-t}
+		\begin{bmatrix}
+			-\cos(t) \\
+			-\sin(t) \\
+			\cos(t)
+		\end{bmatrix} +
+		ie^{-t} \begin{bmatrix}
+			-\sin(t) \\
+			\cos(t) \\
+			\sin(t)
+		\end{bmatrix}
+\end{align*}
+General Solution:
+\bc{
+	\vect{x}(t) = C_0 e^{-t}
+		\begin{bmatrix}
+			-\cos(t) \\
+			-\sin(t) \\
+			\cos(t)
+		\end{bmatrix} +
+		C_1 ie^{-t} \begin{bmatrix}
+			-\sin(t) \\
+			\cos(t) \\
+			\sin(t)
+		\end{bmatrix}
+}
+
+\subsection{2)}
+
+\begin{equation*}
+	\vect{x} = \begin{bmatrix} 1 \\ -\frac{2}{5} \\ 1 \end{bmatrix} - i \begin{bmatrix} 0 \\ \frac{1}{5} \\ 0 \end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\vect{x}(t) & = e^{(2 + i)t} \begin{bmatrix} 1 \\ -\frac{2}{5} - \frac{i}{5} \\ 1 \end{bmatrix} \\
+	\vect{x}(t) & = e^{2t}e^{it} \begin{bmatrix} 1 \\ -\frac{2}{5} - \frac{i}{5} \\ 1 \end{bmatrix} \\
+	\vect{x}(t) & = e^{2t}(\cos(t) + i\sin(t)) \begin{bmatrix} 1 \\ -\frac{2}{5} - \frac{i}{5} \\ 1 \end{bmatrix} \\
+	\vect{x}(t) & = e^{2t}
+		\begin{bmatrix}
+			\cos(t) + i\sin(t) \\
+			-\frac{2\cos(t)}{5} - \frac{i\cos(t)}{5} - \frac{2i\sin(t)}{5} + \frac{\sin(t)}{5} \\
+			\cos(t) + i\sin(t)
+		\end{bmatrix} \\
+	\vect{x}(t) & = e^{2t}
+		\begin{bmatrix}
+			\cos(t) \\
+			\frac{\sin(t) - 2\cos(t)}{5} \\
+			\cos(t)
+		\end{bmatrix}
+		+ ie^{2t}
+		\begin{bmatrix}
+			\sin(t) \\
+			-\frac{\cos(t) + 2\sin(t)}{5} \\
+			\sin(t)
+		\end{bmatrix}
+\end{align*}
+General Solution:
+\bc{
+	\vect{x}(t) = C_0 e^{2t}
+		\begin{bmatrix}
+			\cos(t) \\
+			\frac{\sin(t) - 2\cos(t)}{5} \\
+			\cos(t)
+		\end{bmatrix}
+		+ C_1 ie^{2t}
+		\begin{bmatrix}
+			\sin(t) \\
+			-\frac{\cos(t) + 2\sin(t)}{5} \\
+			\sin(t)
+		\end{bmatrix}
+}
+
 \end{document}

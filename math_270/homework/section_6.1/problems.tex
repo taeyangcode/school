@@ -244,7 +244,7 @@ Find the (real) eigenvalues and associated eigenvectors of the larger matrix \ma
 \begin{align*}
 	\begin{bmatrix}
 		3 & 0 & 0 \\
-		6 & -2 & -2 \\
+		7 & -2 & -2 \\
 		-3 & 4 & 4
 	\end{bmatrix}
 \end{align*}
@@ -260,5 +260,173 @@ Find the (real) eigenvalues and associated eigenvectors of the larger matrix \ma
 	\det( \matr{A} - \lambda \vect{I} ) & = -\lambda(\lambda - 3)(\lambda - 2) \\
 	\lambda_{1,2,3} & = 0, 3, 2
 \end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{x}_1 & = 0 \\
+	\begin{bmatrix}
+		3 - (0) & 0 & 0 \\
+		7 & -2 - (0) & -2 \\
+		-3 & 4 & 4 - (0)
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} & = 0 \\
+	\begin{bmatrix}
+		3 & 0 & 0 \\
+		7 & -2 & -2 \\
+		-3 & 4 & 4
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(3)x_1 + (0)x_2 + (0)x_3 & = 0 \\
+	x_1 & = 0
+\end{align*}
+\begin{align*}
+	(7)x_1 + (-2)x_2 + (-2)x_3 & = 0 \\
+	x_2 & = -x_3
+\end{align*}
+\begin{align*}
+	(-3)x_1 + (4)x_2 + (4)x_3 & = 0 \\
+	(4)(-x_3) + (4)x_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} 0 \\ -x_3 \\ x_3 \end{bmatrix} \\
+	\vect{x} & = x_3 \begin{bmatrix} 0 \\ -1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{x}_2 & = 0 \\
+	\begin{bmatrix}
+		3 - (3) & 0 & 0 \\
+		7 & -2 - (3) & -2 \\
+		-3 & 4 & 4- (3)
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} & = 0 \\
+	\begin{bmatrix}
+		0 & 0 & 0 \\
+		7 & -5 & -2 \\
+		-3 & 4 & 1
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(0)x_1 + (0)x_2 + (0)x_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	(7)x_1 + (-5)x_2 + (-2)x_3 & = 0 \\
+	x_1 & = \left( \frac{5}{7} \right) x_2 + \left( \frac{2}{7} \right) x_3
+\end{align*}
+\begin{align*}
+	(-3)x_1 + (4)x_2 + (1)x_3 & = 0 \\
+	(-3) \left( \left( \frac{5}{7} \right) x_2 + \left( \frac{2}{7} \right) x_3 \right) + (4)x_2 + (1)x_3 & = 0 \\
+	\left( \frac{13}{7} \right) x_2 & = \left( -\frac{1}{7} \right) x_3 \\
+	x_2 & = \left( -\frac{1}{13} \right) x_3
+\end{align*}
+\begin{align*}
+	x_1 & = \left( \frac{5}{7} \right) \left( -\frac{1}{13} \right) x_3 + \left( \frac{2}{7} \right) x_3 \\
+	x_1 & = \left( \frac{3}{13} \right) x_3
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} \left( \frac{3}{13} \right) x_3 \\ \left( -\frac{1}{13} \right) \\ x_3 \end{bmatrix} \\
+	\vect{x} & = x_3 \begin{bmatrix} \frac{3}{13} \\ -\frac{1}{13} \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_3 \right] \vect{x}_3 & = 0 \\
+	\begin{bmatrix}
+		3 - (2) & 0 & 0 \\
+		7 & -2 - (2) & -2 \\
+		-3 & 4 & 4 - (2)
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} & = 0 \\
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		7 & -4 & -2 \\
+		-3 & 4 & 2
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(1)x_1 + (0)x_2 + (0)x_3 & = 0 \\
+	x_1 & = 0
+\end{align*}
+\begin{align*}
+	(7)x_1 + (-4)x_2 + (-2)x_3 & = 0 \\
+	x_2 & = \left( -\frac{1}{2} \right) x_3
+\end{align*}
+\begin{align*}
+	(-3)x_1 + (4)x_2 + (2)x_3 & = 0 \\
+	(4) \left( -\frac{1}{2} \right) x_3 + (2)x_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} 0 \\ \left( -\frac{1}{2} \right) x_3 \\ x_3 \end{bmatrix} \\
+	\vect{x} & = x_3 \begin{bmatrix} 0 \\ -\frac{1}{2} \\ 1 \end{bmatrix}
+\end{align*}
+
+\subsection{6.1.19}
+
+Find the (real) eigenvalues and associated eigenvectors of the larger matrix \matr{A}. Find a basis of each eigenspace of dimension 2 or larger.
+\begin{align*}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		-2 & -6 & 3
+	\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left| \matr{A} - \lambda \vect{I} \right| & =
+		\begin{bmatrix}
+			1 - \lambda & 0 & 0 \\
+			0 & 1 - \lambda & 0 \\
+			-2 & -7 & 3 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & = (1 - \lambda)( (1 - \lambda)(3 - \lambda) - 0) ) = -(\lambda - 3)(\lambda - 1)^2 \\
+	\lambda_{1,2} & = 3, 1
+\end{align*}
+\begin{align*}
+	\lambda_2 & = 1 \\
+	\left[ \matr{A} - \lambda_2 \right] \vect{x}_2 & = 0 \\
+	\begin{bmatrix}
+		0 & 0 & 0 \\
+		0 & 0 & 0 \\
+		-2 & -6 & 2
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(-2)x_1 + (-6)x_2 + (2)x_3 & = 0 \\
+	x_1 & = (-3)x_2 + x_3
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} (-3) x_2 \\ x_2 \\ 0 \end{bmatrix} + \begin{bmatrix} x_3 \\ 0 \\ x_3 \end{bmatrix} \\
+	\vect{x} & = x_2 \begin{bmatrix} -3 \\ 1 \\ 0 \end{bmatrix} + x_3 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\lambda_1 & = 3 \\
+	\left[ \matr{A} - \lambda_1 \right] \vect{x}_1 & = 0 \\
+	\begin{bmatrix}
+		-2 & 0 & 0 \\
+		0 & -2 & 0 \\
+		-2 & -6 & 0
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(-2)x_1 + (0)x_2 + (0)x_3 & = 0 \\
+	x_1 & = 0
+\end{align*}
+\begin{align*}
+	(0)x_1 + (-2)x_2 + (0)x_3 & = 0 \\
+	x_2 & = 0
+\end{align*}
+\begin{align*}
+	(-2)x_1 + (-6)x_2 + (0)x_3 & = 0 \\
+	(-2)(0) + (-6)(0) & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} 0 \\ 0 \\ x_3 \end{bmatrix} \\
+	\vect{x} & = x_3 \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+\end{align*}
+Exactly one of the eigenspaces has dimension 2 or larger. The eigenspace associated with the eigenvalue $ \lambda_2 $ has basis $ \left\{ \begin{bmatrix} -3 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} \right\} $.
 
 \end{document}

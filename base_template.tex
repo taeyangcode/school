@@ -39,6 +39,9 @@
 %
 % Boxes!
 \usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
 
 % Graphic packages %
 %
@@ -74,6 +77,14 @@
 		{#1} \quad {#2}
 	\else
 		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{\bm{#1}}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
 	\fi
 }
 

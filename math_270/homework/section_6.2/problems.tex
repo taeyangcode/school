@@ -1,0 +1,276 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{\bm{#1}}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\tableofcontents
+
+\section{Section 6.2}
+
+\subsection{6.2.1}
+
+Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it is, find a diagonalizing matrix $ \matr{P} $ and diagonal matrix $ \matr{D} $ such that $ \matr{P}^{-1}\matr{A}\matr{P} = \matr{D} $.
+\begin{equation*}
+	\matr{A} =
+		\begin{bmatrix}
+			6 & -4 \\
+			3 & -1
+		\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			6 - \lambda & -4 \\
+			3 & -1 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & = (6 - \lambda)(-1 - \lambda) - (-4)(3) \\
+	\det( \matr{A} - \lambda \vect{I} ) & = \lambda^2 - 5\lambda + 6 = (\lambda - 3)(\lambda - 2) \\
+	\lambda_{1,2} & = 3, 2
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		3 & -4 \\
+		3 & -4
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(3)\vect{v}_1 + (-4)\vect{v}_2 & = 0 \\
+	\vect{v}_1 & = \left( \frac{4}{3} \right) \vect{v}_2
+\end{align*}
+\begin{align*}
+	(3)\vect{v}_1 + (-4)\vect{v}_2 & = 0 \\
+	(3) \left( \frac{4}{3} \right) \vect{v}_2 + (-4)\vect{v}_2 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{v} & =
+		\begin{bmatrix}
+			\left( \frac{4}{3} \right) \vect{v}_2 \\
+			\vect{v}_2
+		\end{bmatrix} \\
+	\vect{v} & =
+		\vect{v}_2 \begin{bmatrix}
+			\frac{4}{3} \\
+			1
+		\end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		4 & -4 \\
+		3 & -3 \\
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(4)\vect{v}_1 + (-4)\vect{v}_2 & = 0 \\
+	\vect{v}_1 & = \vect{v}_2
+\end{align*}
+\begin{align*}
+	(3)\vect{v}_1 + (-3)\vect{v}_2 & = 0 \\
+	\vect{v}_1 & = \vect{v}_2
+\end{align*}
+\begin{align*}
+	\vect{v} & = \begin{bmatrix} \vect{v}_1 \\ \vect{v}_1 \end{bmatrix} \\
+	\vect{v} & = \vect{v}_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{P} & =
+		\begin{bmatrix}
+			\frac{4}{3} & 1 \\
+			1 & 1
+		\end{bmatrix} \\
+	\matr{D} & =
+		\begin{bmatrix}
+			3 & 0 \\
+			0 & 2
+		\end{bmatrix}
+\end{align*}
+
+\subsection{6.2.5}
+
+Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it is, find a diagonalizing matrix $ \matr{P} $ and diagonal matrix $ \matr{D} $ such that $ \matr{P}^{-1}\matr{A}\matr{P} = \matr{D} $.
+\begin{equation*}
+	\matr{A} =
+		\begin{bmatrix}
+			5 & -3 \\
+			1 & 1
+		\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			5 - \lambda & -3 \\
+			1 & 1 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(5 - \lambda)(1 - \lambda) - (-3)(1) \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\lambda^2 - 6\lambda + 8 = (\lambda - 4)(\lambda - 2) \\
+	\lambda_{1,2} & = 4, 2
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		1 & -3 \\
+		1 & -3
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(1)\vect{v}_1 + (-3)\vect{v}_2 & = 0 \\
+	\vect{v}_1 & = (3)\vect{v}_2
+\end{align*}
+\begin{align*}
+	(1)\vect{v}_1 + (-3)\vect{v}_2 & = 0 \\
+	(1)(3)\vect{v}_2 + (-3)\vect{v}_2 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{v} & = \begin{bmatrix} (3)\vect{v}_2 \\ \vect{v}_2 \end{bmatrix} \\
+	\vect{v} & = \vect{v}_2 \begin{bmatrix} 3 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		3 & -3 \\
+		1 & -1
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(3)\vect{v}_1 + (-3)\vect{v}_2 & = 0 \\
+	\vect{v}_1 & = \vect{v}_2
+\end{align*}
+\begin{align*}
+	(1)\vect{v}_1 + (-1)\vect{v}_2 & = 0 \\
+	\vect{v}_2 & = \vect{v}_2 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{v} & = \begin{bmatrix} \vect{v}_2 \\ \vect{v}_2 \end{bmatrix} \\
+	\vect{v} & = \vect{v}_2 \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\end{align*}
+
+\subsection{6.2.10}
+
+Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it is, find a diagonalizing matrix $ \matr{P} $ and diagonal matrix $ \matr{D} $ such that $ \matr{P}^{-1}\matr{A}\matr{P} = \matr{D} $.
+\begin{equation*}
+	\matr{A} =
+		\begin{bmatrix}
+			3 & -1 \\
+			1 & 1
+		\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			3 - \lambda & -1 \\
+			1 & 1 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(3 - \lambda)(1 - \lambda) - (-1)(1) \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\lambda^2 - 4\lambda + 4 = (\lambda - 2)^2 \\
+	\lambda & = 2
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		1 & -1 \\
+		1 & -1
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+
+\end{align*}
+
+\end{document}

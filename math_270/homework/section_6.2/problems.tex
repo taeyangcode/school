@@ -506,24 +506,127 @@ Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it 
 \begin{equation*}
 	\matr{A} =
 		\begin{bmatrix}
-			2 & -1 & 1 \\
-			-4 & 2 & 4 \\
-			-2 & -1 & 5
+			1 & -3 & 3 \\
+			-4 & 1 & 4 \\
+			-4 & -3 & 8
 		\end{bmatrix}
 \end{equation*}
 \begin{align*}
 	\det( \matr{A} - \lambda \vect{I} ) & =
 		\begin{bmatrix}
-			2 - \lambda & -1 & 1 \\
-			-4 & 2 - \lambda & 4 \\
-			-2 & -1 & 5 - \lambda
+			1 - \lambda & -3 & 3 \\
+			-4 & 1 - \lambda & 4 \\
+			-4 & -3 & 8 - \lambda
 		\end{bmatrix} \\
-	\det( \matr{A} - \lambda \vect{I} ) & = (2 - \lambda)( (2 - \lambda)(5 - \lambda)- (4)(-1) \\
-										& + (-1)( (-4)(5 - \lambda) - (4)(-2) ) \\
-										& + (1)( (-4)(-1) - (2 - \lambda)(-2) ) \\
+	\det( \matr{A} - \lambda \vect{I} )
+		& = (1 - \lambda)( (1 - \lambda)(8 - \lambda) - (4)(-3) )  \\
+		& + (-3)( (4)(-4) - (-4)(8 - \lambda) ) \\
+		& + (3)( (-4)(-3) - (1 - \lambda)(-4) ) \\
 	\det( \matr{A} - \lambda \vect{I} ) & =
-		-\lambda^3 + 9\lambda^2 - 26\lambda + 24 = -(\lambda - 4)(\lambda - 3)(\lambda - 2) \\
-	\lambda_{1,2,3} & = 4, 3, 2
+		-\lambda^3 + 10\lambda^2 - 29\lambda + 20 = -(\lambda - 5)(\lambda - 4)(\lambda - 1) \\
+	\lambda_{1,2,3} & = 5, 4, 1
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		-4 & -3 & 3 \\
+		-4 & -4 & 4 \\
+		-4 & -3 & 3
+	\end{bmatrix}
+	\begin{bmatrix} \vect{x}_1 \\ \vect{x}_2 \\ \vect{x}_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(-4)\vect{x}_1 + (-4)\vect{x}_2 + (4)\vect{x}_3 & = 0 \\
+	\vect{x}_3 & = \vect{x}_1 + \vect{x}_2
+\end{align*}
+\begin{align*}
+	(-4)\vect{x}_1 + (-3)\vect{x}_2 + (3)\vect{x}_3 & = 0 \\
+	(-4)\vect{x}_1 + (-3)\vect{x}_2 + (3)(\vect{x}_1 + \vect{x}_2) & = 0 \\
+	\vect{x}_1 & = 0
+\end{align*}
+\begin{align*}
+	(-4)\vect{x}_1 + (-3)\vect{x}_2 + (3)\vect{x}_3 & = 0 \\
+	0 + (-3)\vect{x}_2 + (3)(\vect{x}_1 + \vect{x}_2) & = 0 \\
+	\vect{x}_1 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x}_3 & = \vect{x}_1 + \vect{x}_2 \\
+	\vect{x}_3 & = \vect{x}_2
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} 0 \\ \vect{x}_2 \\ \vect{x}_2 \end{bmatrix} \\
+	\vect{x} & = \vect{x}_2 \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		-3 & -3 & 3 \\
+		-4 & -3 & 4 \\
+		-4 & -3 & 4
+	\end{bmatrix}
+	\begin{bmatrix} \vect{x}_1 \\ \vect{x}_2 \\ \vect{x}_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(-3)\vect{x}_1 + (-3)\vect{x}_2 + (3)\vect{x}_3 & = 0 \\
+	\vect{x}_3 & = \vect{x}_1 + \vect{x}_2
+\end{align*}
+\begin{align*}
+	(-4)\vect{x}_1 + (-3)\vect{x}_2 + (4)\vect{x}_3 & = 0 \\
+	(-4)\vect{x}_1 + (-3)\vect{x}_2 + (4)(\vect{x}_1 + \vect{x}_2) & = 0 \\
+	\vect{x}_2 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x}_3 & = \vect{x}_1 + \vect{x}_2 \\
+	\vect{x}_3 & = \vect{x}_1
+\end{align*}
+\begin{align*}
+	(-4)\vect{x}_1 + (-3)\vect{x}_2 + (4)\vect{x}_3 & = 0 \\
+	(-4)\vect{x}_1 + (4)(\vect{x}_1) & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} \vect{x}_1 \\ 0 \\ \vect{x}_1 \end{bmatrix} \\
+	\vect{x} & = \vect{x}_1 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_3 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		0 & -3 & 3 \\
+		-4 & 0 & 4 \\
+		-4 & -3 & 7
+	\end{bmatrix}
+	\begin{bmatrix} \vect{x}_1 \\ \vect{x}_2 \\ \vect{x}_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(0)\vect{x}_1 + (-3)\vect{x}_2 + (3)\vect{x}_3 & = 0 \\
+	\vect{x}_2 & = \vect{x}_3
+\end{align*}
+\begin{align*}
+	(-4)\vect{x}_1 + (0)\vect{x}_2 + (4)\vect{x}_3 & = 0 \\
+	\vect{x}_1 & = \vect{x}_3
+\end{align*}
+\begin{align*}
+	(-4)\vect{x}_1 + (-3)\vect{x}_2 + (7)\vect{x}_3 & = 0 \\
+	(-4)(\vect{x}_3) + (-3)(\vect{x}_3) + (7)\vect{x}_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} \vect{x}_3 \\ \vect{x}_3 \\ \vect{x}_3 \end{bmatrix} \\
+	\vect{x} & =\vect{x}_3 \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\matr{P} & =
+		\begin{bmatrix}
+			0 & 1 & 1 \\
+			1 & 0 & 1 \\
+			1 & 1 & 1
+		\end{bmatrix} \\
+	\matr{D} & =
+		\begin{bmatrix}
+			5 & 0 & 0 \\
+			0 & 4 & 0 \\
+			0 & 0 & 1
+		\end{bmatrix}
 \end{align*}
 
 \end{document}

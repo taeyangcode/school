@@ -1,0 +1,208 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{\bm{#1}}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\tableofcontents
+
+\section{Circular Motion}
+
+\subsection{Roller coaster Example}
+
+\begin{align*}
+	R & = \SI{15}{\meter} \\
+	m & = \SI{2000}{\kilogram}
+\end{align*}
+Find $ v_B $ in terms of $ R $:
+\begin{align*}
+	\sum F_c & = ma_c \\
+	N_t + mg & = ma_c \\
+	g & = \frac{v_T^2}{R} \\
+	v_T & = \sqrt{gR}
+\end{align*}
+\begin{align*}
+	E_T & = E_B \\
+	\frac{1}{2}mv_T^2 + mgh_T & = \frac{1}{2}mv_B^2 \\
+	v_B^2 & = v_T^2 + 2gh_T \\
+	v_B & = \sqrt{(gR) + 2g(2R)} = \sqrt{5gR}
+\end{align*}
+Find $ N_B $
+\begin{align*}
+	\sum F & = ma_c \\
+	N_B - mg & = m\frac{v_B^2}{R} \\
+	N_B & = mg + m \frac{(5gR)}{R} \\
+	N_B & = 6mg
+\end{align*}
+
+\section{Angular Derivations}
+
+\begin{align*}
+	S & = R\theta \\
+	v & = R\omega \\
+	a & = R\alpha
+\end{align*}
+\begin{align*}
+	\Delta x & = v_0t + \frac{1}{2}at^2 \\
+	(R(\Delta \theta)) & = (R\omega_0)t + \frac{1}{2}(R\alpha)t^2 \\
+	\Delta \theta & = \omega_0 t + \frac{1}{2}\alpha t^2
+\end{align*}
+
+\subsection{Angular Kinematics}
+
+\begin{align*}
+	\omega & = \omega_0 + \alpha t \\
+	\Delta \theta & = \omega_0 t + \frac{1}{2}\alpha t^2 \\
+	\Delta \theta & = \frac{1}{2}(\omega + \omega_0)t \\
+	\omega^2 & = \omega_0^2 + 2\alpha \Delta \theta \\
+	\Delta \theta & = \omega t - \frac{1}{2}\alpha t^2
+\end{align*}
+\begin{align*}
+	\Delta x & \rightarrow \theta \\
+	v & \rightarrow \omega \\
+	a & \rightarrow \alpha \\
+	v = \frac{dx}{dt} & \rightarrow \omega = \frac{d\theta}{dt}
+\end{align*}
+\begin{align*}
+	F & \rightarrow \tau \\
+	m^{!} & = I^{@} \\
+\end{align*}
+\begin{itemize}
+	\item ! - Resistance to change in $ v $
+	\item @ - Resistance to change in $ \omega $
+\end{itemize}
+\begin{align*}
+	KE_T = \frac{1}{2}mv^2 & \rightarrow KE_R = \frac{1}{2}I\omega^2 \\
+	\vect{P} = m\vect{v} & \rightarrow \vect{L}^! = I\vect{\omega} \\
+	\vect{P} = \frac{d\vect{p}}{dt} & \rightarrow \vect{\tau} = \frac{d\vect{L}}{dt}
+\end{align*}
+\begin{itemize}
+	\item ! - Angular Momentum
+\end{itemize}
+\begin{align*}
+	\sum \vect{F}_i & = dm\vect{a} \\
+	\vect{r} \times \sum F_i & = dm(\vect{r} \times \vect{a}) \\
+	\sum \vect{r} \times \vect{F}_i & = ra_{\perp}dm \\
+	\tau_i & = r^2\alpha dm \\
+	\sum \tau & = \int (r^2 dm)\alpha \\
+	\sum \tau_{ext} + \sum \tau_{i} & = I\vect{\alpha}, \quad \sum \tau_{i} = 0 \\
+	\sum \vect{\tau}_{ext} & = I\vect{\alpha}
+\end{align*}
+
+\section{Moments of Inertia}
+
+\begin{itemize}
+	\item Volume Density \textrightarrow $ \rho = \frac{dm}{dV} $
+	\item Surface Density \textrightarrow $ \sigma = \frac{dm}{dA}, \quad A = $ \text{Area}
+	\item Linear Density \textrightarrow $ \lambda = \frac{dm}{dx} $
+\end{itemize}
+\begin{align*}
+	dm & = \rho dv = \rho(h(2\pi r)dr) \\
+	I_{cylinder} & = \int_0^R r^2 dm \\
+	I & = 2\pi \rho h \int_0^R r^3 dr \\
+	I & = \left. \frac{1}{2}\pi \rho hr^4 \right|_0^R \\
+	I & = \frac{\pi \rho hR^4}{2} \\
+	\rho & = \frac{M}{\pi R^2h} \\
+	I & = \frac{1}{2}\pi \left( \frac{M}{\pi R^2h} \right) R^4 \\
+	I_{cylinder} & = \frac{1}{2}MR^2
+\end{align*}
+\begin{align*}
+	I & = \int x^2 dm \\
+	I & = \int_0^L x^2\lambda dx \\
+	I & = \frac{1}{3}L^3\lambda \\
+	\lambda & = \frac{M}{L} \\
+	I & = \frac{1}{3}L^3 \left( \frac{M}{L} \right) \\
+	I & = \frac{1}{3}ML^2
+\end{align*}
+\begin{align*}
+	I_{cylinder} = I_{disk} & = \frac{1}{2}MR^2 \\
+	I_{hoop} & = MR^2 \\
+	I_{sphere} & = \frac{2}{5}MR^2 \\
+	I_{spherial shell} & = \frac{2}{3}MR^2
+\end{align*}
+
+\end{document}

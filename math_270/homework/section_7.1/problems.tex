@@ -1,0 +1,225 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\tableofcontents
+
+\section{Section 7.1}
+
+\subsection{7.1.1}
+
+Transform the given differential equation into an equivalent system of first-order differential equations.
+\begin{equation*}
+	x'' + 4x' - 3x = 6t
+\end{equation*}
+
+\hr
+
+Let $ x_1 = x $ and $ x_2 = x' $. Complete the system below.
+\begin{align*}
+	x_1' & = x_2 \\
+	x_2' & = -4x' + 3x + 6t = -4x_2 + 3x_1 + 6t
+\end{align*}
+
+\subsection{7.1.2}
+
+Transform the given differential equation into an equivalent system of first-order differential equations.
+\begin{equation*}
+	x^{(4)} + 5x'' + 2x = 5t^3\sin(2t)
+\end{equation*}
+
+\hr
+
+Let $ x_1 = x $, $ x_2 = x' $, $ x_3 = x'' $, and $ x_4 = x^{(3)} $. Complete the system below.
+\begin{align*}
+	x_1' & = x_2 \\
+	x_2' & = x_3 \\
+	x_3' & = x_4 \\
+	x_4' & = -5x'' - 2x + 5t^3\sin(2t) = -5x_3 - 2x_1 + 5t^3\sin(2t)
+\end{align*}
+
+\subsection{7.1.5}
+
+Transform the given differential equation into an equivalent system of first-order differential equations.
+\begin{equation*}
+	x^{(3)} = (x'')^2 - 2\cos(x')
+\end{equation*}
+
+\hr
+
+Let $ x_1 = x $, $ x_2 = x' $, and $ x_3 = x'' $. Complete the system below.
+\begin{align*}
+	x_1' & = x_2 \\
+	x_2' & = x_3 \\
+	x_3' & = (x_3)^2 - 2\cos(x_2)
+\end{align*}
+
+\subsection{7.1.8}
+
+Transform the given differential equation into an equivalent system of first-order differential equations.
+\begin{align*}
+	x'' + 6x' - 6x - 5y & = 0 \\
+	y'' - 4y' + 3x - 5y & = \sin(t)
+\end{align*}
+
+\hr
+
+Let $ x_1 = x $, $ x_2 = x' $, $ y_1 = y $, and $ y_2 = y' $. Complete the system below.
+\begin{align*}
+	x_1' & = x_2 \\
+	x_2' & = -6x' + 6x + 5y = -6x_2 + 6x_1 + 5y_1 \\
+	y_1' & = y_2 \\
+	y_2' & = 4y' - 3x + 5y + \sin(t) = 4y_2 - 3x_1 + 5y_1 + \sin(t)
+\end{align*}
+
+\subsection{7.1.9}
+
+Transform the given differential equation into an equivalent system of first-order differential equations.
+\begin{align*}
+	\systeme*{
+		x'' = 9x - y + 3z,
+		y'' = x + y - 3z,
+		z'' = 6x - y - z
+	}
+\end{align*}
+\begin{align*}
+	x_1' & = x_2 \\
+	y_1' & = y_2 \\
+	z_1' & = z_2
+\end{align*}
+\begin{align*}
+	x_2' & = 9x_1 - y_1 + 3z_1 \\
+	y_2' & = x_1 + y_1 - 3z_1 \\
+	z_2' & = 6x_1 - y_1 - z_1
+\end{align*}
+
+\subsection{7.1.22}
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Beginning with the general solution of the system $ x' = -2y $, $ y' = 2x $, calculate $ x^2 + y^2 $ to show that the trajectories are circles.
+	\item Show similarly that the trajectories of the system $ x' = \frac{1}{2}y $, $ y' = -8x $ are ellipses with equation of the form $ 16x^2 + y^2 = C^2 $.
+\end{enumerate}
+
+\hr
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		Find the solution of the system $ x' = -2y $, $ y' = 2x $ below. Start with $ x(t) $.
+		\begin{align*}
+			x' & = -2y \\
+			x'' & = -2y' \\
+			x'' & = -2(2x) \\
+			x'' + 4x & = 0
+		\end{align*}
+		\begin{align*}
+			r^2 + 4 = 0 \\
+			r & = \pm 2i
+		\end{align*}
+		\begin{align*}
+			x(t) & = C_1\cos(2t) + C_2\sin(2t)
+		\end{align*}
+		Now find $ y(t) $ so that $ y(t) $ and the solution for $ x(t) $ found in the previous step are a general solution to the system of differential equations.
+		\begin{align*}
+			y' & = 2x \\
+			y' & = 2(C_1\cos(2t) + C_2\sin(2t)) \\
+			\int y' dt & = 2 \int \left( C_1\cos(2t) + C_2\sin(2t) \right) dt \\
+			y(t) & = C_1\sin(2t) - C_2\cos(2t)
+		\end{align*}
+		Now calculate and simplify $ x^2 + y^2 $.
+		\begin{align*}
+			x^2 + y^2 & = (C_1\cos(2t) + C_2\sin(2t))^2 + (C_1\sin(2t) - C_2\cos(2t))^2 \\
+			x^2 + y^2 & = C_1^2 + C_2^2
+		\end{align*}
+\end{enumerate}
+
+\end{document}

@@ -81,7 +81,11 @@
 }
 
 % Matrix and Vector notation
-\newcommand{\matr}[1]{\bm{#1}}
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
 \newcommand{\vect}[1]{
 	\ifmmode \mathbf{#1}
 	\else \textbf{#1}

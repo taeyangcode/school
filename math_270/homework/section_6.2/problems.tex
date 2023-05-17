@@ -270,7 +270,260 @@ Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it 
 	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \end{bmatrix} & = 0
 \end{align*}
 \begin{align*}
+	(1)\vect{v}_1 + (-1)\vect{v}_2 & = 0 \\
+	\vect{v}_1 & = \vect{v}_2
+\end{align*}
+\begin{align*}
+	(1)\vect{v}_1 + (-1)\vect{v}_2 & = 0 \\
+	\vect{v}_1 & = \vect{v}_2
+\end{align*}
+\begin{align*}
+	\vect{v} & = \begin{bmatrix} \vect{v}_1 \\ \vect{v}_1 \end{bmatrix} \\
+	\vect{v} & = \vect{v}_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\end{align*}
+The matrix is not diagonalizable.
 
+\subsection{6.2.12}
+
+Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it is, find a diagonalizing matrix $ \matr{P} $ and diagonal matrix $ \matr{D} $ such that $ \matr{P}^{-1}\matr{A}\matr{P} = \matr{D} $.
+\begin{equation*}
+	\matr{A} =
+		\begin{bmatrix}
+			10 & 8 \\
+			-18 & -14
+		\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			10 - \lambda & 8 \\
+			-18 & -14 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & = (10 - \lambda)(-14 - \lambda) - (8)(-18) \\
+	\det( \matr{A} - \lambda \vect{I} ) & = \lambda^2 + 4\lambda + 4 = (\lambda + 2)^2 \\
+	\lambda & = -2
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		12 & 8 \\
+		-18 & -12
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(12)\vect{v}_1 + (8)\vect{v}_2 & = 0 \\
+	\vect{v}_2 & = \left( -\frac{3}{2} \right) \vect{v}_1
+\end{align*}
+\begin{align*}
+	(-18)\vect{v}_1 + (-12)\vect{v}_2 & = 0 \\
+	(-18)\vect{v}_1 + (-12) \left( -\frac{3}{2} \right) \vect{v}_1 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{v} & = \begin{bmatrix} \vect{v}_1 \\ \left( -\frac{3}{2} \right) \vect{v}_1 \end{bmatrix} \\
+	\vect{v} & = \vect{v}_1 \begin{bmatrix} 1 \\ -\frac{3}{2} \end{bmatrix}
+\end{align*}
+The matrix is not diagonalizable.
+
+\subsection{6.2.13}
+
+Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it is, find a diagonalizing matrix $ \matr{P} $ and diagonal matrix $ \matr{D} $ such that $ \matr{P}^{-1}\matr{A}\matr{P} = \matr{D} $.
+\begin{equation*}
+	\matr{A} =
+		\begin{bmatrix}
+			2 & 3 & 0 \\
+			0 & 3 & 0 \\
+			0 & 0 & 3
+		\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			2 - \lambda & 3 & 0 \\
+			0 & 3 - \lambda & 0 \\
+			0 & 0 & 3 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(2 - \lambda)( (3 - \lambda)(3 - \lambda) - 0 ) - 0 - 0 \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		-(\lambda - 3)^2(\lambda - 2) \\
+	\lambda_{1,2} & = 3, 2
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		-1 & 3 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \\ \vect{v}_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(-1)\vect{v}_1 + (3)\vect{v}_2 + (0)\vect{v}_3 & = 0 \\
+	\vect{v}_1 & = (3)\vect{v}_2
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (0)\vect{v}_2 + (0)\vect{v}_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (0)\vect{v}_2 + (0)\vect{v}_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{v} & =
+		\begin{bmatrix} (3)\vect{v}_2 \\ \vect{v}_2 \\ 0 \end{bmatrix}
+		+ \begin{bmatrix} 0 \\ 0 \\ \vect{v}_3 \end{bmatrix} \\
+	\vect{v} & =
+		\vect{v}_2 \begin{bmatrix} 3 \\ 1 \\ 0 \end{bmatrix}
+		+ \vect{v}_3 \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		0 & 3 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \\ \vect{v}_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (3)\vect{v}_2 + (0)\vect{v}_3 & = 0 \\
+	\vect{v}_2 & = 0
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (1)\vect{v}_2 + (0)\vect{v}_3 & = 0 \\
+	\vect{v}_2 & = 0
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (0)\vect{v}_2 + (1)\vect{v}_3 & = 0 \\
+	\vect{v}_3 & = 0
+\end{align*}
+\begin{align*}
+	\vect{v} & =
+		\begin{bmatrix} \vect{v}_1 \\ 0 \\ 0 \end{bmatrix} \\
+	\vect{v} & =
+		\vect{v}_1 \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\vect{v}_{1,2,3} & =
+		\begin{bmatrix} 3 \\ 1 \\ 0 \end{bmatrix},
+		\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix},
+		\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \\
+	\matr{D} & =
+		\begin{bmatrix}
+			3 & 1 & 0 \\
+			0 & 0 & 1 \\
+			1 & 0 & 0
+		\end{bmatrix} \\
+	\matr{P} & =
+		\begin{bmatrix}
+			3 & 0 & 0 \\
+			0 & 3 & 0 \\
+			0 & 0 & 2
+		\end{bmatrix}
+\end{align*}
+
+\subsection{6.2.16}
+
+Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it is, find a diagonalizing matrix $ \matr{P} $ and diagonal matrix $ \matr{D} $ such that $ \matr{P}^{-1}\matr{A}\matr{P} = \matr{D} $.
+\begin{equation*}
+	\begin{bmatrix}
+		1 & -3 & 3 \\
+		0 & 2 & -1 \\
+		0 & 0 & 1
+	\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			1 - \lambda & -3 & 3 \\
+			0 & 2 - \lambda & -1 \\
+			0 & 0 & 1 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(1 - \lambda)( (2 - \lambda)(1 - \lambda) - 0 ) - (-3)(0) - (3)(0) \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		-(\lambda - 2)(\lambda - 1)^2 \\
+	\lambda_{1,2} & = 2, 1
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		-1 & -3 & 3 \\
+		0 & 0 & -1 \\
+		0 & 0 & -1
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \\ \vect{v}_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (0)\vect{v}_2 + (-1)\vect{v}_3 & = 0 \\
+	\vect{v}_3 & = 0
+\end{align*}
+\begin{align*}
+	(-1)\vect{v}_1 + (-3)\vect{v}_2 + (3)\vect{v}_3 & = 0 \\
+	(-1)\vect{v}_1 + (-3)\vect{v}_2 + (3)(0) & = 0 \\
+	\vect{v}_1 & = (-3)\vect{v}_2
+\end{align*}
+\begin{align*}
+	\vect{v} & = \vect{v}_2 \begin{bmatrix} -3 \\ 1 \\ 0 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{v} & = 0 \\
+	\begin{bmatrix}
+		0 & -3 & 3 \\
+		0 & 1 & -1 \\
+		0 & 0 & 0
+	\end{bmatrix}
+	\begin{bmatrix} \vect{v}_1 \\ \vect{v}_2 \\ \vect{v}_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (0)\vect{v}_2 + (0)\vect{v}_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (1)\vect{v}_2 + (-1)\vect{v}_3 & = 0 \\
+	\vect{v}_2 & = \vect{v}_3
+\end{align*}
+\begin{align*}
+	(0)\vect{v}_1 + (-3)\vect{v}_2 + (3)\vect{v}_3 & = 0 \\
+	(0)\vect{v}_1 + (-3)(\vect{v}_3) + (3)\vect{v}_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{v} & =
+		\begin{bmatrix} \vect{v}_1 \\ 0 \\ 0 \end{bmatrix}
+		+ \begin{bmatrix} 0 \\ \vect{v}_3 \\ \vect{v}_3 \end{bmatrix} \\
+	\vect{v} & =
+		\vect{v}_1 \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+		+ \vect{v}_3 \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}
+\end{align*}
+
+\subsection{6.2.19}
+
+Determine whether or not the given matrix $ \matr{A} $ is diagonalizable. If it is, find a diagonalizing matrix $ \matr{P} $ and diagonal matrix $ \matr{D} $ such that $ \matr{P}^{-1}\matr{A}\matr{P} = \matr{D} $.
+\begin{equation*}
+	\matr{A} =
+		\begin{bmatrix}
+			2 & -1 & 1 \\
+			-4 & 2 & 4 \\
+			-2 & -1 & 5
+		\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			2 - \lambda & -1 & 1 \\
+			-4 & 2 - \lambda & 4 \\
+			-2 & -1 & 5 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & = (2 - \lambda)( (2 - \lambda)(5 - \lambda)- (4)(-1) \\
+										& + (-1)( (-4)(5 - \lambda) - (4)(-2) ) \\
+										& + (1)( (-4)(-1) - (2 - \lambda)(-2) ) \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		-\lambda^3 + 9\lambda^2 - 26\lambda + 24 = -(\lambda - 4)(\lambda - 3)(\lambda - 2) \\
+	\lambda_{1,2,3} & = 4, 3, 2
 \end{align*}
 
 \end{document}

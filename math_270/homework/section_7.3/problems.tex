@@ -92,4 +92,203 @@
 	\fi
 }
 
+\tableofcontents
+
+\section{Section 7.3}
+
+\subsection{7.3.1-T}
+
+Apply the eigenvalue method to find a general solution of the given system. Use a computer system or graphing calculator to construct a direction field and typical solution curves for the given system.
+\begin{align*}
+	x'_1 & = 2x_1 + 6x_2 \\
+	x'_2 & = 6x_1 + 2x_2
+\end{align*}
+\begin{align*}
+	\begin{bmatrix} \vect{x}_1' \\ \vect{x}_2' \end{bmatrix} & =
+		\begin{bmatrix} 2 & 6 \\ 6 & 2 \end{bmatrix}
+		\begin{bmatrix} \vect{x}_1 \\ \vect{x}_2 \end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			2 - \lambda & 6 \\
+			6 & 2 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(2 - \lambda)(2 - \lambda) - (6)(6) = \lambda^2 - 4\lambda - 32 = (\lambda - 8)(\lambda + 4) \\
+	\lambda_{1,2} & = 8, -4
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		-6 & 6 \\
+		6 & -6
+	\end{bmatrix} \vect{x} & = 0 \\
+	\begin{bmatrix}
+		1 & -1 \\
+		0 & 0
+	\end{bmatrix} \vect{x} & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} \vect{x}_2 \\ \vect{x}_2 \end{bmatrix} \\
+	\vect{x} & = \vect{x}_2 \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] & = 0 \\
+	\begin{bmatrix}
+		6 & 6 \\
+		6 & 6
+	\end{bmatrix} \vect{x} & = 0 \\
+	\begin{bmatrix}
+		1 & 1 \\
+		0 & 0
+	\end{bmatrix} \vect{x} & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} -\vect{x}_2 \\ \vect{x}_2 \end{bmatrix} \\
+	\vect{x} & = \vect{x}_2 \begin{bmatrix} -1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\vect{x} & = C_1 \vect{x}_1 e^{8t} + C_2 \vect{x}_2 e^{-4t} \\
+	\vect{x} & =
+		C_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix} e^{8t}
+		+ C_2 \begin{bmatrix} -1 \\ 1 \end{bmatrix} e^{-4t} \\
+	\vect{x}_1 & = C_1e^{8t} - C_2e^{-4t} \\
+	\vect{x}_2 & = C_1e^{8t} + C_2e^{-4t}
+\end{align*}
+
+\subsection{7.3.3-T}
+
+Apply the eigenvalue method to find a general solution of the given system. Use a computer system or graphing calculator to construct a direction field and typical solution curves for the given system.
+\begin{align*}
+	\vect{x}'_1 = 3\vect{x}_1 + 4\vect{x}_2, \vect{x}'_2 = 3\vect{x}_1 + 2\vect{x}_2, \vect{x}_1(0) = \vect{x}_2(0) = 1
+\end{align*}
+\begin{align*}
+	\vect{x}' & =
+		\begin{bmatrix}
+			3 & 4 \\
+			3 & 2
+		\end{bmatrix} \vect{x}
+\end{align*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			3 - \lambda & 4 \\
+			3 & 2 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(3 - \lambda)(2 - \lambda) - (4)(3) = (\lambda - 6)(\lambda + 1) \\
+	\lambda_{1,2} & = 6, -1
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		-3 & 4 \\
+		3 & -4
+	\end{bmatrix} \vect{x} & = 0 \\
+	\begin{bmatrix}
+		1 & \frac{4}{3} \\
+		0 & 0
+	\end{bmatrix} \vect{x} & = 0 \\
+	\vect{x} & = \vect{x}_2 \begin{bmatrix} \frac{4}{3} \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{x} & = 0 \\
+	\begin{bmatrix} 4 & 4 \\ 3 & 3 \end{bmatrix} \vect{x} & = 0 \\
+	\begin{bmatrix} 1 & 1 \\ 0 & 0 \end{bmatrix} \vect{x} & = 0 \\
+	\vect{x} & = \vect{x}_2 \begin{bmatrix} -1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\vect{x}(t) & = C_1 \vect{x}_1 e^{6t} + C_2 \vect{x}_2 e^{-1t} \\
+	\vect{x}(t) & =
+		C_1 \begin{bmatrix} \frac{4}{3} \\ 1 \end{bmatrix} e^{6t}
+		+ C_2 \begin{bmatrix} -1 \\ 1 \end{bmatrix} e^{-t}
+\end{align*}
+The general solution in matrix form is $ \vect{x}(t) = C_1 \begin{bmatrix} \frac{4}{3} \\ 1 \end{bmatrix} e^{6t} + C_2 \begin{bmatrix} -1 \\ 1 \end{bmatrix} e^{-t} $.
+
+\hr
+
+Now finding the particular solution.
+\begin{align*}
+	\vect{x}_1(t) & = C_1 \left( \frac{4}{3} \right) e^{6t} + C_2 (-1) e^{-t} \\
+	\vect{x}_1(0) & = C_1 \left( \frac{4}{3} \right) e^{6(0)} + C_2 (-1) e^{-(0)} = 1 \\
+	\vect{x}_1(0) & = C_1 \left( \frac{4}{3} \right) - C_2 = 1 \\
+	\vect{x}_2(t) & = C_1 (1) e^{6t} + C_2 (1) e^{-t} \\
+	\vect{x}_2(0) & = C_1 (1) e^{6(0)} + C_2 (1) e^{-(0)} = 1 \\
+	\vect{x}_2(0) & = C_1 + C_2 = 1
+\end{align*}
+\begin{align*}
+	\left[ \vect{x} | 1 \right] & =
+		\left[ \begin{array}{ c c | c }
+			\frac{4}{3} & -1 & 1 \\
+			1 & 1 & 1
+		\end{array} \right] \\
+	\left[ \vect{x} | 1 \right] & =
+		\left[ \begin{array}{ c c | c }
+			1 & 0 & \frac{6}{7} \\
+			0 & 1 & \frac{1}{7}
+		\end{array} \right]
+\end{align*}
+\begin{align*}
+	\vect{x}(t) & = \left( \frac{6}{7} \right) \begin{bmatrix} \frac{4}{3} \\ 1 \end{bmatrix} e^{6t} + \left( \frac{1}{7} \right) \begin{bmatrix} -1 \\ 1 \end{bmatrix} e^{-t}
+\end{align*}
+
+\subsection{7.3.7-T}
+
+Apply the eigenvalue method to find a general solution of the given system. Use a computer system or graphing calculator to construct a direction field and typical solution curves for the given system.
+\begin{equation*}
+	\vect{x}'_1 = -2\vect{x}_1 + 6\vect{x}_2, \vect{x}'_2 = 9\vect{x}_1 - 5\vect{x}_2
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			-2 - \lambda & 6 \\
+			9 & -5 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(-2 - \lambda)(-5 - \lambda) - (6)(9) = (\lambda - 4)(\lambda + 11) \\
+	\lambda_{1,2} & = 4, -11
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		-6 & 6 \\
+		9 & -9
+	\end{bmatrix} \vect{x} & = 0 \\
+	\vect{x} & = \vect{x}_2 \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		9 & 6 \\
+		9 & 6
+	\end{bmatrix} \vect{x} & = 0 \\
+	\vect{x} & = \vect{x}_2 \begin{bmatrix} -\frac{2}{3} \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\vect{x} & = C_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix} e^{4t} + C_2 \begin{bmatrix} -\frac{2}{3} \\ 1 \end{bmatrix} e^{-11t}
+\end{align*}
+
+\subsection{7.3.15}
+
+Apply the eigenvalue method to find a general solution of the given system. Use a computer system or graphing calculator to construct a direction field and typical solution curves for the given system.
+\begin{equation*}
+	\vect{x}'_1 = 5\vect{x}_1 - 10\vect{x}_2, \vect{x}'_2 = 8\vect{x}_1 - 3\vect{x}_2
+\end{equation*}
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			5 - \lambda & -10 \\
+			8 & -3 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(5 - \lambda)(-3 - \lambda) - (-10)(8) = 1 \pm 8i \\
+	\lambda_{1,2} & = 1 \pm 8i
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		4 - 8i & -10 \\
+		8 & -8i - 4
+	\end{bmatrix} \vect{x} & = 0
+\end{align*}
+
 \end{document}

@@ -220,6 +220,86 @@ Transform the given differential equation into an equivalent system of first-ord
 			x^2 + y^2 & = (C_1\cos(2t) + C_2\sin(2t))^2 + (C_1\sin(2t) - C_2\cos(2t))^2 \\
 			x^2 + y^2 & = C_1^2 + C_2^2
 		\end{align*}
+	\item
+		Show that the trajectories of the system $ x' = \frac{1}{2}y $, $ y' = -8x $ are ellipses with equations of the form $ 16x^2 + y^2 = C^2 $. First solve for $ x(t) $.
+		\begin{align*}
+			x' & = \frac{1}{2}y \\
+			x'' & = \frac{1}{2}y' \\
+			x'' & = \frac{1}{2}(-8x) \\
+			x'' + 4x & = 0
+		\end{align*}
+		\begin{align*}
+			r^2 + 4r & = 0 \\
+			r & = \pm 2i
+		\end{align*}
+		\begin{align*}
+			x(t) & = A\cos(2t) + B\sin(2t)
+		\end{align*}
+		Now find $ y(t) $ so that $ y(t) $ and the solution for $ x(t) $ found in the previous step are a general solution to the system of differential equations.
+		\begin{align*}
+			y' & = -8x \\
+			\int y' dt & = -8 \int \left( A\cos(2t) + B\sin(2t) \right) dt \\
+			y & = -4A\sin(2t) + 4B\cos(2t)
+		\end{align*}
+		Letting $ C = \sqrt{A^2 + B^2} $, $ A = C\cos(\alpha) $, and $ B = C\sin(\alpha) $, rewrite $ x(t) $ and $ y(t) $ in terms of $ C $, $ \alpha $, and $ t $ below.
+		\begin{align*}
+			x(t) & = A\cos(2t) + B\sin(2t) \\
+			x(t) & = (C\cos(\alpha))\cos(2t) + (C\sin(\alpha))\sin(2t)
+		\end{align*}
+		\begin{align*}
+			y(t) & = -4A\sin(2t) + 4B\cos(2t) \\
+			y(t) & = -4(C\cos(\alpha))\sin(2t) + 4(C\sin(\alpha))\cos(2t)
+		\end{align*}
+		Using the equations from the previous step, solve for $ \cos(\alpha - 2t) $ and $ \sin(\alpha - 2t) $ and rewrite $ \cos^2(\alpha - 2t) + \sin^2(\alpha - 2t) = 1 $ in terms of $ x, y $ and $ C $.
+		\begin{align*}
+			x(t) & = (C\cos(\alpha))\cos(2t) + (C\sin(\alpha))\sin(2t) \\
+			x(t) & = C\cos(-2t + \alpha) \\
+			\cos(2t - \alpha) & = \frac{x}{C}
+		\end{align*}
+		\begin{align*}
+			y(t) & = -4(C\cos(\alpha))\sin(2t) + 4(C\sin(\alpha))\cos(2t) \\
+			y(t) & = 4C\sin(-2t + \alpha) \\
+			\sin(-2t + \alpha) & = \frac{y}{4C}
+		\end{align*}
+		\begin{align*}
+			\left( \frac{x}{C} \right)^2 + \left( \frac{y}{4C} \right)^2 & = 1
+		\end{align*}
+		Finally, multiply both sides of the equation found in the previous step by $ 16C^2 $, then replace $ 4C $ with $ C $, resulting in the equation $ 16x^2 + y^2 = C^2 $.
 \end{enumerate}
+
+\subsection{7.1.26}
+
+Three \SI{132}{gal} fermentation vats are connected as indicated in the figure, and the mixtures in each tank are kept uniform by stirring. Denote by $ x_i(t) $ the amount (in pounds) of alcohol in tank $ T_i $ at time $ t (i = 1, 2, 3) $. Suppose that the mixture circulates between the tanks at the rate of \SI{11}{gal \per \min}. Derive the equations.
+\begin{align*}
+	11x_1' & = -x_1 + x_3 \\
+	11x_2' & = x_1 - x_2 \\
+	11x_3' & = x_2 - x_3
+\end{align*}
+
+\hr
+
+\begin{align*}
+	11 \begin{bmatrix} x_1' \\ x_2' \\ x_3' \end{bmatrix} & =
+	\begin{bmatrix}
+		-1 & 0 & 1 \\
+		1 & -1 & 0 \\
+		0 & 1 & -1
+	\end{bmatrix}
+	\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = 0 \\
+	x_1' & = \left( -\frac{1}{11} \right) x_1 + \left( \frac{1}{11} \right) x_3 \\
+	x_2' & = \left( \frac{1}{11} \right) x_1 + \left( -\frac{1}{11} \right) x_2 \\
+	x_3' & = \left( \frac{1}{11} \right) x_2 + \left( -\frac{1}{11} \right) x_3 \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			-1 - \lambda & 0 & 1  \\
+			1 & -1 - \lambda & 0 \\
+			0 & 1 & -1 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		(-1 - \lambda)( (-1 - \lambda)(-1 - \lambda) - 0 ) + 0 + (1)( (1)(1) - 0 ) \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		-\lambda^3 - 3\lambda^2 - 3\lambda = -\lambda(\lambda^2 + 3\lambda + 3) \\
+	\lambda & = 0, -\frac{3}{2}\pm \frac{\sqrt{3}}{2}i
+\end{align*}
 
 \end{document}

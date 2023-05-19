@@ -1,0 +1,347 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\section{Section 7.2}
+
+\subsection{7.2.1}
+
+Verify the product law for differentiation, $ (\matr{A}\matr{B})' = \matr{A}'\matr{B} + \matr{A}\matr{B}' $ where $ \matr{A}(t) = \begin{bmatrix} t & 2t - 1 \\ t^3 & \frac{1}{t} \end{bmatrix} $ and $ \matr{B}(t) = \begin{bmatrix} 1 - t & 1 + t \\ 2t^2 & 2t^3 \end{bmatrix} $.
+
+\hr
+
+To calculate $ (\matr{A}\matr{B})' $, first calculate $ \matr{A}\matr{B} $.
+\begin{align*}
+	\matr{A}\matr{B} & =
+		\begin{bmatrix}
+			(t)(1 - t) + (2t - 1)(2t^2) & (t)(1 + t) + (2t - 1)(2t^3) \\
+			(t^3)(1 - t) + \left( \frac{1}{t} \right) (2t^2) & (t^3)(1 + t) + \left( \frac{1}{t} \right) (2t^3)
+		\end{bmatrix} \\
+	\matr{A}\matr{B} & =
+		\begin{bmatrix}
+			4t^3 - 3t^2 + t & 4t^4 - 2t^3 + t^2 + t \\
+			-t^4 + t^3 + 2t & t^4 + t^3 + 2t^2
+		\end{bmatrix}
+\end{align*}
+Now take the derivative of $ \matr{A}\matr{B} $ to find $ (\matr{A}\matr{B})' $.
+\begin{align*}
+	(\matr{A}\matr{B})' & =
+		\begin{bmatrix}
+			12t^2 - 6t + 1 & 16t^3 -6t^2 + 2t + 1 \\
+			-4t^3 + 3t^2 + 2 & 4t^3 + 3t^2 + 4t
+		\end{bmatrix}
+\end{align*}
+To calculate $ \matr{A}'\matr{B} + \matr{A}\matr{B}' $, first calculate $ \matr{A}' $.
+\begin{align*}
+	\matr{A}' & =
+		\begin{bmatrix}
+			1 & 2 \\
+			3t^2 & -\frac{1}{t^2}
+		\end{bmatrix}
+\end{align*}
+Now find $ \matr{A}'\matr{B} $.
+\begin{align*}
+	\matr{A}'\matr{B} & =
+		\begin{bmatrix}
+			4t^2 - t + 1 & 4t^3 + t + 1 \\
+			-3t^3 + 3t^2 - 2 & 3t^3 + 3t^2 - 2t
+		\end{bmatrix}
+\end{align*}
+
+\subsection{7.2.3}
+
+Write the given system in the form $ \vect{x}' = \matr{P}(t)\vect{x} + \vect{f}(t) $.
+\begin{align*}
+	x' & = -9y \\
+	y' & = 5x
+\end{align*}
+\begin{align*}
+	\matr{P} & =
+		\begin{bmatrix}
+			0 & -9 \\
+			5 & 0
+		\end{bmatrix} \\
+	\vect{f} & = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \\
+	\vect{x}' & =
+		\begin{bmatrix}
+			0 & -9 \\
+			5 & 0
+		\end{bmatrix} \vect{x}
+		+ \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\end{align*}
+
+\subsection{7.2.5}
+
+Write the given system in the form $ \vect{x}' = \matr{P}(t)\vect{x} + \vect{f}(t) $.
+\begin{align*}
+	x' & = 9x + 4y + 6e^t \\
+	y' & = 6x - y - t^3
+\end{align*}
+\begin{align*}
+	\matr{P} & =
+		\begin{bmatrix}
+			9 & 4 \\
+			6 & -1
+		\end{bmatrix} \\
+	\vect{f} & =
+		\begin{bmatrix}
+			6e^t \\
+			-t^3
+		\end{bmatrix} \\
+	\vect{x}' & =
+		\begin{bmatrix}
+			9 & 4 \\
+			6 & -1
+		\end{bmatrix} \vect{x}
+		+ \begin{bmatrix}
+			6e^t \\
+			-t^3
+		\end{bmatrix}
+\end{align*}
+
+\subsection{7.2.7}
+
+Write the given system in the form $ \vect{x}' = \matr{P}(t)\vect{x} + \vect{f}(t) $.
+\begin{align*}
+	x' & = 5y + 5z \\
+	y' & = 4z + 8x \\
+	z' & = 8x + 2y
+\end{align*}
+\begin{align*}
+	\matr{P} & =
+		\begin{bmatrix}
+			0 & 5 & 5 \\
+			8 & 0 & 4 \\
+			8 & 2 & 0
+		\end{bmatrix} \\
+	\vect{f} & =
+		\begin{bmatrix}
+			0 \\ 0 \\ 0
+		\end{bmatrix} \\
+	\vect{x}' & =
+		\begin{bmatrix}
+			0 & 5 & 5 \\
+			8 & 0 & 4 \\
+			8 & 2 & 0
+		\end{bmatrix} \vect{x}
+		+ \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\end{align*}
+
+\subsection{7.2.9}
+
+Write the given system in the form $ \vect{x}' = \matr{P}(t)\vect{x} + \vect{f}(t) $.
+\begin{align*}
+	x' & = 8x - 9y + z + t \\
+	y' & = x - 3z + t^2 \\
+	z' & = 3y - 9z + t^3
+\end{align*}
+\begin{align*}
+	\matr{P} & =
+		\begin{bmatrix}
+			7 & -9 & 1 \\
+			1 & 0 & -3 \\
+			0 & 3 & -9
+		\end{bmatrix} \\
+	\vect{x} & =
+		\begin{bmatrix}
+			t \\
+			t^2 \\
+			t^3
+		\end{bmatrix} \\
+	\vect{x}' & =
+		\begin{bmatrix}
+			7 & -9 & 1 \\
+			1 & 0 & -3 \\
+			0 & 3 & -9
+		\end{bmatrix} \vect{x}
+		+ \begin{bmatrix} t \\ t^2 \\ t^3 \end{bmatrix}
+\end{align*}
+
+\subsection{7.2.15}
+
+Find a particular solution of the indicated linear system that satisfies the initial conditions $ x_1(0) = 7 $, $ x_2(0) = -5 $.
+\begin{equation*}
+	\vect{x}' = \begin{bmatrix}
+		4 & -1 \\
+		7 & -4
+	\end{bmatrix};
+	\vect{x}_1 = \begin{bmatrix}
+		e^{3t} \\
+		e^{3t}
+	\end{bmatrix};
+	\vect{x}_2 = \begin{bmatrix}
+		e^{-3t} \\
+		7e^{-3t}
+	\end{bmatrix}
+\end{equation*}
+\begin{align*}
+	\begin{bmatrix} x_1(t) \\ x_2(t) \end{bmatrix}
+	& = C_1 \begin{bmatrix} e^{3t} \\ e^{3t} \end{bmatrix}
+	+ C_2 \begin{bmatrix} e^{-3t} \\ 7e^{-3t} \end{bmatrix}
+\end{align*}
+\begin{align*}
+	x_1(t) & = C_1e^{3t} + C_2e^{-3t} \\
+	x_2(t) & = C_1e^{3t} + 7C_2e^{-3t}
+\end{align*}
+\begin{align*}
+	x_1(0) & = C_1e^{3(0)} + C_2e^{-3(0)} = 7 \\
+	C_1 + C_2 & = 7 \\
+	C_1 & = 7 - C_2
+\end{align*}
+\begin{align*}
+	x_2(0) & = C_1e^{3(0)} + 7C_2e^{-3(0)} = -5 \\
+	C_1 + 7C_2 & = -5 \\
+	(7 - C_2) + 7C_2 & = -5 \\
+	C_2 & = -2 \\
+	C_1 & = 7 - (-2) \\
+	C_1 & = 9
+\end{align*}
+\begin{align*}
+	x_1(t) & = 9e^{3t} - 2e^{-3t} \\
+	x_2(t) & = 9e^{3t} - 14e^{-3t}
+\end{align*}
+
+\subsection{7.2.29}
+
+Find a particular solution of the indicated linear system that satisfies the initial conditions $ x_1(0) = 5 $, $ x_2(0) = 4 $, and $ x_3(0) = 2 $.
+\begin{equation*}
+	\vect{x}' = \begin{bmatrix}
+		-14 & -17 & -1 \\
+		12 & 15 & 1 \\
+		-12 & -12 & 2
+	\end{bmatrix};
+	\vect{x}_1 = e^{-2t} \begin{bmatrix} 4 \\ -3 \\ 3 \end{bmatrix},
+	\vect{x}_2 = e^{2t} \begin{bmatrix} 1 \\ -1 \\ 1 \end{bmatrix},
+	\vect{x}_3 = e^{3t} \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}
+\end{equation*}
+\begin{align*}
+	& \left[ \begin{array}{ c c c | c }
+		4 & 1 & 1 & 5 \\
+		-3 & -1 & -1 & 4 \\
+		3 & 1 & 0 & 2
+	\end{array} \right] \\
+	\begin{bmatrix} C_1 \\ C_2 \\ C_3 \end{bmatrix}
+	& = \begin{bmatrix} 9 \\ -25 \\ -6 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	x_1(t) & = (C_1)4e^{-2t} + (C_2)e^{2t} + (C_3)e^{3t} \\
+	x_2(t) & = (C_1)-3e^{-2t} + (C_2)-e^{2t} + (C_3)-e^{3t} \\
+	x_3(t) & = (C_1)3e^{-2t} + (C_2)e^{2t}
+\end{align*}
+\begin{align*}
+	x_1(t) & = 36e^{-2t} - 25e^{2t} - 6e^{3t} \\
+	x_2(t) & = -27e^{-2t} + 25e^{2t} + 6e^{3t} \\
+	x_3(t) & = 27e^{-2t} - 25e^{2t}
+\end{align*}
+
+\subsection{7.2.33}
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Show that the vector functions $ \vect{x}_1(t) = \begin{bmatrix} t \\ t^2 \end{bmatrix} $ and $ \vect{x}_2(t) = \begin{bmatrix} t^2 \\ t^3 \end{bmatrix} $ are linearly independent on the real line.
+	\item Why does it follow from the Wronskians of solutions that there is no continuous matrix $ \matr{P}(t) $ such that $ \vect{x}_1 $ and $ \vect{x}_2 $ are both solutions of $ \vect{x}' = \matr{P}(t)\vect{x} $?
+\end{enumerate}
+
+\hr
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		The vector-valued functions $ \vect{x}_1, \vect{x}_2, \cdots, \vect{x}_n $ are linearly dependent on the interval $ \vect{I} $ provided that there exist constants $ c_1, c_2, \cdots, c_n $ not all zero such that $ c_1\vect{x}_1(t) + c_2\vect{x}_2(t) + \cdots + c_n\vect{x}_n(t) = 0 $ for all $ t $ in $ \vect{I} $. Otherwise they are linearly independent. \\
+		The m atrix $ \vect{x}_2 = t \cdot \vect{x}_1 $, so neither is a constant multiple of the other. Therefore $ \vect{x}_1(t) = \begin{bmatrix} t \\ t^2 \end{bmatrix} $ and $ \vect{x}_2(t) = \begin{bmatrix} t^2 \\ t^3 \end{bmatrix} $ are linearly independent.
+	\item
+		The Wronskian of solutions of $ \vect{x}' = \matr{P}(t)\vect{x} $ with a continuous matrix $ \matr{P}(t) $ have only two possibilities for solutions of homoegeneous systems, either $ W = 0 $ at every point of $ \vect{I} $, or $ W = 0 $ at no point of $ \vect{I} $. Find the Wronskian of $ \vect{x}_1(t) = \begin{bmatrix} t \\ t^2 \end{bmatrix} $ and $ \vect{x}_2(t) = \begin{bmatrix} t^2 \\ t^3 \end{bmatrix} $.
+		\begin{equation*}
+			W = 0
+		\end{equation*}
+\end{enumerate}
+
+\end{document}

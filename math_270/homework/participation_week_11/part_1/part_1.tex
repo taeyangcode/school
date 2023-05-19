@@ -1,0 +1,209 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 11 Participation Assignment (1 of 2)}
+\author{Corey Mostero - 2566652}
+\date{12 May 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 1}
+
+Given matrix $ \matr{A} = \begin{bmatrix} 29 & 64 & -32 \\ -16 & -35 & 16 \\ -8 & -16 & 5 \end{bmatrix} $; let's try to form the matrix $ \matr{A} - \lambda \vect{I} $ and find the rref so that we can determine whether the given value is the eigenvalue or not.
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item $ \lambda = 1 $
+	\item $ \lambda = 3 $
+	\item $ \lambda = 5 $
+	\item $ \lambda = -1 $
+	\item $ \lambda = -3 $
+\end{enumerate}
+\hr
+\begin{align*}
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		\begin{bmatrix}
+			29 - \lambda & 64 & -32 \\
+			-16 & -35 - \lambda & 16 \\
+			-8 & -16 & 5 - \lambda
+		\end{bmatrix} \\
+	\det( \matr{A} - \lambda \vect{I} )
+		& = (29 - \lambda)( (-35 - \lambda)(5 - \lambda) - (16)(-16) ) \\
+		& + (64)( (16)(-8) - (-16)(5 - \lambda) ) \\
+		& + (-32)( (-16)(-16) - (-35 - \lambda)(-8) ) \\
+	\det( \matr{A} - \lambda \vect{I} ) & =
+		-\lambda^3 - \lambda^2 + 21\lambda + 45 = -(\lambda - 5)(\lambda + 3)^2 \\
+	\lambda_{1,2} & = 5, -3
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_1 \right] \vect{x} & = 0 \\
+	\begin{bmatrix}
+		24 & 64 & -32 \\
+		-16 & -40 & 16 \\
+		-8 & -16 & 0
+	\end{bmatrix}
+	\begin{bmatrix} \vect{x}_1 \\ \vect{x}_2 \\ \vect{x}_3 \end{bmatrix} & = 0 \\
+	\begin{bmatrix}
+		1 & 0 & 4 \\
+		0 & 1 & -2 \\
+		0 & 0 & 0
+	\end{bmatrix}
+	\begin{bmatrix} \vect{x}_1 \\ \vect{x}_2 \\ \vect{x}_3 \end{bmatrix} & = 0
+\end{align*}
+\begin{align*}
+	(1)\vect{x}_1 + (0)\vect{x}_2 + (4)\vect{x}_3 & = 0 \\
+	\vect{x}_1 & = (-4)\vect{x}_3
+\end{align*}
+\begin{align*}
+	(0)\vect{x}_1 + (1)\vect{x}_2 + (-2)\vect{x}_3 & = 0 \\
+	\vect{x}_2 & = (2)\vect{x}_3
+\end{align*}
+\begin{align*}
+	(0)\vect{x}_1 + (0)\vect{x}_2 + (0)\vect{x}_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\vect{x} & = \begin{bmatrix} (-4)\vect{x}_3 \\ (2)\vect{x}_3 \\ \vect{x}_3 \end{bmatrix} \\
+	\vect{x} & = \vect{x}_3 \begin{bmatrix} -4 \\ 2 \\ 1 \end{bmatrix}
+\end{align*}
+\begin{align*}
+	\left[ \matr{A} - \lambda_2 \right] \vect{x} & =  0 \\
+	\begin{bmatrix}
+		32 & 64 & -32 \\
+		-16 & -32 & 16 \\
+		-8 & -16 & 8
+	\end{bmatrix}
+	\begin{bmatrix} \vect{x}_1 \\ \vect{x}_2 \\ \vect{x}_3 \end{bmatrix} & = 0 \\
+	\begin{bmatrix}
+		1 & 2 & -1 \\
+		0 & 0 &  0 \\
+		0 & 0 & 0
+	\end{bmatrix}
+	\begin{bmatrix} \vect{x}_1 \\ \vect{x}_2 \\ \vect{x}_3 \end{bmatrix} & = 0 \\
+\end{align*}
+For both $ \left[ \matr{A} - \lambda_2 \right]_{1,2} $:
+\begin{align*}
+	(0)\vect{x}_1 + (0)\vect{x}_2 + (0)\vect{x}_3 & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	(1)\vect{x}_1 + (2)\vect{x}_2 + (-1)\vect{x}_3 & = 0 \\
+	\vect{x}_1 & = (-2)\vect{x}_2 + \vect{x}_3
+\end{align*}
+\begin{align*}
+	\vect{x} & =
+		\begin{bmatrix} (-2)\vect{x}_2 \\ \vect{x}_2 \\ 0 \end{bmatrix}
+		+ \begin{bmatrix} \vect{x}_3 \\ 0 \\ \vect{x}_3 \end{bmatrix} \\
+	\vect{x} & =
+		\vect{x}_2 \begin{bmatrix} -2 \\ 1 \\ 0 \end{bmatrix}
+		+ \vect{x}_3 \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix}
+\end{align*}
+Where $ \matr{P} $ is the modal matrix and $ \matr{D} $ is the diagonal matrix:
+\begin{align*}
+	\matr{P} & =
+		\begin{bmatrix}
+			-4 & -2 & 1 \\
+			2 & 1 & 0 \\
+			1 & 0 & 1
+		\end{bmatrix} \\
+	\matr{D} & =
+		\begin{bmatrix}
+			5 & 0 & 0 \\
+			0 & -3 & 0 \\
+			0 & 0 & -3 \\
+		\end{bmatrix}
+\end{align*}
+
+\end{document}

@@ -1,0 +1,193 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 11 Participation Assignment (2 of 2)}
+\author{Corey Mostero - 2566652}
+\date{12 May 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 2}
+
+Given a square matrix $ \matr{A} $, we can find the eigenvalues and the corresponding eigenvectors. Then with the eigenvalues and the eigenvectors, we can construct the matrices $ \matr{P} $ and $ \matr{D} $ such that $ \matr{A} = \matr{P}\matr{D}\matr{P}^{-1} $. \\
+For the following given information, construct at least three ways for the matrix $ \matr{D} $.
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item For $ \lambda = 1 : \left\{ \langle -1, 0, 1 \rangle \right\} $, for $ \lambda = 3 : \left\{ \langle 1, 0, 1 \rangle \right\} $, for $ \lambda = 5 : \left\{ \langle 0, 1, 0 \rangle \right\} $
+		\begin{align*}
+			\matr{P} & =
+				\begin{bmatrix}
+					-1 & 0 & 1 \\
+					1 & 0 & 1 \\
+					0 & 1 & 0
+				\end{bmatrix} \\
+			\matr{P}^{-1} & =
+				\begin{bmatrix}
+					-\frac{1}{2} & \frac{1}{2} & 0 \\
+					0 & 0 & 1 \\
+					\frac{1}{2} & \frac{1}{2} & 0
+				\end{bmatrix} \\
+			\matr{D} & =
+				\begin{bmatrix}
+					1 & 0 & 0 \\
+					0 & 3 & 0 \\
+					0 & 0 & 5
+				\end{bmatrix} \\
+			\matr{A} & = \matr{P}\matr{D}\matr{P}^{-1} \\
+			\matr{A} & =
+				\begin{bmatrix}
+					3 & 2 & 0 \\
+					2 & 3 & 0 \\
+					0 & 0 & 3
+				\end{bmatrix}
+		\end{align*}
+	\item For $ \lambda = 7 : \left\{ \langle 1, 1, 1 \rangle \right\} $, for $ \lambda = 4 : \left\{ \langle -1, 1, 0 \rangle, \langle -1, 0, 1 \rangle \right\} $
+		\begin{align*}
+			\matr{P} & =
+				\begin{bmatrix}
+					1 & 1 & 1 \\
+					-1 & 1 & 0 \\
+					-1 & 0 & 1
+				\end{bmatrix} \\
+			\matr{P}^{-1} & =
+				\begin{bmatrix}
+					\frac{1}{3} & -\frac{1}{3} & -\frac{1}{3} \\
+					\frac{1}{3} & \frac{2}{3} & -\frac{1}{3} \\
+					\frac{1}{3} & -\frac{1}{3} & \frac{2}{3}
+				\end{bmatrix} \\
+			\matr{D} & =
+				\begin{bmatrix}
+					7 & 0 & 0 \\
+					0 & 4 & 0 \\
+					0 & 0 & 4
+				\end{bmatrix} \\
+			\matr{A} & =
+				\begin{bmatrix}
+					5 & -1 & -1 \\
+					-1 & 5 & 1 \\
+					-1 & 1 & 5
+				\end{bmatrix}
+		\end{align*}
+	\item For $ \lambda = 4 : \left\{ \langle 4, 0, 5 \rangle, \langle 2, -5, 0 \rangle \right\} $, for $ \lambda = 7 : \left\{ \langle 1, -1, 1 \rangle \right\} $
+		\begin{align*}
+			\matr{P} & =
+				\begin{bmatrix}
+					4 & 0 & 5 \\
+					2 & -5 & 0 \\
+					1 & -1 & 1
+				\end{bmatrix} \\
+			\matr{P}^{-1} & =
+				\begin{bmatrix}
+					1 & 1 & -5 \\
+					\frac{2}{5} & \frac{1}{5} & -2 \\
+					-\frac{3}{5} & -\frac{4}{5} & 4
+				\end{bmatrix} \\
+			\matr{D} & =
+				\begin{bmatrix}
+					4 & 0 & 0 \\
+					0 & 4 & 0 \\
+					0 & 0 & 7
+				\end{bmatrix} \\
+			\matr{A} & =
+				\begin{bmatrix}
+					-5 & -12 & 60 \\
+					0 & 4 & 0 \\
+					-\frac{9}{5} & -\frac{12}{5} & 16
+				\end{bmatrix}
+		\end{align*}
+\end{enumerate}
+
+\end{document}

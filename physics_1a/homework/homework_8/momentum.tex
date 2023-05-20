@@ -1,0 +1,201 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Homework 8 - Momentum}
+\author{Corey Mostero - 2566652}
+\date{25 May 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Book}
+
+\subsection{8.16}
+
+\begin{align*}
+	m_{(a)stronaut} & = \SI{65.5}{\kilogram} \\
+	m_{(t)ool} & = \SI{2.50}{\kilogram} \\
+	v_{t_1} & = \SI{3.10}{\meter \per \second} \\
+	v_{a_1} & = ?
+\end{align*}
+\begin{align*}
+	P_0 & = P_1 \\
+	m_av_{a_0} + m_tv_{t_0} & = m_av_{a_1} + m_tv_{t_1} \\
+	0 + 0 & = m_av_{a_1} + m_tv_{t_1} \\
+	v_{a_1} & = -\frac{m_tv_{t_1}}{m_a} \\
+	v_{a_1} & = -\frac{(\SI{2.50}{\kilogram})(\SI{3.10}{\meter \per \second})}{\SI{65.5}{\kilogram}} \\
+	v_{a_1} & = \SI{-0.118}{\meter \per \second}
+\end{align*}
+\begin{mdframed}
+	The astronaut will move at a speed of \SI{0.118}{\meter \per \second} opposite of the tool's direction.
+\end{mdframed}
+
+\subsection{8.21}
+
+\begin{tikzpicture}
+	\node [circle, fill, inner sep = 1pt] (origin) {};
+	\node [left = of origin] (x0) {$ -\hat{x} $};
+	\node [right = of origin] (x1) {$ +\hat{x} $};
+
+	\foreach \node in {x0, x1}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{align*}
+	m_A & = \SI{0.360}{\kilogram} \\
+	m_B & = \SI{0.360}{\kilogram} \\
+	v_{B_0} & = 0 \\
+	v_{A_1} & = \SI{-0.118}{\meter \per \second} \\
+	v_{B_1} & = \SI{0.660}{\meter \per \second} \\
+	v_{A_0} & = ?
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item What was the speed of puck $ A $ before the collision?
+		\begin{align*}
+			P_0 & = P_1 \\
+			m_A v_{A_0} + m_B v_{B_0} & = m_A v_{A_1} + m_B v_{B_1} \\
+			m_A v_{A_0} + 0 & = m_A v_{A_1} + m_B v_{B_1} \\
+			v_{A_0} & = \frac{ m_A v_{A_1} + m_B v_{B_1} }{ m_A } \\
+			v_{A_0} & = \frac{ (\SI{0.360}{\kilogram})(\SI{-0.118}{\meter \per \second}) + (\SI{0.360}{\kilogram})(\SI{0.660}{\meter \per \second}) }{ \SI{0.360}{\kilogram} } \\
+			v_{A_0} & = \SI{0.542}{\meter \per \second}
+		\end{align*}
+	\item Calculate the change in the total kinetic energy of the system that occurs during the collision.
+\end{enumerate}
+
+\subsection{8.30}
+
+\subsection{8.34}
+
+\subsection{8.41}
+
+\subsection{8.44}
+
+\subsection{8.48}
+
+\subsection{8.62}
+
+\subsection{8.87}
+
+\section{Lab Manual}
+
+\subsection{972}
+
+\subsection{975}
+
+\subsection{986}
+
+\section{Problem B}
+
+Consider a Tsiolkovsky Rocket in a gravitational field, $ g $. At time $ t = 0 $, the velocity of the rocket is $ v = v_0 $, and the mass is $ m = m_0 $. Let the mass loss rate of the rocket be constant in time: $ \dot{m} = -km_0 $ [recall that a variable with a dot on top is the time derivative: $ \dot{m} = \frac{dm}{dt} $, $ \dot{v} = \frac{dv}{dt} $, etc.]
+\begin{enumerate}[label = \textbf{\arabic*.}]
+	\item Show that the acceleration of the rocket is
+		\begin{equation*}
+			a = \dot{v} = -\frac{u_{rel}}{m}\dot{m} - g
+		\end{equation*}
+	\item Show that the mass as a function of time is
+		\begin{equation*}
+			m = m_0(1 - kt)
+		\end{equation*}
+	\item Show that acceleration can also be written as
+		\begin{equation*}
+			a = \dot{v} = \frac{ku_{rel}}{1 - kt} - g
+		\end{equation*}
+	\item Show that the $ \Delta V $ for a constant mass loss rate rocket is given by:
+		\begin{equation*}
+			\Delta V = u_{rel}\ln \left[ \frac{1}{1 - kt} \right] - gt
+		\end{equation*}
+\end{enumerate}
+
+\end{document}

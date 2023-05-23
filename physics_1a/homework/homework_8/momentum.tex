@@ -29,6 +29,11 @@
 %
 % SI Unit
 \usepackage{siunitx}
+\DeclareSIUnit{\north}{North}
+\DeclareSIUnit{\south}{South}
+\DeclareSIUnit{\west}{West}
+\DeclareSIUnit{\east}{East}
+\DeclareSIUnit{\of}{ of }
 \usepackage{physunits}
 %
 % More intuitive arrays/matrices
@@ -156,7 +161,8 @@
 		\begin{align*}
 			\Delta PE & = E_{A_1} + E_{B_1} - E_{A_0} + E_{B_0} \\
 			\Delta PE & = \frac{1}{2}m_Av_{A_1}^2 + \frac{1}{2}m_Bv_{B_1}^2 - \frac{1}{2}m_Av_{A_0}^2 + 0 \\
-			\Delta PE & = \frac{1}{2}(\SI{0.245}{\kilogram})(\SI{-0.118}{\meter \per \second})^2 + \frac{1}{2}(\SI{0.360}{\kilogram})(\SI{0.660}{\meter \per \second})^2 - \frac{1}{2}(\SI{0.245}{\kilogram})(\SI{0.852}{\meter \per \second})^2 \\
+			\Delta PE & = \frac{1}{2}(\SI{0.245}{\kilogram})(\SI{-0.118}{\meter \per \second})^2 + \frac{1}{2}(\SI{0.360}{\kilogram})(\SI{0.660}{\meter \per \second})^2 \\
+					  & - \frac{1}{2}(\SI{0.245}{\kilogram})(\SI{0.852}{\meter \per \second})^2 \\
 			\Delta PE & = \SI{-0.00881}{\joule} = \SI{8.81e-3}{\joule}
 		\end{align*}
 		\bc{ \Delta PE = \SI{-0.00881}{\joule} = \SI{8.81e-3}{\joule} }
@@ -251,11 +257,148 @@
 
 \subsection{8.34}
 
+\begin{align*}
+	m_{(a)pple} & = M \\
+	v_{a_0} & = 0 \\
+	m_{(d)art} & = \frac{M}{4} \\
+	v_{d_0} & = v_0
+\end{align*}
+\begin{align*}
+	P_0 & = P_1 \\
+	m_av_{a_0} + m_dv_{d_0} & = v_1(m_a + m_d) \\
+	0 + m_dv_{d_0} & = v_1(m_a + m_d) \\
+	v_1 & = \frac{m_dv_{d_0}}{m_a + m_d}
+\end{align*}
+\begin{align*}
+	E_0 & = E_1 \\
+	\frac{1}{2}mv_0^2 + mgh_0 & = \frac{1}{2}mv_1^2 + mgh_1 \\
+	\frac{1}{2}(m_a + m_d)\left( \frac{m_dv_{d_0}}{m_a + m_d} \right)^2 + 0 & = 0 + (m_a + m_d)gh_1 \\
+	h_1 & = \frac{m_d^2v_0^2}{2(m_a + m_d)^2g} \\
+	h_1 & = \frac{ \left( \frac{M}{4} \right)^2 v_0^2}{2 \left( M + \frac{M}{4} \right)^2 g} \\
+	h_1 & = \frac{v_0^2}{50g}
+\end{align*}
+\begin{mdframed}
+	The height of the collided apple and dart reach $ h_1 = \frac{v_0^2}{50g} $.
+\end{mdframed}
+
 \subsection{8.41}
+
+\begin{tikzpicture}
+	\node [circle, fill, inner sep = 1pt] (origin) {};
+	\node [above = of origin] (y) {$ +\hat{y} $};
+	\node [right = of origin] (x) {$ +\hat{x} $};
+
+	\foreach \node in {y, x}
+		\draw [black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{align*}
+	m_{(c)ar} & = \SI{950}{\kilogram} \\
+	m_{(t)ruck} & = \SI{1900}{\kilogram} \\
+	v_1 & = \SI{16.0}{\meter \per \second} \\
+	\theta & = \SI{24.0}{\degree \east \of \north} \\
+	v_{c_0} & = ? \\
+	v_{t_0} & = ?
+\end{align*}
+Find conservation of momentum in $ \hat{x} $ direction:
+\begin{align*}
+	v_{c_0} & = v_{c_0}\cos(\SI{0}{\degree}) = v_{c_0} \\
+	v_{t_0} & = v_{t_0}\cos(\SI{90.0}{\degree}) = 0 \\
+	v_{c_1} & = \SI{16.0}{\meter \per \second}\sin(\SI{24.0}{\degree}) = \SI{6.51}{\meter \per \second} \\
+	v_{t_1} & = \SI{16.0}{\meter \per \second}\sin(\SI{24.0}{\degree}) = \SI{6.51}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	P_{0_x} & = P_{1_x} \\
+	m_cv_{c_0} + m_tv_{t_0} & = m_cv_{c_1} + m_tv_{t_1} \\
+	m_cv_{c_0} + 0 & = v_1 \left( m_c + m_t \right) \\
+	v_{c_0} & = \frac{ v_1 \left( m_c + m_t \right) }{ m_c } \\
+	v_{c_0} & = \frac{ (\SI{6.51}{\meter \per \second})(\SI{950}{\kilogram} + \SI{1900}{\kilogram}) }{ \SI{950}{\kilogram} } \\
+	v_{c_0} & = \SI{19.53}{\meter \per \second}
+\end{align*}
+Find conservation of momentum in $ \hat{y} $ direction:
+\begin{align*}
+	v_{c_0} & = v_{c_0}\cos(\SI{90.0}{\degree}) = 0 \\
+	v_{t_0} & = v_{t_0}\cos(\SI{0}{\degree}) = v_{t_0} \\
+	v_{c_1} & = \SI{16.0}{\meter \per \second}\cos(\SI{24.0}{\degree}) = \SI{14.6}{\meter \per \second} \\
+	v_{t_1} & = \SI{16.0}{\meter \per \second}\cos(\SI{24.0}{\degree}) = \SI{14.6}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	m_cv_{c_0} + m_tv_{t_0} & = m_cv_{c_1} + m_tv_{t_1} \\
+	0 + m_tv_{t_0} & = v_1(m_c + m_t) \\
+	v_{t_0} & = \frac{ v_1(m_c + m_t) }{ m_t } \\
+	v_{t_0} & = \frac{ (\SI{14.6}{\meter \per \second})(\SI{950}{\kilogram} + \SI{1900}{\kilogram}) }{ \SI{1900}{\kilogram} } \\
+	v_{t_0} & = \SI{21.9}{\meter \per \second}
+\end{align*}
+\begin{mdframed}
+	The speed of the car before collision was $ v_{c_0} = \SI{19.53}{\meter \per \second} $, and the speed of the truck before collision was $ v_{t_0} = \SI{21.9}{\meter \per \second} $.
+\end{mdframed}
 
 \subsection{8.44}
 
+\begin{tikzpicture}
+	\node [circle, fill, inner sep = 1pt] (origin) {};
+	\node [left = of origin] (x0) {$ -\hat{x} $};
+	\node [right = of origin] (x1) {$ +\hat{x} $};
+
+	\foreach \node in {x0, x1}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{align*}
+	m_{(b)lock} & = \SI{15.0}{\kilogram} \\
+	k & = \SI{575.0}{\newton \per \meter} \\
+	v_{b_0} & = 0 \\
+	m_{(s)tone} & = \SI{3.00}{\kilogram} \\
+	v_{s_0} & = \SI{8.00}{\meter \per \second} \\
+	v_{s_1} & = \SI{-2.00}{\meter \per \second} \\
+	\Delta x_{b,max} & = ?
+\end{align*}
+Find the velocity of the upon collision $ v_1 $:
+\begin{align*}
+	P_0 & = P_1 \\
+	m_sv_{s_0} + m_bv_{b_0} & = m_sv_{s_1} + m_bv_{b_1} \\
+	m_sv_{s_0} + 0 & = m_sv_{s_1} + m_bv_{b_1} \\
+	v_{b_1} & = \frac{ m_sv_{s_0} - m_sv_{s_1} }{ m_b } \\
+	v_{b_1} & = \frac{ (\SI{3.00}{\kilogram})(\SI{8.00}{\meter \per \second}) - (\SI{3.00}{\kilogram})(\SI{-2.00}{\meter \per \second}) }{ \SI{15.0}{\kilogram} } \\
+	v_{b_1} & = \SI{2.00}{\meter \per \second}
+\end{align*}
+Find the max distance using conservation of energy $ x_{max} $:
+\begin{align*}
+	E_0 & = E_1 \\
+	\frac{1}{2}m_bv_0^2 & = \frac{1}{2}kx_{max}^2 \\
+	x_{max} & = \sqrt{ \frac{ m_bv_0^2 }{ k } } \\
+	x_{max} & = \sqrt{ \frac{ (\SI{15.0}{\kilogram})(\SI{2.00}{\meter \per \second})^2 }{ \SI{575.0}{\newton \per \meter} } } \\
+	x_{max} & = \SI{0.323}{\meter}
+\end{align*}
+\begin{mdframed}
+	The steel ball moves the block to a maximum of $ x_{max} = \SI{0.323}{\meter} $.
+\end{mdframed}
+
 \subsection{8.48}
+
+\begin{tikzpicture}
+	\node [circle, fill, inner sep = 1pt] (origin) {};
+	\node [left = of origin] (x0) {$ -\hat{x} $};
+	\node [right = of origin] (x1) {$ +\hat{x} $};
+
+	\foreach \node in {x0, x1}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{align*}
+	m_{(s)mall} & = \SI{10.0}{\gram} \\
+	v_{s_0} & = \SI{-0.400}{\meter \per \second} \\
+	m_{(l)arge} & = \SI{30.0}{\gram} \\
+	v_{l_0} & = \SI{0.200}{\meter \per \second}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Find the velocity of each marble after the collision.
+		\begin{align*}
+			P_0 & = P_1 \\
+			m_sv_{s_0} + m_lv_{l_0} & = m_sv_{s_1} + m_lv_{l_1} \\
+			v_{s_1} & = \frac{ m_sv_{s_0} + m_lv_{l_0} - m_lv_{l_1} }{ m_s } \\
+			v_{l_1} & = \frac{ m_sv_{s_0} + m_lv_{l_0} - m_sv_{s_1} }{ m_l }
+		\end{align*}
+	\item Calculate the \textit{change in momentum} for each marble.
+	\item Calculate the \textit{change in kinetic energy} for each marble.
+\end{enumerate}
 
 \subsection{8.62}
 

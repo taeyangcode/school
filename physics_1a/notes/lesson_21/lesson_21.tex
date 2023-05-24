@@ -1,0 +1,130 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathabx}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\section{Planetary Constants}
+
+\subsection{Kepler's Laws}
+
+\begin{enumerate}[label = \textbf{Kepler's \arabic* Law:}]
+	\item Planetary orbits are elliptical
+	\item The radial line between a central object and an object in 
+\end{enumerate}
+
+\subsection{Constants}
+
+Key Terms
+\begin{itemize}
+	\item Aphelion - Farthest from sun
+	\item Perihelion - Closest approach to sun
+\end{itemize}
+Astronomical Symbols
+\begin{itemize}
+	\item $ \Earth $ \textleftarrow earth
+	\item $ \Sun $ \textleftarrow sun
+	\item $ \Moon $ \textleftarrow moon
+\end{itemize}
+\begin{align*}
+	R_{P_{\Earth}} & = \SI{147e6}{\kilo \meter} \\
+	R_{A_{\Earth}} & = \SI{152e6}{\kilo \meter} \\
+	V_{P_{\Earth}} & = \SI{30.29}{\kilo \meter \per \second}
+\end{align*}
+What is $ V_{A_{\Earth}} $?
+\begin{align*}
+	\vect{L}_A & = \vect{L}_P \\
+	R_{A_{\Earth}}M_{\Earth}V_{A_{\Earth}} & = R_{P_{\Earth}}M_{\Earth}V_{P_{\Earth}} \\
+	V_{A_{\Earth}} & = \frac{ R_{P_{\Earth}} }{ R_{A_{\Earth}} }v_{P_{\Earth}} = \SI{29.29}{\kilo \meter \per \second}
+\end{align*}
+
+\end{document}

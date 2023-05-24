@@ -549,20 +549,73 @@ Find the max distance using conservation of energy $ x_{max} $:
 		\begin{align*}
 			v_{B_1} & = \frac{ m_Av_{A_0} + m_Bv_{B_0} - m_Av_{A_1} }{ m_B } \\
 			v_{B_1} & = \frac{ m_Av_{A_0} + m_Bv_{B_0} - m_A \left( \frac{ v_{A_0}(m_A - m_B) + 2m_Bv_{B_0} }{ m_A + m_B } \right) }{ m_B } \\
-			v_{B_1} & = \frac{ -v_{B_0}(m_A - m_B) }{ m_A + m_B }
+			v_{B_1} & = \frac{ v_{B_0}(m_B - m_A) + 2m_Av_{A_0} }{ m_A + m_B }
 		\end{align*}
 		\begin{mdframed}
 			The final velocities are
 			\begin{align*}
 				v_{A_1} & = \frac{ v_{A_0}(m_A - m_B) + 2m_Bv_{B_0} }{ m_A + m_B } \\
-				v_{B_1} & = \frac{ -v_{B_0}(m_A - m_B) }{ m_A + m_B }
+				v_{B_1} & = \frac{ v_{B_0}(m_B - m_A) + 2m_Av_{A_0} }{ m_A + m_B }
 			\end{align*}
 		\end{mdframed}
-	\item For the special case in which $ B $ is at rest before collision, find the ratio $$ K = \frac{ \text{Kinetic Energy of $ B $ after collision} }{ \text{Kinetic Energy of $ B $ before collision} } $$, in terms of $ \sfrac{m_A}{m_B} $.
+	\item For the special case in which $ B $ is at rest before collision, find the ratio $$ K = \frac{ \text{Kinetic Energy of $ B $ after collision} }{ \text{Kinetic Energy of $ A $ before collision} } $$, in terms of $ \sfrac{m_A}{m_B} $.
+		\begin{align*}
+			K & = \frac{ \frac{1}{2}m_Bv_{B_1}^2 }{ \frac{1}{2}m_Av_{A_0}^2 } \\
+			K & = \frac{ m_B \left( \frac{ v_{B_0}(m_B - m_A) + 2m_Av_{A_0} }{ m_A + m_B } \right)^2 }{ m_Av_{A_0}^2 } \\
+			K & = \frac{ m_B \left( \frac{ (0)(m_B - m_A) + 2m_Av_{A_0} }{ m_A + m_B } \right)^2 }{ m_Av_{A_0}^2 } \\
+			K & = \frac{ 4m_Am_B }{ (m_A + m_B)^2 }
+		\end{align*}
+		\begin{mdframed}
+			When $ B $ is at rest before collision, the ratio of kinetic energy is $ K = \frac{ 4m_Am_B }{ (m_A + m_B)^2 } $.
+		\end{mdframed}
 	\item Let $ r $ stand for the ratio $ \sfrac{m_A}{m_B} $. Find the value of $ r $ that makes $ K(r) $ a maximum. What does $ m_B $ have to be (in terms of $ m_A $) for the maximum transfer of kinetic energy in the collision?
+		\begin{align*}
+			K & = \frac{ 4m_Am_B }{ m_A^2 + 2m_Am_B + m_B^2 } \\
+			K & = \frac{ 4m_Am_B }{ m_B^2 \left( \frac{ m_A^2 }{ m_B^2 } + \frac{ 2m_A }{ m_B } + 1 \right) } \\
+			K(r) & = \frac{ 4r }{ r^2 + 2r + 1 } \\
+			K' & = - \frac{ 4(r - 1) }{ (r + 1)^3 }
+		\end{align*}
+		Find when $ K' = 0 $:
+		\begin{align*}
+			- \frac{ 4(r - 1) }{ (r + 1)^3 } & = 0 \\
+			-4r + 4 & = 0 \\
+			r & = 1
+		\end{align*}
+		\begin{mdframed}
+			When $ r = 1 $, the function $ K(r) $ is at its maximum.
+		\end{mdframed}
 \end{enumerate}
 
 \subsection{975}
+
+\begin{tikzpicture}
+	\node [circle, fill, inner sep = 1pt] (origin) {};
+	\node [left = of origin] (x0) {$ -\hat{x} $};
+	\node [right = of origin] (x1) {$ +\hat{x} $};
+
+	\foreach \node in {x0, x1}
+		\draw[black, thick, ->] (origin) -- (\node);
+\end{tikzpicture}
+\begin{align*}
+	m_A & = \SI{100}{\gram} \\
+	v_{\sfrac{A}{E}} & = \SI{10}{\centi \meter \per \second} \\
+	m_B & = \SI{50}{\gram} \\
+	v_{\sfrac{B}{E}} & = \SI{-8}{\centi \meter \per \second}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Find the velocity of the coupled cars by taking momenta relative to the earth.
+		\begin{align*}
+			P_0 & = P_1 \\
+			m_Av_{\sfrac{A}{E}} + m_Bv_{\sfrac{B}{E}} & = v_{\sfrac{AB}{E}}(m_A + m_B) \\
+			v_{\sfrac{AB}{E}} & = \frac{ m_Av_{\sfrac{A}{E}} + m_Bv_{\sfrac{B}{E}} }{ m_A + m_B } \\
+			v_{\sfrac{AB}{E}} & = \frac{ (\SI{100}{\gram})(\SI{10}{\centi \meter \per \second}) + (\SI{50}{\gram})(\SI{-8}{\centi \meter \per \second}) }{ \SI{100}{\gram} + \SI{50}{\gram} } \\
+			v_{\sfrac{AB}{E}} & = \SI{4.00}{\centi \meter \per \second}
+		\end{align*}
+	\item Find the velocity of the coupled cars by taking momenta relative to $ B $ (initially).
+	\item Show that the velocity of the center of mass of the system initially, relative to earth, is \SI{+4}{\centi \meter \per \second}. Then find the velocity of the coupled cars by taking the momenta relative to the center of mass of the system. Why does this result hold for any isolated system, regardless of $ v $'s and $ m $'s?
+	\item What is the total K.E. of cars $ A $ and $ B $ before and after the collision, and the heart lost in the collision, calculated relative to the center of the earth?
+	\item What is the total K.E. of cars $ A $ and $ B $ before and after the collision, and the heat lost, calculated relative to the center of mass of the system?
+\end{enumerate}
 
 \subsection{986}
 

@@ -527,6 +527,41 @@ Find the max distance using conservation of energy $ x_{max} $:
 
 \subsection{972}
 
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Find the velocity of each body after the collision, in terms of the masses and the velocities given.
+		\begin{align*}
+			P_0 & = P_1 \\
+			m_Av_{A_0} + m_Bv_{B_0} & = m_Av_{A_1} + m_Bv_{B_1} \\
+			v_{A_1} & = \frac{ m_Av_{A_0} + m_Bv_{B_0} - m_Bv_{B_1} }{ m_A } \\
+			v_{B_1} & = \frac{ m_Av_{A_0} + m_Bv_{B_0} - m_Av_{A_1} }{ m_B }
+		\end{align*}
+		\begin{align*}
+			E_0 & = E_1 \\
+			\frac{1}{2}m_Av_{A_0}^2 + \frac{1}{2}m_Bv_{B_0}^2 & = \frac{1}{2}m_Av_{A_1}^2 + \frac{1}{2}m_Bv_{B_1}^2 \\
+			v_{A_1} & = \sqrt{ \frac{ m_Av_{A_0}^2 + m_Bv_{B_0}^2 - m_Bv_{B_1}^2 }{ m_A } } \\
+			v_{B_1} & = \sqrt{ \frac{ m_Av_{A_0}^2 + m_Bv_{B_0}^2 - m_Av_{A_1}^2 }{ m_B } }
+		\end{align*}
+		\begin{align*}
+			v_{A_1} & = \frac{ m_Av_{A_0} + m_Bv_{B_0} - m_Bv_{B_1} }{ m_A } \\
+			v_{A_1} & = \frac{ m_Av_{A_0} + m_Bv_{B_0} - m_B \left( \sqrt{ \frac{ m_Av_{A_0}^2 + m_Bv_{B_0}^2 - m_Av_{A_1}^2 }{ m_B } } \right) }{ m_A } \\
+			v_{A_1} & = \frac{ v_{A_0}(m_A - m_B) + 2m_Bv_{B_0} }{ m_A + m_B }
+		\end{align*}
+		\begin{align*}
+			v_{B_1} & = \frac{ m_Av_{A_0} + m_Bv_{B_0} - m_Av_{A_1} }{ m_B } \\
+			v_{B_1} & = \frac{ m_Av_{A_0} + m_Bv_{B_0} - m_A \left( \frac{ v_{A_0}(m_A - m_B) + 2m_Bv_{B_0} }{ m_A + m_B } \right) }{ m_B } \\
+			v_{B_1} & = \frac{ -v_{B_0}(m_A - m_B) }{ m_A + m_B }
+		\end{align*}
+		\begin{mdframed}
+			The final velocities are
+			\begin{align*}
+				v_{A_1} & = \frac{ v_{A_0}(m_A - m_B) + 2m_Bv_{B_0} }{ m_A + m_B } \\
+				v_{B_1} & = \frac{ -v_{B_0}(m_A - m_B) }{ m_A + m_B }
+			\end{align*}
+		\end{mdframed}
+	\item For the special case in which $ B $ is at rest before collision, find the ratio $$ K = \frac{ \text{Kinetic Energy of $ B $ after collision} }{ \text{Kinetic Energy of $ B $ before collision} } $$, in terms of $ \sfrac{m_A}{m_B} $.
+	\item Let $ r $ stand for the ratio $ \sfrac{m_A}{m_B} $. Find the value of $ r $ that makes $ K(r) $ a maximum. What does $ m_B $ have to be (in terms of $ m_A $) for the maximum transfer of kinetic energy in the collision?
+\end{enumerate}
+
 \subsection{975}
 
 \subsection{986}

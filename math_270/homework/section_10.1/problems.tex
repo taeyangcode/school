@@ -112,5 +112,60 @@ Find the Laplace transform of the following function.
 \begin{equation*}
 	f(t) = \cos(8t) - \sin(8t)
 \end{equation*}
+\begin{align*}
+	F(s) & = \frac{ s }{ s^2 + 8^2 } - \frac{ 8 }{ s^2 + 8^2 } \\
+	F(s) & = \frac{ s - 8 }{ s^2 + 64 }
+\end{align*}
+
+\subsection{10.1.17}
+
+Find the Laplace transform of the following function.
+\begin{equation*}
+	f(t) = \cos^2(5t)
+\end{equation*}
+\begin{align*}
+	f(t) & = \cos^2(5t) = \frac{ 1 + \cos(10t) }{ 2 } \\
+	F(s) & = \frac{1}{2} \left( \frac{1}{s} + \frac{s}{s^2 + 100} \right), \quad s > 0
+\end{align*}
+
+\subsection{10.1.19}
+
+Find the Laplace transform of the following function.
+\begin{equation*}
+	f(t) = (3 + t)^2
+\end{equation*}
+\begin{align*}
+	f(t) & = (3 + t)^2 = t^2 + 6t + 9 \\
+	F(s) & = \frac{2!}{s^{3}} + \frac{6}{s^2} + \frac{9}{s}
+\end{align*}
+
+\subsection{10.1.23}
+Use transforms to find the inverse Laplace transform of the following function.
+\begin{equation*}
+	F(s) = \frac{6}{s^2}
+\end{equation*}
+\begin{align*}
+	f(t) & = 6t
+\end{align*}
+
+\subsection{10.1.27}
+Use transforms to find the inverse Laplace transform of the following function.
+\begin{equation*}
+	F(s) = \frac{19}{4s + 8}
+\end{equation*}
+\begin{align*}
+	F(s) & = \frac{19}{4}\frac{1}{s + 2} \\
+	f(t) & = \frac{19}{4}e^{-2t}
+\end{align*}
+
+\subsection{10.1.29}
+Use transforms to find the inverse Laplace transform of the following function.
+\begin{equation*}
+	F(s) = \frac{8 - 9s}{s^2 + 81}
+\end{equation*}
+\begin{align*}
+	F(s) & = \frac{8}{s^2 + 81} - \frac{9s}{s^2 + 81} \\
+	f(t) & = \frac{8}{9}\sin(9t) - 9\cos(9t)
+\end{align*}
 
 \end{document}

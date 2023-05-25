@@ -34,6 +34,7 @@
 \DeclareSIUnit{\west}{West}
 \DeclareSIUnit{\east}{East}
 \DeclareSIUnit{\of}{ of }
+\DeclareSIUnit{\erg}{erg}
 \usepackage{physunits}
 %
 % More intuitive arrays/matrices
@@ -612,12 +613,69 @@ Find the max distance using conservation of energy $ x_{max} $:
 			v_{\sfrac{AB}{E}} & = \SI{4.00}{\centi \meter \per \second}
 		\end{align*}
 	\item Find the velocity of the coupled cars by taking momenta relative to $ B $ (initially).
-	\item Show that the velocity of the center of mass of the system initially, relative to earth, is \SI{+4}{\centi \meter \per \second}. Then find the velocity of the coupled cars by taking the momenta relative to the center of mass of the system. Why does this result hold for any isolated system, regardless of $ v $'s and $ m $'s?
+		\begin{align*}
+			v_{\sfrac{AB}{B}} & = v_{\sfrac{AB}{E}} - v_{\sfrac{B}{E}} \\
+			v_{\sfrac{AB}{B}} & = \SI{4.00}{\centi \meter \per \second} - (\SI{-8}{\centi \meter \per \second}) \\
+			v_{\sfrac{AB}{B}} & = \SI{12.0}{\centi \meter \per \second}
+		\end{align*}
+	\item \label{975.c} Show that the velocity of the center of mass of the system initially, relative to earth, is \SI{+4}{\centi \meter \per \second}. Then find the velocity of the coupled cars by taking the momenta relative to the center of mass of the system. Why does this result hold for any isolated system, regardless of $ v $'s and $ m $'s?
+		\begin{align*}
+			v_{CM} & = \sum_{i = 1}^{n} \frac{ p_i }{ m_i } \\
+			v_{CM} & = \frac{ m_Av_{\sfrac{A}{E}} + m_Bv_{\sfrac{B}{E}} }{ m_A + m_B } \\
+			v_{CM} & = \frac{ (\SI{100}{\gram})(\SI{10}{\centi \meter \per \second}) + (\SI{50}{\gram})(\SI{-8}{\centi \meter \per \second}) }{ \SI{100}{\gram} + \SI{50}{\gram} } \\
+			v_{CM} & = \SI{4.00}{\centi \meter \per \second}
+		\end{align*}
+		\begin{align*}
+			P_0 & = P_1 \\
+			m_Av_{\sfrac{A}{CM}} + m_Bv_{\sfrac{B}{CM}} & = v_{\sfrac{AB}{CM}}(m_A + m_B) \\
+			v_{\sfrac{AB}{CM}} & = \frac{ m_Av_{\sfrac{A}{CM}} + m_Bv_{\sfrac{B}{CM}} }{ m_A + m_B } \\
+			v_{\sfrac{AB}{CM}} & = \frac{ (\SI{100}{\gram})(\SI{4.00}{\centi \meter \per \second} - \SI{10}{\centi \meter \per \second}) + (\SI{50}{\gram})(\SI{4.00}{\centi \meter \per \second} - (\SI{-8}{\centi \meter \per \second})) }{ \SI{100}{\gram} + \SI{50}{\gram} } \\
+			v_{\sfrac{AB}{CM}} & = 0
+		\end{align*}
+		As there are no external forces that impact the system, momentum is conserved and is constant. This means that for any velocity vector, there is an opposing vector that will cancel it out and produce a total velocity of zero.
 	\item What is the total K.E. of cars $ A $ and $ B $ before and after the collision, and the heart lost in the collision, calculated relative to the center of the earth?
+		\begin{align*}
+			E_0 & = E_1 \\
+			\frac{1}{2}m_Av_{\sfrac{A}{E}}^2 + \frac{1}{2}m_Bv_{\sfrac{B}{E}}^2 & = \frac{1}{2}v_{\sfrac{AB}{E}}^2(m_A + m_B) \\
+			(\SI{100}{\gram})(\SI{10}{\centi \meter \per \second})^2 + (\SI{50}{\gram})(\SI{-8}{\centi \meter \per \second})^2 & = (\SI{4.00}{\centi \meter \per \second})^2(\SI{100}{\gram} + \SI{50}{\gram}) \\
+			\SI{13200}{\erg} & = \SI{2400}{\erg} \\
+			2(\SI{6600}{\erg}) & = 2(\SI{1200}{\erg})
+		\end{align*}
+		\begin{align*}
+			\Delta E & = \left| E_1 - E_0 \right| \\
+			\Delta E & = \left| \SI{1200}{\erg} - \SI{6600}{\erg} \right| \\
+			\Delta E & = \SI{5400}{\erg}
+		\end{align*}
 	\item What is the total K.E. of cars $ A $ and $ B $ before and after the collision, and the heat lost, calculated relative to the center of mass of the system?
+		\begin{align*}
+			E_{{CM}_0} & = \frac{1}{2}m_Av_{\sfrac{A}{CM}}^2 + \frac{1}{2}m_Bv_{\sfrac{B}{CM}}^2 \\
+			E_{{CM}_0} & = \frac{1}{2}(\SI{100}{\gram})(\SI{4.00}{\centi \meter \per \second} - \SI{10}{\centi \meter \per \second})^2 + \frac{1}{2}(\SI{50}{\gram})(\SI{4.00}{\centi \meter \per \second} - (\SI{-8}{\centi \meter \per \second}))^2 \\
+			E_{{CM}_0} & = \SI{5400}{\erg}
+		\end{align*}
+		\begin{align*}
+			E_{{CM}_1} & = \frac{1}{2}v_{\sfrac{AB}{CM}}(m_A + m_B) \\
+			E_{{CM}_1} & = 0
+		\end{align*}
+		Energy lost to heat would be the difference; \SI{5400}{\erg}.
 \end{enumerate}
 
 \subsection{986}
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			\theta & = \SI{30.0}{\degree} \\
+			\lambda & = \SI{0.50}{\kilogram \per \meter} \\
+			v_1 & = \SI{4.0}{\meter \per \second} \\
+			m & = \SI{9.0}{\kilogram} \\
+			a_1 & = ?
+		\end{align*}
+		\begin{align*}
+			F & = \frac{ \Delta p }{ \Delta t } \\
+			F & = \frac{ \Delta (mv) }{ \Delta t } \\
+			F & = m\frac{dv}{dt} + v\frac{dm}{dt}
+		\end{align*}
+\end{enumerate}
 
 \section{Problem B}
 

@@ -679,6 +679,35 @@ Find the max distance using conservation of energy $ x_{max} $:
 			a_x & = (\SI{10}{\meter \per \second \squared})(\sin(\SI{30.0}{\degree})) - \frac{ (\SI{0.50}{\kilogram \per \meter})(\SI{4.0}{\meter \per \second}) }{ \SI{9.0}{\kilogram} }
 		\end{align*}
 		\bc{ a_x = \SI{4.78}{\meter \per \second \squared} }
+	\item
+		\begin{enumerate}[label = \textbf{(\arabic*)}]
+			\item
+				\begin{align*}
+					m & = \SI{100}{\kilogram} \\
+					v_0 & = \SI{6}{\meter \per \second} \\
+					m_1 & = \SI{150}{\kilogram} \\
+					v_1 & = ?
+				\end{align*}
+				\begin{align*}
+					\sum F_x & = \frac{dp}{dt} \\
+					\frac{m(v + dv) + dmv - m_0v}{dt} & = 0 \\
+					m_0dv + vdm & = 0 \\
+					-vdm & = m_0dv \\
+					- \int_0^m \frac{dm}{m_0} & = \int_{v_0}^v \frac{dv}{v} \\
+					-\frac{m}{m_0} & = \ln(v) - \ln(v_0) \\
+					\ln(v) & = -\frac{m}{m_0} + \ln(v_0) \\
+					\ln(v) & = -\frac{\SI{150}{\kilogram}}{\SI{100}{\kilogram}} + \ln(\SI{6}{\meter \per \second}) \\
+					v & = \frac{6}{e^{\sfrac{3}{2}}}
+				\end{align*}
+			\item
+				\begin{align*}
+					-\int_0^m \frac{dm}{m_0} & = \int_{v_0}^v \frac{dv}{v} \\
+					-\frac{m}{m_0} & = \ln(v) - \ln(v_0) \\
+					-\frac{\SI{100}{\kilogram}}{\SI{50}{\kilogram}} & = \ln(v) - \ln(\SI{6}{\meter \per \second}) \\
+					v & = \frac{6}{e^2}
+				\end{align*}
+			\item Because in order to comply with Newton's Third Law, the force the rain temporarily imposes upon the car causes it to decrease in speed.
+		\end{enumerate}
 \end{enumerate}
 
 \section{Problem B}
@@ -689,18 +718,50 @@ Consider a Tsiolkovsky Rocket in a gravitational field, $ g $. At time $ t = 0 $
 		\begin{equation*}
 			a = \dot{v} = -\frac{u_{rel}}{m}\dot{m} - g
 		\end{equation*}
+		\begin{align*}
+			F_y & = \frac{dp}{dt} \\
+			-g(m + dm) & = m\frac{dv}{dt} + u_{rel}\frac{dm}{dt} \\
+			m\frac{dv}{dt} + u_{rel}\frac{dm}{dt} + gm + gdm & = 0 \\
+			mdv + u_{rel}dm + gmdt + gdmdt & = 0, \quad dmdt = 0 \\
+			mdv + u_{rel}dm + gmdt & = 0 \\
+			m\frac{dv}{dt} + u_{rel}\frac{dm}{dt} + gm & = 0 \\
+			m\frac{dv}{dt} & = -u_{rel}\frac{dm}{dt} - gm \\
+			\dot{v} & = -\frac{u_{rel}}{m}\dot{m} - g
+		\end{align*}
+		\bc{ a = \dot{v} = -\frac{u_{rel}}{m}\dot{m} - g }
 	\item Show that the mass as a function of time is
 		\begin{equation*}
 			m = m_0(1 - kt)
 		\end{equation*}
+		\begin{align*}
+			\dot{m} & = -km_0 \\
+			\int \dot{m} dt & = \int -km_0 dt \\
+			m(t) & = -ktm_0 + C \\
+			m(0) & = -k(0)m_0 + C = C = m_0, \quad \text{Given from prompt} \\
+			m & = -ktm_0 + m_0 = m_0(1 - kt)
+		\end{align*}
+		\bc{ m = m_0(1 - kt) }
 	\item Show that acceleration can also be written as
 		\begin{equation*}
 			a = \dot{v} = \frac{ku_{rel}}{1 - kt} - g
 		\end{equation*}
+		\begin{align*}
+			a & = -\frac{u_{rel}}{m}\dot{m} - g \\
+			a & = -\frac{u_{rel}}{m_0(1 - kt)}(-km_0) - g \\
+			a & = \frac{ku_{rel}}{1 - kt} - g
+		\end{align*}
+		\bc{ a = \frac{ku_{rel}}{1 - kt} - g }
 	\item Show that the $ \Delta V $ for a constant mass loss rate rocket is given by:
 		\begin{equation*}
 			\Delta V = u_{rel}\ln \left[ \frac{1}{1 - kt} \right] - gt
 		\end{equation*}
+		\begin{align*}
+			\int_{0}^{t} (a) dt & = \int_0^{t} \left( \frac{ku_{rel}}{1 - kt} - g \right) dt \\
+			\left. V \right|_0^t & = ku_{rel} \int_0^t \left( \frac{1}{1 - kt} \right) dt - \left. gt \right|_0^t \\
+			\Delta V & = ku_{rel} \left( \left. \frac{\ln((kt - 1)^{-1})}{k} \right|_0^t \right) - gt \\
+			\Delta V & = u_{rel}\ln \left[ \frac{1}{1 - kt} \right] - gt
+		\end{align*}
+		\bc{ \Delta V = u_{rel}\ln \left[ \frac{1}{1 - kt} \right] - gt }
 \end{enumerate}
 
 \end{document}

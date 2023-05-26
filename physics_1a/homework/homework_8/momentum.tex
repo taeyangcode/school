@@ -671,10 +671,14 @@ Find the max distance using conservation of energy $ x_{max} $:
 			a_1 & = ?
 		\end{align*}
 		\begin{align*}
-			F & = \frac{ \Delta p }{ \Delta t } \\
-			F & = \frac{ \Delta (mv) }{ \Delta t } \\
-			F & = m\frac{dv}{dt} + v\frac{dm}{dt}
+			\sum F_x & = \frac{dp}{dt} \\
+			mg\sin(\theta) & = \frac{ (m + dm)(v + dv) - mv }{ dt } \\
+			mg\sin(\theta) & = \frac{ mv + vdm + mdv + dmdv - mv }{ dt } \\
+			mg\sin(\theta) & = v\dot{m} + m\dot{v} \\
+			a_x & = g\sin(\theta) - \frac{ \dot{m}v }{ m } \\
+			a_x & = (\SI{10}{\meter \per \second \squared})(\sin(\SI{30.0}{\degree})) - \frac{ (\SI{0.50}{\kilogram \per \meter})(\SI{4.0}{\meter \per \second}) }{ \SI{9.0}{\kilogram} }
 		\end{align*}
+		\bc{ a_x = \SI{4.78}{\meter \per \second \squared} }
 \end{enumerate}
 
 \section{Problem B}

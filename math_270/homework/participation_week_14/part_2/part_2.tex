@@ -1,0 +1,139 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\newcommand{\lap}{\mathcal{L}}
+\newcommand{\ilap}{\mathcal{L}^{-1}}
+
+\section{Part 2}
+
+Find the inverse Laplace of the following $ F(s) $:
+
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item $ F(s) = \frac{-s + 5}{s^2 + 2s - 3} $
+	\item $ F(s) = \frac{5s^3 - 39s^2 + 14s - 32}{(s^2 - 7s + 10)(s^2 + 1)} $
+	\item $ F(s) = \frac{5s^3 + 2s^2 + 4s + 8}{s^2(s + 2)^2(s - 2)} $
+\end{enumerate}
+
+\subsection{1)}
+
+\begin{align*}
+	F(s) & = \frac{-s + 5}{s^2 + 2s - 3} \\
+	F(s) & = \frac{1}{s - 1} - 2\frac{1}{s + 3} \\
+	y(t) & = \ilap \left( \frac{1}{s - 1} \right) - 2\ilap \left( \frac{1}{s + 3} \right) \\
+	y(t) & = e^t - 2e^{-3t}
+\end{align*}
+\bc{ y(t) = e^t - 2e^{-3t} }
+
+\subsection{2)}
+
+\begin{align*}
+	F(s) & = \frac{5s^3 - 39s^2 + 14s - 32}{(s^2 - 7s + 10)(s^2 + 1)} \\
+	F(s) & = 8\frac{1}{s - 2} - 4\frac{1}{s - 5} + \frac{s}{s^2 + 1} \\
+	y(t) & = 8\ilap \left( \frac{1}{s - 2} \right) - 4\ilap \left( \frac{1}{s - 5} \right) + \ilap \left( \frac{s}{s^2 + 1} \right) \\
+	y(t) & = 8e^{2t} - 4e^{5t} + \cos(t)
+\end{align*}
+\bc{ y(t) = 8e^{2t} - 4e^{5t} + \cos(t) }
+
+\subsection{3)}
+
+\begin{align*}
+	F(s) & = \frac{5s^3 + 2s^2 + 4s + 8}{s^2(s + 2)^2(s - 2)} \\
+	F(s) & = -\frac{1}{s^2} - \frac{1}{s + 2} + 2\frac{1}{(s + 2)^2} + \frac{1}{s - 2} \\
+	y(t) & = -\ilap \left( \frac{1}{s^2} \right) - \ilap \left( \frac{1}{s + 2} \right) + 2\ilap \left( \frac{1}{(s + 2)^2} \right) + \ilap \left( \frac{1}{s - 2} \right) \\
+	y(t) & = -t - e^{-2t} + 2te^{-2t} + e^{2t}
+\end{align*}
+\bc{ y(t) = -t - e^{-2t} + 2te^{-2t} + e^{2t} }
+
+\end{document}

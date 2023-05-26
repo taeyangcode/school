@@ -1,0 +1,157 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\newcommand{\lap}{\mathcal{L}}
+\newcommand{\ilap}{\mathcal{L}^{-1}}
+
+\tableofcontents
+
+\section{Part 1}
+
+Take the Laplace Transformation of the following initial valued problem and solve for $ Y(s) $:
+
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item
+		\begin{equation*}
+			y'' + 5y' + 6y = 12e^t, y(0) = -1, y'(0) = 7
+		\end{equation*}
+		\begin{align*}
+			\lap(y'') + 5\lap(y') + 6\lap(y) & = 12\lap(e^t) \\
+			\left[ s^2\lap(y) - sy(0) - y'(0) \right] + 5 \left[ s\lap(y) - y(0) \right] + 6\lap(y) & = \frac{12}{s - 1} \\
+			\lap(y)(s^2 + 5s + 6) + s - 7 + 5 & = \frac{12}{s - 1} \\
+			\lap(y) & = \frac{-s^2 + 3s + 10}{(s - 1)(s^2 + 5s + 6)} \\
+			\lap(y) & = -\frac{s - 5}{(s - 1)(s + 3)} \\
+			\lap(y) & = -\frac{1}{s - 1} + \frac{2}{s + 3}
+		\end{align*}
+		\begin{align*}
+			y & = -\ilap \left( \frac{1}{s - 1} \right) + 2\ilap \left( \frac{1}{s + 3} \right) \\
+			y & = e^t - 2e^{-3t}
+		\end{align*}
+		\bc{ y = e^t - 2e^{-3t} }
+	\item
+		\begin{equation*}
+			y'' - 7y' + 10y = 9\cos(t) + 7\sin(t), y(0) = 5, y'(0) = -4
+		\end{equation*}
+		\begin{align*}
+			\lap(y'') - 7\lap(y') + 10\lap(y) & = 9\lap(\cos(t)) + 7\lap(\sin(t)) \\
+			\left[ s^2\lap(y) - sy(0) - y'(0) \right] - 7 \left[ s\lap(y) - y(0) \right] + 10\lap(y) & = \frac{9s}{s^2 + 1} + \frac{7}{s^2 + 1} \\
+			\lap(y)(s^2 - 7s + 10) - 5s + 4 + 35 & = \frac{9s + 7}{s^2 + 1} \\
+			\lap(y) & = \frac{5s^3 - 39s^2 + 14s - 32}{(s^2 + 1)(s^2 - 7s + 10)} \\
+			\lap(y) & = \frac{s}{s^2 + 1} + \frac{8}{s - 2} - \frac{4}{s - 5}
+		\end{align*}
+		\begin{align*}
+			y & = \ilap \left( \frac{s}{s^2 + 1} \right) + 8\ilap \left( \frac{1}{s - 2} \right) - 4\ilap \left( \frac{1}{s - 5} \right) \\
+			y & = \cos(t) + 8e^{2t} - 4e^{5t}
+		\end{align*}
+		\bc{ y = \cos(t) + 8e^{2t} - 4e^{5t} }
+	\item
+		\begin{equation*}
+			y'' - 4y = 4t - 8e^{-2t}, y(0) = 0, y'(0) = 5
+		\end{equation*}
+		\begin{align*}
+			\lap(y'') - 4\lap(y) & = 4\lap(t) - 8\lap(e^{-2t}) \\
+			\left[ s^2\lap(y) - sy(0) - y'(0) \right] - 4\lap(y) & = \frac{4}{s^2} - \frac{8}{s + 2} \\
+			\lap(y)(s^2 - 4) - 0 - 5 & = \frac{4}{s^2} - \frac{8}{s + 2} \\
+			\lap(y) & = \frac{5s^3 + 2s^2 + 4s + 8}{s^2(s + 2)(s^2 - 4)} \\
+			\lap(y) & = -\frac{1}{s^2} - \frac{1}{s + 2} + 2\frac{1}{(s + 2)^2} + \frac{1}{s - 2}
+		\end{align*}
+		\begin{align*}
+			y & = -\ilap \left( \frac{1}{s^2} \right) - \ilap \left( \frac{1}{s + 2} \right) + 2\ilap \left( \frac{1}{(s + 2)^2} \right) + \ilap \left( \frac{1}{s - 2} \right) \\
+			y & = -t - e^{-2t} + 2te^{-2t} + e^{2t}
+		\end{align*}
+		\bc{ y = -t - e^{-2t} + 2te^{-2t} + e^{2t} }
+\end{enumerate}
+
+\end{document}

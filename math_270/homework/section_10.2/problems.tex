@@ -1,0 +1,153 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace Shortcut
+\newcommand{\lap}{\mathcal{L}}
+\newcommand{\ilap}{\mathcal{L}^{-1}}
+
+\tableofcontents
+
+\section{Section 10.2}
+
+Laplace transform of the second derivative of a function
+\begin{equation}
+	\lap(f'') = s^2\lap(f) - sf(0) - f'(0)
+\end{equation}
+
+\subsection{10.2.1}
+
+Solve the following differential equation by Laplace transforms. The function is subject to the given conditions.
+\begin{equation*}
+	y'' + 64y = 0, y(0) = 0, y'(0) = 1
+\end{equation*}
+\begin{align*}
+	\lap(y'') + 64\lap(y) & = \lap(0) \\
+	\left[ s^2\lap(y) - sy(0) - y'(0) \right] + 64\lap(y) & = \lap(0) \\
+	s^2\lap(y) - 0 - 1 + 64\lap(y) & = \lap(0) \\
+	\lap(y)(s^2 + 64) & = 1 \\
+	\lap(y) & = \frac{1}{s^2 + 64} \\
+	y & = \ilap \left( \frac{1}{s^2 + 64} \right) \\
+	y & = \frac{1}{8}\sin(8t)
+\end{align*}
+
+\subsection{10.2.3}
+
+Solve the following differential equation by Laplace transforms. The function is subject to the given conditions.
+\begin{equation*}
+	y'' + 4y' - 5y = 0, y(0) = 5, y'(0) = 11
+\end{equation*}
+\begin{align*}
+	\lap(y'') + 4\lap(y') - 5\lap(y) & = \lap(0) \\
+	\left[ s^2\lap(y) - sy(0) - y'(0) \right] + 4 \left[ s\lap(y) - y(0) \right] - 5\lap(y) & = 0 \\
+	s^2\lap(y) - 5s - 11 + 4s\lap(y) - 20 - 5\lap(y) & = 0 \\
+	\lap(y)(s^2 + 4s - 5) & = 5s + 31 \\
+	\lap(y) & = \frac{5s + 31}{s^2 + 4s - 5} \\
+	\lap(y) & = \frac{5s + 31}{(s - 1)(s + 5)}
+\end{align*}
+\begin{align*}
+	\frac{5s + 31}{(s - 1)(s + 5)} & = \frac{A}{s - 1} + \frac{B}{s + 5} \\
+	5s + 31 & = A(s + 5) + B(s - 1) \\
+	5(1) + 31 & = A(1 + 5) + B(1 - 1), \quad s = 1 \\
+	A & = 6 \\
+	5s + 31 & = 6(s + 5) + B(s - 1), \quad s = -5 \\
+	5(-5) + 31 & = 6(-5 + 5) + B(-5 - 1) \\
+	B & = -1
+\end{align*}
+\begin{align*}
+	\lap(y) & = \frac{6}{s - 1} - \frac{1}{s + 5} \\
+	y & = \ilap \left( \frac{6}{s - 1} \right) - \ilap \left( \frac{1}{s + 5} \right) \\
+	y & = 6e^{t} - e^{-5t}
+\end{align*}
+
+\end{document}

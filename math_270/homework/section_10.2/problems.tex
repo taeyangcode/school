@@ -125,32 +125,43 @@ Solve the following differential equation by Laplace transforms. The function is
 
 Solve the following differential equation by Laplace transforms. The function is subject to the given conditions.
 \begin{equation*}
-	y'' + 9y = 9, y(0) = 1, y'(0) = 3
+	y'' + 4y = 4, y(0) = 1, y'(0) = 2
 \end{equation*}
 \begin{align*}
-	\lap(y'') + 9\lap(y) & = \lap(9) \\
-	s^2\lap(y) + sy(0) + y'(0) + 9\lap(y) & = \frac{9}{s} \\
-	s^2\lap(y) + s + 1 + 9\lap(y) & = \frac{9}{s} \\
-	\lap(y)(s^2 + 9) & = \frac{9}{s} - s - 1 \\
-	\lap(y) & = \frac{-s^2 - s + 9}{s(s^2 + 9)}
+	\lap(y'') + 4\lap(y) & = \lap(4) \\
+	\left[ s^2\lap(y) - sy(0) - y'(0) \right] + 4\lap(y) & = \frac{4}{s} \\
+	\lap(y)(s^2 + 4) - s - 2 & = \frac{4}{s} \\
+	\lap(y) & = \frac{s^2 + 2s + 4}{s(s^2 + 4)}
 \end{align*}
 \begin{align*}
-	y & = \ilap \left( \frac{-2s - 1}{s^2 + 9} \right) + \ilap \left( \frac{1}{s} \right) \\
-	y & = 
+	y & = \ilap \left( \frac{2}{s^2 + 4} \right) + \ilap \left( \frac{1}{s} \right) \\
+	y(t) & = \sin(2t) + 1
 \end{align*}
 
+\subsection{10.2.19}
+
+Find the inverse Laplace transform of the following function using the theorem of transforms of integrals.
+\begin{equation*}
+	F(s) = \frac{1}{s(s^2 + 9)}
+\end{equation*}
 \begin{align*}
-	mx'' + kx & = 0 \\
-	m(s^2\lap(x) - sx(0) - x'(0)) + k\lap(x) & = 0 \\
-	ms^2\lap(x) -smx(0) - mx'(0) + k\lap(x) & = 0 \\
-	\lap(x)(ms^2 + k) & = smx(0) + mx'(0) \\
-	\lap(x) & = \frac{smx(0) + mx'(0)}{ms^2 + k} \\
-	\lap(x) & = \frac{smx(0)}{ms^2 + k} + \frac{mx'(0)}{ms^2 + k} \\
-	\lap(x) & = \frac{ms}{ms^2 + k} + \frac{m}{ms^2 + k}, \quad x(0) = 1, x'(0) = 1 \\
-	\lap(x) & = \frac{s}{s^2 + \frac{k}{m}} + \frac{1}{s^2 + \frac{k}{m}} \\
-	x & = \ilap \left( \frac{s}{s^2 + \frac{k}{m}} \right) + \ilap \left( \frac{1}{s^2 + \frac{k}{m}} \right) \\
-	x & = \cos \left( \sqrt{ \frac{k}{m} }t \right) + \sqrt{ \frac{m}{k} }\sin \left( \sqrt{ \frac{k}{m} }t \right) \\
-	x & = \cos \left( \omega t \right) + \omega^{-1} \sin \left( \omega t \right) \\
+	F(s) & = \frac{1}{s(s^2 + 9)} \\
+	F(s) & = \frac{1}{9} \left( \frac{1}{s} - \frac{s}{s^2 + 9} \right) \\
+	f(t) & = \frac{1}{9} \left( \ilap \left( \frac{1}{s} \right) - \ilap \left( \frac{s}{s^2 + 9} \right) \right) \\
+	f(t) & = \frac{1}{9} \left( 1 - \cos(3t) \right)
+\end{align*}
+
+\subsection{10.2.21}
+
+Find the inverse Laplace transform of the following function using the theorem of transforms of integrals.
+\begin{equation*}
+	F(s) = \frac{1}{s^2(s^2 + 36)}
+\end{equation*}
+\begin{align*}
+	F(s) & = \frac{1}{s^2(s^2 + 36)} \\
+	F(s) & = \frac{1}{36} \left( \frac{1}{s^2} - \frac{1}{s^2 + 36} \right) \\
+	f(t) & = \frac{1}{36} \left( \ilap \left( \frac{1}{t^2} \right) - \ilap \left( \frac{1}{t^2 + 36} \right) \right) \\
+	f(t) & = \frac{t}{36} - \frac{\sin(6t)}{216}
 \end{align*}
 
 \end{document}

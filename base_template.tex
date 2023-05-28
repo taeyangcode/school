@@ -52,6 +52,11 @@
 % Image insertion
 \usepackage{graphicx}
 
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
 % Document content %
 %
 % Change title of table of contents
@@ -93,7 +98,15 @@
 }
 
 % Laplace
-\newcommand{\lap}{\mathcal{L}}
-\newcommand{\ilap}{\mathcal{L}^{-1}}
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
 
 \end{document}

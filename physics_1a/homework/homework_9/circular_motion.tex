@@ -13,7 +13,6 @@
 % Necessary
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{wasysym}
 %
 % Extensive fraction notation
 \usepackage{xfrac}
@@ -373,6 +372,43 @@
 \section{Lab Manual}
 
 \subsection{1072}
+
+\begin{center}
+	\begin{tikzpicture}
+		\node at (0, 0) (origin) {};
+		\node [left = 2cm of origin] (left_roof) {};
+		\node [right = 2cm of origin] (right_roof) {};
+
+		\draw [line width = 2pt, black] (left_roof) -- (right_roof);
+
+		\draw [thick, black] (origin.center) -- ++ (0, -0.2cm) node (swivel_line) {};
+
+		\node [circle, draw = black, thick, inner sep = 3pt, line width = 1.5pt] at (swivel_line.south) (swivel) {};
+
+		\node [circle, draw = red!80, fill = red!50, inner sep = 3pt, below = 2cm of swivel, line width = 1.5pt] (m_1) {$ m_1 $};
+		\node [circle, draw = blue!80, fill = blue!50, inner sep = 3pt, below right = 2cm of swivel, line width = 1.5pt] (m_2) {$ m_2 $};
+
+		\draw [thick, black] (m_1.north) -- (swivel.center) -- (m_2.north west);
+
+		\draw [very thick, draw = red!80, -stealth] (m_1.north) -- ++ (0, 1cm) node [midway, left] {$ T $};
+		\draw [very thick, draw = red!80, -stealth] (m_1.south) -- ++ (0, -1cm) node [midway, left] {$ m_1g $};
+
+		\draw [very thick, draw = blue!80, -stealth] (m_2.north west) -- ++ (-1cm, 1cm) node [midway, above right] {$ T, \alpha $};
+		\draw [very thick, draw = blue!80, -stealth] (m_2.south) -- ++ (0, -1cm) node [midway, left] {$ m_2g $};
+	\end{tikzpicture}
+\end{center}
+\begin{align*}
+	\sum F_y^{m_1} & = 0 \\
+	T & = m_1g
+\end{align*}
+\begin{align*}
+	\sum F_y^{m_2} & = m_2g \\
+	T\cos(\theta) & = m_2g
+\end{align*}
+\begin{align*}
+	\sum F_x^{m_2} & = m_2\alpha \\
+	T\sin(\theta) & = m_2 \left( \frac{ \left( \frac{ 2\pi c }{ t } \right)^2 }{ c } \right)
+\end{align*}
 
 \subsection{1073}
 

@@ -1,0 +1,385 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit\rev{rev}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Homework 9 - Circular Motion}
+\author{Corey Mostero - 2566652}
+\date{30 May 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Book}
+
+\subsection{5.43}
+
+\begin{align*}
+	m & = \SI{0.80}{\kilogram} \\
+	L & = \SI{0.90}{\meter} \\
+	T & = \SI{60.0}{\newton}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Draw a free-body diagram of the stone.
+		\begin{center}
+			\begin{tikzpicture} [font = \small]
+				\node at (0, 0) (origin) { center of rotation };
+				\node [rectangle, draw = gray, fill = gray!15, minimum size = 1cm, above = 2cm of origin] (stone) { stone };
+				\draw [thick, -stealth] (stone.south) -- (origin) node [midway, right] {$ T, \alpha $};
+				\draw [thick, -stealth] (stone.west) -- ++ (-2cm, 0) node [midway, below] {$ N $};
+				\draw [thick, -stealth] (stone.east) -- ++ (2cm, 0) node [midway, below] {$ mg $};
+				\draw [thick, -stealth, black!75, loosely dashed] (stone.west) arc(90:180:2);
+
+				\node [circle, fill, inner sep = 1.5pt, above right = 2cm of origin] (axis_point) {};
+				\draw [thick, -stealth] (axis_point) -- ++ (0, -0.5cm) node [below] {$ +\hat{y} $};
+				\draw [thick, -stealth] (axis_point) -- ++ (-0.5cm, 0) node [left] {$ +\hat{x} $};
+			\end{tikzpicture}
+		\end{center}
+	\item Find the maximum speed the stone can attain without the string breaking.
+		\begin{align*}
+			\sum F_c & = m\alpha \\
+			T & = m \left( \frac{ v_{max}^2 }{ L } \right) \\
+			v_{max} & = \sqrt{ \frac{ TL }{ m } } \\
+			v_{max} & = \sqrt{ \frac{ (\SI{60.0}{\newton})(\SI{0.90}{\meter}) }{ \SI{0.80}{\kilogram} } } \\
+			v_{max} & = \SI{8.22}{\meter \per \second}
+		\end{align*}
+		\bc{ v_{max} = \SI{8.22}{\meter \per \second} }
+\end{enumerate}
+
+\subsection{5.45}
+
+\begin{align*}
+	m & = \SI{1.60}{\kilogram} \\
+	v & = \SI{12.0}{\meter \per \second} \\
+	r & = \SI{5.00}{\meter}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item What is the normal force at point $ A $?
+		\begin{center}
+			\begin{tikzpicture}
+				\node [rectangle, draw = black, fill = black!20, minimum size = 1cm] (origin) { car };
+				\draw [thick, -stealth] (origin.east) -- (1.5cm, 0) node [right] {$ v $};
+				\draw [thick, -stealth] (origin.south) -- (0, -2cm) node [midway, right] {$ mg $};
+				\draw [thick, -stealth] (origin.north) -- (0, 2cm) node [midway, right] {$ N, \alpha $};
+				\draw [thick, -stealth, black!75, loosely dashed] (origin.center) arc(270:360:1.5cm);
+				
+				\node [circle, fill, inner sep = 1pt, left = 1.5cm of origin] (axis_point) {};
+				\draw [thick, -stealth] (axis_point) -- ++ (0, 0.6cm) node [above] {$ +\hat{y} $};
+				\draw [thick, -stealth] (axis_point) -- ++ (0.6cm, 0) node [right] {$ +\hat{x} $};
+			\end{tikzpicture}
+		\end{center}
+		\begin{align*}
+			\sum F_c & = m\alpha \\
+			N & = m \left( \frac{v^2}{r} \right) + mg \\
+			N & = (\SI{1.60}{\kilogram}) \left( \frac{ (\SI{12.0}{\meter \per \second})^2 }{ \SI{5.00}{\meter} } \right) + (\SI{1.60}{\kilogram})(\SI{10.0}{\meter \per \second \squared}) \\
+			N & = \SI{62.1}{\meter \per \second \squared}
+		\end{align*}
+		\bc{ N = \SI{62.1}{\meter \per \second \squared} }
+	\item What is the normal force at point $ B $?
+		\begin{center}
+			\begin{tikzpicture}
+				\node [rectangle, draw = black, fill = black!20, minimum size = 1cm] (origin) { car };
+				\draw [thick, -stealth] (origin.west) -- (-1.5cm, 0) node [left] {$ v $};
+				\draw [thick, -stealth] (origin.south) -- (0, -2cm) node [midway, right] {$ N, mg, \alpha $};
+				\draw [thick, -stealth, black!75, loosely dashed] (origin.center) arc(90:180:1.5cm);
+
+				\node [circle, fill, inner sep = 1pt, right = 1.5cm of origin] (axis_point) {};
+				\draw [thick, -stealth] (axis_point) -- ++ (0, -0.6cm) node [below] {$ +\hat{y} $};
+				\draw [thick, -stealth] (axis_point) -- ++ (-0.6cm, 0) node [left] {$ +\hat{x} $};
+			\end{tikzpicture}
+		\end{center}
+		\begin{align*}
+			\sum F_c & = m\alpha \\
+			N + mg & = m \left( \frac{ v^2 }{ r } \right) \\
+			N & = m \left( \frac{ v^2 }{ r } \right) - mg \\
+			N & = \SI{1.60}{\kilogram} \left( \frac{ (\SI{12.0}{\meter \per \second})^2 }{ \SI{5.00}{\meter} } - \SI{10.0}{\meter \per \second \squared} \right) \\
+			N & = \SI{30.1}{\meter \per \second \squared}
+		\end{align*}
+		\bc{ N = \SI{30.1}{\meter \per \second \squared} }
+\end{enumerate}
+
+\subsection{5.48}
+
+\begin{align*}
+	r & = \SI{230.0}{\meter} \\
+	v & = \SI{28.0}{\meter \per \second}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item \label{5.48_a} What is the minimum coefficient of static friction that will prevent sliding?
+		\begin{center}
+			\begin{tikzpicture}
+				\node [rectangle, draw = black, fill = black!20, minimum size = 1cm] (car) { car };
+				\draw [thick, -stealth] (car.south) -- ++ (0, -2cm) node [midway, right] {$ f, \alpha $};
+				\draw [thick, -stealth] (car.west) -- ++ (-2cm, 0) node [midway, below] {$ N $};
+				\draw [thick, -stealth] (car.east) -- ++ (2cm, 0) node [midway, below] {$ mg $};
+				\draw [thick, -stealth, black!75, loosely dashed] (car.center) arc(90:180:2cm);
+
+				\node [below right = 2cm of car, circle, fill, inner sep = 1.5pt] (axis_point) {};
+				\draw [thick, -stealth] (axis_point) -- ++ (-0.5cm, 0) node [left] {$ +\hat{x} $};
+				\draw [thick, -stealth] (axis_point) -- ++ (0, -0.5cm) node [below] {$ +\hat{y} $};
+			\end{tikzpicture}
+		\end{center}
+		\begin{align*}
+			\sum F_x & = 0 \\
+			N & = mg
+		\end{align*}
+		\begin{align*}
+			\sum F_y & = m\alpha \\
+			f & = m \left( \frac{ v^2 }{ r } \right) \\
+			\mu N & = m \left( \frac{ v^2 }{ r } \right), \quad N = mg \\
+			\mu & = \frac{ v^2 }{ rg } \\
+			\mu & = \frac{ (\SI{28.0}{\meter \per \second})^2 }{ (\SI{230.0}{\meter})(\SI{10.0}{\meter \per \second \squared}) } \\
+			\mu & = 0.341
+		\end{align*}
+		\bc{ \mu = 0.341 }
+	\item Suppose that the highway is icy and the coefficient of static friction between the tires and pavement is only one-third of what you found in part \ref{5.48_a}. What should be the maximum speed of the car so that it can round the curve safely?
+		\begin{align*}
+			\sum F_y & = m\alpha \\
+			\frac{ \mu }{ 3 }mg & = m \left( \frac{ v^2 }{ r } \right) \\
+			v & = \sqrt{ \frac{ \mu gr }{ 3 } } \\
+			v & = \sqrt{ \frac{ (0.341)(\SI{10.0}{\meter \per \second \squared})(\SI{230.0}{\meter}) }{ 3 } } \\
+			v & = \SI{16.2}{\meter \per \second}
+		\end{align*}
+		\bc{ v = \SI{16.2}{\meter \per \second} }
+\end{enumerate}
+
+\subsection{5.54}
+
+\begin{align*}
+	D & = \SI{100}{\meter} \\
+	r & = \frac{D}{2} = \SI{50.0}{\meter} \\
+	\text{rpm} & = \SI{1}{\rev \per \minute}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Find the speed of the passengers when the Ferris wheel is rotating at this rate.
+		\begin{align*}
+			v & = \frac{ 2\pi r }{ T } \\
+			v & = \frac{ 2\pi (\SI{50.0}{\meter}) }{ \SI{60.0}{\second} } \\
+			v & = \SI{5.24}{\meter \per \second}
+		\end{align*}
+		\bc{ v = \SI{5.24}{\meter \per \second} }
+	\item A passenger weighs \SI{902}{\newton} at the weight-guessing booth on the ground. What is his apparent weight at the highest and at the lowest point on the Ferris wheel?
+		\begin{align*}
+			m & = \frac{w}{g} = \frac{ \SI{902}{\newton} }{ \SI{10.0}{\meter \per \second \squared} } = \SI{90.2}{\kilogram}
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{top} & = m\alpha \\
+			mg & = m \left( \frac{ v^2 }{ r } \right) + N_{top} \\
+			N_{top} & = m \left( -\frac{ v^2 }{ r } + g \right) \\
+			N_{top} & = (\SI{90.2}{\kilogram}) \left( -\frac{ (\SI{5.24}{\meter \per \second})^2 }{ \SI{50.0}{\meter} } + \SI{10.0}{\meter \per \second \squared} \right) \\
+			N_{top} & = \SI{852.5}{\newton}
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{bottom} & = m\alpha \\
+			N_{bottom} & = m \left( \frac{ v^2 }{ r } \right) + mg \\
+			N_{bottom} & = m \left( \frac{ v^2 }{ r } + g \right) \\
+			N_{bottom} & = (\SI{90.2}{\kilogram}) \left( \frac{ (\SI{5.24}{\meter \per \second})^2 }{ \SI{50.0}{\meter} } + \SI{10.0}{\meter \per \second \squared} \right) \\
+			N_{bottom} & = \SI{951.5}{\newton}
+		\end{align*}
+		\bc{ N_{top} = \SI{852.5}{\newton}, N_{bottom} = \SI{951.5}{\newton} }
+	\item What would be the time for one revolution if the passenger’s apparent weight at the highest point were zero?
+		\begin{align*}
+			v & = \frac{ 2\pi r}{ T } \\
+			T & = \frac{ 2\pi r }{ v }
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{top} & = m\alpha \\
+			mg & = m \left( \frac{ v^2 }{ r } \right) + N \\
+			v & = \sqrt{ gr - \frac{ N }{ m } }, \quad N = 0 \\
+			v & = \sqrt{ gr } \\
+			v & = \sqrt{ (\SI{10.0}{\meter \per \second \squared})(\SI{50.0}{\meter}) } \\
+			v & = \SI{22.4}{\meter \per \second}
+		\end{align*}
+		\begin{align*}
+			T & = \frac{ 2\pi (\SI{50.0}{\meter}) }{ \SI{22.4}{\meter \per \second} } \\
+			T & = \SI{14.0}{\second}
+		\end{align*}
+		\bc{ T = \SI{14.0}{\second} }
+\end{enumerate}
+
+\subsection{5.107}
+
+\begin{align*}
+	r & = \SI{0.100}{\meter} \\
+	\text{rpm} & = \SI{4.80}{\rev \per \second}
+\end{align*}
+\begin{center}
+	\begin{tikzpicture}
+		\node [circle, draw = orange, fill = orange!25, minimum size = 0.5cm] (bead) {};
+		\draw [thick, -stealth] (bead.north east) -- ++ (1.5cm, 1.5cm) node [midway, below right] {$ N $};
+		\draw [thick, -stealth] (bead.south) -- ++ (0, -1.5cm) node [midway, right] {$ mg $};
+		\draw [thick, -stealth, draw = black!50] (bead.east) -- ++ (1.5cm, 0) node [midway, below, black] {$ \alpha $};
+
+		\node [left = 2cm of bead, circle, fill, inner sep = 1pt] (axis_point) {};
+		\draw [thick, -stealth] (axis_point) -- ++ (1cm, 0) node [right] {$ +\hat{x} $};
+		\draw [thick, -stealth] (axis_point) -- ++ (0, -1cm) node [below] {$ +\hat{y} $};
+	\end{tikzpicture}
+\end{center}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Find the angle $ \beta $ at which the bead is in vertical equilibrium.
+		\begin{align*}
+			\sum F_x^{bead} & = m\alpha \\
+			N_x\sin(\beta) & = m\alpha \\
+			N_x & = \frac{ m \frac{ v^2 }{ r } }{ \sin(\beta) } = \frac{ mv^2 }{ r\sin(\beta) }
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{bead} & = 0 \\
+			N_y\cos(\beta) & = mg \\
+			N_y & = \frac{ mg }{ \cos(\beta) }
+		\end{align*}
+		\begin{align*}
+			N_x & = N_y \\
+			\frac{ mv^2 }{ r\sin(\beta) } & = \frac{ mg }{ \cos(\beta) } \\
+			v^2\cos(\beta) & = gr\sin(\beta) \\
+			\tan(\beta) & = \frac{ v^2 }{ gr } \\
+			\beta & = \arctan \left( \frac{ v^2 }{ gr } \right) \\
+			\beta & = \arctan \left( \frac{ \left( \frac{ 2\pi r }{ T } \right)^2 }{ gr } \right) \\
+			\beta & = \arctan \left( \frac{ 4\pi^2r }{ gT^2 } \right) \\
+			\beta & = \arctan \left( \frac{ 4\pi^2(\SI{0.100}{\meter}) }{ (\SI{10.0}{\meter \per \second \squared}) \left( \frac{1}{4.80}\text{s} \right)^2 } \right) \\
+			\beta & = \SI{83.7}{\degree}
+		\end{align*}
+		\bc{ \beta = \SI{83.7}{\degree} }
+	\item Is it possible for the bead to ``ride" at the same elevation as the center of the hoop?
+		\begin{equation*} \beta = \SI{90.0}{\degree} \end{equation*}
+		\begin{align*}
+			\frac{ v^2 }{ r\sin(\beta) } & = \frac{ g }{ \cos(\beta) } \\
+			v & = \sqrt{ \frac{ gr\sin(\beta) }{ \cos(\beta) } } \\
+			v & = \sqrt{ \frac{ (\SI{10.0}{\meter \per \second \squared})(\SI{0.100}{\meter})\sin(\SI{90.0}{\degree}) }{ \cos(\SI{90.0}{\degree}) } } \\
+			v & = 0
+		\end{align*}
+		\begin{mdframed}
+			No it is not possible as the velocity would have to be zero, but would instead mean that the bead isn't moving.
+		\end{mdframed}
+	\item What will happen if the hoop rotates at \SI{1.00}{\rev \per \second}?
+		\begin{align*}
+			\beta & = \arctan \left( \frac{ 4\pi^2(\SI{0.100}{\meter}) }{ (\SI{10.0}{\meter \per \second \squared})(\SI{1.00}{\second})^2 } \right) \\
+			\beta & = \SI{21.5}{\degree}
+		\end{align*}
+		\begin{mdframed}
+			The bead ends up swinging at an angle lower and closer to the vertical axis.
+		\end{mdframed}
+\end{enumerate}
+
+\section{Lab Manual}
+
+\subsection{1072}
+
+\subsection{1073}
+
+\subsection{1082}
+
+\subsection{1087}
+
+\subsection{1088}
+
+\end{document}

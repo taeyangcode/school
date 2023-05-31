@@ -30,6 +30,8 @@
 % SI Unit
 \usepackage{siunitx}
 \DeclareSIUnit\rev{rev}
+\DeclareSIUnit\feet{ft}
+\DeclareSIUnit\pound{lb}
 \usepackage{physunits}
 %
 % More intuitive arrays/matrices
@@ -407,15 +409,195 @@
 \end{align*}
 \begin{align*}
 	\sum F_x^{m_2} & = m_2\alpha \\
-	T\sin(\theta) & = m_2 \left( \frac{ \left( \frac{ 2\pi c }{ t } \right)^2 }{ c } \right)
+	T\sin(\theta) & = m_2 \left( \frac{ \left( \frac{ 2\pi (c - a) }{ t } \right)^2 }{ c - a } \right) \\
+	m_1g\sin(\theta) & = m_2 \left( \frac{ 4\pi^2(c - a) }{ t^2 } \right) \\
+	t & = 2\pi \sqrt{ \frac{ m_2(c - a) }{ m_1g } }
 \end{align*}
+\bc{ t = 2\pi \sqrt{ \frac{ m_2(c - a) }{ m_1g } } }
 
 \subsection{1073}
 
+\begin{align*}
+	\sum F_c & = dm\alpha \\
+	\sum F_c & = dm\omega^2r
+\end{align*}
+\begin{align*}
+	\sum F_x & = 0 \\
+	T\cos \left( \frac{ d\theta }{ 2 } \right) - T \cos \left( \frac{ d\theta }{ 2 } \right) & = 0 \\
+	0 & = 0
+\end{align*}
+\begin{align*}
+	\sum F_y & = 0 \\
+	2T\sin \left( \frac{ d\theta }{ 2 } \right) & = 0 \\
+	Td\theta & = 0
+\end{align*}
+\begin{align*}
+	\sum F_c & = dm\omega^2r \\
+	0 + Td\theta & = dm\omega^2r \\
+	T & = \frac{dm}{d\theta}\omega^2r \\
+	T & = (\rho A r)\omega^2r \\
+	T & = \rho A\omega^2r^2
+\end{align*}
+\bc{ T = \rho A\omega^2R^2 }
+
 \subsection{1082}
+
+\begin{align*}
+	v & = \SI{12}{\feet \per \second} \\
+	\theta & = \SI{53}{\degree} \\
+	m & = \SI{180}{\pound}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Draw a diagram showing all the forces on the bicycle and rider. What direction does he tend to tip (clockwise or counter-clockwise) if he inclines at angle greater than \SI{53}{\degree}? What causes him to tip?
+		\begin{center}
+			\begin{tikzpicture}
+				\node at (0, 0) (bicycle) { bicycle };
+
+				\draw [-stealth, draw = black, thick] (bicycle.west) -- ++ (-2cm, 0) node [midway, below] {$ f $};
+
+				\draw [-stealth, draw = red!80, thick, dashed] (bicycle.west) -- ++ (-1cm, 0) node [midway, below, red!80] {$ \alpha $};
+
+				\draw [-stealth, draw = black, thick] (bicycle.north) -- ++ (-2cm, 2cm) node [midway, above right] {$ N $};
+
+				\node [above right = 1cm of bicycle, circle, fill, inner sep = 1pt] (axis) {};
+				\draw [-stealth, draw = black, thick] (axis) -- ++ (-1cm, 0) node [left] {$ +\hat{x} $};
+				\draw [-stealth, draw = black, thick] (axis) -- ++ (0, 1cm) node [above] {$ +\hat{y} $};
+			\end{tikzpicture}
+			\hspace{2cm}
+			\begin{tikzpicture}
+				\node at (0, 0) (person) { person };
+
+				\draw [-stealth, draw = black, thick] (person.south) -- ++ (0, -2cm) node [midway, left] {$ mg $};
+
+				\draw [-stealth, draw = black, thick] (person.south) -- ++ (2cm, -2cm) node [midway, below left] {$ N $};
+
+				\node [right = 1cm of person, circle, fill, inner sep = 1pt] (axis) {};
+				\draw [-stealth, draw = black, thick] (axis) -- ++ (1cm, 0) node [right] {$ +\hat{x} $};
+				\draw [-stealth, draw = black, thick] (axis) -- ++ (0, -1cm) node [below] {$ +\hat{y} $};
+			\end{tikzpicture}
+		\end{center}
+		\begin{mdframed}
+			If he continues to inline at an angle greater than \SI{53}{\degree}, he will begin to tip clockwise. His centripetal force becomes stronger than his weight pulling him down, causing him to tip. A more general answer as to why he tips is if the boy is unable to balance his centripetal force with his (the boy and bicycle's) weight, he will not be able to keep his balance.
+		\end{mdframed}
+	\item Find the radius of the curve.
+		\begin{align*}
+			\sum F_y^{(person)} & = 0 \\
+			N\sin(\theta) + mg & = 0 \\
+			N & = -\frac{ mg }{ \sin(\theta) }
+		\end{align*}
+		\begin{align*}
+			\sum F_x^{(bicycle)} & = m\alpha \\
+			N\cos(\theta) & = m\alpha \\
+			\left( -\frac{ mg }{ \sin(\theta) } \right) \cos(\theta) & = m \left( \frac{ v^2 }{ r } \right) \\
+			-\frac{ gm }{ \tan(\theta) } & = \frac{ mv^2 }{ r } \\
+			r & = -\frac{ \tan(\theta)v^2 }{ g } \\
+			r & = -\frac{ \tan(\SI{53}{\degree})(\SI{12}{\feet \per \second})^2 }{ \SI{32.17}{\feet \per \second \squared} } \\
+			r & = \SI{-5.94}{\meter}
+		\end{align*}
+		\begin{mdframed}
+			The radius is \SI{5.94}{\meter} to the left.
+		\end{mdframed}
+	\item Find the friction force between the road and wheel.
+		\begin{align*}
+			\sum F & = 0 \\
+			N\cos(\theta) + f & = 0 \\
+			f & = -N\cos(\theta) \\
+			f & = \frac{ gw }{ \tan(\theta) } \\
+			f & = \frac{ \SI{180}{\pound} }{ \tan(\SI{53}{\degree}) } \\
+			f & = \SI{136.0}{\pound}
+		\end{align*}
+		\bc{ f = \SI{136.0}{\pound} }
+\end{enumerate}
 
 \subsection{1087}
 
+\begin{center}
+	\begin{tikzpicture}
+		\node at (0, 0) (origin) {};
+
+		\node [rectangle, draw = black, fill = black!25, minimum size = 1cm] at (origin.center) (M) {$ M_{min} $};
+		\draw [-stealth, draw = black, thick] (M.west) -- ++ (-1cm, 0) node [midway, above] {$ T $};
+		\draw [-stealth, draw = black, thick] (M.south) -- ++ (0, -1cm) node [midway, right] {$ Mg $};
+		\draw [-stealth, draw = black, thick] (M.north) -- ++ (0, 1cm) node [midway, right] {$ N $};
+		\draw [-stealth, draw = black, thick] (M.east) -- ++ (1cm, 0) node [midway, above] {$ f $};
+
+		\node [above right = 0.5cm and 2cm of M, circle, fill, inner sep = 1pt] (axis) {};
+		\draw [-stealth, draw = black, thick] (axis) -- ++ (-1cm, 0) node [left] {$ +\hat{x} $};
+		\draw [-stealth, draw = black, thick] (axis) -- ++ (0, 1cm) node [above] {$ +\hat{y} $};
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\node at (0, 0) (origin) {};
+
+		\node [rectangle, draw = black, fill = black!25, minimum size = 1cm] at (origin.center) (M) {$ M_{max} $};
+		\draw [-stealth, draw = black, thick] (M.west) -- ++ (-1cm, 0) node [midway, above] {$ T, f $};
+		\draw [-stealth, draw = black, thick] (M.south) -- ++ (0, -1cm) node [midway, right] {$ Mg $};
+		\draw [-stealth, draw = black, thick] (M.north) -- ++ (0, 1cm) node [midway, right] {$ N $};
+
+		\node [above right = 0.5cm and 2cm of M, circle, fill, inner sep = 1pt] (axis) {};
+		\draw [-stealth, draw = black, thick] (axis) -- ++ (-1cm, 0) node [left] {$ +\hat{x} $};
+		\draw [-stealth, draw = black, thick] (axis) -- ++ (0, 1cm) node [above] {$ +\hat{y} $};
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\node at (0, 0) (origin) {};
+
+		\node [rectangle, draw = black, fill = black!25, minimum size = 1cm] at (origin.center) (m) {$ m $};
+
+		\draw [-stealth, draw = black, thick] (m.north) -- ++ (0, 1cm) node [midway, right] {$ T $};
+		\draw [-stealth, draw = black, thick] (m.south) -- ++ (0, -1cm) node [midway, right] {$ mg $};
+
+		\node [below = 0.25cm of m.south west] (acceleration) {};
+
+		\node [above right = 0.5cm and 0.5cm of m, circle, fill, inner sep = 1pt] (axis) {};
+		\draw [-stealth, draw = black, thick] (axis) -- ++ (0, 1cm) node [above] {$ +\hat{y} $};
+	\end{tikzpicture}
+\end{center}
+\begin{align*}
+	\sum F_y^{(m)} & = 0 \\
+	T & = mg
+\end{align*}
+\begin{align*}
+	\sum F_y^{(M)} & = 0 \\
+	N & = Mg
+\end{align*}
+\begin{align*}
+	\sum F_x^{(M)} & = M\omega^2\mu_{min} \\
+	T & = M\omega^2\mu_{min} + f \\
+	\mu_{min} & = \frac{ T - f }{ M\omega^2 } \\
+	\mu_{min} & = \frac{ mg - \mu Mg }{ M\omega^2 }
+\end{align*}
+\begin{align*}
+	\sum F_x^{(M)} & = M\omega^2\mu_{max} \\
+	T + f & = M\omega^2\mu_{max} \\
+	\mu_{max} & = \frac{ T + f }{ M\omega^2 } \\
+	\mu_{max} & = \frac{ mg + \mu Mg }{ M\omega^2 }
+\end{align*}
+\bc {
+	\mu_{min} = \frac{ mg - \mu Mg }{ M\omega^2 }, \mu_{max} = \frac{ mg + \mu Mg }{ M\omega^2 }
+}
+
 \subsection{1088}
+
+\begin{align*}
+	\sum F_x & = m\alpha \\
+	N\sin(\theta) & = m \left( \frac{ v^2 }{ L\cos(\theta) } \right)
+\end{align*}
+\begin{align*}
+	\sum F_y & = 0 \\
+	N\cos(\theta) & = mg
+\end{align*}
+\begin{align*}
+	\frac{ N\sin(\theta) }{ N \cos(\theta) } & = \frac{ m \left( \frac{ v^2 }{ L\cos(\theta) } \right) }{ mg } \\
+	\tan(\theta) & = \frac{ v^2 }{ gL\cos(\theta) } \\
+	v & = \sqrt{ gL\sin(\theta) }
+\end{align*}
+\bc{ v = \sqrt{ gL\sin(\theta) } }
+
+\begin{align*}
+	m\lap[\ddot{x}] + b\lap[\dot{x}] + k\lap[x] & = \lap[0] \\
+	m \left[ s^2\lap[x] - sx(0) - \dot{x}(0) \right] + b \left[ s\lap[x] - x(0) \right] + k\lap[x] & = 0 \\
+	\lap[x](ms^2 + bs + k) - smx(0) - m\dot{x}(0) - bx(0) & = 0 \\
+	\lap[x] & = \frac{ smx(0) + m\dot{x}(0) + bx(0) }{ ms^2 + bs + k } \\
+	x & = \ilap[ \frac{ smx(0) + m\dot{x}(0) + bx(0) }{ ms^2 + bs + k } ]
+\end{align*}
 
 \end{document}

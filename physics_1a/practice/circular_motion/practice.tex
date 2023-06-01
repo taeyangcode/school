@@ -1,0 +1,391 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit\mile{mi}
+\DeclareSIUnit\revolution{rev}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+%
+% Hyperlinks
+\usepackage{hyperref}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{Circular Motion and Gravitation: Problem Set}
+
+\subsection{Problem 1}
+
+During their physics field trip to the amusement park, Tyler and Maria took a rider on the Whirligig. The Whirligig ride consists of long swings which spin in a circle at relatively high speeds. As part of their lab, Tyler and Maria estimate that the riders travel through a circle with a radius of \SI{6.5}{\meter} and make one turn every \SI{5.8}{\second}. Determine the speed of the riders on the Whirligig.
+\begin{align*}
+	v & = \frac{ 2\pi r }{ t } \\
+	v & = \frac{ 2\pi(\SI{6.5}{\meter}) }{ \SI{5.8}{\second} } \\
+	v & = \SI{7.04}{\meter \per \second}
+\end{align*}
+
+\subsection{Problem 2}
+
+The tallest Ferris wheel in the world is located in Singapore. Standing 42 stories high and holding as many as 780 passengers, the Ferris wheel has a diameter of 150 meters and takes approximately 30 minutes to make a full circle. Determine the speed of riders (in m/s and mi/hr) on the Singapore Flyer. (GIVEN: 1.00 m/s= 2.24 mi/hr)
+\begin{align*}
+	v & = \frac{ 2\pi r }{ t } \\
+	v & = \frac{ 2\pi \frac{ \SI{150}{\meter} }{ 2 } }{ \SI{30}{\minute} } \\
+	v & = \SI{15.7}{\meter \per \minute} = \SI{0.262}{\meter \per \second} = \SI{0.586}{\mile \per \hour}
+\end{align*}
+
+\subsection{Problem 3}
+
+During the spin cycle of a washing machine, the clothes stick to the outer wall of the barrel as it spins at a rate as high as 1800 revolutions per minute. The radius of the barrel is 26 cm.
+\begin{enumerate}[label = \textbf{\alph*.}]
+	\item Determine the speed of the clothes (in m/s) which are located on the wall of the spin barrel.
+		\begin{align*}
+			v & = \omega r \\
+			v & = 2\pi \left( \frac{ \SI{1800}{\revolution \per \minute} }{ \SI{60}{\second \per \minute} } \right) (\SI{0.26}{\meter}) \\
+			v & = \SI{49.0}{\meter \per \second}
+		\end{align*}
+	\item Determine the acceleration of the clothes.
+		\begin{align*}
+			\alpha & = \frac{ v^2 }{ r } \\
+			\alpha & = \frac{ (\SI{49.0}{\meter \per \second})^2 }{ \SI{0.26}{\meter} } \\
+			\alpha & = \SI{9234.62}{\meter \per \second \squared} = \SI{9.23e3}{\meter \per \second \squared}
+		\end{align*}
+\end{enumerate}
+
+\subsection{Problem 4}
+
+Elmira, New York boasts of having the fastest carousel ride in the world. The merry-go-round at Eldridge Park takes riders on a spin at 18 mi/hr (8.0 m/s). The radius of the circle about which the outside riders move is approximately 7.4 m.
+\begin{enumerate}[label = \textbf{\alph*.}]
+	\item Determine the time for outside riders to make one complete circle.
+		\begin{align*}
+			v & = \frac{ 2\pi r }{ T } \\
+			T & = \frac{ 2\pi r }{ v } \\
+			T & = \frac{ 2\pi (\SI{7.4}{\meter}) }{ \SI{8.0}{\meter \per \second} } \\
+			T & = \SI{5.81}{\second}
+		\end{align*}
+	\item Determine the acceleration of the riders.
+		\begin{align*}
+			\alpha & = \frac{ v^2 }{ r } \\
+			\alpha & = \frac{ (\SI{8.0}{\meter \per \second})^2 }{ \SI{7.4}{\meter} } \\
+			\alpha & = \SI{8.65}{\meter \per \second \squared}
+		\end{align*}
+\end{enumerate}
+
+\subsection{Problem 5}
+
+A manufacturer of CD-ROM drives claims that the player can spin the disc as frequently as 1200 revolutions per minute.
+\begin{enumerate}[label = \textbf{\alph*.}]
+	\item If spinning at this rate, what is the speed of the outer row of data on the disc; this row is located 5.6 cm from the center of the disc?
+		\begin{align*}
+			v & = \omega r \\
+			v & = 2\pi \left( \frac{ \SI{1200}{\revolution \per \minute} }{ \SI{60}{\minute \per \second} } \right) (\SI{0.056}{\meter}) \\
+			v & = \SI{7.04}{\meter \per \second}
+		\end{align*}
+	\item What is the acceleration of the outer row of data?
+		\begin{align*}
+			\alpha & = \frac{ v^2 }{ r } \\
+			\alpha & = \frac{ (\SI{7.04}{\meter \per \second})^2 }{ \SI{0.056}{\meter} } \\
+			\alpha & = \SI{885.029}{\meter \per \second \squared} = \SI{8.85e2}{\meter \per \second \squared}
+		\end{align*}
+\end{enumerate}
+
+\subsection{Problem 6}
+
+In the display window of the toy store at the local mall, a battery-powered plane is suspended from a string and flying in a horizontal circle. The 631-gram plane makes a complete circle every 2.15 seconds. The radius of the circle is 0.950 m. Determine the velocity of, acceleration of, and net force acting upon the plane.
+\begin{align*}
+	v & = \frac{ 2\pi r }{ T } \\
+	v & = \frac{ 2\pi (\SI{0.950}{\meter}) }{ \SI{2.15}{\second} } \\
+	v & = \SI{2.78}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	\alpha & = \frac{ v^2 }{ r } \\
+	\alpha & = \frac{ (\SI{2.78}{\meter \per \second})^2 }{ \SI{0.950}{\meter} } \\
+	\alpha & = \SI{8.14}{\meter \per \second \squared}
+\end{align*}
+\begin{align*}
+	F_c & = m\alpha \\
+	F_c & = (\SI{0.631}{\kilogram})(\SI{8.14}{\meter \per \second \squared}) \\
+	F_c & = \SI{5.14}{\newton}
+\end{align*}
+
+\subsection{Problem 7}
+
+Dominic is the star discus thrower on South's varsity track and field team. In last year's regional competition, Dominic whirled the 1.6 kg discus in a circle with a radius of 1.1 m, ultimately reaching a speed of 52 m/s before launch. Determine the net force acting upon the discus in the moments before launch.
+\begin{align*}
+	F_c & = m\alpha \\
+	F_c & = m \left( \frac{ v^2 }{ r } \right) \\
+	F_c & = (\SI{1.6}{\kilogram}) \left( \frac{ (\SI{52}{\meter \per \second})^2 }{ \SI{1.1}{\meter} } \right) \\
+	F_c & = \SI{3933.09}{\newton} = \SI{3.93e3}{\newton}
+\end{align*}
+
+\subsection{Problem 8}
+
+Landon and Jocelyn are partners in pair figure skating. Last weekend, they perfected the death spiral element for inclusion in their upcoming competition. During this maneuver, Landon holds Jocelyn by the hand and swings her in a circle while she maintains her blades on the ice, stretched out in a nearly horizontal orientation. Determine the net force which must be applied to Jocelyn (m=51 kg) if her center of mass rotates in a circle with a radius of 61 cm once every 1.9 seconds.
+\begin{align*}
+	F_c & = m\alpha \\
+	F_c & = m \left( \frac{ 4\pi^2 r }{ T^2 } \right) \\
+	F_c & = (\SI{51}{\kilogram}) \left( \frac{ 4\pi^2(\SI{0.61}{\meter}) }{ (\SI{1.9}{\second})^2 } \right) \\
+	F_c & = \SI{340.214}{\newton} = \SI{3.40e2}{\newton}
+\end{align*}
+
+\subsection{Problem 9}
+
+In an effort to rev up his class, Mr. H does a demonstration with a bucket of water tied to a 1.3-meter long string. The bucket and water have a mass of 1.8 kg. Mr. H whirls the bucket in a vertical circle such that it has a speed of 3.9 m/s at the top of the loop and 6.4 m/s at the bottom of the loop.
+\begin{enumerate}[label = \textbf{\alph*.}]
+	\item Determine the acceleration of the bucket at each location.
+		\begin{align*}
+			\alpha_{top} & = \frac{ v_{top}^2 }{ r } \\
+			\alpha_{top} & = \frac{ (\SI{3.9}{\meter \per \second})^2 }{ \SI{1.3}{\meter} } \\
+			\alpha_{top} & = \SI{11.7}{\meter \per \second \squared}
+		\end{align*}
+		\begin{align*}
+			\alpha_{bottom} & = \frac{ v_{bottom}^2 }{ r } \\
+			\alpha_{bottom} & = \frac{ (\SI{6.4}{\meter \per \second})^2 }{ \SI{1.3}{\meter} } \\
+			\alpha_{bottom} & = \SI{31.5}{\meter \per \second \squared}
+		\end{align*}
+	\item Determine the net force experienced by the bucket at each location.
+		\begin{align*}
+			\sum F_c^{(top)} & = m\alpha \\
+			F_c^{(top)} & = m\alpha - mg - T
+		\end{align*}
+		\begin{align*}
+			\sum F_c^{(bottom)} & = m\alpha \\
+			F_c^{(bottom)} & = m\alpha + mg - T
+		\end{align*}
+	\item Draw a free body diagram for the bucket for each location and determine the tension force in the string for the two locations.
+		\begin{align*}
+			\sum F_c^{(top)} & = m\alpha \\
+			T & = m\alpha - mg \\
+			T & = (\SI{1.8}{\kilogram})(\SI{11.7}{\meter \per \second \squared} - \SI{10.0}{\meter \per \second \squared}) \\
+			T & = \SI{3.06}{\newton}
+		\end{align*}
+		\begin{align*}
+			\sum F_c^{(bottom)} & = m\alpha \\
+			T & = m\alpha + mg \\
+			T & = (\SI{1.8}{\kilogram})(\SI{31.5}{\meter \per \second \squared} + \SI{10.0}{\meter \per \second \squared}) \\
+			T & = \SI{74.7}{\newton}
+		\end{align*}
+\end{enumerate}
+
+\subsection{Problem 14}
+
+Justin is driving his 1500-kg Camaro through a horizontal curve on a level roadway at a speed of 23 m/s. The turning radius of the curve is 65 m. Determine the minimum value of the coefficient of friction which would be required to keep Justin's car on the curve.
+\begin{align*}
+	\sum F_y & = 0 \\
+	N & = mg \\
+	N & = (\SI{1500}{\kilogram})(\SI{10.00}{\meter \per \second \squared}) \\
+	N & = \SI{15000}{\newton}
+\end{align*}
+\begin{align*}
+	\sum F_x & = m\alpha \\
+	f & = m\alpha \\
+	\mu N & = m\alpha \\
+	\mu & = \frac{ m \left( \frac{ v^2 }{ r } \right) }{ N } \\
+	\mu & = \frac{ (\SI{1500}{\kilogram}) \left( \frac{ (\SI{23}{\meter \per \second})^2 }{ \SI{65}{\meter} } \right) }{ \SI{15000}{\newton} } \\
+	\mu & = 0.814
+\end{align*}
+
+\subsection{Problem 15}
+
+A loop de loop track is built for a 938-kg car. It is a completely circular loop - 14.2 m tall at its highest point. The driver successfully completes the loop with an entry speed (at the bottom) of 22.1 m/s.
+\begin{enumerate}[label = \textbf{\alph*.}]
+	\item Using energy conservation, determine the speed of the car at the top of the loop.
+		\begin{align*}
+			\frac{1}{2}mv_0^2 + mgh_0 & = \frac{1}{2}mv_1^2 + mgh_1 \\
+			v_0^2 + 0 & = v_1^2 + 2gh_1 \\
+			v_1 & = \sqrt{ v_0^2 - 2gh_1 } \\
+			v_1 & = \sqrt{ (\SI{22.1}{\meter \per \second})^2 - 2(\SI{10.0}{\meter \per \second \squared})(\SI{14.2}{\meter}) } \\
+			v_1 & = \SI{14.3}{\meter \per \second}
+		\end{align*}
+	\item Determine the acceleration of the car at the top of the loop.
+		\begin{align*}
+			\alpha_{top} & = \frac{ v^2 }{ r } \\
+			\alpha_{top} & = \frac{ (\SI{14.3}{\meter \per \second})^2 }{ \frac{ \SI{14.2}{\meter} }{ 2 } } \\
+			\alpha_{top} & = \SI{28.8}{\meter \per \second \squared}
+		\end{align*}
+	\item Determine the normal force acting upon the car at the top of the loop.
+		\begin{align*}
+			\sum F_y & = m\alpha \\
+			N + mg & = m\alpha \\
+			N & = m(\alpha - g) \\
+			N & = (\SI{938}{\kilogram})(\SI{28.8}{\meter \per \second \squared} - \SI{10.0}{\meter \per \second \squared}) \\
+			N & = \SI{17634.4}{\newton} = \SI{17.6e4}{\newton}
+		\end{align*}
+\end{enumerate}
+
+\section{
+	\href{https://scienceres-edcp-educ.sites.olt.ubc.ca/files/2015/10/sec_phys_circularmotion_problems.pdf}{Circular Motion Problems II}
+}
+
+\subsection{Problem 1}
+
+Sonic is rolling towards a spring in order to quickly change the direction of his speed and make it around the loop. The mass of the giant blue hedgehog is 30 kg and he is rolling towards the spring at 20 m/s. The spring is massless (and therefore perfect), can compress 0.5 m and is attached to an immovable block.
+
+You can assume that there is no friction between the ground and rolling Sonic. What is the smallest the spring constant could be in order for Sonic to roll around the 30 m loop?
+\begin{align*}
+	\alpha & = \frac{ v_1^2 }{ r } \\
+	v_1 & = \sqrt{ (\SI{10.0}{\meter \per \second \squared})(\SI{15}{\meter}) } \\
+	v_1 & = \SI{12.2}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	E_0 & = E_1 \\
+	E_s & = E_{k_1} + E_{p_1} \\
+	\frac{1}{2}kx^2 & = \frac{1}{2}mv_1^2 + mgh_1 \\
+	k & = \frac{ mv_1^2 + 2mgh_1 }{ x^2 } \\
+	k & = \frac{ (\SI{30}{\kilogram})((\SI{12.2}{\meter \per \second})^2 + 2(\SI{10.0}{\meter \per \second \squared})(\SI{30.0}{\meter})) }{ (\SI{0.5}{\meter})^2 } \\
+	k & = \SI{89860.8}{\newton} = \SI{8.99e4}{\newton}
+\end{align*}
+
+\section{
+	\href{https://www.uwgb.edu/fenclh/problems/dynamics/circular/2/}{Banked Curve}
+}
+
+Civil engineers generally bank curves on roads in such a manner that a car going around the curve at the recommended speed does not have to rely on friction between its tires and the road surface in order to round the curve. Suppose that the radius of curvature of a given curve is $ r = \SI{60}{\meter} $, and that the recommended speed is $ v=\SI{40000}{\meter \per \hour} $. At what angle $\theta$ should the curve be banked? 
+\begin{align*}
+	\sum F_y & = 0 \\
+	N\cos(\theta) & = mg \\
+	N & = \frac{ mg }{ \cos(\theta) }
+\end{align*}
+\begin{align*}
+	\sum F_x & = m\alpha \\
+	N\sin(\theta) & = m\alpha \\
+	\left( \frac{ mg }{ \cos(\theta) } \right) \sin(\theta) & = m\alpha \\
+	g\tan(\theta) & = \frac{ v^2 }{ r } \\
+	\tan(\theta) & = \frac{ v^2 }{ rg } \\
+	\theta & = \arctan \left( \frac{ v^2 }{ rg } \right) \\
+	\theta & = \arctan \left( \frac{ \left( \frac{ \SI{40000}{\meter \per \hour} }{ \SI{3600}{\hour \per \second} } \right)^2 }{ (\SI{60}{\meter})(\SI{10}{\meter \per \second \squared}) } \right) \\
+	\theta & = \SI{11.6}{\degree}
+\end{align*}
+
+\section{
+	\href{http://www.batesville.k12.in.us/physics/phynet/mechanics/circular\%20motion/banked_with_friction.htm}{Banked Curve}
+}
+
+\subsection{Example 1}
+A curve has a radius of 50 meters and a banking angle of \SI{15}{\degree}. What is the ideal, or critical, speed (the speed for which no friction is required between the car's tires and the surface) for a car on this curve?
+\begin{align*}
+	\sum F_y & = 0 \\
+	N\cos(\theta) & = mg \\
+	N & = \frac{ mg }{ \cos(\theta) }
+\end{align*}
+\begin{align*}
+	\sum F_x & = m\alpha \\
+	N\sin(\theta) & = m\alpha \\
+	\left( \frac{ mg }{ \cos(\theta) } \right) \sin(\theta) & = m \left( \frac{ v^2 }{ r } \right) \\
+	v & = \sqrt{ rg\tan(\theta) } \\
+	v & = \sqrt{ (\SI{50}{\meter})(\SI{10}{\meter \per \second \squared})\tan(\SI{15}{\degree}) } \\
+	v & = \SI{11.6}{\meter \per \second}
+\end{align*}
+
+\subsection{Example 4}
+
+Suppose you want to negotiate a curve with a radius of 50 meters and a bank angle of \SI{15}{\degree} (See the Example 1). If the coefficient of friction between your tires and the pavement is 0.50, what is the maximum speed that you can safely use?
+\begin{align*}
+	\sum F_y & = 0 \\
+	N_y - f_y & = 0 \\
+	\frac{ mg }{ \cos(\theta) } - f\sin(\theta) & = 0
+\end{align*}
+
+\end{document}

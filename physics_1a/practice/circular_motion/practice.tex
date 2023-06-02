@@ -384,8 +384,82 @@ A curve has a radius of 50 meters and a banking angle of \SI{15}{\degree}. What 
 Suppose you want to negotiate a curve with a radius of 50 meters and a bank angle of \SI{15}{\degree} (See the Example 1). If the coefficient of friction between your tires and the pavement is 0.50, what is the maximum speed that you can safely use?
 \begin{align*}
 	\sum F_y & = 0 \\
-	N_y - f_y & = 0 \\
-	\frac{ mg }{ \cos(\theta) } - f\sin(\theta) & = 0
+	N\cos(\theta) - f\sin(\theta) - mg & = 0 \\
+	N\cos(\theta) - \mu N\sin(\theta) & = mg \\
+	N(\cos(\theta) - \mu \sin(\theta)) & = mg \\
+	N & = \frac{ mg }{ \cos(\theta) - \mu \sin(\theta) }
+\end{align*}
+\begin{align*}
+	\sum F_x & = m\alpha \\
+	N\sin(\theta) + f\cos(\theta) & = m\alpha \\
+	N\sin(\theta) + \mu N\cos(\theta) & = m\alpha \\
+	N(\sin(\theta) + \mu \cos(\theta)) & = m\alpha \\
+	N(\sin(\theta) + \mu \cos(\theta)) & = m\alpha \\
+	\left( \frac{ mg }{ \cos(\theta) - \mu \sin(\theta) } \right)(\sin(\theta) + \mu \cos(\theta)) & = m\alpha \\
+	g(\sin(\theta) + \mu \cos(\theta)) & = \left( \frac{ v^2 }{ r } \right) (\cos(\theta) - \mu \sin(\theta)) \\
+	v & = \sqrt{ \frac{ rg(\sin(\theta) + \mu \cos(\theta)) }{ \cos(\theta) - \mu \sin(\theta) } } \\
+	v & = \sqrt{ \frac{ (\SI{50}{\meter})(\SI{10}{\meter \per \second \squared})(\sin(\SI{15}{\degree}) + (0.50)\cos(\SI{15}{\degree})) }{ \cos(\SI{15}{\degree}) - (0.50)\sin(\SI{15}{\degree}) } } \\
+	v & = \SI{21.1}{\meter \per \second}
+\end{align*}
+
+\section{Energy}
+
+\subsection{7.39}
+
+A block with mass 0.50 kg is forced against a horizontal spring of negligible mass, compressing the spring a distance of 0.20 m (Fig. P7.39). When released, the block moves on a horizontal table-top for 1.00 m before coming to rest. The force constant k is 100 N>m. What is the coefficient of kinetic friction mk between the block and the tabletop?
+\begin{align*}
+	E_0 & = E_1 \\
+	\frac{1}{2}mv_0^2 - \frac{1}{2}kx^2 - fd & = \frac{1}{2}mv_1^2 + mgh_1 \\
+	v_0^2 + 2gh_0 - \frac{ kx^2 }{ m } & = v_1^2 + 2gh_1
+\end{align*}
+
+\subsection{8.61}
+
+\begin{align*}
+	m_p & = \SI{70}{\kilogram} \\
+	m_r & = \SI{110}{\kilogram} \\
+	a & = \SI{0.029}{\meter \per \second \squared}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			v_e & = \SI{490}{\meter \per \second} \\
+			t & = \SI{5}{\second}
+		\end{align*}
+		\begin{align*}
+			\sum F & = \frac{dp}{dt} \\
+			(m_p + m_r)a & = v\frac{dm}{dt} \\
+			dm & = \frac{ (m_p + m_r)a }{ v_e }dt
+		\end{align*}
+\end{enumerate}
+
+\newpage
+\subsection{Asteroid}
+
+\begin{align*}
+	m & = ? \\
+	v_m & = ? \\
+	M & = 3m \\
+	v_M & = \frac{1}{2}v_m \\
+	\alpha & = \SI{60}{\degree} \\
+	\beta & = ?
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item Calculate the velocity
+		\begin{align*}
+			mv_m + Mv_M\cos(\alpha) & = v_{f_x}\cos(\beta)(m + M) \\
+			v_{f_x} & = \frac{ mv_m + Mv_M\cos(\alpha) }{ \cos(\beta)(m + M) }
+		\end{align*}
+		\begin{align*}
+			mv_m + Mv_M\sin(\alpha) & = v_{f_y}\sin(\beta)(m + M) \\
+			v_{f_y} & = \frac{ mv_m + Mv_M\sin(\alpha) }{ \sin(\beta)(m + M) }
+		\end{align*}
+\end{enumerate}
+
+\begin{align*}
+	-m_Av_A - m_Bv_B\cos(\SI{60}{\degree}) + m_Cv_C & = v_f(m_A + m_B + m_C) \\
+	\cos(\theta) & = \frac{ v_f(m_A + m_B + m_C) + m_Av_A + m_Bv_B\cos(\SI{60}{\degree}) }{ m_Cv_C } \\
+	\sin(\theta) & = \frac{ v_f(m_A + m_B + m_C) + m_Av_A + m_Bv_B\sin(\SI{60}{\degree}) }{ m_Cv_C }
 \end{align*}
 
 \end{document}

@@ -1,0 +1,154 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\section{Week 15 and Week 16 Participation Assignment (1 of 2)}
+For the following equations in the form of $ A(x)y'' + B(x)y' + C(x)y = 0 $, classify each singular point (real or complex) of the given equation as regular or irregular by finding the functions $ P(x), Q(x), p(x) = xP(x), q(x) = x^2Q(x) $ and then determine whether $ p(x) $ and $ q(x) $ are \text{ analytic} or not.
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item
+		\begin{equation*}
+			(x^2 - 1)y'' + xy' + 3y = 0
+		\end{equation*}
+		\begin{align*}
+			P(x) & = \frac{ x }{ x^2 - 1 } \\
+			p(x) & = \frac{ x }{ x + 1 }, \text{ analytic} \\
+			Q(x) & = \frac{ 3 }{ x^2 - 1 } \\
+			q(x) & = \frac{ 3(x - 1) }{ x + 1 }, \text{ analytic}
+		\end{align*}
+	\item
+		\begin{equation*}
+			x^2y'' + 8xy' - 3xy = 0
+		\end{equation*}
+		\begin{align*}
+			P(x) & = \frac{ 8 }{ x } \\
+			p(x) & = 8, \text{ analytic} \\
+			Q(x) & = -\frac{ 3 }{ x } \\
+			q(x) & = -3x, \text{ analytic}
+		\end{align*}
+	\item
+		\begin{equation*}
+			(x^2 + 1)y'' + 7x^2y' - 3xy = 0
+		\end{equation*}
+		\begin{align*}
+			x & = \pm i, \quad \therefore \text{ordinary}
+		\end{align*}
+	\item
+		\begin{equation*}
+			(x^2 - x)y'' + xy' + 7y = 0
+		\end{equation*}
+		\begin{align*}
+			P(x) & = \frac{ 1 }{ x - 1 } \\
+			p(x) & = 1, \text{ analytic} \\
+			Q(x) & = \frac{ 7 }{ x(x - 1) } \\
+			q(x) & = \frac{ 7(x - 1) }{ x }, \text{ not analytic}
+		\end{align*}
+\end{enumerate}
+
+\end{document}

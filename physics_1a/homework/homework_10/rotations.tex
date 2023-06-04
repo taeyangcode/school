@@ -47,7 +47,7 @@
 %
 % Diagrams and illustrations
 \usepackage{tikz}
-\usetikzlibrary{positioning}
+\usetikzlibrary{positioning, patterns, angles, quotes, calc}
 %
 % Image insertion
 \usepackage{graphicx}
@@ -186,18 +186,26 @@
 				\node [circle, draw = black, fill = black, inner sep = 2pt] (origin) {};
 
 				\node [below right = 3pt and 5pt of origin] (acceleration) {};
-				\draw [-stealth, thick, densely dashed, draw = black!80] (acceleration) -- ++ (1, 0) node [midway, below] {$ a $};
+				\draw [-stealth, thick, densely dashed] (acceleration) -- ++ (1, 0) node [midway, below] {$ a $};
 
-				\draw [-stealth, thick, draw = black] (origin) -- ++ (\angle:-1.5cm) node [midway, below right] {$ f $};
+				\draw [-stealth, draw = black!80, thick, dashed] (origin) -- ++ (1.5, 0) node (friction_angle) [midway] {};
+				\draw [-stealth, thick, draw = black] (origin) -- ++ (\angle:1.5cm) node [midway] (friction) {};
+				\draw [-stealth, draw = black!80, thick, dashed] (origin) -- ++ (1.5, 0) node (friction_angle) [midway] {};
+				\node [black] at (friction.north west) {$ f $};
 
-				\draw [-stealth, thick, draw = black] (origin) -- ++ (\angle + 90:1.5cm) node [midway, below left] {$ N $};
+				\draw [-stealth, thick, draw = black] (origin) -- ++ (\angle + 90:1.5cm) node [midway] (normal) {};
+				\node [black] at (normal.south west) {$ N $};
 
 				\draw [-stealth, thick, draw = black] (origin) -- ++ (-90:1.5cm) node [midway, right] {$ mg $};
 
-				\node [left = 12pt of origin] (angle_start) {};
-				\draw [-stealth, draw = black!60, thick, dashed] (angle_start.center) arc(180:180 + \angle:0.5) node [midway, right, black!60, thick] {$ \beta $};
+				\pic [draw = black!80, thick, stealth-stealth, "$\beta$", angle eccentricity = 1.3, angle radius = 10mm] {angle = friction_angle--origin--friction};
+
+				\draw [-stealth, draw = black!80, thick, dashed] (origin) -- ++ (0, 1.5) node (normal_angle) [midway] {};
+				\pic [draw = black!80, thick, stealth-stealth, "$\beta$", angle eccentricity = 1.3, angle radius = 10mm] {angle = normal_angle--origin--normal};
 			\end{tikzpicture}
 		\end{center}
+		The angular velocity of the bowling ball is clockwise $ \circlearrowright $ which the friction has to oppose resulting in the friction going upwards (up the incline).
+	\item
 \end{enumerate}
 
 \subsection{10.79}

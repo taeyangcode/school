@@ -1,0 +1,233 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Homework 10 Rotations}
+\author{Corey Mostero - 2566652}
+\date{6 June 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\newcommand{\boldalpha}{\textbf{(\alph*)}}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Book}
+
+\subsection{10.22}
+
+\begin{align*}
+	r & = \SI{8.00}{\centi \meter} \\
+	m & = \SI{0.180}{\kilogram} \\
+	v_0 & = 0 \\
+	\Delta y & = \SI{75.0}{\centi \meter} \\
+	I & = mr^2
+\end{align*}
+\begin{enumerate}[label = \boldalpha]
+	\item
+		\begin{align*}
+			E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+			0 + mgh & = \frac{1}{2}I_{cm}\omega^2 + \frac{1}{2}mr^2\omega^2 + 0 \\
+			mgh & = \omega^2 \left( \frac{1}{2} \left( mr^2 \right) + \frac{1}{2}mr^2 \right) \\
+			\omega & = \frac{ \sqrt{ gh } }{ r } \\
+			\omega & = \frac{ \sqrt{ (\SI{10.0}{\meter \per \second \squared})(\SI{0.75}{\meter}) } }{ \SI{0.08}{\meter} } \\
+			\omega & = \SI{34.2}{\radian \per \second}
+		\end{align*}
+	\item
+		\begin{align*}
+			E_{k_0} + E_{p_0} & = E_{k_1} + E_{p_1} \\
+			0 + mgh & = \frac{1}{2}I_{cm}\omega^2 + \frac{1}{2}mv_{cm}^2 + 0 \\
+			mgh & = \frac{1}{2}(mr^2) \left( \frac{v_{cm}}{r} \right)^2 + \frac{1}{2}mv_{cm}^2 \\
+			v & = \sqrt{ gh } \\
+			v & = \sqrt{ (\SI{10.0}{\meter \per \second \squared})(\SI{0.75}{\meter}) } \\
+			v & = \SI{2.74}{\meter \per \second}
+		\end{align*}
+\end{enumerate}
+
+\subsection{10.26}
+
+\begin{align*}
+	I_{cm} & = \frac{2}{5}mr^2
+\end{align*}
+\begin{enumerate}[label = \boldalpha]
+	\item
+		Velocity for the first half of the bowl:
+		\begin{align*}
+			E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+			0 + mgh & = \frac{1}{2}I_{cm}\omega^2 + \frac{1}{2}mv_{cm}^2 + 0 \\
+			mgh & = \frac{1}{2} \left( \frac{2}{5}mr^2 \right) \left( \frac{v_{cm}^2}{r^2} \right) + \frac{1}{2}mv_{cm}^2 \\
+			v_{cm} & = \sqrt{ \frac{10gh}{7} }
+		\end{align*}
+		Since the ball only slides and doesn't rotate, the kinetic energy it experiences it purely linear velocity and \textit{not} angular.
+		\begin{align*}
+			E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+			\frac{1}{2}mv_{cm}^2 + 0 & = 0 + mgh_1 \\
+			\left( \sqrt{ \frac{10gh_0}{7} } \right)^2 & = 2gh_1 \\
+			h_1 & = \frac{5}{7}h_0
+		\end{align*}
+		The ball reaches only $ \frac{5}{7} $ of the height of the side of the bowl.
+\end{enumerate}
+
+\subsection{10.30}
+
+\begin{enumerate}[label = \boldalpha]
+	\item Free-body diagram:
+		\begin{center}
+			\def\angle{25}
+			\begin{tikzpicture}
+				\node [circle, draw = black, fill = black, inner sep = 2pt] (origin) {};
+
+				\node [below right = 3pt and 5pt of origin] (acceleration) {};
+				\draw [-stealth, thick, densely dashed, draw = black!80] (acceleration) -- ++ (1, 0) node [midway, below] {$ a $};
+
+				\draw [-stealth, thick, draw = black] (origin) -- ++ (\angle:-1.5cm) node [midway, below right] {$ f $};
+
+				\draw [-stealth, thick, draw = black] (origin) -- ++ (\angle + 90:1.5cm) node [midway, below left] {$ N $};
+
+				\draw [-stealth, thick, draw = black] (origin) -- ++ (-90:1.5cm) node [midway, right] {$ mg $};
+
+				\node [left = 12pt of origin] (angle_start) {};
+				\draw [-stealth, draw = black!60, thick, dashed] (angle_start.center) arc(180:180 + \angle:0.5) node [midway, right, black!60, thick] {$ \beta $};
+			\end{tikzpicture}
+		\end{center}
+\end{enumerate}
+
+\subsection{10.79}
+
+\subsection{9.30}
+
+\subsection{9.49}
+
+\subsection{9.79}
+
+\subsection{9.86}
+
+\section{Lab Manual}
+
+\subsection{1170}
+
+\subsection{1173}
+
+\subsection{1175}
+
+\subsection{1177}
+
+\subsection{1181}
+
+\subsection{1283}
+
+\subsection{1284}
+
+\section{Problem C: Spherical Symmetry Problem}
+
+Starting with $ I = \int r^2dm $, calculate the moment of inertial for an axis of rotation that goes through the center of a sphere with uniform mass density $ \rho $, and radius $ R $. As discussed in class, you may treat this problem like the integration of a series of concentric spherical shells with thickness $ dr $.
+
+\end{document}

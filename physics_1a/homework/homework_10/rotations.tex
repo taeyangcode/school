@@ -185,9 +185,6 @@
 			\begin{tikzpicture}
 				\node [circle, draw = black, fill = black, inner sep = 2pt] (origin) {};
 
-				\node [below right = 3pt and 5pt of origin] (acceleration) {};
-				\draw [-stealth, thick, densely dashed] (acceleration) -- ++ (1, 0) node [midway, below] {$ a $};
-
 				\draw [-stealth, draw = black!80, thick, dashed] (origin) -- ++ (1.5, 0) node (friction_angle) [midway] {};
 				\draw [-stealth, thick, draw = black] (origin) -- ++ (\angle:1.5cm) node [midway] (friction) {};
 				\draw [-stealth, draw = black!80, thick, dashed] (origin) -- ++ (1.5, 0) node (friction_angle) [midway] {};
@@ -206,9 +203,46 @@
 		\end{center}
 		The angular velocity of the bowling ball is clockwise $ \circlearrowright $ which the friction has to oppose resulting in the friction going upwards (up the incline).
 	\item
+		Normal force has no affect as it is directed towards the axis of rotation.
+		\begin{align*}
+			\sum F_x & = ma_{cm} \\
+			-f & = ma_{cm} + mg\sin(\beta) \\
+			-\frac{ I_{cm}\alpha }{ r } & = m(a_{cm} + g\sin(\beta)) \\
+			-\frac{ \left( \frac{2}{5}mr^2 \right) \left( \frac{ a_{cm} }{ r } \right) }{ r } & = m(a_{cm} + g\sin(\beta)) \\
+			-\frac{2}{5}a_{cm} & = a_{cm} + g\sin(\beta) \\
+			a_{cm} & = \frac{5g\sin(\beta)}{7}
+		\end{align*}
+	\item
+		\begin{align*}
+			\sum F_y & = 0 \\
+			N & = mg\cos(\beta)
+		\end{align*}
+		\begin{align*}
+			\sum F_x & = ma_{cm} \\
+			-f & = ma_{cm} + mg\sin(\beta) \\
+			-\mu(mg\cos(\beta)) & = m \left( \frac{5g\sin(\beta)}{7} + g\sin(\beta) \right) \\
+			\mu & = \frac{2\tan(\beta)}{7}
+		\end{align*}
 \end{enumerate}
 
 \subsection{10.79}
+
+\begin{align*}
+	I_{cylinder_{cm}} & = \frac{1}{2}m(2r)^2 \\
+	I_{disk_{cm}} & = \frac{1}{2}mr^2
+\end{align*}
+\begin{align*}
+	E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+	\left( \frac{1}{2}I_{cylinder_{cm}} \left( \frac{v}{2r} \right)^2 + \frac{1}{2}mv^2 \right) + \left( \frac{1}{2}I_{disk_{cm}} \left( \frac{v}{r} \right)^2 + \frac{1}{2}mv^2 \right) + 0 & = 0 + mgh \\
+	\left( \frac{1}{2} \left( \frac{1}{2}m(2r)^2 \right) \left( \frac{v}{2r} \right)^2 + \frac{1}{2}mv^2 \right) + \left( \frac{1}{2} \left( \frac{1}{2}mr^2 \right) \left( \frac{v}{r} \right)^2 + \frac{1}{2}mv^2 \right) & = mgh \\
+	v & = \sqrt{ \frac{ 2gh }{ 3 } }
+\end{align*}
+\begin{align*}
+	v_1^2 & = v_0^2 + 2ah \\
+	a & = \frac{ v_1^2 }{ 2h } \\
+	a & = \frac{ \sqrt{ \frac{ 2gh }{ 3 } }^2 }{ 2h } \\
+	a & = \frac{ g }{ 3 }
+\end{align*}
 
 \subsection{9.30}
 

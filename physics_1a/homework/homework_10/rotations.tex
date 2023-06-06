@@ -29,6 +29,7 @@
 %
 % SI Unit
 \usepackage{siunitx}
+\DeclareSIUnit\dyne{dyn}
 \usepackage{physunits}
 %
 % More intuitive arrays/matrices
@@ -246,19 +247,257 @@
 
 \subsection{9.30}
 
+\begin{align*}
+	m & = \SI{0.200}{\kilogram} \\
+	l & = \SI{0.400}{\meter} \\
+\end{align*}
+\begin{enumerate}[label = \boldalpha]
+	\item
+		\begin{align*}
+			r & = \sqrt{ (\sfrac{l}{2})^2 + (\sfrac{l}{2})^2 } \\
+			r & = \SI{0.283}{\meter}
+		\end{align*}
+		\begin{align*}
+			I & = \sum_{i = 1}^{4} (mr^2) \\
+			I & = 4(\SI{0.200}{\kilogram})(\SI{0.283}{\meter})^2 \\
+			I & = \SI{0.0641}{\kilogram \meter \squared} = \SI{6.41e-2}{\kilogram \meter \squared}
+		\end{align*}
+	\item
+		\begin{align*}
+			r & = \SI{0.200}{\meter}
+		\end{align*}
+		\begin{align*}
+			I & = \sum_{i = 1}^{4} (mr^2) \\
+			I & = 4(\SI{0.200}{\kilogram})(\SI{0.200}{\meter})^2 \\
+			I & = \SI{0.320}{\kilogram \meter \squared}
+		\end{align*}
+	\item
+		\begin{align*}
+			r & = \SI{0.283}{\meter}
+		\end{align*}
+		\begin{align*}
+			I & = \sum_{i = 0}^{2} (mr^2) \\
+			I & = 2(\SI{0.200}{\kilogram})(\SI{0.283}{\meter})^2 \\
+			I & = \SI{0.320}{\kilogram \meter \squared}
+		\end{align*}
+\end{enumerate}
+
 \subsection{9.49}
+
+\begin{align*}
+	r & = \SI{0.280}{\meter} \\
+	m_{block} & = \SI{4.20}{\kilogram} \\
+	v_0 & = 0 \\
+	\Delta y & = \SI{3.00}{\meter} \\
+	t & = \SI{2.00}{\second} \\
+	I_{wheel} & = \frac{1}{2}mr^2 \\
+	m_{wheel} & = ?
+\end{align*}
+\begin{enumerate}[labelindent = 0pt, label = \textbf{Method \arabic*: }]
+	\item Using Force Equations + Torque
+		\begin{align*}
+			\sum F_y^{block} & = m_{block}a \\
+			m_{block}g & = T + m_{block}a \\
+			T & = m_{block}(g - a)
+		\end{align*}
+		\begin{align*}
+			\sum F^{wheel} & = m_{wheel}\alpha \\
+			\tau & = I_{wheel}\alpha \\
+			Tr & = \left( \frac{1}{2}m_{wheel}r^2 \right) \left( \frac{a}{r} \right) \\
+			T & = \frac{ m_{wheel}a }{ 2 }
+		\end{align*}
+		\begin{align*}
+			a & = \frac{ v_1 - v_0 }{ t_1 - t_0 } \\
+			a & = \frac{ \SI{3.00}{\meter \per \second} - 0 }{ \SI{2.00}{\second} - 0 } \\
+			a & = \SI{1.50}{\meter \per \second \squared}
+		\end{align*}
+		\begin{align*}
+			m_{block}(g - a) & = \frac{ m_{wheel}a }{ 2 } \\
+			m_{wheel} & = \frac{ 2m_{block}(g - a) }{ a } \\
+			m_{wheel} & = \frac{ 2(\SI{4.20}{\kilogram})(\SI{10.0}{\meter \per \second \squared} - \SI{1.50}{\meter \per \second \squared}) }{ \SI{1.50}{\meter \per \second \squared} } \\
+			m_{wheel} & = \SI{47.6}{\kilogram}
+		\end{align*}
+	\item Using Energy
+		\begin{align*}
+			\Delta y & = \frac{1}{2}(v_f + v_o)t \\
+			v_f & = \frac{ 2\Delta y }{ t } \\
+			v_f & = \frac{ 2(\SI{3.00}{\meter}) }{ \SI{2.00}{\second} } \\
+			v_f & = \SI{3.00}{\meter \per \second} \\
+			\omega & = \frac{ v_f }{ r } \\
+			\omega & = \frac{ \SI{3.00}{\meter \per \second} }{ \SI{0.280}{\meter} } \\
+			\omega & = \SI{10.7}{\radian \per \second}
+		\end{align*}
+		\begin{align*}
+			E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+			0 + E_{P_{block}} & = E_{R_{wheel}} + E_{K_{block}} \\
+			m_{block}g\Delta y & = \frac{1}{2}I_{wheel}\omega_{wheel}^2 + \frac{1}{2}m_{block}v_{block}^2 \\
+			m_{block}g\Delta y & = \frac{1}{2}\left( \frac{1}{2}m_{wheel}r^2 \right) \omega_{wheel}^2 + \frac{1}{2}m_{block}v_{block}^2 \\
+			m_{block} \left( 4g\Delta y - 2v_{block}^2 \right) & = m_{wheel}r^2\omega_{wheel}^2 \\
+			m_{wheel} & = \frac{ m_{block} \left( 4g\Delta y - 2v_{block}^2 \right) }{ r^2\omega_{wheel}^2 } \\
+			m_{wheel} & = \frac{ (\SI{4.20}{\kilogram}) \left( 4(\SI{10.0}{\meter \per \second \squared})(\SI{3.00}{\meter}) - 2(\SI{3.00}{\meter \per \second})^2 \right) }{ (\SI{0.280}{\meter})^2(\SI{10.7}{\radian \per \second})^2 } \\
+			m_{wheel} & = \SI{47.7}{\kilogram}
+		\end{align*}
+\end{enumerate}
 
 \subsection{9.79}
 
+\begin{align*}
+	r_1 & = \SI{2.55}{\centi \meter} = \SI{0.0255}{\meter} \\
+	m_1 & = \SI{0.85}{\kilogram} \\
+	r_2 & = \SI{5.02}{\centi \meter} = \SI{0.0502}{\meter} \\
+	m_2 & = \SI{1.58}{\kilogram}
+\end{align*}
+\begin{enumerate}[label = \boldalpha]
+	\item
+		\begin{align*}
+			I & = \sum_{i = 1}^{2} I_i \\
+			I & = \frac{1}{2}(m_1r_1^2 + m_2r_2^2) \\
+			I & = \frac{1}{2}((\SI{0.85}{\kilogram})(\SI{0.0255}{\meter})^2 + (\SI{1.58}{\kilogram})(\SI{0.0502}{\meter})^2) \\
+			I & = \SI{0.00227}{\kilogram \meter \squared} = \SI{2.27e-3}{\kilogram \meter \squared}
+		\end{align*}
+	\item
+		\begin{align*}
+			v_{block_0} & = 0 \\
+			y_1 & = \SI{2.03}{\meter} \\
+			y_0 & = 0 \\
+			v_{block_1} & = ?
+		\end{align*}
+		\begin{align*}
+			E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+			m_{block}g\Delta y + 0 & = \frac{1}{2}I \left( \frac{v_{block_1}}{r_1} \right)^2 + \frac{1}{2}m_{block}v_{block_1}^2 + 0 \\
+			2g\Delta y & = v_{block_1}^2 \left( \frac{ I }{ m_{block}(r_1)^2 } + 1 \right) \\
+			v_{block_1} & = \sqrt{ \frac{ 2g\Delta y }{ \frac{ I }{ m_{block}(r_1)^2 } + 1 } } \\
+			v_{block_1} & = \sqrt{ \frac{ 2(\SI{10.0}{\meter \per \second \squared})(\SI{2.03}{\meter}) }{ \frac{ \SI{0.00277}{\kilogram \meter \squared} }{ (\SI{1.50}{\kilogram})(\SI{0.0255}{\meter})^2 } + 1 } } \\
+			v_{block_1} & = \SI{3.25}{\meter \per \second}
+		\end{align*}
+	\item
+		\begin{align*}
+			v_{block_1} & = \sqrt{ \frac{ 2g\Delta y }{ \frac{ I }{ m_{block}(r_2)^2 } + 1 } } \\
+			v_{block_1} & = \sqrt{ \frac{ 2(\SI{10.0}{\meter \per \second \squared})(\SI{2.03}{\meter}) }{ \frac{ \SI{0.00277}{\kilogram \meter \squared} }{ (\SI{1.50}{\kilogram})(\SI{0.0502}{\meter})^2 } + 1 } } \\
+			v_{block_1} & = \SI{4.84}{\meter \per \second}
+		\end{align*}
+		The final velocity of the block is greater when the string is wrapped around the higher radius metal disk due to how linear velocity increases with longer lengths. Velocity can be calculated from radius and $ \omega $ using the formula $ v = r\omega $ proving that a greater radius will result in a greater velocity.
+\end{enumerate}
+
 \subsection{9.86}
+
+\begin{align*}
+	P & = \SI{5e31}{\watt} \\
+	T & = \SI{0.0331}{\second} \\
+	\Delta t & = \SI{4.22e-13}{\second}
+\end{align*}
+\begin{enumerate}[label = \boldalpha]
+	\item
+		\begin{align*}
+			E & = \frac{1}{2}I\omega^2 \\
+			E & = \frac{1}{2}I\left( \frac{ 4\pi^2 }{ T^2 } \right) \\
+			\frac{d}{dt}(E) & = \frac{d}{dt} \left( \frac{ 2I\pi^2 }{ T^2 } \right) \\
+			P & = -\frac{ 4I\pi^2\Delta t }{ T^3 } \\
+			I & = -\frac{ PT^3 }{ 4\pi^2\Delta t } \\
+			I & = -\frac{ (\SI{5e31}{\watt})(\SI{0.0331}{\second})^3 }{ 4\pi^2(\SI{4.22e-13}{\second}) } \\
+			I & = \SI{1.09e38}{\kilogram \meter \squared}
+		\end{align*}
+	\item
+		\begin{align*}
+			m_{sun} & = \SI{1.9891e30}{\kilogram}
+		\end{align*}
+		\begin{align*}
+			I & = \frac{2}{5}mr^2 \\
+			r & = \sqrt{ \frac{ 5I }{ 2m } } \\
+			r & = \sqrt {\frac{ 5(\SI{1.09e38}{\kilogram \meter \squared}) }{ 2(1.4)(\SI{1.9891e30}{\kilogram}) } } \\
+			r & = \SI{9892.16}{\meter} = \SI{9.89e3}{\meter}
+		\end{align*}
+	\item
+		\begin{align*}
+			v & = \frac{ 2\pi r }{ T } \\
+			v & = \frac{ 2\pi (\SI{9892.16}{\meter}) }{ \SI{0.0331}{\second} } \\
+			v & = \SI{1.88e6}{\meter \per \second} = \SI{1877772}{\meter \per \second} < c = \SI{299792458}{\meter \per \second}
+		\end{align*}
+	\item
+		\begin{align*}
+			\rho_{rock} & = \SI{3000}{\kilogram \per \meter \cubed} \\
+			\rho_{nucleus} & = \SI{10e17}{\kilogram \per \meter \cubed}
+		\end{align*}
+		\begin{align*}
+			\rho_{\text{neutron star}} & = \frac{ m }{ \frac{ 4\pi r^3 }{ 3 } } \\
+			\rho_{\text{neutron star}} & = \frac{ (1.4)(\SI{1.99e30}{\kilogram}) }{ \frac{ 4\pi (\SI{9.89e3}{\meter})^3 }{ 3 } } \\
+			\rho_{\text{neutron star}} & = \SI{6.88e17}{\kilogram \per \meter \cubed}
+		\end{align*}
+		The density of a neutron star is much closer to the density of an atomic nuclear when compared with the density of an ordinary rock.
+\end{enumerate}
 
 \section{Lab Manual}
 
 \subsection{1170}
 
+\begin{align*}
+	I & = \sum_{i = 1}^{\infty} \left[ \left( \frac{ M }{ n } \right) \left( i \frac{ a }{ n } \right)^2 \right] \\
+	I & = \frac{ Ma^2 }{ n^3 } \sum_{i = 1}^{\infty} \left[ i^2 \right] \\
+	I & = \frac{ Ma^2 }{ n^3 } \left( \frac{ n(n + 1)(2n + 1) }{ 6 } \right) \\
+	I & = \frac{ Ma^2 }{ 6 } \left( \frac{ n(n + 1)(2n + 1) }{ n^3 } \right)
+\end{align*}
+\begin{align*}
+	I & = \lim_{n \to \infty} \left( I \right) \\
+	I & = \frac{ Ma^2 }{ 6 } \lim_{n \to \infty} \left[ \left( 1 + \frac{1}{n} \right) \left( 2 + \frac{1}{n} \right) \cdots \right] \\
+	I & = \frac{ Ma^2 }{ 6 } (3) \\
+	I & = \frac{ Ma^2 }{ 3 }
+\end{align*}
+
 \subsection{1173}
 
+\begin{enumerate}[label = \boldalpha]
+	\item
+		\begin{align*}
+			A_{small} & = \pi R^2 \\
+			A & = \pi \left( \frac{R}{2} \right)^2 \\
+			A & = \frac{ \pi R^2 }{ 4 } \\
+			m_{small} & = \frac{m_{disk}}{4}
+		\end{align*}
+		\begin{align*}
+			I_{small} & = \frac{1}{2}m_{small}\left(\frac{R}{2}\right)^2 + m_{small}\left(\frac{R}{2}\right)^2 \\
+			I_{small} & = \frac{3}{32}m_{disk}R^2
+		\end{align*}
+		\begin{align*}
+			I_{disk} - I_{small} & = I_{crescent} \\
+			\frac{1}{2}m_{disk}R^2 - \frac{3}{32}m_{disk}R^2 & = I_{crescent} \\
+			I_{crescent} & = \frac{13}{32}m_{disk}R^2
+		\end{align*}
+	\item
+		\begin{align*}
+			I & = I_{disk} - I_{small} \\
+			I & = \frac{1}{2}m_{disk}r^2 - \left( \frac{1}{2}m_{small} \left( \frac{r}{2} \right)^2 + m_{small} \left( \frac{r}{2} \right)^2 \right) \\
+			I & = \frac{1}{2}\left( \frac{4M}{3} \right)r^2 - \left( \frac{1}{2}\left( \frac{M}{3} \right) \left( \frac{r}{2} \right)^2 + \left( \frac{M}{3} \right) \left( \frac{r}{2} \right)^2 \right) \\
+			I & = \frac{13Mr^2}{24}
+		\end{align*}
+\end{enumerate}
+
 \subsection{1175}
+
+\begin{align*}
+	r = r_{1,2} & = \SI{10}{\centi \meter} = \SI{0.100}{\meter} \\
+	m = m_{1,2} & = \SI{1000}{\gram} = \SI{1.00}{\kilogram} \\
+	l & = \SI{30}{\centi \meter} = \SI{0.300}{\meter}
+\end{align*}
+\begin{enumerate}[label = \boldalpha]
+	\item
+		\begin{align*}
+			I & = I_1 + I_{rod} + I_2 \\
+			I & = \left( \frac{2}{5}mr^2 \right) + 0 + \left( \frac{2}{5}mr^2 + ml^2 \right) \\
+			I & = \left( \frac{2}{5}(\SI{1.00}{\kilogram})(\SI{0.100}{\meter})^2 \right) + \left( \frac{2}{5}(\SI{1.00}{\kilogram})(\SI{0.100}{\meter})^2 + (\SI{1.00}{\kilogram})(\SI{0.300}{\meter})^2 \right) \\
+			I & = \SI{0.0980}{\kilogram \meter \squared}
+		\end{align*}
+	\item
+		\begin{align*}
+			\tau & = \SI{98000}{\dyne \centi \meter} = \SI{0.00980}{\newton \meter}
+		\end{align*}
+		\begin{align*}
+			\tau & = I\alpha \\
+			\tau & = I \left( \frac{ \omega }{ \frac{ 2\pi }{ \omega } } \right) \\
+			\omega & = \sqrt{ \frac{ 2\tau \pi }{ I } } \\
+			\omega & = \sqrt{ \frac{ 2(\SI{0.00980}{\newton \meter})\pi }{ \SI{0.0980}{\kilogram \meter \squared} } } \\
+			\omega & = \SI{0.793}{\radian \per \second}
+		\end{align*}
+\end{enumerate}
 
 \subsection{1177}
 

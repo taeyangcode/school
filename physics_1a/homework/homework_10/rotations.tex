@@ -30,6 +30,8 @@
 % SI Unit
 \usepackage{siunitx}
 \DeclareSIUnit\dyne{dyn}
+\DeclareSIUnit\slug{slug}
+\DeclareSIUnit\feet{feet}
 \usepackage{physunits}
 %
 % More intuitive arrays/matrices
@@ -492,23 +494,187 @@
 		\end{align*}
 		\begin{align*}
 			\tau & = I\alpha \\
-			\tau & = I \left( \frac{ \omega }{ \frac{ 2\pi }{ \omega } } \right) \\
-			\omega & = \sqrt{ \frac{ 2\tau \pi }{ I } } \\
-			\omega & = \sqrt{ \frac{ 2(\SI{0.00980}{\newton \meter})\pi }{ \SI{0.0980}{\kilogram \meter \squared} } } \\
-			\omega & = \SI{0.793}{\radian \per \second}
+			\omega & = \sqrt{ \frac{ 4\tau \pi }{ I } } \\
+			\omega & = \sqrt{ \frac{ 4(\SI{0.00980}{\newton \meter})\pi }{ \SI{0.0980}{\kilogram \meter \squared} } } \\
+			\omega & = \SI{1.12}{\radian \per \second}
 		\end{align*}
 \end{enumerate}
 
 \subsection{1177}
 
+\begin{align*}
+	m_{pulley} & = \SI{4}{\slug} \\
+	m_1 & = \SI{5}{\slug} \\
+	m_2 & = \SI{3}{\slug} \\
+	R & = \SI{0.5}{\feet}
+\end{align*}
+\begin{enumerate}[label = \boldalpha]
+	\item
+		\begin{align*}
+			\sum F_y^{m_1} & = m_1a \\
+			m_1g & = m_1a + T_1 \\
+			T_1 & = m_1(g - a)
+		\end{align*}
+		\begin{align*}
+			\sum F_y^{m_2} & = m_2a \\
+			T_2 & = m_2a + m_2g = m_2(a + g)
+		\end{align*}
+		\begin{align*}
+			\tau & = I\alpha \\
+			RT_1 - RT_2 & = \left( \frac{1}{2}m_{pulley}R^2 \right) \left( \frac{a}{R} \right) \\
+			2R(m_1g - m_1a - m_2a - m_2g) & = Ram_{pulley} \\
+			2a(-m_1 - m_2) + 2g(m_1 - m_2) & = am_{pulley} \\
+			2a(-m_1 - m_2) - am_{pulley} & = -2g(m_1 - m_2) \\
+			a(-2(m_1 + m_2) - m_{pulley}) & = -2g(m_1 - m_2) \\
+			a & = -\frac{ 2g(m_1 - m_2) }{ -2(m_1 + m_2) - m_{pulley} } \\
+			a & = -\frac{ 2(\SI{32.17}{\feet \per \second \squared})(\SI{5}{\slug} - \SI{3}{\slug}) }{ -2(\SI{5}{\slug} + \SI{3}{\slug}) - \SI{4}{\slug} } \\
+			a & = \SI{6.54}{\feet \per \second \squared}
+		\end{align*}
+		\begin{align*}
+			T_1 & = m_1(g - a) \\
+			T_1 & = (\SI{5}{\slug})(\SI{32.17}{\feet \per \second \squared} - \SI{6.54}{\feet \per \second \squared}) \\
+			T_1 & = \SI{128.15}{\slug \feet \per \second \squared} = \SI{1.28e2}{\slug \feet \per \second \squared}
+		\end{align*}
+		\begin{align*}
+			T_2 & = m_2(a + g) \\
+			T_2 & = (\SI{3}{\slug})(\SI{6.54}{\feet \per \second \squared} + \SI{32.17}{\feet \per \second \squared}) \\
+			T_2 & = \SI{116.13}{\slug \feet \per \second \squared} = \SI{1.16e2}{\slug \feet \per \second \squared}
+		\end{align*}
+	\item
+		\begin{align*}
+			\sum F_y^{pulley} & = 0 \\
+			T_{top} & = T_1 + T_2 \\
+			T_{top} & = \SI{128.15}{\slug \feet \per \second \squared} + \SI{116.13}{\slug \feet \per \second \squared} \\
+			T_{top} & = \SI{244.28}{\slug \feet \per \second \squared} = \SI{2.44e2}{\slug \feet \per \second \squared}
+		\end{align*}
+		The reason the tension in the cord support the pulley may not be equal to the sum of the tensions may be due to the cord itself \textit{having mass}. It could also stem from how the cord holding the pulley isn't exactly $ R $ feet from the pulley's center of mass.
+\end{enumerate}
+
 \subsection{1181}
+
+\begin{align*}
+	I_{ring} & = \frac{1}{2}m(r_{outer}^2 + r_{inner}^2) \\
+	m & = \SI{2.4}{\kilogram} \\
+	r_{inner} & = \SI{6.0}{\centi \meter} = \SI{0.06}{\meter} \\
+	r_{outer} & = \SI{8.0}{\centi \meter} = \SI{0.08}{\meter} \\
+	v_{y = \SI{2.0}{\meter}} & = \SI{2.8}{\meter \per \second} \\
+	y_{max} & = ? \\
+	\theta & = \SI{37.0}{\degree}
+\end{align*}
+\begin{align*}
+	\omega_{ring_{y = \SI{2.0}{\meter}}} & = \frac{v}{r_{outer}} = \frac{\SI{2.8}{\meter \per \second}}{\SI{0.08}{\meter}} = \SI{35.0}{\radian \per \second}
+\end{align*}
+\begin{align*}
+	E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+	\left( \frac{1}{2}I_{ring}\omega_{ring}^2 + \frac{1}{2}mv^2 \right) + 0 & = 0 + mgy_1\sin(\theta) \\
+	\frac{1}{2}(r_{outer}^2 + r_{inner}^2)\omega_{ring}^2 + v^2 & = 2gy_1\sin(\theta) \\
+	y_1 & = \frac{ \omega_{ring}^2(r_{outer}^2 + r_{inner}^2) + 2v^2 }{ 4g\sin(\theta) } \\
+	y_1 & = \frac{ (\SI{35.0}{\radian \per \second})^2 \left[ (\SI{0.08}{\meter})^2 + (\SI{0.06}{\meter})^2 \right] + 2(\SI{2.8}{\meter \per \second})^2 }{ 4(\SI{10.0}{\meter \per \second \squared})\sin(\SI{37.0}{\degree}) } \\
+	y_1 & = \SI{1.16}{\meter}
+\end{align*}
+\begin{align*}
+	y_{max} & = y_0 + y_1 \\
+	y_{max} & = \SI{2.0}{\meter} + \SI{1.16}{\meter} \\
+	y_{max} & = \SI{3.16}{\meter}
+\end{align*}
 
 \subsection{1283}
 
+\begin{align*}
+	I_{cm} & = \frac{2}{5}mr^2 \\
+	v_0 & = 0 \\
+	\theta & = \SI{30.0}{\degree} \\
+	d_{1_{slope}} & = \SI{70}{\centi \meter} = \SI{0.70}{\meter} \\
+	d_2 & = \SI{140}{\centi \meter} = \SI{1.40}{\meter} \\
+	\Delta y & = \SI{245}{\centi \meter} = \SI{2.45}{\meter} \\
+	d_3 & = ?
+\end{align*}
+\begin{enumerate}[label = \boldalpha]
+	\item
+		Normal force, weight, inertia
+	\item
+		\begin{align*}
+			\sin(\theta) & = \frac{ d_{1_y} }{ d_{1_{slope}} } \\
+			d_{1_y} & = d_{1_{slope}}\sin(\theta) \\
+			d_{1_y} & = (\SI{0.70}{\meter})\sin(\SI{30.0}{\degree}) \\
+			d_{1_y} & = \SI{0.35}{\meter}
+		\end{align*}
+		\begin{align*}
+			E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+			0 + mgd_{1_y} & = \left[ \frac{1}{2}I_{cm} \left( \frac{v}{r} \right)^2 + \frac{1}{2}mv^2 \right] + 0 \\
+			gd_{1_y} & = \frac{1}{2} \left[ \frac{2}{5}v^2 + v^2 \right] \\
+			v & = \sqrt{ \frac{ 10gd_{1_y} }{ 7 } } \\
+			v & = \SI{2.24}{\meter \per \second}
+		\end{align*}
+		\begin{align*}
+			v_1^2 & = v_0^2 + 2ad_1 \\
+			a & = \frac{ (\SI{2.24}{\meter \per \second})^2 }{ 2(\SI{0.70}{\meter}) } \\
+			a & = \SI{3.584}{\meter \per \second \squared}
+		\end{align*}
+		\begin{align*}
+			d_1 & = v_o^2t_1 + \frac{1}{2}at_1^2 \\
+			t_1 & = \sqrt{ \frac{ 2d_1 }{ a } } \\
+			t_1 & = \sqrt{ \frac{ 2(\SI{0.70}{\meter}) }{ \SI{3.584}{\meter \per \second \squared} } } \\
+			t_1 & = \SI{0.625}{\second}
+		\end{align*}
+		\begin{align*}
+			d_2 & = vt_2 \\
+			t_2 & = \frac{ d_2 }{ v } \\
+			t_2 & = \frac{ \SI{1.40}{\meter} }{ \SI{2.24}{\meter \per \second} } \\
+			t_2 & = \SI{0.625}{\second}
+		\end{align*}
+		\begin{align*}
+			\Delta y & = v_{o_y}^2t_3 + \frac{1}{2}gt_3^2 \\
+			t_3 & = \sqrt{ \frac{ 2\Delta y }{ g } } \\
+			t_3 & = \sqrt{ \frac{ 2(\SI{2.45}{\meter}) }{ \SI{10.0}{\meter \per \second \squared} } } \\
+			t_3 & = \SI{0.7}{\second}
+		\end{align*}
+		\begin{align*}
+			\Delta t & = \sum_{i = 1}^3 t_i \\
+			\Delta t & = 2(\SI{0.625}{\second}) + \SI{0.70}{\second} \\
+			\Delta t & = \SI{1.95}{\second}
+		\end{align*}
+	\item
+		\begin{align*}
+			R & = v_0t_3 + \frac{1}{2}a_xt_3^2 \\
+			R & = (\SI{2.24}{\meter \per \second})(\SI{0.7}{\second}) \\
+			R & = \SI{1.568}{\meter} = \SI{1.57}{\meter}
+		\end{align*}
+\end{enumerate}
+
 \subsection{1284}
+
+\begin{align*}
+	E_{K_0} + E_{P_0} & = E_{K_1} + E_{P_1} \\
+	\frac{1}{2}mv^2 + \frac{1}{2} \left( \frac{2}{5}mr^2\omega^2 \right) + 0 & = 0 + 2mgR \\
+	v^2 & = \frac{20gR}{7} \\
+	\frac{v^2}{R} & = \frac{20g}{7}
+\end{align*}
+\begin{align*}
+	\sum \tau & = I\alpha \\
+	\sum \tau & = \left( \frac{2}{5}mR^2 \right)\frac{a}{R}
+\end{align*}
+\begin{align*}
+	mg + \frac{2}{5}ma & = ma \\
+	a & = \frac{5g}{r}
+\end{align*}
 
 \section{Problem C: Spherical Symmetry Problem}
 
 Starting with $ I = \int r^2dm $, calculate the moment of inertial for an axis of rotation that goes through the center of a sphere with uniform mass density $ \rho $, and radius $ R $. As discussed in class, you may treat this problem like the integration of a series of concentric spherical shells with thickness $ dr $.
+\begin{align*}
+	I_{disk} & = \frac{1}{2}MR^2 \\
+	dI & = \frac{1}{2}r^2 dm \\
+	dm & = \rho dv \\
+	dv & = \pi r^2 dr \\
+	dm & = \rho \pi r^2 dr \\
+	dI & = \frac{1}{2} \rho \pi r^4 dr \\
+	r^2 & = R^2 - x^2 \\
+	dI & = \frac{1}{2} \rho \pi (R^2 - x^2)^2 dr \\
+	I & = \frac{1}{2} \rho \pi \int_{-R}^{R} (R^2 - x^2)^2 dx \\
+	I & = \rho \pi \left( \frac{8}{15} \right) R^5 \\
+	I & = \frac{8}{15} \frac{3M\pi R^3}{4} \pi R^5 \\
+	I & = \frac{2}{5}MR^2
+\end{align*}
 
 \end{document}

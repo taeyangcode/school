@@ -1,0 +1,273 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit\atm{atm}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{Surface Tension}
+
+\subsection{12.38}
+
+\begin{align*}
+	A_0v_0 & = \SI{0.750}{\meter \cubed \per \second}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			d & = \SI{4.50}{\centi \meter} = \SI{0.0450}{\meter}
+		\end{align*}
+		\begin{align*}
+			A_0v_0 & = A_1v_1 \\
+			v_1 & = \frac{ A_0v_0 }{ A_1 } \\
+			v_1 & = \frac{ \SI{0.750}{\meter \cubed \per \second} }{ \pi \left( \frac{ \SI{0.0450}{\meter} }{ 2 } \right)^2 } \\
+			v_1 & = \SI{472}{\meter \per \second}
+		\end{align*}
+	\item
+		\begin{align*}
+			A_0v_0 & = A_1v_1 \\
+			\pi \left( \frac{ 3(\SI{0.0450}{\meter}) }{ 2 } \right)^2v_0 & = \SI{0.750}{\meter \cubed \per \second} \\
+			v_0 & = \SI{52.4}{\meter \per \second}
+		\end{align*}
+\end{enumerate}
+
+\subsection{12.39}
+
+\begin{align*}
+	A_0v_0 & = A_1v_1 \\
+	\pi (\SI{0.008}{\meter})^2(\SI{3.0}{\meter \per \second}) & = \pi [20(\SI{0.001}{\meter})^2]v_1 \\
+	v_1 & = \SI{9.6}{\meter \per \second}
+\end{align*}
+
+\section{Bernoulli's Equation}
+
+\begin{align*}
+	\text{Work} & = \vect{F} \cdot \Delta \vect{x} = F\Delta x\cos(\theta) \\
+	\text{Work} & = \Delta KE \\
+	\text{Work} & = -\Delta PE
+\end{align*}
+\begin{align*}
+	\text{Work} & = \Delta KE + \Delta PE \\
+	F_0ds_0 - F_1ds_1 & = \left[ \frac{1}{2}mv_1^2 - \frac{1}{2}mv_0^2 \right] + \left[ mgh_1 - mgh_0 \right] \\
+	F_0ds_0 + \frac{1}{2}mv_0^2 + mgh_0 & = F_1ds_1 + \frac{1}{2}mv_1^2 + mgh_1 \\
+	P_0A_0ds_0 + \frac{1}{2}mv_0^2 + mgh_0 & = P_1A_1ds_1 + \frac{1}{2}mv_1^2 + mgh_1 \\
+	P_0V + \frac{1}{2} \left[ \rho V \right] v_0^2 +  \left[ \rho V \right] gh_0 & = P_1V + \frac{1}{2} \left[ \rho V \right] v_1^2 +  \left[ \rho V \right] gh_1 \\
+	P_0 + \frac{1}{2}\rho v_0^2 + \rho gh_0 & = P_1 + \frac{1}{2}\rho v_1^2 + \rho gh_1
+\end{align*}
+
+\subsection{12.45}
+
+\begin{align*}
+	y_1 & = \SI{11.0}{\meter} \\
+	p_0 & = \SI{3.00}{\atm}
+\end{align*}
+\begin{align*}
+	p_0 + 0 + \rho gh_0 & = p_1 + \frac{1}{2}\rho v_1^2 + 0 \\
+	v_1 & = \sqrt{ 2 \left[ \frac{ p_0 - p_1 }{ \rho } + gh_0 \right] } \\
+	v_1 & = \sqrt{ 2 \left[ \frac{ \SI{3.039e5}{\pascal} - 0 }{ \SI{1.00e3}{\kilogram \per \meter \cubed} } + (\SI{10.0}{\meter \per \second \squared})(\SI{11.0}{\meter}) \right] } \\
+	v_1 & = \SI{26.7918}{\meter \per \second} = \SI{26.8}{\meter \per \second}
+\end{align*}
+
+\subsection{12.49}
+
+\begin{align*}
+	v_0 & = \SI{2.50}{\meter \per \second} \\
+	p_0 & = \SI{1.80e4}{\pascal}
+\end{align*}
+\begin{align*}
+	A_0v_0 & = A_1v_1 \\
+	v_1 & = \frac{ A_0 }{ 2A_0 }v_0 \\
+	v_1 & = \frac{ \SI{2.50}{\meter \per \second} }{ 2 } \\
+	v_1 & = \SI{1.25}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	p_0 + \frac{1}{2}\rho v_0^2 + \rho gh_0 & = p_1 + \frac{1}{2}\rho v_1^2 + \rho gh_1 \\
+	p_0 + \frac{1}{2}\rho v_0^2 + 0 & = p_1 + \frac{1}{2}\rho v_1^2 + 0 \\
+	p_1 & = p_0 + \frac{1}{2}\rho v_0^2 - \frac{1}{2}\rho v_1^2 \\
+	p_1 & = \SI{1.80e4}{\pascal} + \frac{1}{2}(\SI{1.00e3}{\kilogram \per \meter \cubed}) \left[ (\SI{2.50}{\meter \per \second \squared})^2 - (\SI{1.25}{\meter \per \second})^2 \right] \\
+	p_1 & = \SI{20343.8}{\pascal} = \SI{2.03e4}{\pascal}
+\end{align*}
+
+\subsection{12.50}
+
+\begin{align*}
+	v_0 & = \SI{3.00}{\meter \per \second} \\
+	p_0 & = \SI{5.00e4}{\pascal} \\
+	y_0 & = \SI{11.0}{\meter} \\
+	p_1 & = ? \\
+	2d_1 & = d_0
+\end{align*}
+\begin{align*}
+	A_0v_0 & = A_1v_1 \\
+	\left[ \pi \left( \frac{d}{2} \right)^2 \right]v_0 & = \left[ 2\pi \left( \frac{ d }{ 2 } \right)^2 \right]v_1 \\
+	v_1 & = 4v_0 \\
+	v_1 & = 4(\SI{3.00}{\meter \per \second}) \\
+	v_1 & = \SI{12.0}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	p_0 + \frac{1}{2}\rho v_0^2 + \rho gh_0 & = p_1 + \frac{1}{2}\rho v_1^2 + \rho gh_1 \\
+	p_0 + \frac{1}{2}\rho v_0^2 + \rho gh_0 & = p_1 + \frac{1}{2}\rho v_1^2 + 0
+\end{align*}
+\begin{align*}
+	p_1 & = p_0 + \frac{1}{2}\rho v_0^2 + \rho gh_0 - \frac{1}{2}\rho v_1^2 \\
+	p_1 & = \SI{5.00e4}{\pascal} + \frac{1}{2}(\SI{1.00e3}{\kilogram \per \meter \cubed})(\SI{3.00}{\meter \per \second})^2 + (\SI{1.00e3}{\kilogram \per \meter \cubed})(\SI{10.0}{\meter \per \second \squared})(\SI{11.0}{\meter}) \\
+		& - \frac{1}{2}(\SI{1.00e3}{\kilogram \per \meter \cubed})(\SI{12.0}{\meter \per \second})^2 \\
+	p_1 & = \SI{158500}{\pascal} = \SI{1.59e5}{\pascal}
+\end{align*}
+
+\subsection{12.51}
+
+\begin{align*}
+	Q_0 & = \SI{7200}{\centi \meter \cubed \per \second} = \SI{7.20e-3}{\meter \cubed \per \second} \\
+	r_0 & = \SI{0.0400}{\meter} \\
+	p_0 & = \SI{2.40e5}{\pascal} \\
+	r_1 & = \SI{0.0200}{\meter}
+\end{align*}
+\begin{align*}
+	A_0v_0 & = A_1v_1 \\
+	Q_0 & = \pi r_1^2 v_1 \\
+	v_1 & = \frac{ Q_0 }{ \pi r_1^2 } \\
+	v_1 & = \frac{ \SI{7.20e-3}{\meter \cubed \per \second} }{ \pi (\SI{0.0200}{\meter})^2 } \\
+	v_1 & = \SI{5.73}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	v_0 & = \frac{ Q_0 }{ A_0 } \\
+	v_0 & = \frac{ \SI{7.20e-3}{\meter \cubed \per \second} }{ \pi (\SI{0.0400}{\meter})^2 } \\
+	v_0 & = \SI{1.43}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	p_0 + \frac{1}{2}\rho v_0^2 + \rho gh_0 & = p_1 + \frac{1}{2}\rho v_1^2 + \rho gh_1 \\
+	p_0 + \frac{1}{2}\rho v_0^2 + 0 & = p_1 + \frac{1}{2}\rho v_1^2 + 0 \\
+	p_1 & = p_0 + \frac{1}{2}\rho \left[ v_0^2 - v_1^2 \right] \\
+	p_1 & = \SI{2.40e5}{\pascal} + \frac{1}{2}(\SI{1.00e3}{\kilogram \per \meter \cubed}) \left[ (\SI{1.43}{\meter \per \second})^2 - (\SI{5.73}{\meter \per \second})^2 \right] \\
+	p_1 & = \SI{224606}{\pascal} = \SI{2.25e5}{\pascal}
+\end{align*}
+
+\subsection{Problem}
+
+\begin{align*}
+	A_0 & = \SI{1.00}{\meter \squared} \\
+	y_0 & = \SI{5.00}{\meter} \\
+	A_1 & = \SI{0.500}{\meter \squared}
+\end{align*}
+\begin{align*}
+	A_0v_0 & = A_1v_1 \\
+	v_0 & = \frac{1}{2}v_1
+\end{align*}
+\begin{align*}
+	p_0 + \frac{1}{2}\rho v_0^2 + \rho gh_0 & = p_1 + \frac{1}{2}\rho v_1^2 + \rho gh_1 \\
+	0 + \frac{1}{2}\rho \left[ \frac{1}{2}v_1 \right]^2 + \rho gh_0 & = 0 + \frac{1}{2}\rho v_1^2 + 0 \\
+	v_1^2 \left[ \frac{1}{2} \rho - \frac{1}{8}\rho \right] & = \rho gh_0 \\
+	v_1 & = \sqrt{ \frac{ gh_0 }{ \frac{1}{2} - \frac{1}{8} } } \\
+	v_1 & = \sqrt{ \frac{ (\SI{10.0}{\meter \per \second \squared})(\SI{5.00}{\meter}) }{ \frac{1}{2} - \frac{1}{8} } } \\
+	v_1 & = \SI{11.547}{\meter \per \second}
+\end{align*}
+
+\end{document}

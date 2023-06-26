@@ -1,0 +1,377 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit\cal{cal}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{Chapter 17 - Temperature and Heat}
+
+To convert Celsius to Fahrenheit:
+\begin{equation}
+	T_F = \frac{9}{5}T_C + \SI{32}{\degree}
+\end{equation}
+To convert Fahrenheit to Celsius:
+\begin{equation}
+	T_C = \frac{5}{9}(T_F - \SI{32}{\degree})
+\end{equation}
+To convert from Celsius to Kelvin:
+\begin{equation}
+	T_K = T_C + 273.15
+\end{equation}
+
+\subsection{17.3}
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			T_{F_0} & = \SI{-4.0}{\degree} \\
+			T_{F_1} & = \SI{45.0}{\degree}
+		\end{align*}
+		\begin{align*}
+			\Delta T_F & = T_{F_1} - T_{F_0} \\
+			\Delta T_F & = \SI{45.0}{\degree} - \SI{-4.0}{\degree} \\
+			\Delta T_F & = \SI{49.0}{\degree}
+		\end{align*}
+		\begin{align*}
+			(100)\Delta T_F & = (180)T_C \\
+			T_C & = \SI{27.2}{\celsius}
+		\end{align*}
+\end{enumerate}
+
+\subsection{17.5}
+
+\begin{align*}
+	\Delta T_K & = \SI{10.0}{\kelvin}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			T_{F_1} & = \frac{9}{5}(\SI{10.0}{\celsius} + \SI{32.0}{\degree}) \\
+			T_{F_1} & = \SI{18.0}{\degree}
+		\end{align*}
+		\begin{align*}
+			T_{F_0} & = \frac{9}{5}(0 + \SI{32.0}{\degree}) \\
+			T_{F_0} & = \SI{57.6}{\degree}
+		\end{align*}
+		\begin{align*}
+			T_F & = T_{F_1} - T_{F_0} \\
+			T_F & = \SI{18.0}{\degree}
+		\end{align*}
+\end{enumerate}
+
+\section{Linear Thermal Expansion}
+
+\begin{equation}
+	\Delta L = \alpha L_0\Delta T
+\end{equation}
+
+\subsection{Expanding Holes and Volume Expansion}
+
+\begin{equation}
+	\Delta V = \beta V_0\Delta T, \quad \beta = 3\alpha
+\end{equation}
+
+\subsection{17.11}
+
+\begin{align*}
+	L_0 & = \SI{1410}{\meter} \\
+	T_0 & = \SI{-5.0}{\celsius} \\
+	T_1 & = \SI{18.0}{\celsius} \\
+	\alpha_{steel} & = \SI{1.2e-5}{\per \celsius} \\
+	\Delta L & = ?
+\end{align*}
+\begin{align*}
+	\Delta L & = L_0\alpha \Delta T \\
+	\Delta L & = (\SI{1410}{\meter})(\SI{1.2e-5}{\per \celsius})(\SI{18.0}{\celsius} - (\SI{-5.0}{\celsius}) \\
+	\Delta L & = \SI{0.38916}{\meter}
+\end{align*}
+
+\subsection{17.15}
+
+\begin{align*}
+	T_0 & = \SI{20.0}{\celsius} \\
+	\beta_{copper} & = \SI{5.1e-5}{\per \celsius} \\
+	V_1 & = (0.0015)V_0
+\end{align*}
+\begin{align*}
+	\Delta V & = V_0\beta \Delta T \\
+	\Delta T & = \frac{ \Delta V }{ V_0\beta } \\
+	\Delta T & = \frac{ (0.0015)V_0 }{ V_0\beta } \\
+	\Delta T & = \frac{ 0.0015 }{ \SI{5.1e-5}{\per \celsius} } \\
+	\Delta T & = \SI{29.4118}{\celsius}
+\end{align*}
+
+\subsection{17.16}
+
+\begin{align*}
+	d & = \SI{55.0}{\meter} \\
+	T_{winter} & = \SI{-15}{\celsius} \\
+	T_{summer} & = \SI{35}{\celsius} \\
+	\beta_{aluminum} & = \SI{7.2e-5}{\per \celsius} \\
+	\Delta V & = ?
+\end{align*}
+\begin{align*}
+	\Delta V & = V_0\beta \Delta T \\
+	\Delta V & = \left( \frac{2}{3}\pi \frac{ \SI{55.0}{\meter} }{ 2 } \right) (\SI{7.2e-5}{\per \celsius})(\SI{35}{\celsius} - (\SI{-15}{\celsius})) \\
+	\Delta V & = \SI{156.805}{\meter \cubed}
+\end{align*}
+
+\subsection{17.19}
+
+\begin{align*}
+	d & = \SI{1.35}{\centi \meter} = \SI{0.0135}{\meter} \\
+	T_0 & = \SI{25.0}{\celsius} \\
+	\alpha_{steel} & = \SI{1.2e-5}{\per \celsius}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			A_0 & = \pi r^2 \\
+			A_0 & = \pi \left( \frac{ \SI{0.0135}{\meter} }{ 2 } \right)^2 \\
+			A_0 & = \SI{0.00143}{\meter \squared}
+		\end{align*}
+	\item
+		\begin{align*}
+			\Delta A & = 2\alpha A_0\Delta T \\
+			\Delta A & = 2(\SI{1.2e-5}{\per \celsius})(\SI{0.00143}{\meter \squared})(\SI{175}{\celsius} - \SI{25.0}{\celsius}) \\
+			\Delta A & = \SI{5.148e-6}{\meter \squared}
+		\end{align*}
+		\begin{align*}
+			A & = A_0 + \Delta A \\
+			A & = \SI{0.00143}{\meter \squared} + \SI{5.148e-6}{\meter \squared} \\
+			A & = \SI{0.001435}{\meter \squared}
+		\end{align*}
+\end{enumerate}
+
+\section{Thermal Expansion of Water}
+
+\subsection{Thermal Stress}
+
+\begin{equation}
+	\frac{ F }{ A } = -Y\alpha \Delta T
+\end{equation}
+
+\subsection{17.22}
+
+\begin{align*}
+	L_0 & = \SI{185}{\centi \meter} = \SI{1.85}{\meter} \\
+	d & = \SI{1.60}{\centi \meter} = \SI{0.016}{\meter} \\
+	T_0 & = \SI{120.0}{\celsius} \\
+	T_1 & = \SI{10.0}{\celsius} \\
+	Y_{brass} & = \SI{9.0e10}{\pascal} \\
+	\alpha_{brass} & = \SI{2.0e-5}{\per \celsius} \\
+	F & = ?
+\end{align*}
+\begin{align*}
+	\frac{ F }{ A } = -Y\alpha \Delta T \\
+	F & = -AY\alpha \Delta T \\
+	F & = -\left( \pi \left( \frac{ \SI{0.016}{\meter} }{ 2 } \right)^2 \right)(\SI{9.0e10}{\pascal})(\SI{2.0e-5}{\per \celsius})(\SI{10.0}{\celsius} - \SI{120.0}{\celsius}) \\
+	F & = \SI{39810.3}{\newton}
+\end{align*}
+\begin{align*}
+	F_0 = F_1 & = \frac{ F }{ 2 } = \frac{ \SI{39810.3}{\newton} }{ 2 } = \SI{19905.1}{\newton}
+\end{align*}
+
+\section{Quantity of Heat}
+
+The quantity of heat $ Q $ required to increase the temperature of a mass $ m $ of a certain  material by $ \Delta T $ is:
+\begin{equation}
+	Q = mc\Delta T
+\end{equation}
+\begin{equation}
+	\SI{1}{\cal} = \SI{4.186}{\joule}
+\end{equation}
+Specific heat is found by:
+\begin{equation*}
+	dQ = mcdT
+\end{equation*}
+\begin{equation}
+	c = \frac{1}{m}\frac{dQ}{dT}
+\end{equation}
+
+\subsection{17.29}
+
+\begin{align*}
+	w & = \SI{28.4}{\newton} \\
+	Q & = \SI{1.25e4}{\joule} \\
+	\Delta T & = \SI{18.0}{\celsius} \\
+	c & = ?
+\end{align*}
+\begin{align*}
+	Q & = mc\Delta T \\
+	c & = \frac{ Q }{ \frac{ w }{ g }\Delta T } \\
+	c & = \frac{ \SI{1.25e4}{\joule} }{ \left( \frac{ \SI{28.4}{\newton} }{ \SI{9.80}{\meter \per \second \squared} } \right) (\SI{18.0}{\celsius}) } \\
+	c & = \SI{239.632}{\joule \per \kilogram \kelvin}
+\end{align*}
+
+\subsection{17.25}
+
+\begin{align*}
+	m_{kettle} & = \SI{1.10}{\kilogram} \\
+	m_{water} & = \SI{1.80}{\kilogram} \\
+	T_0 & = \SI{20.0}{\celsius} \\
+	T_1 & = \SI{85.0}{\celsius} \\
+	c_{aluminum} & = \SI{910}{\joule \per \kilogram \kelvin} \\
+	c_{water} & = \SI{4190}{\joule \per \kilogram \kelvin} \\
+	Q & = ?
+\end{align*}
+\begin{align*}
+	Q_{water} & = m_{water}c_{water}\Delta T \\
+	Q_{water} & = (\SI{1.80}{\kilogram})(\SI{4190}{\joule \per \kilogram \kelvin})(\SI{85.0}{\celsius} - \SI{20.0}{\celsius}) \\
+	Q_{water} & = \SI{490230}{\joule}
+\end{align*}
+\begin{align*}
+	Q_{aluminum} & = m_{aluminum}c_{aluminum}\Delta T \\
+	Q_{aluminum} & = (\SI{1.10}{\kilogram})(\SI{910}{\joule \per \kilogram \kelvin})(\SI{85.0}{\celsius} - \SI{20.0}{\celsius}) \\
+	Q_{aluminum} & = \SI{65065}{\joule}
+\end{align*}
+\begin{align*}
+	Q & = Q_{water} + Q_{aluminum} \\
+	Q & = \SI{490230}{\joule} + \SI{65065}{\joule} \\
+	Q & = \SI{555295}{\joule}
+\end{align*}
+
+\subsection{17.31}
+
+\begin{align*}
+	y_1 & = \SI{225}{\meter} \\
+	m & = \SI{1.00}{\liter} \\
+	y_0 & = 0 \\
+	c_{water} & = \SI{4190}{\joule \per \kilogram \kelvin} \\
+	\Delta T & = ?
+\end{align*}
+\begin{align*}
+	U & = Q \\
+	mgy_1 & = mc\Delta T \\
+	\Delta T & = \frac{ gy_1 }{ c } \\
+	\Delta T & = \frac{ (\SI{9.80}{\meter \per \second \squared})(\SI{225}{\meter}) }{ \SI{4190}{\joule \per \kilogram \kelvin} } \\
+	\Delta T & = \SI{0.5262}{\celsius}
+\end{align*}
+
+\subsection{17.33}
+
+\begin{align*}
+	m_{bullet} & = \SI{15.0}{\gram} = \SI{0.015}{\kilogram} \\
+	v_0 & = \SI{865}{\meter \per \second} \\
+	m_{water} & = \SI{13.5}{\kilogram} \\
+	v_1 & = \SI{534}{\meter \per \second} \\
+	c_{water} & = \SI{4190}{\joule \per \kilogram \kelvin} \\
+	\Delta T & = ?
+\end{align*}
+\begin{align*}
+	E_0 & = E_1 \\
+	\frac{1}{2}m_{bullet}v_0^2 & = \frac{1}{2}m_{bullet}v_1^2 + m_{water}c_{water}\Delta T \\
+	\Delta T & = \frac{ m_{bullet}(v_0^2 - v_1^2) }{ 2m_{water}c_{water} } \\
+	\Delta T & = \frac{ (\SI{0.015}{\kilogram} \left[ (\SI{865}{\meter \per \second})^2 - (\SI{534}{\meter \per \second})^2 \right]) }{ 2(\SI{13.5}{\kilogram})(\SI{4190}{\joule \per \kilogram \kelvin}) } \\
+	\Delta T & = \SI{0.61399}{\celsius}
+\end{align*}
+
+\end{document}

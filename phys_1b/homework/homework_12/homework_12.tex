@@ -209,6 +209,64 @@ Pascal's principle: A \SI{12000}{\newton} car is raised using a hydraulic lift, 
 
 Buoyancy: A board that is \SI{20.0}{\centi \meter} wide, \SI{5.00}{\centi \meter} thick, and \SI{3.00}{\meter} long has a density \SI{350}{\kilogram \per \meter \cubed}. The board is floating partially submerged in water of density \SI{1000}{\kilogram \per \meter \cubed}. What fraction of the volume is above the surface of the water?
 \begin{align*}
+	w_{plank} & = \SI{20.0}{\centi \meter} = \SI{0.20}{\meter} \\
+	h_{plank} & = \SI{5.00}{\centi \meter} = \SI{0.05}{\meter} \\
+	l_{plank} & = \SI{3.00}{\meter} \\
+	\rho_{plank} & = \SI{350}{\kilogram \per \meter \cubed} \\
+	\rho_{water} & = \SI{1000}{\kilogram \per \meter \cubed}
 \end{align*}
+\begin{align*}
+	\rho_{plank} & = \frac{ m_{plank} }{ V_{plank} } \\
+	m_{plank} & = \rho_{plank}V_{plank} \\
+	m_{plank} & = (\SI{350}{\kilogram \per \meter \cubed})(\SI{0.20}{\meter})(\SI{0.05}{\meter})(\SI{3.00}{\meter}) \\
+	m_{plank} & = \SI{10.5}{\kilogram}
+\end{align*}
+\begin{align*}
+	\sum F_y & = 0 \\
+	B & = w_{plank} \\
+	\rho_{water}V_{water}g & = m_{plank}g \\
+	V_{water} & = \frac{ m_{plank} }{ \rho_{water} } \\
+	V_{water} & = \frac{ \SI{10.5}{\kilogram} }{ \SI{1000}{\kilogram \per \meter \cubed} } \\
+	V_{water} & = \SI{0.0105}{\meter \cubed}
+\end{align*}
+Find the volume of the plank, then find its ratio compared with $ V_{water} $.
+\begin{align*}
+	V_{plank} & : V_{water} \\
+	(\SI{0.20}{\meter})(\SI{0.05}{\meter})(\SI{3.00}{\meter}) & : \SI{0.0105}{\meter \cubed} \\
+	\SI{0.03}{\meter \cubed} & : \SI{0.0105}{\meter \cubed} \\
+	\frac{ \SI{0.03}{\meter \cubed} }{ \SI{0.03}{\meter \cubed} } & : \frac{ \SI{0.0105}{\meter \cubed} }{ \SI{0.03}{\meter \cubed} } \\
+	1.00 & : 0.35
+\end{align*}
+In other words, for every 1.00 (the entirety of the block) block, 0.35 of it is submerged in the water. The fraction of volume that is above the surface of the water would be the difference:
+\bc{ 1.00 - 0.35 = 0.650 }
+
+\subsection{Question 7}
+
+Buoyancy: A rock is suspended from a scale reads \SI{20.0}{\newton}. A beaker of water (having a density of \SI{1000}{\kilogram \per \meter \cubed}) is raised up so the rock is totally submerged in the water. The scale now reads \SI{12.5}{\newton}. What is the density of the rock?
+\begin{align*}
+	w_{rock_0} & = \SI{20.0}{\newton} \\
+	w_{rock_1} & = \SI{12.5}{\newton} \\
+	\rho_{rock} & = ?
+\end{align*}
+\begin{align*}
+	B & = w_{air} - w_{water} \\
+	B & = w_{rock_0} - w_{rock_1} \\
+	B & = \SI{20.0}{\newton} - \SI{12.5}{\newton} \\
+	B & = \SI{7.50}{\newton}
+\end{align*}
+\begin{align*}
+	\sum F_y & = 0 \\
+	B & = w_{rock_1} \\
+	B & = \rho_{water}V_{rock}g \\
+	V_{rock} & = \frac{ B }{ \rho_{water}g } \\
+	V_{rock} & = \frac{ \SI{7.50}{\newton} }{ (\SI{1000}{\kilogram \per \meter \cubed})(\SI{9.80}{\meter \per \second \squared}) } \\
+	V_{rock} & = \SI{0.000765}{\meter \cubed} = \SI{7.65e-4}{\meter \cubed}
+\end{align*}
+\begin{align*}
+	\rho_{rock} & = \frac{ m_{rock} }{ V_{rock} } \\
+	\rho_{rock} & = \frac{ \frac{ \SI{20.0}{\newton} }{ \SI{9.80}{\meter \per \second \squared} } }{ \SI{7.65e-4}{\meter \cubed} } \\
+	\rho_{rock} & = \SI{2667.73}{\kilogram \per \meter \cubed} = \SI{2.67e3}{\kilogram \per \meter \cubed}
+\end{align*}
+\bc{ \rho_{rock} = \SI{2.67e3}{\kilogram \per \meter \cubed} }
 
 \end{document}

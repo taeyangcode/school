@@ -1,0 +1,208 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Homework 12}
+\date{27 June 2023}
+\author{Corey Mostero - 2566652}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\subsection{Question 1}
+
+Density: What is the radius of a sphere that has a density of \SI{5000}{\kilogram \per \meter \cubed} and a mass of \SI{6.00}{\kilogram}?
+\begin{align*}
+	\rho & = \SI{5000}{\kilogram \per \meter \cubed} \\
+	m & = \SI{6.00}{\kilogram} \\
+	r & = ?
+\end{align*}
+\begin{align*}
+	\rho & = \frac{ m }{ V } \\
+	V & = \frac{ m }{ \rho } \\
+	\frac{4}{3}\pi r^3 & = \frac{ m }{ \rho } \\
+	r & = \sqrt[^3]{ \frac{ 3m }{ 4\pi \rho } } \\
+	r & = \sqrt[^3]{ \frac{ 3(\SI{6.00}{\kilogram}) }{ 4\pi (\SI{5000}{\kilogram \per \meter \cubed}) } } \\
+	r & = \SI{0.065922}{\meter} = \SI{6.59}{\centi \meter}
+\end{align*}
+\bc{ r = \SI{6.59}{\centi \meter} }
+
+\subsection{Question 2}
+
+Pressure in a fluid: A cubical box, \SI{5.00}{\centi \meter} on each side, is immersed in a fluid. The gauge pressure at the top surface of the box is \SI{594}{\pascal} and the gauge pressure on the bottom surface is \SI{1133}{\pascal}. What is the density of the fluid?
+\begin{align*}
+	h & = \SI{5.00}{\centi \meter} = \SI{0.05}{\meter} \\
+	p_0 & = \SI{594}{\pascal} \\
+	p_1 & = \SI{1133}{\pascal} \\
+	\rho & = ?
+\end{align*}
+\begin{align*}
+	p_1 & = p_0 + \rho gh \\
+	\rho & = \frac{ p_1 - p_0 }{ gh } \\
+	\rho & = \frac{ \SI{1133}{\pascal} - \SI{594}{\pascal} }{ (\SI{9.80}{\meter \per \second \squared})(\SI{0.05}{\meter}) } \\
+	\rho & = \SI{1100}{\kilogram \per \meter \cubed}
+\end{align*}
+\bc{ \rho = \SI{1100}{\kilogram \per \meter \cubed} }
+
+\subsection{Question 3}
+
+Pressure in a fluid: As shown in the figure, a container has a vertical tube, whose inner radius is \SI{32.00}{\milli \meter}, connected to it at its side. An unknown liquid reaches level $ A $ in the container and level $ B $ in this tube - level $ A $ being \SI{5.0}{\centi \meter} higher than level $ B $. The liquid supports a \SI{20.0}{\centi \meter} high column of oil, between levels $ B $ and $ C $, whose density is \SI{460}{\kilogram \per \meter \cubed}. What is the density of the unknown liquid?
+\begin{align*}
+	y_{A,B} & = \SI{5.0}{\centi \meter} = \SI{0.05}{\meter} \\
+	y_{B,C} & = \SI{20.0}{\centi \meter} = \SI{0.20}{\meter} \\
+	\rho_{oil} & = \SI{460}{\kilogram \per \meter \cubed} \\
+	\rho_{unknown} & = ?
+\end{align*}
+\begin{align*}
+	\rho_{unk}gy_{A,B} & = \rho_{oil}gy_{B,C} \\
+	\rho_{unk} & = \frac{ \rho_{oil}y_{B,C} }{ y_{A,B} } \\
+	\rho_{unk} & = \frac{ (\SI{460}{\kilogram \per \meter \cubed})(\SI{0.20}{\meter}) }{ \SI{0.05}{\meter} } \\
+	\rho_{unk} & = \SI{1840}{\kilogram \per \meter \cubed}
+\end{align*}
+\bc{ \rho_{unknown} = \SI{1840}{\kilogram \per \meter \cubed} \approx \SI{1800}{\kilogram \per \meter \cubed} }
+
+\subsection{Question 4}
+
+Pressure in a fluid: In the figure, an open tank contains a layer of oil floating on top of a layer of water (of density \SI{1000}{\kilogram \per \meter \cubed}) that is \SI{3.0}{\meter} thick, as shown. What must be the thickness of the oil layer if the gauge pressure at the bottom of the tank is to be \SI{5.0e4}{\pascal}? The density of the oil is \SI{510}{\kilogram \per \meter \cubed}.
+\begin{align*}
+	\rho_{water} & = \SI{1000}{\kilogram \per \meter \cubed} \\
+	y_{water} & = \SI{3.0}{\meter} \\
+	p_0 & = \SI{5.0e4}{\pascal} \\
+	\rho_{oil} & = \SI{510}{\kilogram \per \meter \cubed} \\
+	y_{oil} & = ?
+\end{align*}
+\begin{align*}
+	\rho_{oil}gy_{oil} & = p_0 + \rho_{water}gy_{water} \\
+	y_{oil} & = \frac{ p_0 + \rho_{water}gy_{water} }{ \rho_{oil}g } \\
+	y_{oil} & = \frac{ \SI{5.0e4}{\pascal} + (\SI{1000}{\kilogram \per \meter \cubed})(\SI{9.80}{\meter \per \second \squared})(\SI{3.0}{\meter}) }{ (\SI{510}{\kilogram \per \meter \cubed})(\SI{9.80}{\meter \per \second \squared}) } \\
+	y_{oil} & = \SI{15.8864}{\meter} = \SI{15.9}{\meter}
+\end{align*}
+\bc{ y_{oil} = \SI{15.9}{\meter} \approx \SI{16.0}{\meter} }
+
+\subsection{Question 5}
+
+Pascal's principle: A \SI{12000}{\newton} car is raised using a hydraulic lift, which consists of a U-tube with arms of unequal areas, filled with incompressible oil and capped at both ends with tight-fitting pistons. The wider arm of the U-tube has a radius of \SI{18.0}{\centi \meter} and the narrower arm has a radius of \SI{5.00}{\centi \meter}. The car rests on the piston on the wider arm of the U-tube. The pistons are initially at the same level. What is the initial force that must be applied to the smaller piston in order to start lifting the car?
+\begin{align*}
+	w_{car} & = \SI{12000}{\newton} \\
+	r_{wide} & = \SI{18.0}{\centi \meter} = \SI{0.18}{\meter} \\
+	r_{narrow} & = \SI{5.00}{\centi \meter} = \SI{0.05}{\meter} \\
+	F & = ?
+\end{align*}
+\begin{align*}
+	\frac{ F }{ r_{narrow} } & = \frac{ w_{car} }{ r_{wide} } \\
+	F & = \frac{ w_{car}r_{narrow} }{ r_{wide} } \\
+	F & = \frac{ (\SI{12000}{\newton})(\SI{0.05}{\meter}) }{ \SI{0.18}{\meter} } \\
+	F & = \SI{3333.33}{\newton} = \SI{3.33e3}{\newton}
+\end{align*}
+\bc{ F = \SI{3.33e3}{\newton} \approx \SI{3330}{\newton} }
+
+\end{document}

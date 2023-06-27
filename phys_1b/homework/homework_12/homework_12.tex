@@ -29,6 +29,7 @@
 %
 % SI Unit
 \usepackage{siunitx}
+\DeclareSIUnit\atmosphere{atm}
 \usepackage{physunits}
 %
 % More intuitive arrays/matrices
@@ -181,12 +182,12 @@ Pressure in a fluid: In the figure, an open tank contains a layer of oil floatin
 	y_{oil} & = ?
 \end{align*}
 \begin{align*}
-	\rho_{oil}gy_{oil} & = p_0 + \rho_{water}gy_{water} \\
-	y_{oil} & = \frac{ p_0 + \rho_{water}gy_{water} }{ \rho_{oil}g } \\
-	y_{oil} & = \frac{ \SI{5.0e4}{\pascal} + (\SI{1000}{\kilogram \per \meter \cubed})(\SI{9.80}{\meter \per \second \squared})(\SI{3.0}{\meter}) }{ (\SI{510}{\kilogram \per \meter \cubed})(\SI{9.80}{\meter \per \second \squared}) } \\
-	y_{oil} & = \SI{15.8864}{\meter} = \SI{15.9}{\meter}
+	\Delta p & = \rho_{water}gy_{water} + \rho_{oil}gy_{oil} \\
+	y_{oil} & = \frac{ \Delta p - \rho_{water}gy_{water} }{ \rho_{oil}g } \\
+	y_{oil} & = \frac{ \SI{5.0e4}{\pascal} - (\SI{1000}{\kilogram \per \meter \cubed})(\SI{9.80}{\meter \per \second \squared})(\SI{3.0}{\meter}) }{ (\SI{510}{\kilogram \per \meter \cubed})(\SI{9.80}{\meter \per \second \squared}) } \\
+	y_{oil} & = \SI{4.12165}{\meter} = \SI{4.12}{\meter}
 \end{align*}
-\bc{ y_{oil} = \SI{15.9}{\meter} \approx \SI{16.0}{\meter} }
+\bc{ y_{oil} = \SI{4.12}{\meter} \approx \SI{4.1}{\meter} }
 
 \subsection{Question 5}
 
@@ -268,5 +269,174 @@ Buoyancy: A rock is suspended from a scale reads \SI{20.0}{\newton}. A beaker of
 	\rho_{rock} & = \SI{2667.73}{\kilogram \per \meter \cubed} = \SI{2.67e3}{\kilogram \per \meter \cubed}
 \end{align*}
 \bc{ \rho_{rock} = \SI{2.67e3}{\kilogram \per \meter \cubed} }
+
+\subsection{Question 8}
+
+Buoyancy: A \SI{7.8}{\kilogram} solid sphere, made of metal whose density is \SI{2500}{\kilogram \per \meter \cubed}, is suspended by a card. When the sphere is immersed in water (of density \SI{1000}{\kilogram \per \meter \cubed}), what is the tension in the cord?
+\begin{align*}
+	m_{sphere} & = \SI{7.8}{\kilogram} \\
+	\rho_{metal} & = \SI{2500}{\kilogram \per \meter \cubed} \\
+	\rho_{water} & = \SI{1000}{\kilogram \per \meter \cubed} \\
+	T & = ?
+\end{align*}
+\begin{align*}
+	\rho_{sphere} & = \frac{ m_{sphere} }{ V_{sphere} } \\
+	V_{sphere} & = \frac{ m_{sphere} }{ \rho_{sphere} }
+\end{align*}
+\begin{align*}
+	\sum F_y & = 0 \\
+	T + B & = w_{sphere} \\
+	T + \rho_{water}V_{sphere}g & = m_{sphere}g \\
+	T & = m_{sphere}g \left( 1 - \frac{ \rho_{water} }{ \rho_{sphere} } \right) \\
+	T & = (\SI{7.8}{\kilogram})(\SI{9.80}{\meter \per \second \squared}) \left( 1 - \frac{ \SI{1000}{\kilogram \per \meter \cubed} }{ \SI{2500}{\kilogram \per \meter \cubed} } \right) \\
+	T & = \SI{45.9}{\newton}
+\end{align*}
+\bc{ T = \SI{45.9}{\newton} \approx \SI{46.0}{\newton} }
+
+\subsection{Question 9}
+
+Buoyancy: A circular cylinder of height \SI{1.20}{\meter} having faces of diameter \SI{0.620}{\meter} is immersed in water of density \SI{1.00e3}{\kilogram \per \meter \cubed} with its axis vertical so that its faces are parallel to the surface of the water. The upper face is \SI{2.50}{\meter} below the surface of the water. The net force on this cylinder is observed to be \SI{1120}{\newton} downward. Atmospheric pressure is \SI{1.01e5}{\pascal}. What is the weight of the cylinder?
+\begin{align*}
+	h & = \SI{1.20}{\meter} \\
+	d & = \SI{0.620}{\meter} \\
+	\rho_{water} & = \SI{1.00e3}{\kilogram \per \meter \cubed} \\
+	\Delta y & = \SI{2.50}{\meter} \\
+	F_{total} & = \SI{1120}{\newton} \\
+	p_{atm} & = \SI{1.01e5}{\pascal}
+\end{align*}
+\begin{align*}
+	\sum F_y & = 0 \\
+	F_{total} + B & = w \\
+	w & = F_{total} + \rho_{water}V_{cylidner}g \\
+	w & = \SI{1120}{\newton} + (\SI{1.00e3}{\kilogram \per \meter \cubed}) \left( \pi \left( \frac{ \SI{0.620}{\meter} }{ 2 } \right)^2 (\SI{1.20}{\meter}) \right) (\SI{9.80}{\meter \per \second \squared}) \\
+	w & = \SI{4670.43}{\newton}
+\end{align*}
+\bc{ w = \SI{4670.43}{\newton} \approx \SI{4670}{\newton} }
+
+\subsection{Question 10}
+
+Flow rate: Water flowing through a pipe suddenly comes to a section of pipe where the pipe diameter decreases to \SI{86}{\percent} of its previous value. If the speed of the water in the larger section of the pipe was \SI{36}{\meter \per \second}, what is its speed in this smaller section?
+\begin{align*}
+	d_1 & = (0.86)d_0 \\
+	v_0 & = \SI{36}{\meter \per \second} \\
+	v_1 & = ?
+\end{align*}
+\begin{align*}
+	A_0v_0 & = A_1v_1 \\
+	\pi \left( \frac{ d_0 }{ 2 } \right)^2v_0 & = \pi \left( \frac{ (0.86)d_0 }{ 2 } \right)^2v_1 \\
+	v_1 & = \frac{ v_0 }{ 0.86^2 } \\
+	v_1 & = \frac{ \SI{36}{\meter \per \second} }{ 0.86^2 } \\
+	v_1 & = \SI{48.675}{\meter \per \second}
+\end{align*}
+\bc{ v_1 = \SI{48.675}{\meter \per \second} \approx \SI{49}{\meter \per \second} }
+
+\subsection{Question 11}
+
+Bernoulli's principle: Incompressible water flows out of a large reservoir through a pipe that opens to the atmosphere \SI{5.70}{\meter} below the level of the water in the reservoir. What is the speed of the water as it comes out of the pipe?
+\begin{align*}
+	y_0 & = \SI{5.70}{\meter} \\
+	y_1 & = 0 \\
+	v_0 & = 0 \\
+	\rho_{water} & = \SI{1000}{\kilogram \per \meter \cubed} \\
+	v_1 & = ?
+\end{align*}
+\begin{align*}
+	\rho_{water}gy_0 & = \frac{1}{2}\rho_{water}v_1^2 \\
+	v_1 & = \sqrt{ 2gy_0 } \\
+	v_1 & = \sqrt{ 2(\SI{9.80}{\meter \per \second \squared})(\SI{5.70}{\meter}) } \\
+	v_1 & = \SI{10.5698}{\meter \per \second} = \SI{10.6}{\meter \per \second}
+\end{align*}
+\bc{ v_1 = \SI{10.6}{\meter \per \second} }
+
+\subsection{Question 12}
+
+Bernoulli's principle: A horizontal tube consists of a \SI{7.0}{\centi \meter} diameter pipe that narrows to a \SI{2.0}{\centi \meter} diameter throat. In the pipe, the water pressure is twice atmospheric pressure and the water flows with a speed of \SI{0.40}{\meter \per \second}. What is the pressure in the throat, assuming that the water behaves like an ideal fluid? The density of water is \SI{1000}{\kilogram \per \meter \cubed}, and atmospheric pressure is \SI{1.01e5}{\pascal}.
+\begin{align*}
+	d_0 & = \SI{7.0}{\centi \meter} = \SI{0.07}{\meter} \\
+	d_1 & = \SI{2.0}{\centi \meter} = \SI{0.02}{\meter} \\
+	p_0 & = 2(\SI{1.01e5}{\pascal}) = \SI{2.02e5}{\pascal} \\
+	v_0 & = \SI{0.40}{\meter \per \second} \\
+	p_1 & = ?
+\end{align*}
+\begin{align*}
+	A_0v_0 & = A_1v_1 \\
+	v_1 & = \frac{ \pi r_0^2v_0 }{ \pi r_1^2 } \\
+	v_1 & = \frac{ \left( \frac{ \SI{0.07}{\meter} }{ 2 } \right)^2 (\SI{0.40}{\meter \per \second}) }{ \left( \frac{ \SI{0.02}{\meter} }{ 2 } \right)^2 } \\
+	v_1 & = \SI{4.9}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	p_0 + \frac{1}{2}\rho_{water}v_0^2 & = p_1 + \frac{1}{2}\rho_{water}v_1^2 \\
+	p_1 & = p_0 + \frac{1}{2}\rho_{water}v_0^2 - \frac{1}{2}\rho_{water}v_1^2 \\
+	p_1 & = \SI{2.02e5}{\pascal} + \frac{1}{2}(\SI{1000}{\kilogram \per \meter \cubed}) \left[ (\SI{0.40}{\meter \per \second})^2 - (\SI{4.9}{\meter \per \second})^2 \right] \\
+	p_1 & = \SI{190075}{\pascal}
+\end{align*}
+\bc{ p_1 = \SI{190075}{\pascal} \approx \SI{1.9}{\atmosphere} }
+
+\subsection{Question 13}
+
+Bernoulli's principle: Consider a very small hole in the bottom of a tank \SI{20.0}{\centi \meter} in diameter filled with water to a height of \SI{50.0}{\centi \meter}. Find the speed at which the water exits the tank through the hole.
+\begin{align*}
+	d & = \SI{20.0}{\centi \meter} = \SI{0.20}{\meter} \\
+	r & = \sfrac{ d }{ 2 } = \SI{0.10}{\meter} \\
+	h & = \SI{50.0}{\centi \meter} = \SI{0.50}{\meter} \\
+	v_1 & = ?
+\end{align*}
+\begin{align*}
+	\rho_{water}gh & = \frac{1}{2}\rho_{water}v_1^2 \\
+	v_1 & = \sqrt{ 2gh } \\
+	v_1 & = \sqrt{ 2(\SI{9.80}{\meter \per \second \squared})(\SI{0.50}{\meter}) } \\
+	v_1 & = \SI{3.1305}{\meter \per \second} = \SI{3.13}{\meter \per \second}
+\end{align*}
+\bc{ v_1 = \SI{3.13}{\meter \per \second} }
+
+\subsection{Question 14}
+
+Bernoulli's principle: Water flows in the horizontal pipe shown in the figure. At point $ A $ the area is \SI{25.0}{\centi \meter \squared} and the speed of the water is \SI{2.00}{\meter \per \second}. At $ B $ the area is \SI{16.0}{\centi \meter \squared}. The fluid in the manometer is mercury, which has a density of \SI{13600}{\kilogram \per \meter \cubed}. We can treat water as an ideal fluid having a density of \SI{1000}{\kilogram \per \meter \cubed}. What is the manometer reading $ h $?
+\begin{align*}
+	A_0 & = \SI{25.0}{\centi \meter \squared} = \SI{0.25}{\meter \squared} \\
+	v_0 & = \SI{2.00}{\meter \per \second} \\
+	A_1 & = \SI{16.0}{\centi \meter \squared} = \SI{0.16}{\meter \squared} \\
+	v_1 & = ? \\
+	\rho_{mercury} & = \SI{13600}{\kilogram \per \meter \cubed} \\
+	\rho_{water} & = \SI{1000}{\kilogram \per \meter \cubed} \\
+	h & = ?
+\end{align*}
+\begin{align*}
+	A_0v_0 & = A_1v_1 \\
+	v_1 & = \frac{ A_0v_0 }{ A_1 } \\
+	v_1 & = \frac{ (\SI{0.25}{\meter \squared})(\SI{2.00}{\meter \per \second}) }{ \SI{0.16}{\meter \squared} } \\
+	v_1 & = \SI{3.125}{\meter \per \second}
+\end{align*}
+\begin{align*}
+	p_0 + \frac{1}{2}\rho_{water}v_0^2 & = p_1 + \frac{1}{2}\rho_{water}v_1^2 \\
+	\frac{1}{2}\rho_{water}(v_0^2 - v_1^2) & = p_1 - p_0 \\
+	\frac{1}{2}\rho_{water}(v_0^2 - v_1^2) & = \rho_{mercury}gh \\
+	h & = \frac{ \rho_{water}(v_0^2 - v_1^2) }{ 2\rho_{mercury}g } \\
+	h & = \frac{ (\SI{1000}{\kilogram \per \meter \cubed})((\SI{2.00}{\meter \per \second})^2 - (\SI{3.125}{\meter \per \second})^2) }{ 2(\SI{13600}{\kilogram \per \meter \cubed})(\SI{9.80}{\meter \per \second \squared}) } \\
+	h & = \SI{-0.02163}{\meter} = \SI{0.02163}{\meter}
+\end{align*}
+\bc{ h = \SI{0.02163}{\meter} = \SI{2.16}{\centi \meter} }
+
+\subsection{Question 15}
+
+Water stands at a depth $ H $ in a large, open tank whose side walls are vertical, as shown in the figure. A hole is made in one of the walls at a depth $ h $ below the water surface. At what distance $ R $ from the foot of the wall does the emerging stream strike the floor?
+Approach: Use conservation of energy to determine the final velocity, then use kinematics to find distance $ R $.
+\begin{align*}
+	\rho_{water}gh_{hole} & = \frac{1}{2}\rho_{water}v_1^2 \\
+	v_1 & = \sqrt{ 2gh_{hole} }
+\end{align*}
+\begin{align*}
+	\Delta y & = v_{0_y}t + \frac{1}{2}gt^2 \\
+	h & = 0 + \frac{1}{2}gt^2 \\
+	t & = \sqrt{ \frac{ 2h }{ g } }
+\end{align*}
+\begin{align*}
+	\Delta x & = v_1t - \frac{1}{2}a_xt^2 \\
+	R & = v_1t \\
+	R & = (\sqrt{ 2gh_{hole} }) \left( \sqrt{ \frac{ 2h }{ g } } \right) \\
+	R & = \sqrt{ \frac{ 4g(H - h)h }{ g } } \\
+	R & = 2\sqrt{ h(H - h) }
+\end{align*}
+\bc{ R = 2\sqrt{ h(H - h) } }
 
 \end{document}

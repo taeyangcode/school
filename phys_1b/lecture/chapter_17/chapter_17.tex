@@ -110,6 +110,8 @@
 		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
 }
 
+\newcommand{\boldalph}{\textbf{(\alph*)}}
+
 \tableofcontents
 
 \section{Chapter 17 - Temperature and Heat}
@@ -372,6 +374,121 @@ Specific heat is found by:
 	\Delta T & = \frac{ m_{bullet}(v_0^2 - v_1^2) }{ 2m_{water}c_{water} } \\
 	\Delta T & = \frac{ (\SI{0.015}{\kilogram} \left[ (\SI{865}{\meter \per \second})^2 - (\SI{534}{\meter \per \second})^2 \right]) }{ 2(\SI{13.5}{\kilogram})(\SI{4190}{\joule \per \kilogram \kelvin}) } \\
 	\Delta T & = \SI{0.61399}{\celsius}
+\end{align*}
+
+\section{Molar Heat Capacity}
+
+Total mass $ m $ of material = Mass per mole $ M \times $ Number of moles $ n $:
+\begin{equation}
+	m = nM
+\end{equation}
+\begin{equation}
+	Q = nMc\Delta T
+\end{equation}
+The produce $ Mc $ is called the \textbf{molar heat capacity}.
+\begin{equation}
+	Q = nC\Delta T
+\end{equation}
+
+\subsection{Phase Changes}
+
+The \textbf{latent heat}, $ L $, is the heat per unit mass that is transferred in a phase change.
+\begin{equation}
+	Q = \pm mL
+\end{equation}
+
+\subsection{Problem}
+
+\begin{enumerate}[label = \boldalph]
+	\item
+		\begin{align*}
+			m_{water} & = \SI{1}{\kilogram} \\
+			T_{water} & = \SI{100}{\celsius} \\
+			m_{water\_vapor} & = \SI{1}{\kilogram} \\
+			T_{water\_vapor} & = \SI{100}{\celsius}
+		\end{align*}
+		\begin{align*}
+			Q_{water} & = m_{water}L_{water} \\
+			Q_{w} & = (\SI{1}{\kilogram})(\SI{2256e3}{\joule \per \kilogram}) \\
+			Q_{w} & = \SI{2.256e6}{\joule}
+		\end{align*}
+\end{enumerate}
+
+\subsection{17.34}
+
+\begin{align*}
+	m_{water} & = \SI{750}{\gram} = \SI{0.750}{\kilogram} \\
+	T_{water_0} & = \SI{10.0}{\celsius} \\
+	T_{water_1} & = \SI{75.0}{\celsius} \\
+	T_{boil_0} & = \SI{100.0}{\celsius} \\
+	T_{boil_1} & = \SI{75.0}{\celsius}
+\end{align*}
+\begin{align*}
+	m_{water}c_{water}\Delta T_{water} + m_{boil}c_{water}\Delta T_{boil} & = 0 \\
+	m_{boil} & = -\frac{ m_{water}\Delta T_{water} }{ \Delta T_{boil} } \\
+	m_{boil} & = -\frac{ (\SI{0.750}{\kilogram})(\SI{75.0}{\celsius} - \SI{10.0}{\celsius}) }{ \SI{75.0}{\celsius} - \SI{100.0}{\celsius} } \\
+	m_{boil} & = \SI{1.95}{\kilogram}
+\end{align*}
+
+\subsection{17.36}
+
+\begin{align*}
+	T_1 & = \SI{32.0}{\celsius} \\
+	m_{patient} & = \SI{70.0}{\kilogram} \\
+	T_{ice} & = \SI{0}{\celsius} \\
+	m_{ice} & = ? \\
+	c_{human} & = \SI{3480}{\joule \per \kilogram \per \celsius} \\
+	T_{human} & = \SI{37.0}{\celsius}
+\end{align*}
+\begin{align*}
+	m_{ice}L_{ice} + m_{human}c_{human}\Delta T & = 0 \\
+	m_{ice} & = -\frac{ m_{human}c_{human}\Delta T }{ L_{ice} } \\
+	m_{ice} & = -\frac{ (\SI{70.0}{\kilogram})(\SI{3480}{\joule \per \kilogram \per \celsius})(\SI{32.0}{\celsius} - \SI{37.0}{\celsius}) }{ \SI{334e3}{\joule \per \kilogram} } \\
+	m_{ice} & = \SI{3.64671}{\kilogram}
+\end{align*}
+
+\subsection{17.37}
+
+\begin{align*}
+	m_{iron} & = \SI{1.20}{\kilogram} \\
+	T_{iron_0} & = \SI{650.0}{\celsius} \\
+	T_{water} & = \SI{15.0}{\celsius} \\
+	T_{iron_1} & = \SI{120.0}{\celsius} \\
+	m_{water} & = ?
+\end{align*}
+\begin{align*}
+	Q_0 + Q_1 + Q_2 & = 0 \\
+	m_{iron}c_{iron}\Delta T_{iron} + m_{water}c_{water}\Delta T_{water} + m_{water}L_{water\_vapor} & = 0
+\end{align*}
+\begin{align*}
+	m_{water} & = - \frac{ m_{iron}c_{iron}\Delta T_{iron} }{ c_{water}\Delta T_{water} + L_{water\_vapor} } \\
+	m_{water} & = - \frac{ (\SI{1.20}{\kilogram})(\SI{0.47e3}{\joule \per \kilogram \per \kelvin})(\SI{120.0}{\celsius} - \SI{650.0}{\celsius}) }{ (\SI{4190}{\joule \per \kilogram \per \kelvin})(\SI{100.0}{\celsius} - \SI{15.0}{\celsius}) + \SI{2256e3}{\joule \per \kilogram} } \\
+	m_{water} & = \SI{0.114}{\kilogram}
+\end{align*}
+
+\subsection{17.40}
+
+\begin{align*}
+	m_{ice} & = \SI{0.200}{\kilogram} \\
+	T_{ice_0} & = \SI{-40.0}{\celsius} \\
+	m_{water} & = ? \\
+	T_{water_0} & = \SI{80.0}{\celsius} \\
+	T_1 & = \SI{28.0}{\celsius}
+\end{align*}
+\begin{align*}
+	Q_0 + Q_1 + Q_2 + Q_3 & = 0 \\
+	m_{ice}c_{ice}\Delta T_{ice} + m_{ice}L_{ice} + m_{ice}c_{water}\Delta T_{melted} + m_{water}c_{water}\Delta T_{water} & = 0
+\end{align*}
+\begin{align*}
+	m_{water} & = - \frac{ m_{ice} \left[ c_{ice}\Delta T_{ice} + L_{ice} + c_{water}\Delta T_{melted} \right] }{ c_{water}\Delta T_{water} } \\
+	m_{water} & = - \frac{ \SI{0.200}{\kilogram} \left[ (\SI{2100}{\joule \per \kilogram \per \celsius})(0 - \SI{-40.0}{\celsius}) + \SI{334e3}{\joule \per \kilogram} + (\SI{4190}{\joule \per \kilogram \per \kelvin})(\SI{28.0}{\celsius} - 0) \right] }{ (\SI{4190}{\joule \per \kilogram \per \kelvin})(\SI{28.0}{\celsius} - \SI{80.0}{\celsius}) } \\
+	m_{water} & = \SI{0.49139}{\kilogram}
+\end{align*}
+
+\subsection{17.49}
+
+\begin{align*}
+	d_{asteroid} & = \SI{10}{\kilo \meter} = \SI{10000}{\meter}
 \end{align*}
 
 \end{document}

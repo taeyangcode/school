@@ -488,7 +488,68 @@ The \textbf{latent heat}, $ L $, is the heat per unit mass that is transferred i
 \subsection{17.49}
 
 \begin{align*}
-	d_{asteroid} & = \SI{10}{\kilo \meter} = \SI{10000}{\meter}
+	d_{asteroid} & = \SI{10}{\kilo \meter} = \SI{10000}{\meter} \\
+	m_{asteroid} & = \SI{2.60e15}{\kilogram} \\
+	v_{asteroid} & = \SI{32.0}{\kilo \meter \per \second} = \SI{32000}{\meter \per \second} \\
+	T_{water_0} & = \SI{10.0}{\celsius} \\
+	m_{water} & = ?
+\end{align*}
+\begin{align*}
+	KE & = Q_0 + Q_1 \\
+	\frac{1}{2}m_{a}v_{a}^2 & = m_{w}c_{w}\Delta T + m_{w}L_{w} \\
+	m_{w} & = \frac{ m_{a}v_{a}^2 }{ c_{w}\Delta T + L_{w} } \\
+	m_{w} & = \frac{ 0.01(\SI{2.60e15}{\kilogram})(\SI{32000}{\meter \per \second})^2 }{ 2 \left[ (\SI{4190}{\joule \per \kilogram \per \kelvin})(\SI{100.0}{\celsius} - \SI{10.0}{\celsius}) + \SI{2256e3}{\joule \per \kilogram} \right] } \\
+	m_{w} & = \SI{5.05564e15}{\kilogram}
+\end{align*}
+
+\subsection{17.51}
+
+\begin{align*}
+	m_{water} & = \SI{0.250}{\kilogram} \\
+	T_{water_0} & = \SI{75.0}{\celsius} \\
+	T_{ice} & = \SI{-20.0}{\celsius} \\
+	m_{ice} & = ? \\
+	T_{1} & = \SI{40.0}{\celsius}
+\end{align*}
+\begin{align*}
+	Q_{ice,water} + Q_{water} + Q_{water,system} & = Q_{water,system} \\
+	m_{ice}c_{ice}\Delta T_{ice,water} + m_{ice}L_{water} + m_{ice}c_{water}\Delta T_{water,system} & = m_{water}c_{water}\Delta T_{water,system}
+\end{align*}
+\begin{align*}
+	m_{ice} & = \frac{ m_{water}c_{water}\Delta T_{water,system} }{ c_{ice}\Delta T_{ice,water} + L_{water} + c_{water}\Delta T_{water,system} } \\
+	m_{ice} & = \frac{ (\SI{0.250}{\kilogram})(\SI{4190}{\joule \per \kilogram \per \celsius})(\SI{40.0}{\celsius} - \SI{75.0}{\celsius}) }{ (\SI{2100}{\joule \per \kilogram \per \celsius})(0 - \SI{-20.0}{\celsius}) + \SI{334e3}{\joule \per \kilogram} + (\SI{4190}{\joule \per \kilogram \per \kelvin})(\SI{40.0}{\celsius} - 0) } \\
+	m_{ice} & = \SI{-0.0674}{\kilogram}
+\end{align*}
+
+\section{Mechanisms of Heat Transfer}
+
+Three mechanisms of heat transfer:
+\begin{itemize}
+	\item \textbf{Conduction} occurs within an object or between two objects in contact. \\
+	\item \textbf{Convection} depends on motion of mass from one region of space to another.
+	\item \textbf{Radiation} is heat transfer by electromagnetic radiation, such as sunshine, with no need for matter to be present in the space between objects.
+\end{itemize}
+
+\begin{equation}
+	H = \frac{ dQ }{ dt} = kA\frac{ T_H - T_C }{ L }
+\end{equation}
+
+\subsection{17.56}
+
+\begin{align*}
+	T_1 & = \SI{100.0}{\celsius} \\
+	T_0 & = \SI{0.00}{\celsius} \\
+	L & = \SI{60.0}{\centi \meter} = \SI{0.60}{\meter} \\
+	A & = \SI{1.25}{\centi \meter \squared} = \SI{0.000125}{\meter \squared} \\
+	m_{ice} & = \SI{8.50}{\gram} = \SI{0.00850}{\kilogram} \\
+	\Delta t & = \SI{10.0}{\minute} = \SI{600}{\second} \\
+	k & = ?
+\end{align*}
+\begin{align*}
+	\frac{ Q }{ \Delta t } & = \frac{ kA(T_1 - T_0) }{ L } \\
+	k & = \frac{ mLL }{ \Delta t A(T_1 - T_0) } \\
+	k & = \frac{ (\SI{0.00850}{\kilogram})(\SI{334e3}{\joule \per \kilogram})(\SI{0.60}{\meter}) }{ (\SI{600}{\second})(\SI{0.000125}{\meter \squared})(\SI{100.0}{\celsius} - \SI{0.00}{\celsius}) } \\
+	k & = \SI{227.12}{\joule \per \meter \per \second \per \celsius} = \SI{227.12}{\watt \per \meter \per \celsius}
 \end{align*}
 
 \end{document}

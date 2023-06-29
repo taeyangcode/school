@@ -605,4 +605,78 @@ Three mechanisms of heat transfer:
 		\end{align*}
 \end{enumerate}
 
+\section{Convection of Heat}
+
+Stefan-Boltzmann law:
+\begin{equation}
+	H = Ae\sigma T^4
+\end{equation}
+Stefan-Boltzmann constant:
+\begin{equation}
+	\sigma = \SI{5.67037442e-8}{\watt \per \meter \squared \per \kelvin \tothe{4}}
+\end{equation}
+
+\subsection{17.64}
+
+\begin{enumerate}[label = \boldalph]
+	\item
+		\begin{align*}
+			\frac{ H }{ A } & = e\sigma T^4 \\
+			\frac{ H }{ A } & = (1)(\SI{5.67e-8}{\watt \per \meter \squared \per \kelvin \tothe{4}})(\SI{273}{\kelvin})^4 \\
+			\frac{ H }{ A } & = \SI{314.944}{\watt \per \meter \squared}
+		\end{align*}
+	\item
+		\begin{align*}
+			\frac{ H }{ A } & = e\sigma T^4 \\
+			\frac{ H }{ A } & = (1)(\SI{5.67e-8}{\watt \per \meter \squared \per \kelvin \tothe{4}})(\SI{2730}{\kelvin})^4 \\
+			\frac{ H }{ A } & = \SI{3.15e6}{\watt \per \meter \squared}
+		\end{align*}
+\end{enumerate}
+
+\subsection{17.65}
+
+\begin{align*}
+	T_{light\_bulb} & = \SI{2450}{\kelvin} \\
+	e & = 0.350 \\
+	A & = ? \\
+	H & = \SI{150}{\watt}
+\end{align*}
+\begin{align*}
+	H & = Ae\sigma T^4 \\
+	A & = \frac{ H }{ e\sigma T^4 } \\
+	A & = \frac{ \SI{150}{\watt} }{ (0.350)(\SI{5.6e-8}{\watt \per \meter \squared \per \kelvin \tothe{4}})(\SI{2450}{\kelvin})^4 } \\
+	A & = \SI{1.96}{\meter \squared}
+\end{align*}
+
+\subsection{17.67}
+
+\begin{align*}
+	e & = 1 \\
+	r & = ?
+\end{align*}
+\begin{enumerate}[label = \boldalph]
+	\item
+		\begin{align*}
+			H & = \SI{2.7e32}{\watt} \\
+			T & = \SI{11000}{\kelvin}
+		\end{align*}
+		\begin{align*}
+			H & = Ae\sigma T^4 \\
+			H & = 4\pi r^2e\sigma T^4 \\
+			r & = \sqrt{ \frac{ H }{ 4\pi e\sigma T^4 } } \\
+			r & = \sqrt{ \frac{ \SI{2.7e32}{\watt} }{ 4\pi (1)(\SI{5.6e-8}{\watt \per \meter \squared \per \kelvin \tothe{4}})(\SI{11000}{\kelvin})^4 } } \\
+			r & = \SI{1.62e11}{\meter}
+		\end{align*}
+	\item
+		\begin{align*}
+			H & = \SI{2.1e23}{\watt} \\
+			T & = \SI{10000}{\kelvin}
+		\end{align*}
+		\begin{align*}
+			r & = \sqrt{ \frac{ H }{ 4\pi e\sigma T^4 } } \\
+			r & = \sqrt{ \frac{ \SI{2.1e23}{\watt} }{ 4\pi (1)(\SI{5.6e-8}{\watt \per \meter \squared \per \kelvin \tothe{4}})(\SI{10000}{\kelvin}) } } \\
+			r & = \SI{5.46e12}{\meter}
+		\end{align*}
+\end{enumerate}
+
 \end{document}

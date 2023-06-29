@@ -552,4 +552,57 @@ Three mechanisms of heat transfer:
 	k & = \SI{227.12}{\joule \per \meter \per \second \per \celsius} = \SI{227.12}{\watt \per \meter \per \celsius}
 \end{align*}
 
+\newpage
+\subsection{17.57}
+
+\begin{align*}
+	l_{out} & = \SI{3.0}{\centi \meter} = \SI{0.03}{\meter} \\
+	l_{in} & = \SI{2.2}{\centi \meter} = \SI{0.022}{\meter} \\
+	k_{wood} & = \SI{0.080}{\watt \per \meter \per \kelvin} \\
+	k_{styrofoam} & = \SI{0.027}{\watt \per \meter \per \kelvin} \\
+	T_{in} & = \SI{19.0}{\celsius} \\
+	T_{out} & = \SI{-10.0}{\celsius}
+\end{align*}
+\begin{enumerate}[label = \boldalph]
+	\item
+		\begin{align*}
+			H_{w} & = k_{w}A \left( \frac{ T - T_{out} }{ l_{out} } \right) \\
+			H_{s} & = k_{s}A \left( \frac{ T_{in} - T }{ l_{in} } \right) \\
+			k_{w}A \left( \frac{ T - T_{out} }{ l_{out} } \right) & = k_{s}A \left( \frac{ T_{in} - T }{ l_{in} } \right) \\
+			k_{w} \left( \frac{ T - T_{out} }{ l_{out} } \right) - k_{s} \left( \frac{ T_{in} - T }{ l_{in} } \right) & = 0 \\
+			T \left[ \frac{ k_{w} }{ l_{out} } + \frac{ k_{s} }{ l_{in} } \right] & = \frac{ k_{w}T_{out} }{ l_{out} } + \frac{ k_{s}T_{in} }{ l_{in} } \\
+			T & = \frac{ \frac{ k_{w}T_{out} }{ l_{out} } + \frac{ k_{s}T_{in} }{ l_{in} } }{ \frac{ k_{w} }{ l_{out} } + \frac{ k_{s} }{ l_{in} } } \\
+			T & = \frac{ \frac{ (\SI{0.080}{\watt \per \meter \per \kelvin})(\SI{-10.0}{\celsius}) }{ \SI{0.03}{\meter} } + \frac{ (\SI{0.027}{\watt \per \meter \per \kelvin})(\SI{19.0}{\celsius}) }{ \SI{0.022}{\meter} } }{ \frac{ \SI{0.080}{\watt \per \meter \per \kelvin} }{ \SI{0.03}{\meter} } + \frac{ \SI{0.027}{\watt \per \meter \per \kelvin} }{ \SI{0.022}{\meter} } } \\
+			T & = \SI{-0.860}{\celsius}
+		\end{align*}
+	\item
+		\begin{align*}
+			\frac{ H }{ A } & = k_{s} \left( \frac{ T_{in} - T }{ l_{in} } \right) \\
+			\frac{ H }{ A } & = (\SI{0.027}{\watt \per \meter \per \kelvin}) \left( \frac{ \SI{19.0}{\celsius} - (\SI{-0.860}{\celsius}) }{ \SI{0.022}{\meter} } \right) \\
+			\frac{ H }{ A } & = \SI{24.4}{\watt \per \meter \squared}
+		\end{align*}
+\end{enumerate}
+
+\subsection{17.60}
+
+\begin{align*}
+	l_{copper} & = \SI{1.00}{\meter} \\
+	l_{steel} & = ? \\
+	A & = \SI{4.00}{\centi \meter \squared} = \SI{4.0e-4}{\meter \squared} \\
+	T_{steel,copper} & = \SI{65.0}{\celsius}
+\end{align*}
+\begin{enumerate}[label = \boldalph]
+	\item
+		\begin{align*}
+			\frac{ Q }{ t } & = \frac{ k_{c}A(T_{boil} - T_{s,c}) }{ l_{c} } \\
+			\frac{ Q }{ t } & = \frac{ (\SI{385}{\watt \per \meter \per \kelvin})(\SI{4.0e-4}{\meter \squared})(\SI{100.0}{\celsius} - \SI{65.0}{\celsius}) }{ \SI{1.00}{\meter} } \\
+			\frac{ Q }{ t } & = \SI{5.39}{\joule \per \second}
+		\end{align*}
+		\begin{align*}
+			l_{steel} & = \frac{ k_{s}A(T_{s,c} - T_{ice}) }{ \left( \frac{ Q }{ t } \right)^{-1} } \\
+			l_{steel} & = \frac{ (\SI{50.2}{\watt \per \meter \per \kelvin})(\SI{4.0e-4}{\meter \squared})(\SI{65.0}{\celsius} - \SI{0.00}{\celsius}) }{ \left( \SI{5.39}{\joule \per \second} \right)^{-1} } \\
+			l_{steel} & = \SI{0.242}{\meter}
+		\end{align*}
+\end{enumerate}
+
 \end{document}

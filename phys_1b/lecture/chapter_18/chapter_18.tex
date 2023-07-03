@@ -1,0 +1,212 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit\atmosphere{atm}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\newcommand{\boldalph}{\textbf{(\alph*)}}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{Chapter 18 - Thermal Properties of Matter}
+
+Avogadro's number
+\begin{equation}
+	N_A = \SI{6.02e23}{\mole}
+\end{equation}
+
+\subsection{The Ideal Gas Law}
+
+\textbf{Ideal gas}: a collection of atoms or molecules that move randomly and exert no long-range forces on each other.
+
+Number of moles
+\begin{equation}
+	n = \frac{ N }{ N_A } = \frac{ m_{particle}N }{ m_{particle}N_A } = \frac{ m }{ M }
+\end{equation}
+The \textbf{molar mass $ M $ (molecular weight)} is the mass per mole. The total mass of $ n $ moles is $ m_{total} = nM $.
+
+Ideal-gas equation
+\begin{equation}
+	pV = nRT
+\end{equation}
+
+Universal gas constant
+\begin{equation}
+	R = \SI{8.31}{\joule \per \mole \per \kelvin} = \SI{0.0821}{\liter \atmosphere \per \mole \per \kelvin}
+\end{equation}
+The volume occupied by \SI{1}{\mole} of any ideal gas at atmospheric pressure and at \SI{0}{\celsius} is \SI{22.4}{\liter}.
+
+\subsubsection{Question}
+
+\begin{align*}
+	V & = \SI{22.4e-3}{\liter} \\
+	T & = \SI{273.15}{\kelvin} \\
+	p & = \SI{1.013e5}{\pascal} = \SI{1.0}{\atmosphere} \\
+	n & = ?
+\end{align*}
+\begin{align*}
+	pV & = nRT \\
+	n & = \frac{ pV }{ RT } \\
+	n & = \frac{ (\SI{1.0}{\atm})(\SI{22.4}{\liter}) }{ (\SI{0.0821}{\liter \atmosphere \per \mole \per \kelvin})(\SI{273.15}{\kelvin}) } \\
+	n & = \SI{1.000}{\mole}
+\end{align*}
+
+\subsubsection{18.3}
+
+\begin{align*}
+	V_0 & = \SI{0.110}{\meter \cubed} \\
+	p_0 & = \SI{0.355}{\atmosphere} \\
+	V_1 & = \SI{0.390}{\meter \cubed} \\
+	T & = \text{constant} \\
+	p_1 & = ?
+\end{align*}
+\begin{align*}
+	p_0V_0 & = p_1V_1 \\
+	p_1 & = \frac{ p_0V_0 }{ V_1 } \\
+	p_1 & = \frac{ (\SI{0.355}{\atmosphere})(\SI{0.110}{\meter \cubed}) }{ \SI{0.390}{\meter \cubed} } \\
+	p_1 & = \SI{0.1001}{\atmosphere}
+\end{align*}
+
+\subsubsection{18.4}
+
+\begin{align*}
+	V_0 & = \SI{3.00}{\liter} \\
+	p_0 & = \SI{3.00}{\atmosphere} \\
+	T_0 & = \SI{20.0}{\celsius} = \SI{293}{\kelvin} \\
+	p_1 & = \SI{1.00}{\atmosphere}
+\end{align*}
+\begin{enumerate}[label = \boldalph]
+	\item
+		\begin{align*}
+			pV & = nRT \\
+			\frac{ p }{ T } & = \frac{ nR }{ V } \\
+			\frac{ p_0 }{ T_0 } & = \frac{ p_1 }{ T_1 } \\
+			T_1 & = \frac{ p_1T_0 }{ p_0 } \\
+			T_1 & = \frac{ (\SI{1.00}{\atmosphere})(\SI{293}{\kelvin}) }{ \SI{3.00}{\atmosphere} } \\
+			T_1 & = \SI{97.7}{\kelvin} = \SI{-175.3}{\celsius}
+		\end{align*}
+\end{enumerate}
+
+\subsubsection{18.7}
+
+\begin{align*}
+	V_0 & = \SI{499}{\centi \meter \cubed} = \SI{499e-6}{\meter \cubed} \\
+	p_0 & = \SI{1.01e5}{\pascal} \\
+	T_0 & = \SI{27.0}{\celsius} = \SI{300}{\kelvin} \\
+	V_1 & = \SI{46.2}{\centi \meter \cubed} = \SI{46.2e-6}{\meter \cubed} \\
+	p_1 & = \SI{2.72e6}{\pascal} + \SI{1}{\atmosphere} = \SI{2.821e6}{\pascal} \\
+	T_1 & = ?
+\end{align*}
+\begin{align*}
+	p_0V_0 & = nrT \\
+	\frac{ p_0V_0 }{ T_0 } & = \frac{ p_1V_1 }{ T_1 } \\
+	T_1 & = \frac{ p_1V_1T_0 }{ p_0V_0 }
+\end{align*}
+
+\end{document}

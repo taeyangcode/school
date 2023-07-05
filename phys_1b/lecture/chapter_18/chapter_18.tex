@@ -204,9 +204,99 @@ The volume occupied by \SI{1}{\mole} of any ideal gas at atmospheric pressure an
 	T_1 & = ?
 \end{align*}
 \begin{align*}
-	p_0V_0 & = nrT \\
+	pV & = nR \Delta T \\
 	\frac{ p_0V_0 }{ T_0 } & = \frac{ p_1V_1 }{ T_1 } \\
-	T_1 & = \frac{ p_1V_1T_0 }{ p_0V_0 }
+	T_1 & = \frac{ T_0p_1V_1 }{ p_0V_0 } \\
+	T_1 & = \frac{ (\SI{300}{\kelvin})(\SI{2.821e6}{\pascal})(\SI{46.2e-6}{\meter \cubed}) }{ (\SI{1.01e5}{\pascal})(\SI{499e-6}{\meter \cubed}) } \\
+	T_1 & = \SI{755.79}{\kelvin}
+\end{align*}
+
+\subsubsection{18.13}
+
+\begin{align*}
+	p_0 & = \SI{1}{\atmosphere}
+	V_0 & = V_{earth} \\
+	V_1 & = V_{venus} \\
+	T_1 & = \SI{1003}{\celsius} = \SI{1276}{\kelvin} \\
+	p_1 & = \SI{92}{\atmosphere} \\
+	T_0 & = \SI{273}{\kelvin}
+\end{align*}
+\begin{align*}
+	pV & = nR\Delta T \\
+	\frac{ p_0V_0 }{ T_0 } & = \frac{ p_1V_1 }{ T_1 } \\
+	V_1 & = \frac{ T_1p_0 }{ T_0p_1 } V_0 \\
+	V_1 & = \frac{ (\SI{1276}{\kelvin})(\SI{1}{\atmosphere}) }{ (\SI{273}{\kelvin})(\SI{92}{\atmosphere} } \\
+	V_1 & = (0.051)V_0
+\end{align*}
+
+\subsubsection{18.16}
+
+\begin{align*}
+	n & = \SI{3}{\mole} \\
+	l & = \SI{0.300}{\meter}
+\end{align*}
+\begin{enumerate}[label = \boldalph]
+	\item
+		\begin{align*}
+			T & = \SI{20.0}{\celsius} = \SI{293}{\kelvin}
+		\end{align*}
+		\begin{align*}
+			F & = pA \\
+			F & = \frac{ nRTA }{ V } \\
+			F & = \frac{ (\SI{3}{\mole})(\SI{8.31}{\joule \per \mole \per \kelvin})(\SI{293}{\kelvin})(\SI{0.300}{\meter})^2 }{ (\SI{0.300}{\meter})^3 } \\
+			F & = \SI{24348.3}{\newton} = \SI{2.43e4}{\newton}
+		\end{align*}
+	\item
+		\begin{align*}
+			T & = \SI{100.0}{\celsius} = \SI{373}{\kelvin}
+		\end{align*}
+		\begin{align*}
+			F & = \frac{ nRTA }{ V } \\
+			F & = \frac{ (\SI{3}{\mole})(\SI{8.31}{\joule \per \mole \per \kelvin})(\SI{373}{\kelvin})(\SI{0.300}{\meter})^2 }{ (\SI{0.300}{\meter})^3 } \\
+			F & = \SI{30996.3}{\newton} = \SI{3.10e4}{\newton}
+		\end{align*}
+\end{enumerate}
+
+\subsubsection{18.18}
+
+\begin{align*}
+	\Delta y & = \SI{11000}{\meter} \\
+	T & = \SI{-56.5}{\celsius} = \SI{216.5}{\kelvin} \\
+	\rho & = \SI{0.364}{\kilogram \per \meter \cubed} \\
+	p & = ?
+\end{align*}
+\begin{align*}
+	\rho & = \frac{ m }{ V } \\
+	m & = \rho V \\
+	n & = \frac{ m }{ M } \\
+	n & = \frac{ \rho V }{ M }
+\end{align*}
+\begin{align*}
+	pV & = nRT \\
+	pV & = \left( \frac{ \rho V }{ M } \right) RT \\
+	p & = \frac{ \rho RT }{ M } \\
+	p & = \frac{ (\SI{0.364}{\kilogram \per \meter \cubed})(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{216.5}{\kelvin}) }{ \SI{28.8e-3}{\kilogram \per \mole} } \\
+	p & = \SI{22749.8}{\pascal} = \SI{2.27e4}{\pascal}
+\end{align*}
+
+\subsubsection{Question}
+
+\begin{align*}
+	T & = \SI{0.00}{\celsius} = \SI{273}{\kelvin} \\
+	g & = \SI{9.80}{\meter \per \second \squared}
+\end{align*}
+\begin{align*}
+	\frac{ dp }{ dy } & = -\rho g \\
+	p & = \rho RT \\
+	\rho & = \frac{ p }{ RT } \\
+	\frac{ dp }{ dy } & = - \left( \frac{ p }{ RT } \right)g \\
+	\frac{ dp }{ dy } & = -\frac{ pg }{ RT } \\
+	p' & = -p \cdot \frac{ g }{ RT } \\
+	\lap[p'] + \lap[p] & = \frac{ g }{ RT } \\
+	sF(s) - f(0) + F(s) & = \frac{ g }{ RT } \\
+	F(s)(s - 1) & = \frac{ g }{ RT } \\
+	F(s) & = \frac{ g }{ RT } \cdot \frac{ 1 }{ s - 1 } \\
+	s & = \frac{ ge^t }{ RT }
 \end{align*}
 
 \end{document}

@@ -176,7 +176,6 @@ The variables needed for this calculation would be:
 	T_{boiler_0} & = \SI{100}{\celsius} \\
 	T_{boiler_1} & = \SI{90}{\celsius} \\
 	c_{water} & = \SI{1}{\calorie \per \gram \per \celsius} \\
-	L_{water\_vaporization} & = \SI{539}{\calorie \per \gram} \\
 	m_{water} & = ?
 \end{align*}
 
@@ -184,19 +183,18 @@ The variables needed for this calculation would be:
 
 \begin{align*}
 	\sum \Delta Q & = 0 \\
-	Q_{vaporization} + Q_{temperature\_change} & = 0 \\
-	m_{water}L_{vaporization} + m_{water}c_{water}\Delta T + m_{solid}c_{solid}\Delta T & = 0
+	Q_{vaporization} & = Q_{temperature\_change} \\
+	m_{water}c_{water}\Delta T & = m_{solid}c_{solid}\Delta T
 \end{align*}
 \begin{align*}
-	m_{water} \left( L_{vaporization} + c_{water}\Delta T \right) & = - m_{solid}c_{solid}\Delta T \\
-	m_{water} & = - \frac{ m_{solid}c_{solid}\Delta T }{ L_{vaporization} + c_{water}\Delta T } \\
-	m_{water} & = - \frac{ (\SI{160}{\gram})(\SI{0.544}{\calorie \per \gram \per \celsius})(\SI{90}{\celsius} - \SI{100}{\celsius}) }{ \SI{539}{\calorie \per \gram} + (\SI{1.00}{\calorie \per \gram \per \celsius})(\SI{90}{\celsius} - \SI{100}{\celsius}) } \\
-	m_{water} & = \SI{1.65}{\gram}
+	m_{water} & = \frac{ m_{solid}c_{solid}\Delta T }{ c_{water}\Delta T } \\
+	m_{water} & = \frac{ (\SI{160}{\gram})(\SI{0.544}{\calorie \per \gram \per \celsius})(\SI{90}{\celsius} - \SI{100}{\celsius}) }{ (\SI{1}{\calorie \per \gram \per \celsius})(\SI{90}{\celsius} - \SI{100}{\celsius}) } \\
+	m_{water} & = \SI{87.04}{\gram}
 \end{align*}
 
 \subsubsection{Conclusion}
 
-\SI{1.65}{\gram} of water would have to evaporate from the surface of the solid to cool it from \SI{100}{\degree} to \SI{90}{\degree}.
+\SI{87.04}{\gram} of water would have to evaporate from the surface of the solid to cool it from \SI{100}{\degree} to \SI{90}{\degree}.
 
 \section{Part 2 - Coffee Break}
 

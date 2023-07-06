@@ -1,0 +1,249 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\DeclareSIUnit\calorie{cal}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Physics 1B - Lab H15 Report}
+\author{Corey Mostero - 2566652}
+\date{5 July 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\section{Part 1 - Calorimeter}
+
+\subsection{Specific Heat of Solid}
+
+\subsubsection{Variables}
+
+The initial part of the lab included several constant variables used throughout the procedure:
+\begin{align*}
+	m_{sample} & = \SI{160}{\gram} \\
+	m_{beaker} & = \SI{46.5}{\gram} \\
+	m_{water} & = \SI{79.3}{\gram} \\
+	m_{beaker\_with\_water} & = \SI{125.8}{\gram}
+\end{align*}
+Here we are attempting to calculate the specific heat of the unknown solid. In order to find this value, we must use several other constants provided by the lab manual and found through our procedure:
+\begin{align*}
+	c_{calorimeter} & = \SI{0.22}{\calorie \per \gram \per \celsius} \\
+	c_{water} & = \SI{1.00}{\calorie \per \gram \per \celsius} \\
+	T_{initial\_temperature\_heated\_solid} = T_1 & = \SI{100.0}{\celsius} \\
+	T_{initial\_temperature\_calorimeter\_water} = T_2 & = \SI{23.3}{\celsius} \\
+	T_{system\_final\_temperature} = T_3 & = \SI{30.1}{\celsius}
+\end{align*}
+
+\subsubsection{Calculation}
+
+We can now calculate the unknown specific heat of the solid using the summation of all elements in the system:
+\begin{align*}
+	\sum \Delta Q & = 0 \\
+	Q_{calorimeter} + Q_{water\_in\_calorimeter} + Q_{solid} & = 0 \\
+	m_{calorimeter}c_{calorimeter}\Delta T_{calorimeter} + m_{water}c_{water}\Delta T_{water} + m_{solid}c_{solid}\Delta T_{solid} & = 0
+\end{align*}
+Now Solving for $ c_{solid} $:
+\begin{align*}
+	c_{solid} & = - \frac{ m_{calorimeter}c_{calorimeter}\Delta T_{calorimeter} + m_{water}c_{water}\Delta T_{water} }{ m_{solid}\Delta T_{solid} } \\
+	c_{solid} & = - \frac{ m_{calorimeter}c_{calorimeter}(T_{3} - T_{2}) + m_{water}c_{water}(T_{3} - T_{2}) }{ m_{solid}(T_{3} - T_{1}) } \\
+	c_{solid} & = - \frac{ (\SI{46.5}{\gram})(\SI{0.22}{\calorie \per \gram \per \celsius})(\SI{30.1}{\celsius} - \SI{23.3}{\celsius}) + (\SI{79.3}{\gram})(\SI{1.00}{\calorie \per \gram \per \celsius})(\SI{30.1}{\celsius} - \SI{23.3}{\celsius}) }{ (\SI{160}{\gram})(\SI{30.1}{\celsius} - \SI{100.0}{\celsius}) } \\
+	c_{solid} & = \SI{0.544}{\calorie \per \gram \per \celsius}
+\end{align*}
+
+\subsubsection{Conclusion}
+
+The specific heat of the unknown solid is \SI{0.544}{\calorie \per \gram \per \celsius} which is relatively similar to the specific heat of iron (\SI{0.451}{\calorie \per \gram \per \celsius}), leading me to hypothesize that the unknown solid is iron.
+
+\subsubsection{Calculation Error}
+
+The error in calculation can be mainly attributed to the heat exchange with surroundings which could have been minimized if our ``room temperature" water and calorimeter rather began slightly cooler than room temperature. The location of our burner in respect to equipment that should have remained at room temperature as well as the heat from other groups' burners gradually raising the room temperature can be seen as specific factors that led to this calculation error.
+
+\subsection{Evaporation}
+
+Another question posed in part one asks to ``Estimate the mass of water that would have had to evaporate from the surface of your specimen to cool it from \SI{100}{\celsius} to \SI{90}{\celsius} during the transfer from the boiler to the calorimeter."
+
+\subsubsection{Variables}
+
+The variables needed for this calculation would be:
+\begin{align*}
+	m_{specimen} & = \SI{160}{\gram} \\
+	c_{specimen} & = \SI{0.544}{\calorie \per \gram \per \celsius}, \quad \text{(Calculated above)} \\
+	T_{boiler_0} & = \SI{100}{\celsius} \\
+	T_{boiler_1} & = \SI{90}{\celsius} \\
+	c_{water} & = \SI{1}{\calorie \per \gram \per \celsius} \\
+	L_{water\_vaporization} & = \SI{539}{\calorie \per \gram} \\
+	m_{water} & = ?
+\end{align*}
+
+\subsubsection{Calculation}
+
+\begin{align*}
+	\sum \Delta Q & = 0 \\
+	Q_{vaporization} + Q_{temperature\_change} & = 0 \\
+	m_{water}L_{vaporization} + m_{water}c_{water}\Delta T + m_{solid}c_{solid}\Delta T & = 0
+\end{align*}
+\begin{align*}
+	m_{water} \left( L_{vaporization} + c_{water}\Delta T \right) & = - m_{solid}c_{solid}\Delta T \\
+	m_{water} & = - \frac{ m_{solid}c_{solid}\Delta T }{ L_{vaporization} + c_{water}\Delta T } \\
+	m_{water} & = - \frac{ (\SI{160}{\gram})(\SI{0.544}{\calorie \per \gram \per \celsius})(\SI{90}{\celsius} - \SI{100}{\celsius}) }{ \SI{539}{\calorie \per \gram} + (\SI{1.00}{\calorie \per \gram \per \celsius})(\SI{90}{\celsius} - \SI{100}{\celsius}) } \\
+	m_{water} & = \SI{1.65}{\gram}
+\end{align*}
+
+\subsubsection{Conclusion}
+
+\SI{1.65}{\gram} of water would have to evaporate from the surface of the solid to cool it from \SI{100}{\degree} to \SI{90}{\degree}.
+
+\section{Part 2 - Coffee Break}
+
+\subsection{The Coffee Question}
+
+``Answer, using complete sentences and proper grammar... the Coffee Question. Provide at least two arguments in support of your conclusion. If the cup were metal instead of styrofoam, would the answer be different? Why or why not? Explain."
+
+\subsubsection{Argument 1}
+
+Observing the question conceptually, adding creamer to the coffee as soon as it is poured allows the creamer to find thermal equilibrium while the coffee is still hot resulting in an overall warmer cup of coffee. Pouring creamer into the coffee minutes afterward would likely result in a much less efficient transfer of heat resulting in a \textit{less} warm coffee.
+
+\subsubsection{Argument 2}
+
+The aforementioned conclusion can also be supported using empirical evidence (today's procedure). From the results of our experiment, the temperatures can be observed in the following table:
+
+\begin{tabular}{ | l | c | c | }
+	\hline
+	& \textbf{Cup 1 (Before)} & \textbf{Cup 2 (After)} \\
+	\hline
+	\textbf{Creamer Added Cup 1 \SI{0}{\second} (\SI{}{\celsius})} & \SI{85.6}{\celsius} & \SI{90.3}{\celsius} \\
+	\hline
+	\textbf{Creamer Added Cup 2 \SI{480}{\second} (\SI{}{\celsius})} & \SI{68.6}{\celsius} & \SI{65.6}{\celsius} \\
+	\hline
+	\textbf{Final Temperature \SI{600}{\second} (\SI{}{\celsius})} & \SI{65.9}{\celsius} & \SI{62.6}{\celsius} \\
+	\hline
+\end{tabular}
+Our results show that adding creamer as soon as the coffee is poured results in a warmer coffee.
+
+The question also poses whether a metal cup would have altered the result, which can be found mathematically:
+\begin{align*}
+	c_{styrofoam} & = \SI{1.34}{\joule \per \gram \per \celsius} \\
+	k_{styrofoam} & = \SI{0.033}{\watt \per \meter \per \celsius} \\
+	c_{steel\_stainless\_304} & = \SI{0.466}{\joule \per \gram \per \celsius} \\
+	k_{steel\_stainless\_304} & = \SI{16}{\watt \per \meter \per \celsius}
+\end{align*}
+\begin{align*}
+	\frac{ Q }{ t } & = \frac{ kA\Delta T}{ L } \\
+	\frac{ mc\Delta T }{ t } & = \frac{ kA\Delta T }{ L } \\
+	t & = \frac{ mcL }{ kA }
+\end{align*}
+Assuming that the mass, length, and area of the cup are the same:
+\begin{align*}
+	t_{styrofoam} & = t_{steel\_stainless\_304} \\
+	\frac{ c_{s} }{ k_{s} } & = \frac{ c_{st} }{ k_{st} } \\
+	\frac{ \SI{1.34}{\joule \per \gram \per \celsius} }{ \SI{0.033}{\watt \per \meter \per \celsius} } & = \frac{ \SI{0.466}{\joule \per \gram \per \celsius} }{ \SI{16}{\watt \per \meter \per \celsius} } \\
+	40.61 & > 0.291
+\end{align*}
+Also conceptually, the presence of \textit{trapped} air pockets within styrofoam makes it have much lower thermal conductivity compared to metal, therefore making it a much better heat insulator. It is similar to how many winter puffy jackets work, trapped air!
+
+\end{document}

@@ -227,10 +227,10 @@ Our results show that adding creamer as soon as the coffee is poured results in 
 
 The question also poses whether a metal cup would have altered the result, which can be found mathematically:
 \begin{align*}
-	c_{styrofoam} & = \SI{1.34}{\joule \per \gram \per \celsius} \\
-	k_{styrofoam} & = \SI{0.033}{\watt \per \meter \per \celsius} \\
-	c_{steel\_stainless\_304} & = \SI{0.466}{\joule \per \gram \per \celsius} \\
-	k_{steel\_stainless\_304} & = \SI{16}{\watt \per \meter \per \celsius}
+	c_{styrofoam} & = \SI{1.34}{\joule \per \gram \per \kelvin} \\
+	k_{styrofoam} & = \SI{0.033}{\watt \per \meter \per \kelvin} \\
+	c_{steel\_stainless\_304} & = \SI{0.466}{\joule \per \gram \per \kelvin} \\
+	k_{steel\_stainless\_304} & = \SI{16}{\watt \per \meter \per \kelvin}
 \end{align*}
 \begin{align*}
 	\frac{ Q }{ t } & = \frac{ kA\Delta T}{ L } \\
@@ -241,7 +241,7 @@ Assuming that the mass, length, and area of the cup are the same:
 \begin{align*}
 	t_{styrofoam} & = t_{steel\_stainless\_304} \\
 	\frac{ c_{s} }{ k_{s} } & = \frac{ c_{st} }{ k_{st} } \\
-	\frac{ \SI{1.34}{\joule \per \gram \per \celsius} }{ \SI{0.033}{\watt \per \meter \per \celsius} } & = \frac{ \SI{0.466}{\joule \per \gram \per \celsius} }{ \SI{16}{\watt \per \meter \per \celsius} } \\
+	\frac{ \SI{1.34}{\joule \per \gram \per \kelvin} }{ \SI{0.033}{\watt \per \meter \per \kelvin} } & = \frac{ \SI{0.466}{\joule \per \gram \per \kelvin} }{ \SI{16}{\watt \per \meter \per \kelvin} } \\
 	40.61 & > 0.291
 \end{align*}
 Also conceptually, the presence of \textit{trapped} air pockets within styrofoam makes it have much lower thermal conductivity compared to metal, therefore making it a much better heat insulator. It is similar to how many winter puffy jackets work, trapped air!

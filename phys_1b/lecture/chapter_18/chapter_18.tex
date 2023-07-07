@@ -299,4 +299,151 @@ The volume occupied by \SI{1}{\mole} of any ideal gas at atmospheric pressure an
 	s & = \frac{ ge^t }{ RT }
 \end{align*}
 
+\section{Molecules and Intermolecular Forces}
+
+\subsection{The Van Der Waals Equation}
+
+The model used for the ideal-gas equation ignores the volumes of molecules and the
+attractive forces between them.
+\begin{equation}
+	\left( p + \frac{ an^2 }{ V^2 } \right) (V - nb) = nRT
+\end{equation}
+
+\subsection{Kinetic-Molecular Model of an Ideal Gas}
+
+\begin{enumerate}
+	\item Molecules are in constant motion and undergo perfectly elastic collisions.
+\end{enumerate}
+
+\subsection{Collisions and Gas Pressure}
+
+\begin{align*}
+	\Delta \vect{P_y} & = m\Delta \vect{v_y} = 0 \\
+	\Delta \vect{P_x} & = m\Delta \vect{v_x} = 2m\vect{v_x}
+\end{align*}
+The amount of molecules per volume that collide with a given wall area $ A $ in a time interval $ dt $:
+\begin{align*}
+	V & = Ah \\
+	\Delta \vect{x} & = v_{0_y}t + \frac{1}{2}a_y\Delta t^2 \\
+	\Delta \vect{x} & = v_{0_y}t \\
+	V & = A|v_{x}|dt
+\end{align*}
+\begin{align*}
+	\frac{1}{2} \left( \frac{ N }{ V } \right) (A|v_{x}|dt)
+\end{align*}
+For all molecules in the gas, the total momentum change $ dP_{x} $ during $ dt $ is the number of collisions multiplied by the momentum change.
+\begin{align*}
+	dP_{x} & = \frac{1}{2} \left( \frac{ N }{ V } \right) (A|v_{x}|dt) (2m|v_{x}|) \\
+		   & = \frac{ NAmv_{x}^2dt }{ V }
+\end{align*}
+The rate of change of momentum component $ P_{x} $:
+\begin{align*}
+	\frac{ dP_{x} }{ dt } & = \frac{ NAmv_{x}^2 }{ V }
+\end{align*}
+Pressure:
+\begin{equation}
+	p = \frac{ F }{ A } = \frac{ m\frac{ \Delta \vect{p} }{ \Delta t } }{ A } = \frac{ \frac{ NAmv_{x}^2 }{ V } }{ A }  = \frac{ Nmv_{x}^2 }{ V }
+\end{equation}
+
+\subsubsection{Pressure and Molecular Kinetic Energies}
+
+The speed $ v $ of a molecule is related to the velocity components by
+\begin{align}
+	v^2 & = v_x^2 + v_y^2 + v_z^2 \\
+	(v^2)_{av} & = (v_x^2)_{av} + (v_y^2)_{av} + (v_z^2)_{av}
+\end{align}
+As there is no real difference in our model between directions:
+\begin{equation}
+	(v_x^2)_{av} = \frac{1}{3}(v^2)_{av}
+\end{equation}
+\begin{align*}
+	p & = \frac{ Nmv_{x}^2 }{ V } \\
+	pV & = nRT \\
+	\left[ \frac{ Nmv_{x}^2 }{ V } \right]V & = nRT \\
+	\frac{ N }{ 3 } \left( 2K \right) & = nRT, \quad KE = \frac{1}{2}mv^2, n = \frac{ m }{ M } = \frac{ N }{ N_A } \\
+	K & = \frac{3}{2} nRT
+\end{align*}
+\begin{align*}
+	pV & = nRT \\
+	nV & = \frac{ N }{ N_A } RT \\
+	pV & = Nk_BT
+\end{align*}
+
+\subsubsection{18.24}
+
+\begin{align*}
+	v_{rmt} & = 2\sqrt{ \frac{ 3RT }{ m } } \\
+	v_{rmt} & = \sqrt{ \frac{ 3R }{ m } \cdot 4T }
+\end{align*}
+\begin{align*}
+	p_1V & = nRT_1 \\
+	p_1 & = 2p_2 \\
+	2p_2V & = n_2R(4T_1) \\
+	n_2 & = \frac{ 2 }{ 4 } \cdot \frac{ p_1V }{ RT_1 } \\
+	n_2 & = \frac{1}{2}n_1
+\end{align*}
+
+\subsubsection{18.28}
+
+\begin{align*}
+	V & = \SI{1.64}{\liter} \\
+	m & = \SI{0.226}{\kilogram} \\
+	v_{rms} & = \SI{182}{\meter \per \second} \\
+	p & = ?
+\end{align*}
+\begin{align*}
+	v_{rms} & = \sqrt{ \frac{ 3RT }{ M } } \\
+	v_{rms}^2 & = \frac{ 3RT }{ M } \\
+	RT & = \frac{ v_{rms}^2M }{ 3 }
+\end{align*}
+\begin{align*}
+	pV & = nRT \\
+	pV & = n \left( \frac{ v_{rms}^2M }{ 3 } \right) \\
+	p & = \frac{ \frac{ m }{ M } \left( \frac{ v_{rms}^2M }{ 3 } \right) }{ V } \\
+	p & = \frac{ mv_{rms}^2 }{ 3V } \\
+	p & = \frac{ (\SI{0.226}{\kilogram})(\SI{182}{\meter \per \second})^2 }{ 3(\SI{1.64}{\liter}) } \\
+	p & = \SI{1521.55}{\pascal}
+\end{align*}
+
+\subsubsection{18.30}
+
+\begin{align*}
+	M_{mars} & = \SI{44.0}{\gram \per \mole} = \SI{0.044}{\kilogram \per \mole} \\
+	P_{mars} & = \SI{650}{\pascal} \\
+	T_0 & = \SI{0.0}{\celsius} = \SI{273}{\kelvin} \\
+	T_1 & = \SI{-100.0}{\celsius} = \SI{173}{\kelvin}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			v_{rms} & = \sqrt{ \frac{ 3RT }{ M } } \\
+			v_{rms} & = \sqrt{ \frac{ 3(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{273}{\kelvin}) }{ \SI{0.044}{\kilogram \per \mole} } } \\
+			v_{rms} & = \SI{393.4}{\meter \per \second}
+		\end{align*}
+		\begin{align*}
+			v_{rms} & = \sqrt{ \frac{ 3RT }{ M } } \\
+			v_{rms} & = \sqrt{ \frac{ 3(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{173}{\kelvin}) }{ \SI{0.044}{\kilogram \per \mole} } } \\
+			v_{rms} & = \SI{313.2}{\meter \per \second}
+		\end{align*}
+	\item
+		\begin{align*}
+			pV & = nRT \\
+			pV & = \left( \frac{ m }{ M } \right) RT \\
+			m & = \frac{ pVM }{ RT } \\
+			\rho & = \frac{ m }{ V } \\
+			\rho & = \frac{ \frac{ pVM }{ RT } }{ V } \\
+			\rho & = \frac{ pM }{ RT }
+		\end{align*}
+		\begin{align*}
+			\rho_0 & = \frac{ (\SI{650}{\pascal})(\SI{0.044}{\kilogram \per \mole}) }{ (\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{273}{\kelvin}) } \\
+			\rho_0 & = \SI{0.0126}{\kilogram \per \meter \cubed} = \SI{12.6}{\gram \per \meter \cubed} \cdot \frac{ 1 }{ \SI{44.0}{\gram \per \mole} } = \SI{0.286}{\mole \per \meter \cubed}
+		\end{align*}
+		\begin{align*}
+			\rho_1 & = \frac{ (\SI{650}{\pascal})(\SI{0.044}{\kilogram \per \mole}) }{ (\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{173}{\kelvin}) } \\
+			\rho_1 & = \SI{0.0199}{\kilogram \per \meter \cubed} = \SI{19.9}{\gram \per \meter \cubed} \cdot \frac{ 1 }{ \SI{44.0}{\gram \per \mole} } = \SI{0.452}{\mole \per \meter \cubed}
+		\end{align*}
+\end{enumerate}
+
+\section{Collisions Between Molecules}
+
 \end{document}

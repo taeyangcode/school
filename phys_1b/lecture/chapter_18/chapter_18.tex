@@ -446,4 +446,141 @@ As there is no real difference in our model between directions:
 
 \section{Collisions Between Molecules}
 
+The volume of the cylinder is
+\begin{equation}
+	V = \pi 4r^2 v dt
+\end{equation}
+There are $ \frac{ N }{ V } $ molecules per unit volume, so the number $ dN $ with centers in this cylinder is
+\begin{align*}
+	dN & = 4\pi r^2 v dt \frac{ N }{ V } \\
+	\frac{ dN }{ dt } & = \frac{ 4\pi r^2 v N }{ V } \\
+	\frac{ dN }{ dt } & = \frac{ 4\pi \sqrt{ 2 }r^2 v N }{ V }
+\end{align*}
+\begin{equation}
+	\lambda = \frac{ V }{ 4\pi \sqrt{ 2 } r^2 N }
+\end{equation}
+
+\subsubsection{18.32}
+
+\begin{align*}
+	\lambda & = ? \\
+	p & = \SI{3.50e-13}{\atmosphere} \\
+	T & = \SI{300}{\kelvin}
+\end{align*}
+\begin{align*}
+	\lambda & = \frac{ V }{ 4\pi \sqrt{2}r^2 N } \\
+	\frac{ V }{ N } & = \frac{ kT }{ p } \\
+	\lambda & = \frac{ kT }{ p } \cdot \frac{ 1 }{ 4\pi \sqrt{2}r^2 } \\
+	\lambda & = \frac{ (\SI{1.38e-23}{\joule \per \kelvin})(\SI{300}{\kelvin}) }{ (\SI{3.50e-13}{\atmosphere})(\SI{1.01e5}{\pascal \per \atmosphere}) } \cdot \frac{ 1 }{ 4\pi \sqrt{2}(\SI{2.0e-10}{\meter})^2 }
+	\lambda & = \SI{1.65e5}{\meter}
+\end{align*}
+
+\subsubsection{18.35}
+
+\begin{align*}
+	n & = \SI{3}{\mole} \\
+	M & = \SI{4.00}{\gram \per \mole} \\
+	V & = \text{constant} \\
+	v_{rms_0} & = \SI{900}{\meter \per \second} \\
+	v_{rms_1} & = ? \\
+	Q & = \SI{2400}{\joule}
+\end{align*}
+\begin{align*}
+	v_{rms} & = \sqrt{ \frac{ 3RT }{ M } } \\
+	T & = \frac{ v_{rms}^2M }{ 3R } \\
+	T & = \frac{ (\SI{900}{\meter \per \second})^2(\SI{0.004}{\kilogram \per \mole}) }{ 3(\SI{8.314}{\joule \per \mole \per \kelvin}) } \\
+	T_0 & = \SI{129.9}{\kelvin}
+\end{align*}
+\begin{align*}
+	Q & = nC_{V}\Delta T \\
+	Q & = nC_{V}(T_1 - T_0) \\
+	Q & = nC_{V}T_1 - nC_{V}T_0 \\
+	T_1 & = \frac{ Q + nC_{V}T_1 }{ nC_{v} } \\
+	T_1 & = \frac{ \SI{2400}{\joule} + (\SI{3}{\mole}) \left( \frac{3}{2}(\SI{8.314}{\joule \per \mole \per \kelvin}) \right) (\SI{129.9}{\kelvin}) }{ (\SI{3}{\mole}) \left( \frac{3}{2}(\SI{8.314}{\joule \per \mole \per \kelvin}) \right) } \\
+	T_1 & = \SI{194.0}{\kelvin}
+\end{align*}
+\begin{align*}
+	v_{rms} & = \sqrt{ \frac{ 3RT_0 }{ M } } \\
+	v_{rms} & = \sqrt{ \frac{ 3(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{194.0}{\kelvin}) }{ \SI{0.004}{\kilogram \per \mole} } } \\
+	v_{rms} & = \SI{1100}{\meter \per \second}
+\end{align*}
+
+\subsubsection{18.38}
+
+\begin{align*}
+	n & = n_0 = n_1 \\
+	Q & = \SI{300}{\joule} \\
+	\Delta T_{hydrogen} & = \SI{2.50}{\celsius} \\
+	\Delta T_{neon} & = ?
+\end{align*}
+\begin{align*}
+	Q & = nC_{V}\Delta T \\
+	C_{V}\Delta T & = \frac{ Q }{ n } \\
+	C_{V_0}\Delta T_0 & = C_{V_1}\Delta T_1 \\
+	\Delta T_1 & = \frac{ C_{V_0}\Delta T_0 }{ C_{V_1} } \\
+	\Delta T_1 & = \frac{ \frac{5}{2}R(\SI{2.5}{\kelvin}) }{ \frac{3}{2}R } \\
+	\Delta T_1 & = \SI{4.16}{\celsius}
+\end{align*}
+
+\subsubsection{18.40}
+
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			M_{water} & = \SI{18.0}{\gram \per \mole}
+		\end{align*}
+		\begin{align*}
+			C_{V} & = Mc \\
+			c & = \frac{ C_{V} }{ M } \\
+			c & = \frac{ 6 \left( \frac{1}{2} (\SI{8.314}{\joule \per \mole \per \kelvin}) \right) }{ \SI{18.0}{\kilogram \per \mole} } \\
+			c & = \SI{1386.0}{\joule \per \kilogram \per \kelvin}
+		\end{align*}
+\end{enumerate}
+
+\section{Molecular Speeds}
+
+The function $ f(v) $ describing the actual distribution of molecular speeds is called the \textbf{Maxwell-Boltzmann distribution}.
+\begin{equation}
+	f(v) = 4\pi \left( \frac{ m }{ 2\pi kT } \right)^{\frac{ 3 }{ 2 }} v^2e^{ \frac{ -mv^2 }{ 2kT } }
+\end{equation}
+We can also express this function in terms of the translational kinetic energy of a molecule, which we denote by $ \epsilon $; that is $ \epsilon = \frac{1}{2}mv^2 $
+\begin{equation}
+	f(\epsilon) = \frac{ 8\pi }{ m } \left( \frac{ m }{ 2\pi kT } \right)^{\frac{ 3 }{ 2 }} \epsilon e^{ \frac{ -\epsilon }{ kT } }
+\end{equation}
+
+\begin{align*}
+	v_{av} & = \int_0^\infty vf(v)dv
+\end{align*}
+
+\subsubsection{18.41}
+
+\begin{align*}
+	M_{CO_2} & = \SI{44.0}{\gram \per \mole} = \SI{0.044}{\kilogram \per \mole} \\
+	T & = \SI{300}{\kelvin}
+\end{align*}
+\begin{align*}
+	pV & = nRT = NkT \\
+	nR & = Nk \\
+	\frac{ N }{ N_A } R & = \frac{ m }{ M } k \\
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			v_{mp} & = \sqrt{ \frac{ 2kT }{ m } } \\
+			v_{mp} & = \sqrt{ \frac{ 2RT}{ M } } \\
+			v_{mp} & = \sqrt{ \frac{ 2(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{300}{\kelvin}) }{ \SI{0.044}{\kilogram \per \mole} } } \\
+			v_{mp} & = \SI{336.7}{\meter \per \second}
+		\end{align*}
+	\item
+		\begin{align*}
+			v_{av} & = \sqrt{ \frac{ 8kT }{ \pi m } } \\
+			v_{av} & = \sqrt{ \frac{ 8RT }{ \pi M } }
+		\end{align*}
+	\item
+		\begin{align*}
+			v_{rms} & = \sqrt{ \frac{ 3kT }{ m } } \\
+			v_{rms} & = \sqrt{ \frac{ 3RT }{ M } }
+		\end{align*}
+\end{enumerate}
+
 \end{document}

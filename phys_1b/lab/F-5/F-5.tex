@@ -1,0 +1,161 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\section{F5: Terminal velocity, drag forces}
+
+\begin{equation}
+	\frac{ F }{ A } = \eta \frac{ dv }{ dy }
+\end{equation}
+\begin{equation}
+	F_{viscous} = 6\pi \eta Rv
+\end{equation}
+\begin{equation}
+	F_{inertia} = \frac{1}{2}C_D\rho \left( \pi R^2 \right) v^2
+\end{equation}
+\begin{itemize}
+	\item $ C_D $ drag coefficient
+	\item $ \rho $ density of fluid
+	\item $ R $ radius of sphere
+	\item $ \eta $ is the dynamic viscosity
+\end{itemize}
+\begin{equation}
+	\sum F_y = mg - B - 6\pi \eta Rv - \frac{1}{2}C_D \rho \left( \pi R^2 \right) v^2
+\end{equation}
+\begin{itemize}
+	\item If laminal flow ($ v $ is small): $ F_{inertia} < F_{viscosity} $
+	\item If turbulant ($ v $ is big) : you may drop $ F_{viscosity} $ term
+\end{itemize}
+\begin{equation}
+	Re = \frac{ \rho v D }{ \eta } \quad D \text{ is diameter}
+\end{equation}
+
+\subsection{Specific Gravity}
+
+\begin{equation}
+	\text{specific gravity} = \frac{ \rho_{object} }{ \rho_{water} }
+\end{equation}
+\begin{equation}
+	\sum F_y = mg - B - F_{drag} = m(0)
+\end{equation}
+\begin{equation}
+	F_{drag} = mg - B
+\end{equation}
+
+\subsection{Deriving Slope Equation}
+
+\begin{align*}
+	\Delta \vect{y} & = \vect{v}_{o_y} - \frac{1}{2}gt^2 \\
+	y & = \left( \frac{ 1 }{ 2 }g \right)t^2 \\
+	\ln(y) & = \ln \left( \frac{ g }{ 2 } \right) + 2\ln(t) \\
+	F_{drag} & = Ev_t^k
+\end{align*}
+
+\end{document}

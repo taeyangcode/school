@@ -29,6 +29,7 @@
 %
 % SI Unit
 \usepackage{siunitx}
+\DeclareSIUnit\atmosphere{atm}
 \usepackage{physunits}
 %
 % More intuitive arrays/matrices
@@ -207,6 +208,102 @@ Work $ W $ is \textbf{positive} when work is done by the system against its surr
 	T_1 & = \frac{ W }{ nR } + T_0 \\
 	T_1 & = \frac{ \SI{2.40e3}{\joule} }{ (\SI{6}{\mole})(\SI{8.314}{\joule \per \mole \per \kelvin}) } + \SI{300}{\kelvin} \\
 	T_1 & = \SI{348.112}{\kelvin}
+\end{align*}
+
+\subsubsection{19.3}
+
+\begin{align*}
+	n & = \SI{2}{\mole} \\
+	T & = \SI{65.0}{\celsius} = \SI{338}{\kelvin} \\
+	p_1 & = 3p_0
+\end{align*}
+\begin{align*}
+	W & = \int (p) dV \\
+	W & = nRT \ln \left[ \frac{ p_0 }{ p_1 } \right] \\
+	W & = nRT \ln \left[ \frac{ p_0 }{ 3p_0 } \right] \\
+	W & = (\SI{2}{\mole})(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{338}{\kelvin}) \ln \left[ \frac{ 1 }{ 3 } \right] \\
+	W & = \SI{-6174.49}{\joule}
+\end{align*}
+
+\subsubsection{19.5}
+
+\begin{align*}
+	n & = \SI{0.305}{\mole} \\
+	T & = \SI{22.0}{\celsius} = \SI{295}{\kelvin} \\
+	W & = \SI{-392}{\joule} \\
+	p_1 & = \SI{1.76}{\atmosphere} \\
+	p_0 & = ?
+\end{align*}
+\begin{align*}
+	W & = nRT \ln \left[ \frac{ p_0 }{ p_1 } \right] \\
+	e^{W} & = e^{nRT} \cdot \frac{ p_0 }{ p_1 } \\
+	p_0 & = \frac{ e^{W} }{ e^{nRT} }p_1 \\
+	p_0 & = e^{ \frac{ \SI{-392}{\joule} }{ (\SI{0.305}{\mole})(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{295}{\kelvin}) } }(\SI{1.76}{\atmosphere}) \\
+	p_0 & = \SI{1.04}{\atmosphere}
+\end{align*}
+
+\subsubsection{19.6}
+
+\begin{align*}
+	V & = \SI{0.200}{\meter \cubed} \\
+	p_0 & = \SI{2.00e5}{\pascal} \\
+	p_1 & = \SI{5.00e5}{\pascal}
+\end{align*}
+\begin{align*}
+	V_0 & = \SI{0.200}{\meter \cubed} \\
+	V_1 & = \SI{0.120}{\meter \cubed} \\
+	p & = \SI{5.00e5}{\pascal}
+\end{align*}
+\begin{align*}
+	W & = 0 + p \left[ V_1 - V_0 \right] \\
+	W & = (\SI{5.00e5}{\pascal})(\SI{0.120}{\meter \cubed} - \SI{0.200}{\meter \cubed}) \\
+	W & = \SI{-40000}{\joule}
+\end{align*}
+
+\section{First Law of Thermodynamics}
+
+First Law of Thermodynamics
+\begin{equation}
+	\Delta U = Q - W
+\end{equation}
+
+\subsubsection{19.9}
+
+\begin{align*}
+	V_0 & = \SI{0.110}{\meter \cubed} \\
+	V_1 & = \SI{0.320}{\meter \cubed} \\
+	p & = \SI{1.65e5}{\pascal} \\
+	Q & = \SI{1.15e5}{\joule}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			W & = p\Delta V \\
+			W & = (\SI{1.65e5}{\pascal}) \left[ \SI{0.320}{\meter \cubed} - \SI{0.110}{\meter \cubed} \right] \\
+			W & = \SI{34650}{\joule}
+		\end{align*}
+	\item
+		\begin{align*}
+			\Delta U & = Q - W \\
+			\Delta U & = \SI{1.15e5}{\joule} - \SI{34650}{\joule} \\
+			\Delta U & = \SI{80350}{\joule}
+		\end{align*}
+\end{enumerate}
+
+\subsubsection{19.10}
+
+\begin{align*}
+	n & = \SI{5}{\mole} \\
+	T_0 & = \SI{127}{\celsius} = \SI{400}{\kelvin} \\
+	Q & = \SI{1500}{\joule} \\
+	W & = \SI{2100}{\joule} \\
+	T_1 & = ?
+\end{align*}
+\begin{align*}
+	Q & = nC_V(T_1 - T_0) \\
+	T_1 & = \frac{ Q }{ nC_V } + T_0 \\
+	T_1 & = \frac{ \SI{1500}{\joule} }{ (\SI{5}{\mole}) \left( \frac{ 3 }{ 2 }(\SI{8.314}{\joule \per \mole \per \kelvin}) \right) } + \SI{400}{\kelvin} \\
+	T_1 & = \SI{424.056}{\kelvin}
 \end{align*}
 
 \end{document}

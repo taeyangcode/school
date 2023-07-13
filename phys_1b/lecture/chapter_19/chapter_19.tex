@@ -306,4 +306,187 @@ First Law of Thermodynamics
 	T_1 & = \SI{424.056}{\kelvin}
 \end{align*}
 
+\subsubsection{19.11}
+
+\begin{align*}
+	n & = \SI{0.0175}{\mole}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			T_{low} & = ?
+		\end{align*}
+		\begin{align*}
+			T & = \frac{ pV }{ nR } \\
+			T_a & = \frac{ p_aV_a }{ nR } \\
+			T_a & = \frac{ (\SI{0.20}{\atmosphere})(\SI{2.0}{\liter}) }{ (\SI{0.0175}{\mole})(\SI{0.0821}{\liter \atmosphere \per \mole \per \kelvin}) } \\
+			T_a & = \SI{278.406}{\kelvin} \\
+			T_b & = \frac{ p_bV_b }{ nR } \\
+			T_b & = \frac{ (\SI{0.50}{\atmosphere})(\SI{2.0}{\liter}) }{ (\SI{0.0175}{\mole})(\SI{0.0821}{\liter \atmosphere \per \mole \per \kelvin}) } \\
+			T_b & = \SI{696.015}{\kelvin} \\
+			T_c & = \frac{ p_cV_c }{ nR } \\
+			T_c & = \frac{ (\SI{0.30}{\atmosphere})(\SI{6.0}{\liter}) }{ (\SI{0.0175}{\mole})(\SI{0.0821}{\liter \atmosphere \per \mole \per \kelvin}) } \\
+			T_c & = \SI{1252.83}{\kelvin} \\
+		\end{align*}
+	\item
+		\begin{align*}
+			W_{a,b} & = 0 \\
+			W_{b,c} & = ?
+		\end{align*}
+		\begin{align*}
+			W_{b,c} & = \int \frac{ nR }{ V } dV
+		\end{align*}
+\end{enumerate}
+
+\subsubsection{19.12}
+
+\begin{align*}
+	p & = \SI{1.80e5}{\pascal} \\
+	V_0 & = \SI{1.70}{\meter \cubed} \\
+	V_1 & = \SI{1.20}{\meter \cubed} \\
+	\Delta U & = -\SI{1.40e5}{\joule}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			W & = p\Delta V \\
+			W & = (\SI{1.80e5}{\pascal})(\SI{1.20}{\meter \cubed} - \SI{1.70}{\meter \cubed}) \\
+			W & = \SI{-90000}{\joule} = \SI{-9.0e4}{\joule}
+		\end{align*}
+	\item
+		\begin{align*}
+			\Delta U & = Q - W \\
+			Q & = \Delta U + W \\
+			Q & = \SI{-1.40e5}{\joule} - \SI{9.0e4}{\joule} \\
+			Q & = \SI{-3.2e5}{\joule}
+		\end{align*}
+\end{enumerate}
+
+\subsubsection{19.13}
+
+\begin{align*}
+	n & = \SI{0.450}{\mole}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			pV & = nRT \\
+			T & = \frac{ pV }{ nR }
+		\end{align*}
+		\begin{align*}
+			T_a & = \frac{ (\SI{2.0e5}{\pascal})(\SI{0.010}{\meter \cubed}) }{ (\SI{0.450}{\mole})(\SI{8.314}{\joule \per \mole \per \kelvin}) } \\
+			T_a & = \SI{534.574}{\kelvin} \\
+			T_b & = \frac{ (\SI{5.0e5}{\pascal})(\SI{0.070}{\meter \cubed}) }{ (\SI{0.450}{\mole})(\SI{8.314}{\joule \per \mole \per \kelvin}) } \\
+			T_b & = \SI{534.574}{\kelvin} \\
+			T_b & = \SI{9355.04}{\kelvin} \\
+			T_c & = \frac{ (\SI{8.0e5}{\pascal})(\SI{0.070}{\meter \cubed}) }{ (\SI{0.450}{\mole})(\SI{8.314}{\joule \per \mole \per \kelvin}) } \\
+			T_c & = \SI{14968.1}{\kelvin} \\
+		\end{align*}
+	\item
+		\begin{align*}
+			W & = \frac{ (\SI{5.0e5}{\pascal} - \SI{2.0e5}{\pascal})(\SI{0.070}{\meter \cubed} - \SI{0.010}{\meter \cubed}) }{ 2 }
+		\end{align*}
+\end{enumerate}
+
+\section{Four Kinds of Thermodynamic Processes}
+
+There are four specific kinds of thermodynamic processes that occur often in practical situations:
+\begin{itemize}
+	\item
+		\textbf{Adiabatic}: No heat is transferred into or out of the system, so $ Q = 0 $, $ \Delta U = 0 - W $.
+	\item
+		\textbf{Isochoric}: The volume remains constant, so $ W = 0 $, $ \Delta U = Q - 0 $.
+	\item
+		\textbf{Isobaric}: The pressure remains constant, so $ W = p\Delta V $.
+	\item
+		\textbf{Isothermal}: The temperature remains constant, so $ \Delta U = 0 $, $ Q = W $.
+\end{itemize}
+\begin{align*}
+	dQ & = nC_PdT \\
+	dW & = pdV \\
+	dW & = nRdT \\
+	dU & = dQ - dW \\
+	dU & = nC_PdT - nRdT \\
+	nC_VdT & = nC_PdT - nRdT
+\end{align*}
+
+\subsubsection{19.16}
+
+\begin{align*}
+	\Delta U & = Q - W \\
+	W & = Q \\
+	W & = \SI{410}{\joule}
+\end{align*}
+
+\subsubsection{19.17}
+
+\begin{align*}
+	n & = \SI{0.250}{\mole} \\
+	T_0 & = \SI{27.0}{\celsius} = \SI{300}{\kelvin} \\
+	p & = \SI{1.00}{\atmosphere} \\
+	T_1 & = \SI{127.0}{\celsius} = \SI{400}{\kelvin}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+	\item
+		\begin{align*}
+			W & = p\Delta V = nR\Delta T \\
+			W & = (\SI{0.250}{\mole})(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{400}{\kelvin} - \SI{300}{\kelvin}) \\
+			W & = \SI{207.85}{\joule}
+		\end{align*}
+	\item
+	\item
+		\begin{align*}
+			\Delta U & = nC_V\Delta T \\
+			\Delta U & = (\SI{0.250}{\mole})(\SI{28.46}{\joule \per \mole \per \kelvin})(\SI{400}{\kelvin} - \SI{300}{\kelvin}) \\
+			\Delta U & = \SI{711.5}{\joule}
+		\end{align*}
+	\item
+		\begin{align*}
+			\Delta U & = Q - W \\
+			Q & = \Delta U + W \\
+			Q & = \SI{711.5}{\joule} + \SI{207.85}{\joule} \\
+			Q & = \SI{919.35}{\joule}
+		\end{align*}
+	\item
+		\begin{align*}
+			W & = p\Delta V = nR\Delta T \\
+			W & = (\SI{0.250}{\mole})(\SI{8.314}{\joule \per \mole \per \kelvin})(\SI{400}{\kelvin} - \SI{300}{\kelvin}) \\
+			W & = \SI{207.85}{\joule}
+		\end{align*}
+\end{enumerate}
+
+\subsubsection{19.18}
+
+\begin{align*}
+	n & = \SI{0.0100}{\mole} \\
+	T_0 & = \SI{27.0}{\celsius} = \SI{300}{\kelvin}
+\end{align*}
+\begin{enumerate}[label = \textbf{(\alph*)}]
+	\item
+		\begin{align*}
+			T_1 & = \SI{67.0}{\celsius} = \SI{340}{\kelvin} \\
+			\Delta V & = V
+		\end{align*}
+		\begin{align*}
+			Q & = nC_V\Delta T \\
+			Q & = (\SI{0.0100}{\mole})(\SI{12.47}{\joule \per \mole \per \kelvin})(\SI{340}{\kelvin} - \SI{300}{\kelvin}) \\
+			Q & = \SI{4.988}{\joule}
+		\end{align*}
+	\item
+		\begin{align*}
+			Q & = nC_P\Delta T \\
+			Q & = n(C_V + R)\Delta T \\
+			Q & = (\SI{0.0100}{\mole})(\SI{12.47}{\joule \per \mole \per \kelvin} + \SI{8.314}{\joule \per \mole \per \kelvin})(\SI{340}{\kelvin} - \SI{300}{\kelvin}) \\
+			Q & = \SI{8.314}{\joule}
+		\end{align*}
+	\item
+	\item
+		\begin{align*}
+			\Delta U & = nC_V\Delta T \\
+			\Delta U & = (\SI{0.0100}{\mole})(\SI{12.47}{\joule \per \mole \per \kelvin})(\SI{40}{\kelvin}) \\
+			\Delta U & = \SI{4.988}{\joule}
+		\end{align*}
+\end{enumerate}
+
 \end{document}

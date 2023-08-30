@@ -1,0 +1,203 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{Chapter 1}
+
+\subsection{Boolean Algebra}
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ \mathbf{A} $ & $ \mathbf{B} $ & $ \mathbf{A \land B} $ & $ \mathbf{A \lor B} $  & $ \mathbf{A \oplus B} $ \\
+	\hline
+	T & T & T & T & F \\
+	T & F & F & T & T \\
+	F & T & F & T & T \\
+	F & F & F & F & F
+\end{tabular}
+
+\subsection{Quantifiers}
+
+\begin{itemize}
+	\item
+		For all: $ \forall $
+	\item
+		There exist(s): $ \exists $
+\end{itemize}
+
+\subsection{Sets}
+
+\begin{align*}
+	\mathbb{N} & : \left\{ 0, 1, 2, 3, \cdots \right\} \\
+	\mathbb{Z} & : \left\{ 0, \pm 1, \pm 2, \cdots \right\} \\
+	\mathbb{Q} & : \frac{ a }{ b } \mid b \neq 0 \mid a, b \in \mathbb{Z} \\
+	\mathbb{R} & : x^{2} = 2, x = ? \\
+	\mathbb{C} & : x^{2} = -1, x = ?
+\end{align*}
+
+\subsection{Truth Tables}
+
+For $ p \implies q $, $ P \implies Q $
+
+Prove by truth table that
+$$ ( p \implies q ) \iff ( \neg q \implies \neg p ) $$
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \implies q $ \\
+	\hline
+	T & T & T \\
+	T & F & F \\
+	F & T & T \\
+	F & F & T
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ \neg p $ & $ \neg q $ & $ \neg p \implies \neg q $ \\
+	\hline
+	T & T & F & F & T \\
+	T & F & F & T & F \\
+	F & T & T & F & T \\
+	F & F & T & T & T
+\end{tabular}
+
+\subsubsection{1.30}
+
+Show that $$ ( p \lor q ) \land ( \neg p \lor r ) \implies ( q \lor r ) $$ is a tautology.
+
+\begin{tabular}{ | c | c | c | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ \neg p $ & $ p \lor q $ & $ \neg p \lor r $ & $ ( p \lor q ) \land ( \neg p \lor r ) $ & $ q \lor r $ & $ ( p \lor q ) \land ( \neg p \lor r ) \implies ( q \lor r ) $ \\
+	\hline
+	T & T & T & F & T & T & T & T & T \\
+	T & T & F & F & T & F & F & T & T \\
+	T & F & T & F & T & T & T & T & T \\
+	T & F & F & F & T & F & F & F & T \\
+	F & T & T & T & T & T & T & T & T \\
+	F & T & F & T & T & T & T & T & T \\
+	F & F & T & T & F & T & F & T & T \\
+	F & F & F & T & F & T & F & F & T 
+\end{tabular}
+
+\subsubsection{Logical Equivalence Proof}
+
+Prove $$ p \implies q \equiv \neg q \implies \neg p $$ by case analysis.
+
+\begin{enumerate}[label = \textbf{Case \arabic*}]
+	\item $ p $ is true
+		\begin{enumerate}[label = \textbf{Subcase \arabic*}]
+			\item $ q $ is true
+				\begin{itemize}
+					\item Then $ p \implies q $ is true
+					\item $ \neg q $ is false $ \implies \neg p \implies \neg p $ is true
+				\end{itemize}
+		\end{enumerate}
+\end{enumerate}
+
+\end{document}

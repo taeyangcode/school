@@ -1,0 +1,421 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 01 Participation Assignment}
+\author{Corey Mostero - 2566652}
+\date{8 September 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+% Comments
+\newcommand{\cmt}[1]{}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Problem 1}
+
+Use a truth table to verify the first De Morgan law: $ \neg ( p \land q ) \equiv \neg p \lor \neg q $
+
+\begin{tabular}{ | c | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \land q $ & $ \neg ( p \land q ) $ & $ \neg p $ & $ \neg q $ & $ \neg p \lor \neg q $ \\
+	\hline
+	T & T & T & F & F & F & F \\
+	T & F & F & T & F & T & T \\
+	F & T & F & T & T & F & T \\
+	F & F & F & T & T & T & T
+\end{tabular}
+
+The truth values for the compound propositions $ \neg ( p \land q ) $ and $ \neg p \lor \neg q $ are the same, and are therefore logically equivalent thereby verifying the first De Morgan law.
+
+\section{Problem 2}
+
+Verify by showing either both sides are true, or both sides are false, for exactly the same combinations of truth values of the propositional variables in these expressions (except for 18).
+
+\subsection{16}
+
+Show that $ p \iff q $ and $ ( p \land q ) \lor ( \neg p \land \neg q ) $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \iff q $ & $ p \land q $ & $ \neg p $ & $ \neg q $ & $ \neg p \land \neg q $ & $ ( p \land q ) \lor ( \neg p \land \neg q ) $ \\
+	\hline
+	T & T & T & T & F & F & F & T \\
+	T & F & F & F & F & T & F & F \\
+	F & T & F & F & T & F & F & F \\
+	F & F & T & F & T & T & T & T
+\end{tabular}
+
+\subsection{17}
+
+Show that $ \neg ( p \iff q ) $ and $ p \iff \neg q $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \iff q $ & $ \neg ( p \iff q ) $ & $ \neg q $ & $ p \iff \neg q $ \\
+	\hline
+	T & T & T & F & F & F \\
+	T & F & F & T & T & T \\
+	F & T & F & T & F & T \\
+	F & F & T & F & T & F
+\end{tabular}
+
+\subsection{18}
+
+Show that $ p \implies q $ and $ \neg q \implies \neg p $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \implies q $ & $ \neg q $ & $ \neg p $ & $ \neg q \implies \neg p $ \\
+	\hline
+	T & T & T & F & F & T \\
+	T & F & F & T & F & F \\
+	F & T & T & F & T & T \\
+	F & F & T & T & T & T \\
+\end{tabular}
+
+\subsection{19}
+
+Show that $ \neg p \iff q $ and $ p \iff \neg q $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ \neg p $ & $ q $ & $ \neg p \iff q $ & $ \neg q $ & $ p \iff \neg q $ \\
+	\hline
+	T & F & T & F & F & F \\
+	T & F & F & T & T & T \\
+	F & T & T & T & F & T \\
+	F & T & F & F & T & F \\
+\end{tabular}
+
+\subsection{20}
+
+Show that $ \neg ( p \oplus q ) $ and $ p \iff q $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \oplus q $ & $ \neg ( p \oplus q ) $ & $ p \iff q $ \\
+	\hline
+	T & T & F & T & T \\
+	T & F & T & F & F \\
+	F & T & T & F & F \\
+	F & F & F & T & T \\
+\end{tabular}
+
+\subsection{21}
+
+Show that $ \neg ( p \iff q ) $ and $ \neg p \iff q $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \iff q $ & $ \neg ( p \iff q ) $ & $ \neg p $ & $ \neg p \iff q $ \\
+	\hline
+	T & T & T & F & F & F \\
+	T & F & F & T & F & T \\
+	F & T & F & T & T & T \\
+	F & F & T & F & T & F
+\end{tabular}
+
+\subsection{22}
+
+Show that $ ( p \implies q ) \land ( p \implies r ) $ and $ p \implies ( q \land r ) $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ p \implies q $ & $ p \implies r $ & $ ( p \implies q ) \land ( p \implies r ) $ \\
+	\hline
+	T & T & T & T & T & T \\
+	T & T & F & T & F & F \\
+	T & F & T & F & T & F \\
+	T & F & F & F & F & F \\
+	F & T & T & T & T & T \\
+	F & T & F & T & T & T \\
+	F & F & T & T & T & T \\
+	F & F & F & T & T & T \\
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ q \land r $ & $ p \implies ( q \land r ) $ \\
+	\hline
+	T & T & T & T & T \\
+	T & T & F & F & F \\
+	T & F & T & F & F \\
+	T & F & F & F & F \\
+	F & T & T & T & T \\
+	F & T & F & F & T \\
+	F & F & T & F & T \\
+	F & F & F & F & T \\
+\end{tabular}
+
+\subsection{23}
+
+Show that $ ( p \implies r ) \land ( q \implies r ) $ and $ ( p \lor q ) \implies r $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ p \implies r $ & $ q \implies r $ & $ ( p \implies r ) \land ( q \implies r ) $ \\
+	\hline
+	T & T & T & T & T & T \\
+	T & T & F & F & F & F \\
+	T & F & T & T & T & T \\
+	T & F & F & F & T & F \\
+	F & T & T & T & T & T \\
+	F & T & F & T & F & F \\
+	F & F & T & T & T & T \\
+	F & F & F & T & T & T \\
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ p \lor q $ & $ ( p \lor q ) \implies r $ \\
+	\hline
+	T & T & T & T & T \\
+	T & T & F & T & F \\
+	T & F & T & T & T \\
+	T & F & F & T & F \\
+	F & T & T & T & T \\
+	F & T & F & T & F \\
+	F & F & T & F & T \\
+	F & F & F & F & T \\
+\end{tabular}
+
+\subsection{24}
+
+Show that $ ( p \implies q ) \lor ( p \implies r ) $ and $ p \implies ( q \lor r ) $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ p \implies q $ & $ p \implies r $ & $ ( p \implies q ) \lor ( p \implies r ) $ \\
+	\hline
+	T & T & T & T & T & T \\
+	T & T & F & T & F & T \\
+	T & F & T & F & T & T \\
+	T & F & F & F & F & F \\
+	F & T & T & T & T & T \\
+	F & T & F & T & T & T \\
+	F & F & T & T & T & T \\
+	F & F & F & T & T & T \\
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ q \lor r $ & $ p \implies ( q \lor r ) $ \\
+	\hline
+	T & T & T & T & T \\
+	T & T & F & T & T \\
+	T & F & T & T & T \\
+	T & F & F & F & F \\
+	F & T & T & T & T \\
+	F & T & F & T & T \\
+	F & F & T & T & T \\
+	F & F & F & F & T \\
+\end{tabular}
+
+\subsection{25}
+
+Show that $ ( p \implies r ) \lor ( q \implies r ) $ and $ ( p \land q ) \implies r $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ p \implies r $ & $ q \implies r $ & $ ( p \implies r ) \lor ( q \implies r ) $ \\
+	\hline
+	T & T & T & T & T & T \\
+	T & T & F & F & F & F \\
+	T & F & T & T & T & T \\
+	T & F & F & F & T & T \\
+	F & T & T & T & T & T \\
+	F & T & F & T & F & T \\
+	F & F & T & T & T & T \\
+	F & F & F & T & T & T \\
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ p \land q $ & $ ( p \land q ) \implies r $ \\
+	\hline
+	T & T & T & T & T \\
+	T & T & F & T & F \\
+	T & F & T & F & T \\
+	T & F & F & F & T \\
+	F & T & T & F & T \\
+	F & T & F & F & T \\
+	F & F & T & F & T \\
+	F & F & F & F & T \\
+\end{tabular}
+
+\subsection{26}
+
+Show that $ \neg p \implies ( q \implies r ) $ and $ q \implies ( p \lor r ) $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ \neg p $ & $ q \implies r $ & $ \neg p \implies ( q \implies r ) $ \\
+	\hline
+	T & T & T & F & T & T \\
+	T & T & F & F & F & T \\
+	T & F & T & F & T & T \\
+	T & F & F & F & T & T \\
+	F & T & T & T & T & T \\
+	F & T & F & T & F & F \\
+	F & F & T & T & T & T \\
+	F & F & F & T & T & T \\
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ p \lor r $ & $ q \implies ( p \lor r ) $ \\
+	\hline
+	T & T & T & T & T \\
+	T & T & F & T & T \\
+	T & F & T & T & T \\
+	T & F & F & T & T \\
+	F & T & T & T & T \\
+	F & T & F & F & F \\
+	F & F & T & T & T \\
+	F & F & F & F & T \\
+\end{tabular}
+
+\subsection{27}
+
+Show that $ p \iff q $ and $ ( p \implies q ) \land ( q \implies p ) $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | }
+	$ p $ & $ q $ & $ p \iff q $ \\
+	\hline
+	T & T & T \\
+	T & F & F \\
+	F & T & F \\
+	F & F & T \\
+\end{tabular}
+
+\begin{tabular}{ | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \implies q $ & $ q \implies p $ & $ ( p \implies q ) \land ( q \implies p ) $ \\
+	\hline
+	T & T & T & T & T \\
+	T & F & F & T & F \\
+	F & T & T & F & F \\
+	F & F & T & T & T \\
+\end{tabular}
+
+\subsection{28}
+
+Show that $ p \iff q $ and $ \neg p \iff \neg q $ are logically equivalent.
+
+\begin{tabular}{ | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ p \iff q $ & $ \neg p $ & $ \neg q $ & $ \neg p \iff \neg q $ \\
+	\hline
+	T & T & T & F & F & T \\
+	T & F & F & F & T & F \\
+	F & T & F & T & F & F \\
+	F & F & T & T & T & T \\
+\end{tabular}
+
+\end{document}
+
+\cmt{
+\begin{tabular}{ | c | c | c | }
+	$ p $ & $ q $ & $ r $ \\
+	\hline
+	T & T & T \\
+	T & T & F \\
+	T & F & T \\
+	T & F & F \\
+	F & T & T \\
+	F & T & F \\
+	F & F & T \\
+	F & F & F \\
+\end{tabular}
+}

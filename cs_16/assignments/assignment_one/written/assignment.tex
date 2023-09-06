@@ -1,0 +1,211 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+\usepackage{framed}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Assignment \#1}
+\author{Corey Mostero - 2566652}
+\date{8 September 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{}
+Translate the following numbers to BOTH binary AND unsigned hexadecimal
+
+\subsection{65}
+\begin{itemize}
+	\item[\textbf{Binary}] 1000001
+	\item[\textbf{Hexadecimal}] 41
+\end{itemize}
+
+\subsection{409}
+\begin{itemize}
+	\item[\textbf{Binary}] 110011001
+	\item[\textbf{Hexadecimal}] 199
+\end{itemize}
+
+\subsection{16385}
+\begin{itemize}
+	\item[\textbf{Binary}] 100000000000001
+	\item[\textbf{Hexadecimal}] 4001
+\end{itemize}
+
+\section{}
+What are the unsigned decimal AND hexadecimal representations of each of the following binary numbers?
+
+\subsection{0011 0101 1101 1010}
+\begin{itemize}
+	\item[\textbf{Decimal}] 13786
+	\item[\textbf{Hexadecimal}] 35DA
+\end{itemize}
+
+\subsection{1100 1110 1010 0011}
+\begin{itemize}
+	\item[\textbf{Decimal}] 52899
+	\item[\textbf{Hexadecimal}] CEA3
+\end{itemize}
+
+\subsection{1111 1110 1101 1011}
+\begin{itemize}
+	\item[\textbf{Decimal}] 65243
+	\item[\textbf{Hexadecimal}] FEDB
+\end{itemize}
+
+\section{}
+What is the binary representation of the following hexadecimal numbers?
+
+\subsection{A4693FBC}
+1010 0100 0110 1001 0011 1111 1011 1100
+
+\subsection{B697C7A1}
+1011 0110 1001 0111 1100 0111 1010 0001
+
+\subsection{2B3D9461}
+0010 1011 0011 1101 1001 0100 0110 0001
+
+\section{}
+What is the 16-bit hexadecimal representation of each of the following signed decimal integers?
+
+\subsection{-21}
+-15
+
+\subsection{-45}
+-2D
+
+\section{}
+The following 16-bit hexadecimal numbers represent signed integers. Convert each to decimal.
+
+\subsection{6BF9}
+
+\subsection{C123}
+
+\section{}
+What is the 8-bit binary (two’s-complement) representation of each of the following signed decimal integers?
+
+\subsection{-72}
+1111111110111000
+
+\subsection{-98}
+1111111110011110
+
+\subsection{-26}
+1111111111100110
+
+\section{}
+What is the sum of each pair of hexadecimal integers?
+
+\subsection{6B4 + 3FE}
+
+\subsection{A49 + 6BD}
+
+\end{document}

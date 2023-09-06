@@ -177,35 +177,84 @@ What is the binary representation of the following hexadecimal numbers?
 What is the 16-bit hexadecimal representation of each of the following signed decimal integers?
 
 \subsection{-21}
--15
+
+\begin{align*}
+	& \rightarrow \text{ 0000 0000 0001 0101 } \\
+	& \rightarrow \text{ 1111 1111 1110 1010 } \\
+	& \rightarrow \text{ 1111 1111 1110 1011 } \\
+	& \rightarrow \text{ FFEB } \\
+\end{align*}
 
 \subsection{-45}
--2D
+
+\begin{align*}
+	& \rightarrow \text{ 0000 0000 0010 1101 } \\
+	& \rightarrow \text{ 1111 1111 1101 0010 } \\
+	& \rightarrow \text{ 1111 1111 1101 0011 } \\
+	& \rightarrow \text{ FFD3 } \\
+\end{align*}
 
 \section{}
 The following 16-bit hexadecimal numbers represent signed integers. Convert each to decimal.
 
 \subsection{6BF9}
 
+$ (6 \times 16^{3}) + (11 \times 16^{2}) + (15 \times 16^{1}) + (9 \times 16^{0}) = 27633 $
+
 \subsection{C123}
+
+\begin{align*}
+	& \rightarrow \text{ 1100 0001 0010 0011 }, \text{ MSB = 1 $ \therefore $ negative } \\
+	& \rightarrow \text{ 0011 1110 1101 1100 } \\
+	& \rightarrow \text{ 0011 1110 1101 1101 } \\
+	& \rightarrow -16093
+\end{align*}
 
 \section{}
 What is the 8-bit binary (two’s-complement) representation of each of the following signed decimal integers?
 
 \subsection{-72}
-1111111110111000
+
+\begin{align*}
+	& \rightarrow \text{ 0100 1000 } \\
+	& \rightarrow \text{ 1011 0111 } \\
+	& \rightarrow \text{ 1011 1000 }
+\end{align*}
 
 \subsection{-98}
-1111111110011110
+
+\begin{align*}
+	& \rightarrow \text{ 0110 0010 } \\
+	& \rightarrow \text{ 1001 1101 } \\
+	& \rightarrow \text{ 1001 1110 }
+\end{align*}
 
 \subsection{-26}
-1111111111100110
+
+\begin{align*}
+	& \rightarrow \text{ 0001 1010 } \\
+	& \rightarrow \text{ 1110 0101 } \\
+	& \rightarrow \text{ 1110 0110 }
+\end{align*}
 
 \section{}
 What is the sum of each pair of hexadecimal integers?
 
 \subsection{6B4 + 3FE}
 
+\begin{align*}
+	4 + E & = 2, \text{ carry } = 1 \\
+	B + F + 1 & = B, \text{ carry } = 1 \\
+	6 + 3 + 1 & = A
+\end{align*}
+$ \text{ 0xAB2 } \equiv 2738 $
+
 \subsection{A49 + 6BD}
+\begin{align*}
+	9 + D & = 6, \text{ carry = 1 } \\
+	4 + B + 1 & = 0, \text{ carry = 1 } \\
+	A + 6 + 1 & = 1, \text{ carry = 1 }
+\end{align*}
+$ \text{ 0x1106 } \equiv 4358 $
 
 \end{document}

@@ -157,12 +157,21 @@ Show that $ p \iff q $ and $ ( p \land q ) \lor ( \neg p \land \neg q ) $ are lo
 
 \subsubsection{Proof}
 
-Start by observing that $ p \iff q $ is true only if $ ( p = T \land q = T ) \lor ( p = F \land q = F ) $ \\
-Looking at the second compound proposition, 
+Start by observing that the first compound proposition $ p \iff q $ is true only if $ ( p = T \land q = T ) \lor ( p = F \land q = F ) $.
+
+Looking at the second compound proposition, the first proposition $ (p \land q) $ is only true when both $ p = T \land q = T $.
+
+As for the second proposition $ ( \neg p \land \neg q ) $, this can only be true when both $ p = F \land q = F $.
+
+The second compound proposition $ ( p \land q ) \lor ( \neg p \land \neg q ) $ can now be seen as true only when $ ( p = T \land q = T ) \lor ( p = F \land q = F ) $.
+
+$ \therefore $ it can be concluded that each compound proposition is true if and only if: $ ( p = T \land q = T ) \lor ( p = F \land q = F ) $, proving the expression.
 
 \subsection{17}
 
 Show that $ \neg ( p \iff q ) $ and $ p \iff \neg q $ are logically equivalent.
+
+\subsubsection{Truth Table}
 
 \begin{tabular}{ | c | c | c | c | c | c | }
 	$ p $ & $ q $ & $ p \iff q $ & $ \neg ( p \iff q ) $ & $ \neg q $ & $ p \iff \neg q $ \\
@@ -172,6 +181,14 @@ Show that $ \neg ( p \iff q ) $ and $ p \iff \neg q $ are logically equivalent.
 	F & T & F & T & F & T \\
 	F & F & T & F & T & F
 \end{tabular}
+
+\subsubsection{Proof}
+
+Begin by observing the first compound proposition $ \neg ( p \iff q ) $. The expression $ p \iff q $ is \textbf{true} \textit{if and only if} $ ( ( p = T ) \land ( q = T ) ) \lor ( ( p = F ) \land ( q = F ) ) $. Including the negation connective, the LHS compound proposition is \textbf{false} under the same aforementioned truth values.
+
+Now looking at the RHS compound proposition, we can see that it is \textbf{false} \textit{if and only if} $ p \equiv q $. In other words, the RHS compound proposition is \textbf{false} \textit{if and only if} $ ( ( p = T ) \land ( q = T ) ) \lor ( ( p = F ) \land ( q = F ) ) $.
+
+$ \therefore $ both sides are verified to be \textbf{false} under the same combination of truth values: $ p \equiv q $, or more specifically $ ( ( p = T ) \land ( q = T ) ) \lor ( ( p = F ) \land ( q = F ) ) $.
 
 \subsection{18}
 

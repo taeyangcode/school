@@ -144,6 +144,8 @@ Verify by showing either both sides are true, or both sides are false, for exact
 
 Show that $ p \iff q $ and $ ( p \land q ) \lor ( \neg p \land \neg q ) $ are logically equivalent.
 
+\subsubsection{Truth Table}
+
 \begin{tabular}{ | c | c | c | c | c | c | c | c | }
 	$ p $ & $ q $ & $ p \iff q $ & $ p \land q $ & $ \neg p $ & $ \neg q $ & $ \neg p \land \neg q $ & $ ( p \land q ) \lor ( \neg p \land \neg q ) $ \\
 	\hline
@@ -152,6 +154,11 @@ Show that $ p \iff q $ and $ ( p \land q ) \lor ( \neg p \land \neg q ) $ are lo
 	F & T & F & F & T & F & F & F \\
 	F & F & T & F & T & T & T & T
 \end{tabular}
+
+\subsubsection{Proof}
+
+Start by observing that $ p \iff q $ is true only if $ ( p = T \land q = T ) \lor ( p = F \land q = F ) $ \\
+Looking at the second compound proposition, 
 
 \subsection{17}
 

@@ -1,0 +1,167 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 02 Participation Assignment Part 01}
+\author{Corey Mostero - 2566652}
+\date{8 September 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 01}
+
+Suppose the domain of the propositional function $ P(x, y) $ consists of pairs $ x $ and $ y $, where $ x $ is 1, 2, or 3 and $ y $ is 1, 2, or 3. Write out these propositions using disjunctions and conjunctions.
+
+\subsection{a)}
+\begin{equation*}
+	\forall x \forall y P(x, y)
+\end{equation*}
+
+\begin{align*}
+	\forall x \forall y P(x, y) & \\
+								& \equiv P(1, 1) \land P(1, 2) \land P(1, 3) \\
+								& \land P(2, 1) \land P(2, 2) \land P(2, 3) \\
+								& \land P(3, 1) \land P(3, 2) \land P(3, 3)
+\end{align*}
+
+\subsection{b)}
+$$ \exists x \exists y P(x, y) $$
+
+\begin{align*}
+	\exists x \exists y P(x, y) & \\
+	& \equiv P(1, 1) \lor P(1, 2) \lor P(1, 3) \\
+	& \lor P(2, 1) \lor P(2, 2) \lor P(2, 3) \\
+	& \lor P(3, 1) \lor P(3, 2) \lor P(3, 3)
+\end{align*}
+
+\subsection{c)}
+$$ \exists x \forall y P(x, y) $$
+
+\begin{align*}
+	\exists x \forall y P(x, y) & \\
+								& \equiv \left( P(1, 1) \land P(1, 2) \land P(1, 3) \right) \\
+								& \lor \left( P(2, 1) \land P(2, 2) \land P(2, 3) \right) \\
+								& \lor \left( P(3, 1) \land P(3, 2) \land P(3, 3) \right)
+\end{align*}
+
+\subsection{d)}
+$$ \forall y \exists x P(x, y) $$
+
+\begin{align*}
+	\forall y \exists x P(x, y) & \\
+								& \equiv \left( P(1, 1) \lor P(2, 1) \lor P(3, 1) \right) \\
+								& \land \left( P(1, 2) \lor P(2, 2) \lor P(3, 2) \right) \\
+								& \land \left( P(1, 3) \lor P(2, 3) \lor P(3, 3) \right)
+\end{align*}
+
+\end{document}

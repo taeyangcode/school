@@ -114,90 +114,148 @@
 
 \section{Chapter 1}
 
-\subsection{Boolean Algebra}
+\subsection{Propositional Logic}
 
-\begin{tabular}{ | c | c | c | c | c | }
-	$ \mathbf{A} $ & $ \mathbf{B} $ & $ \mathbf{A \land B} $ & $ \mathbf{A \lor B} $  & $ \mathbf{A \oplus B} $ \\
-	\hline
-	T & T & T & T & F \\
-	T & F & F & T & T \\
-	F & T & F & T & T \\
-	F & F & F & F & F
-\end{tabular}
+\subsection{Applications of Propositional Logic}
 
-\subsection{Quantifiers}
+\subsection{Propositional Equivalences}
 
-\begin{itemize}
-	\item
-		For all: $ \forall $
-	\item
-		There exist(s): $ \exists $
-\end{itemize}
+\subsection{Predicates and Quantifiers}
 
-\subsection{Sets}
+\subsection{Nested Quantifiers}
+
+\subsection{Rules of Inference}
+
+\subsection{Introduction to Proofs}
+
+We can define rational numbers as
+\begin{equation}
+	\mathbb{Q} = \left\{ r | r = \frac{ p }{ q }, p, q, \in \mathbb{Z}, q \neq 0, gcd(p, q) = 1 \right\}
+\end{equation}
+
+\subsubsection{Basic Methods of Proofs}
+
+\begin{enumerate}
+	\item Directly
+	\item Case by case
+	\item Contradiction (unknown result, but know it is wrong) \& Contrapositive (known result)
+		\begin{itemize}
+			\item For contrapositive: To prove $ p \implies q $, we prove $ \neg q \implies \neg p $
+			\item For contradiction: We assume the opposite of the result, then from the assumption, we draw contradiction
+		\end{itemize}
+\end{enumerate}
+
+\subsubsection{Example}
+
+Prove that the product of two odd integers is odd.
+
+\textbf{Direct Proof}: Let $ a, b \in \mathbb{Z} $. Since $ a, b $ are odds, then by definition $ a = 2m + 1, b = 2n + 1 $, where $ m, n \in \mathbb{Z} $.
 
 \begin{align*}
-	\mathbb{N} & : \left\{ 0, 1, 2, 3, \cdots \right\} \\
-	\mathbb{Z} & : \left\{ 0, \pm 1, \pm 2, \cdots \right\} \\
-	\mathbb{Q} & : \frac{ a }{ b } \mid b \neq 0 \mid a, b \in \mathbb{Z} \\
-	\mathbb{R} & : x^{2} = 2, x = ? \\
-	\mathbb{C} & : x^{2} = -1, x = ?
+	a \cdot b & = (2m + 1)(2n + 1) \\
+	a \cdot b & = 4mn + 2m + 2n + 1 \\
+	a \cdot b & = 2(2mn + m + n) + 1 \\
+	a \cdot b & = 2k + 1 \\
+			  & \therefore a \cdot b \text{ is odd by definition}
 \end{align*}
 
-\subsection{Truth Tables}
+\subsubsection{Example}
 
-For $ p \implies q $, $ P \implies Q $
+Prove that $ n^2 + 1 \geq 2^n $ when $ n $ is a positive integer with $ 1 \leq n \leq 4 $.
 
-Prove by truth table that
-$$ ( p \implies q ) \iff ( \neg q \implies \neg p ) $$
-\begin{tabular}{ | c | c | c | c | c | }
-	$ p $ & $ q $ & $ p \implies q $ \\
-	\hline
-	T & T & T \\
-	T & F & F \\
-	F & T & T \\
-	F & F & T
-\end{tabular}
+\textbf{Case by Case Proof}
 
-\begin{tabular}{ | c | c | c | c | c | }
-	$ p $ & $ q $ & $ \neg p $ & $ \neg q $ & $ \neg p \implies \neg q $ \\
-	\hline
-	T & T & F & F & T \\
-	T & F & F & T & F \\
-	F & T & T & F & T \\
-	F & F & T & T & T
-\end{tabular}
+\subsubsection{Example}
 
-\subsubsection{1.30}
+Prove that if $ m + n $ and $ n + p $ are even integers, where $ m, n, $ and $ p $ are integers, then $ m + p $ is even. What kind of proof did you use?
 
-Show that $$ ( p \lor q ) \land ( \neg p \lor r ) \implies ( q \lor r ) $$ is a tautology.
+\textbf{Proof}:
 
-\begin{tabular}{ | c | c | c | c | c | c | c | c | c | }
-	$ p $ & $ q $ & $ r $ & $ \neg p $ & $ p \lor q $ & $ \neg p \lor r $ & $ ( p \lor q ) \land ( \neg p \lor r ) $ & $ q \lor r $ & $ ( p \lor q ) \land ( \neg p \lor r ) \implies ( q \lor r ) $ \\
-	\hline
-	T & T & T & F & T & T & T & T & T \\
-	T & T & F & F & T & F & F & T & T \\
-	T & F & T & F & T & T & T & T & T \\
-	T & F & F & F & T & F & F & F & T \\
-	F & T & T & T & T & T & T & T & T \\
-	F & T & F & T & T & T & T & T & T \\
-	F & F & T & T & F & T & F & T & T \\
-	F & F & F & T & F & T & F & F & T 
-\end{tabular}
+Case 1: When $ n $ is even.
 
-\subsubsection{Logical Equivalence Proof}
+Since $ m + n $ \& $ n + p $ are even, then $ m $ is even \& $ p $ is even. Thus, $ m + p $ is even.
+\begin{align*}
+	n & = 2k_1 \\
+	m + n & = 2k_2 \\
+	m & = 2k_2 - 2k_1 \\
+	m & = 2(k_2 - k_1)
+\end{align*}
 
-Prove $$ p \implies q \equiv \neg q \implies \neg p $$ by case analysis.
+\subsubsection{Example}
 
-\begin{enumerate}[label = \textbf{Case \arabic*}]
-	\item $ p $ is true
-		\begin{enumerate}[label = \textbf{Subcase \arabic*}]
-			\item $ q $ is true
-				\begin{itemize}
-					\item Then $ p \implies q $ is true
-					\item $ \neg q $ is false $ \implies \neg p \implies \neg p $ is true
-				\end{itemize}
-		\end{enumerate}
-\end{enumerate}
+$ \forall a, b \in \mathbb{Z} $, if $ a \cdot b $ is even, then either $ a $ is even or $ b $ is even.
+
+\textbf{Proof by Contrapositive}: The statement is equivalent to
+\begin{align*}
+	\neg ( a = 2k_1 \lor b = 2k_2 ) & \implies \neg ( a \cdot b = 2k_3 ) \\
+	\neg ( a = 2k_1 ) \land \neg ( b = 2k_2 ) & \implies \neg ( a \cdot b = 2k_3 ) \\
+	( a = 2k_1 + 1 ) \land ( b = 2k_2 + 1 ) & \implies ( a \cdot b = 2k_3 + 1 )
+\end{align*}
+
+\subsubsection{Example}
+
+Prove that $ \sqrt{2} $ is irrational.
+
+\textbf{Proof by Contadiction}: We assume that $ \sqrt{2} $ is rational. Then $ \sqrt{2} = \frac{ m }{ n } $, where $ m, n \in \mathbb{Z}, n \neq 0, gcd(m, n) = 1 $.
+\begin{align*}
+	2 & = \frac{ m^2 }{ n^2 } \\
+	m^2 & = 2n^2
+\end{align*}
+Hence, $ m^2 $ is even $ \implies m $ is even $ \implies m^2 $ is a multiple of 4. Thus, $ n^2 $ is even $ \implies n $ is even $ \implies n^2 $ is a multiple of 2. $ \therefore gcd(m, n) \neq 1 $ contradicts with $ gcd(m, n) = 1 $.
+
+\subsubsection{Example}
+
+Prove that there is no largest positive real number.
+
+\textbf{Proof by Contradiction}: Assume that there is a largest real number. Let $ x $ be the largest positive real number.
+
+Consider $ x + 1 > x $. Then it contradicts with the assumption.
+
+\subsubsection{Example}
+
+Show that the equation has exactly one real solution.
+\begin{equation*}
+	2x + \cos(x) = 0
+\end{equation*}
+
+Start by showing there is at least one solution.
+
+Let $ a = 0, f(x) = 2x + \cos(x) $, then $ f(a) = 1 > 0 $. When $ b = \pi $, then $ f(b) = 2(-\pi) + \cos(-\pi) = -2\pi - (-1) < 0 $.
+
+Show at most one solution. By contradiction, assume we have at least two solutions: $ f(x_1) = 0, f(x_2) = 0 $.
+
+By Rolle's Theorem: Show that $ f'(b) = 0 $. $ f'(b) = 2 - \sin(x) \neq 0 $.
+
+\subsubsection{Example}
+
+Prove that the arithmetic mean is greater than or equal to the geometric mean for the case when $ n = 2 $. That is, prove
+\begin{equation*}
+	\frac{ x + y }{ 2 } \geq \sqrt{ xy }, x \geq, y \geq 0
+\end{equation*}
+\begin{align*}
+	\frac{ x + y }{ 2 } & \geq \sqrt{ xy } \\
+	\left( \frac{ x + y }{ 2 } \right)^2 & \geq xy \\
+	\frac{ x^2 + y^2 + 2xy }{ 4 } & \geq xy \\
+	x^2 + y^2 + 2xy & \geq 4xy \\
+	x^2 + y^2 - 2xy & \geq 0 \\
+	(x - y)^2 & \geq 0
+\end{align*}
+
+\subsubsection{Existence and Uniqueness}
+
+\begin{align*}
+	\exists !x P(x) & \implies \text{ If $ P(x) $ is $ T $, then $ P(y) $ is $ F $ if $ y \neq x $. } \\
+					& \iff P(x) = P(y) \text{ is true, then } x = y
+\end{align*}
+\textbf{Existence}: Consider $ x = \frac{ c - b }{ a } $ is well-defined since $ a, b, c \in \mathbb{R}, a \neq 0 $. Then $ ax + b = a \left( \frac{ c - b }{ a } \right) + b = c - b + b = c \therefore x = \frac{ c - b }{ a } $ is a solution.
+
+\textbf{Uniqueness}: Let $ x_1, x_2 $ be two real numbers that are solutions to $ ax + b = c $. Then
+
+\systeme{
+	ax_1 + b = c,
+	ax_2 + b = c
+}
+
+\subsection{Proof Methods and Strategy}
 
 \end{document}

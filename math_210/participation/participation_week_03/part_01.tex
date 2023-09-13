@@ -135,20 +135,19 @@ First, we recall that the absolute value of any real number is defined by
 
 \begin{enumerate}[label = \textbf{\alph*)}]
 	\item Use the definition above to explain why for any real number $ a : \left| a \right| \geq 0 $. \\
-		\textbf{Case by Case Proof}: Let $ x : x \in \mathbb{R}, [0, \infty ) $.
+		\textbf{Case by Case Proof}:
 		\begin{itemize}
-			\item Case 1: $ a \geq 0 $ and $ x = a $.
+			\item Case 1: $ a \geq 0 $.
 				\begin{align*}
-					|a| & = a \\
-					|x| & = a \\
-					x & = a
+					|a| & = a, \quad a \geq 0 \\
+					|a| & = a \geq 0 \\
+					|a| & \geq a
 				\end{align*}
-			\item Case 2: $ a < 0 $ and $ x = -a $.
+			\item Case 2: $ a < 0 $.
 				\begin{align*}
-					|-a| & = -a \\
-					|-(-x)| & = -a \\
-					|x| & = -a \\
-					x & = -a
+					|a| & = -a, \quad a < 0 \implies -a > 0 \\
+					|a| & = -a > 0, \quad -a > 0 \implies -a \geq 0 \\
+					|a| & \geq 0
 				\end{align*}
 		\end{itemize}
 	\item Again, using the definition, show that $ |a|^2 = a^2 $. \\
@@ -157,17 +156,15 @@ First, we recall that the absolute value of any real number is defined by
 			\item Case 1: $ a \geq 0 $.
 				\begin{align*}
 					|a|^2 & = a^2 \\
-					|a| \cdot |a| & = a \cdot a \\
-					|x| \cdot |x| & = a \cdot a \\
-					x \cdot x & = a \cdot a
+					|a| \cdot |a| & = a \cdot a, \quad |a| = a \geq 0 \\
+					a \cdot a & = a \cdot a
 				\end{align*}
 			\item Case 2: $ a < 0 $.
 				\begin{align*}
-					|-a|^2 & = a^2 \\
-					|-a| \cdot |-a| & = a \cdot a \\
-					|-(-x)| \cdot |-(-x)| & = a \cdot a \\
-					|x| \cdot |x| & = a \cdot a \\
-					x \cdot x & = a \cdot a
+					|a|^2 & = a^2 \\
+					|a| \cdot |a| & = a \cdot a, \quad |a| = -a > 0 \implies |a| = -a \geq 0 \\
+					-a \cdot -a & = a \cdot a \\
+					a \cdot a & = a \cdot a
 				\end{align*}
 		\end{itemize}
 	\item Our next goal is to show that $ \sqrt{b} $ is unique. In other words, prove that if $ c $ and $ d $ are two real numbers such that $ c \geq 0 $, and $ d \geq 0 $, and $ b = c^2 = d^2 $, then $ c = d $.
@@ -176,7 +173,8 @@ First, we recall that the absolute value of any real number is defined by
 			c^2 - d^2 & = 0 \\
 			(c + d)(c - d) & = 0 \\
 			c & = \pm d \\
-			|c| & = |d|
+			|c| & = |d|, \quad |c| = c \geq 0, |d| = d \geq 0 \\
+			c & = d
 		\end{align*}
 	\item Rewrite the definition for $ \sqrt{b} $ to define $ \sqrt{ a^2 } $
 	\item Put together all the steps above to write a complete proof that $ \sqrt{ a^2 } = |a| $.

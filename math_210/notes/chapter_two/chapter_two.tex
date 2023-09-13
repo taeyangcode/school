@@ -1,0 +1,183 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip} 
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+		{#1} \quad {#2}
+	\else
+		$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L} }
+		{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+		{ \mathcal{L}^{-1} }
+		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{Chapter 02 - Basic Structures}
+
+\subsection{Sets}
+
+\textbf{$ \in $}: belong to, is in
+
+\subsubsection{Definition 2}
+
+Two sets are equal if and only if they have the same elements. Therefore, if $ A $ and $ B $ are sets, then $ A $ and $ B $ are equal if and only if $ \forall x \left( x \in A \iff x \in B \right) $. We write $ A = B $ if $ A $ and $ B $ are equal sets.
+
+\subsubsection{Definition 3}
+
+The set $ A $ is also a subset of $ B $, and $ B $ is a superset of $ A $, if and only if every element of $ A $ is also an element of $ B $. We use the notation $ A \subseteq B $ to indicate that $ A $ is a subset of the set $ B $. If, instead, we want to stress that $ B $ is a superset of $ A $, we use the equivalent notation $ B \supseteq A $. (So, $ A \subseteq B $ and $ B \supseteq A $ are equivalent statements.)
+
+\subsubsection{Definition 4}
+
+Let $ S $ be a set. If there are exactly $ n $ distinct elements in $ S $ where $ n $ is a nonnegative integer, we say that $ S $ is a finite set and that $ n $ is the cardinality of $ S $. The cardinality of $ S $ is denoted by $ |S| $.
+
+\subsubsection{Countable and Uncountable Sets}
+
+\begin{itemize}
+	\item Countable
+		\begin{itemize}
+			\item $ \mathbb{N} $
+			\item $ \mathbb{Z} $
+			\item $ \mathbb{Q} $
+		\end{itemize}
+	\item Uncountable
+		\begin{itemize}
+			\item $ \mathbb{R} $
+			\item $ \mathbb{C} $
+		\end{itemize}
+\end{itemize}
+
+Let $ S_0 = \left\{ x \right\} $, and $ S_1 = \left\{ \left\{ x \right\} \right\} $.
+\begin{equation}
+	S_0 \neq S_1
+\end{equation}
+
+\subsubsection{Example}
+
+\begin{enumerate}
+\item List the members of these sets.
+	\begin{enumerate}[label = \textbf{\alph*)}]
+		\item $ \left\{ x \mid x \text{ is a real number such that } x^2 = 1 \right\} $
+			\begin{align*}
+				S & = \left\{ x \in \mathbb{R} \mid x^2 = 1 \right\}
+			\end{align*}
+		\item $ \left\{ x \mid x \text{ is a positive integer less than 12} \right\} $
+			\begin{align*}
+				S & = \left\{ x \in \mathbb{R} \mid 0 \leq x < 12 \right\}
+			\end{align*}
+	\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Definition 6}
+
+Given a set $ S $, the power set of $ S $ is the set of all subsets of the set $ S $. The power set of $ S $ is denoted by $ \mathcal{P}(S) $.
+
+\subsection{Set Operations}
+
+\subsection{Functions}
+
+\subsection{Sequences and Summations}
+
+\subsection{Cardinality of Sets}
+
+\subsection{Matrices}
+
+\end{document}

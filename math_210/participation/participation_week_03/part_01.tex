@@ -179,13 +179,26 @@ First, we recall that the absolute value of any real number is defined by
 	\item Rewrite the definition for $ \sqrt{b} $ to define $ \sqrt{ a^2 } $
 	\item Put together all the steps above to write a complete proof that $ \sqrt{ a^2 } = |a| $.
 		\begin{align*}
-			\sqrt{ b } & = c^2 \\
-			\sqrt{ b } & = (\pm d)^2 \\
-			c^2 & = |d|^2 \\
-			\sqrt{ c^2 } & = \sqrt{ |d|^2 } \\
-			\sqrt{ c^2 } & = \sqrt{ d^2 } \\
-			\sqrt{ c^2 } & = |d|
+			\sqrt{ a^2 } & = |a|
 		\end{align*}
+		\textbf{Case by Case Proof}:
+		\begin{itemize}
+			\item Case 1: $ a \geq 0 $
+				\begin{align*}
+					\sqrt{ a^2 } & = |a| \\
+					a^2 & = |a|^2 \\
+					a \cdot a & = |a| \cdot |a|, \quad |a| = a \geq 0 \\
+					a \cdot a & = a \cdot a
+				\end{align*}
+			\item Case 2: $ a < 0 $
+				\begin{align*}
+					\sqrt{ a^2 } & = |a| \\
+					a^2 & = |a|^2 \\
+					a \cdot a & = |a| \cdot |a|, \quad |a| = a < 0 \implies -a > 0 \implies -a \geq 0 \\
+					a \cdot a & = -a \cdot -a \\
+					a \cdot a & = a \cdot a
+				\end{align*}
+		\end{itemize}
 \end{enumerate}
 
 

@@ -62,7 +62,7 @@
 % Change title of table of contents
 % \renewcommand{\contentsname}{Title}
 
-\title{Week 03 Participation Assignment - Part 01}
+\title{Week 03 Participation Assignment}
 \author{Corey Mostero - 2566652}
 \date{15 September 2023}
 
@@ -177,6 +177,13 @@ First, we recall that the absolute value of any real number is defined by
 			c & = d
 		\end{align*}
 	\item Rewrite the definition for $ \sqrt{b} $ to define $ \sqrt{ a^2 } $
+		\begin{align*}
+			b & = c^2 \\
+			\sqrt{b} & = c \\
+			\sqrt{b} & = \pm d \\
+			\sqrt{b} & = \sqrt{ d^2 }, \sqrt{ (-d)^2 } \\
+			\sqrt{b} & = \sqrt{ d^2 } = \sqrt{ a^2 }, \quad \left\{ d \in \mathbb{R}, \in (-\infty, \infty) \right\}
+		\end{align*}
 	\item Put together all the steps above to write a complete proof that $ \sqrt{ a^2 } = |a| $.
 		\begin{align*}
 			\sqrt{ a^2 } & = |a|
@@ -201,5 +208,14 @@ First, we recall that the absolute value of any real number is defined by
 		\end{itemize}
 \end{enumerate}
 
+\section{Part 02}
+
+Let's consider the powersets of a finite set. Our goal is to ``calculate" how many elements are in the power set. That is the cardinality of the powerset. (We could define powerset from an infinite set).
+
+If $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $ is a finite set, we define $ \mathcal{P}(X) $, the powerset of $ X $, to be the set of all subsets of $ X $. For Example, if $ X = \left\{ a, b \right\} $, then $ \mathcal{P}(X) = \left\{ \emptyset, \left\{ a \right\}, \left\{ b \right\}, \left\{ a, b \right\} \right\} $ and thus $ \mathcal{P}(X) $ has 4 elements.
+
+\begin{enumerate}[label = \textbf{\alph*)}]
+	\item If $ X = \left\{ a, b, c \right\} $, list all the members of $ \mathcal{P}(X) $. How many subsets does $ X $ have?
+\end{enumerate}
 
 \end{document}

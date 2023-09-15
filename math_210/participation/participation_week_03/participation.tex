@@ -3,7 +3,7 @@
 % Document extensibility %
 %
 % Disables native paragraph indentation
-\usepackage{parskip} 
+\usepackage{parskip}
 %
 % Provides further bullet options for lists
 \usepackage{enumitem}
@@ -42,6 +42,9 @@
 %
 % Matrix Notation
 \usepackage{bm}
+
+% Code Blocks
+\usepackage{listings}
 
 % Graphic packages %
 %
@@ -83,9 +86,9 @@
 % Command for single line equations with a condition
 \newcommand{\cond}[2]{
 	\ifmmode
-		{#1} \quad {#2}
+	{#1} \quad {#2}
 	\else
-		$$ {#1} \quad {#2} $$
+	$$ {#1} \quad {#2} $$
 	\fi
 }
 
@@ -104,13 +107,13 @@
 % Laplace
 \NewDocumentCommand{\lap}{o}{
 	\IfNoValueTF{#1}
-		{ \mathcal{L} }
-		{ \mathcal{L} \left\{ {#1} \right\} }
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
 }
 \NewDocumentCommand{\ilap}{o}{
 	\IfNoValueTF{#1}
-		{ \mathcal{L}^{-1} }
-		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
 }
 
 \maketitle
@@ -126,86 +129,86 @@ First, we recall that the absolute value of any real number is defined by
 \begin{align*}
 	|a| & =
 	\left\{
-		\begin{array}{@{}l@{}}
-			a \text{ if $ a \geq 0 $, and } \\
-			-a \text{ if $ a < 0 $. }
-		\end{array}
+	\begin{array}{@{}l@{}}
+		a \text{ if $ a \geq 0 $, and } \\
+		-a \text{ if $ a < 0 $. }
+	\end{array}
 	\right.
 \end{align*}
 
 \begin{enumerate}[label = \textbf{\alph*)}]
 	\item Use the definition above to explain why for any real number $ a : \left| a \right| \geq 0 $. \\
-		\textbf{Case by Case Proof}:
-		\begin{itemize}
-			\item Case 1: $ a \geq 0 $.
-				\begin{align*}
-					|a| & = a, \quad a \geq 0 \\
-					|a| & = a \geq 0 \\
-					|a| & \geq a
-				\end{align*}
-			\item Case 2: $ a < 0 $.
-				\begin{align*}
-					|a| & = -a, \quad a < 0 \implies -a > 0 \\
-					|a| & = -a > 0, \quad -a > 0 \implies -a \geq 0 \\
-					|a| & \geq 0
-				\end{align*}
-		\end{itemize}
+	      \textbf{Case by Case Proof}:
+	      \begin{itemize}
+		      \item Case 1: $ a \geq 0 $.
+		            \begin{align*}
+			            |a| & = a, \quad a \geq 0 \\
+			            |a| & = a \geq 0          \\
+			            |a| & \geq a
+		            \end{align*}
+		      \item Case 2: $ a < 0 $.
+		            \begin{align*}
+			            |a| & = -a, \quad a < 0 \implies -a > 0         \\
+			            |a| & = -a > 0, \quad -a > 0 \implies -a \geq 0 \\
+			            |a| & \geq 0
+		            \end{align*}
+	      \end{itemize}
 	\item Again, using the definition, show that $ |a|^2 = a^2 $. \\
-		\textbf{Case by Case Proof}:
-		\begin{itemize}
-			\item Case 1: $ a \geq 0 $.
-				\begin{align*}
-					|a|^2 & = a^2 \\
-					|a| \cdot |a| & = a \cdot a, \quad |a| = a \geq 0 \\
-					a \cdot a & = a \cdot a
-				\end{align*}
-			\item Case 2: $ a < 0 $.
-				\begin{align*}
-					|a|^2 & = a^2 \\
-					|a| \cdot |a| & = a \cdot a, \quad |a| = -a > 0 \implies |a| = -a \geq 0 \\
-					-a \cdot -a & = a \cdot a \\
-					a \cdot a & = a \cdot a
-				\end{align*}
-		\end{itemize}
+	      \textbf{Case by Case Proof}:
+	      \begin{itemize}
+		      \item Case 1: $ a \geq 0 $.
+		            \begin{align*}
+			            |a|^2         & = a^2                             \\
+			            |a| \cdot |a| & = a \cdot a, \quad |a| = a \geq 0 \\
+			            a \cdot a     & = a \cdot a
+		            \end{align*}
+		      \item Case 2: $ a < 0 $.
+		            \begin{align*}
+			            |a|^2         & = a^2                                                    \\
+			            |a| \cdot |a| & = a \cdot a, \quad |a| = -a > 0 \implies |a| = -a \geq 0 \\
+			            -a \cdot -a   & = a \cdot a                                              \\
+			            a \cdot a     & = a \cdot a
+		            \end{align*}
+	      \end{itemize}
 	\item Our next goal is to show that $ \sqrt{b} $ is unique. In other words, prove that if $ c $ and $ d $ are two real numbers such that $ c \geq 0 $, and $ d \geq 0 $, and $ b = c^2 = d^2 $, then $ c = d $.
-		\begin{align*}
-			c^2 & = d^2 \\
-			c^2 - d^2 & = 0 \\
-			(c + d)(c - d) & = 0 \\
-			c & = \pm d \\
-			|c| & = |d|, \quad |c| = c \geq 0, |d| = d \geq 0 \\
-			c & = d
-		\end{align*}
+	      \begin{align*}
+		      c^2            & = d^2                                       \\
+		      c^2 - d^2      & = 0                                         \\
+		      (c + d)(c - d) & = 0                                         \\
+		      c              & = \pm d                                     \\
+		      |c|            & = |d|, \quad |c| = c \geq 0, |d| = d \geq 0 \\
+		      c              & = d
+	      \end{align*}
 	\item Rewrite the definition for $ \sqrt{b} $ to define $ \sqrt{ a^2 } $
-		\begin{align*}
-			b & = c^2 \\
-			\sqrt{b} & = c \\
-			\sqrt{b} & = \pm d \\
-			\sqrt{b} & = \sqrt{ d^2 }, \sqrt{ (-d)^2 } \\
-			\sqrt{b} & = \sqrt{ d^2 } = \sqrt{ a^2 }, \quad \left\{ d \in \mathbb{R}, \in (-\infty, \infty) \right\}
-		\end{align*}
+	      \begin{align*}
+		      b        & = c^2                                                                                         \\
+		      \sqrt{b} & = c                                                                                           \\
+		      \sqrt{b} & = \pm d                                                                                       \\
+		      \sqrt{b} & = \sqrt{ d^2 }, \sqrt{ (-d)^2 }                                                               \\
+		      \sqrt{b} & = \sqrt{ d^2 } = \sqrt{ a^2 }, \quad \left\{ d \in \mathbb{R}, \in (-\infty, \infty) \right\}
+	      \end{align*}
 	\item Put together all the steps above to write a complete proof that $ \sqrt{ a^2 } = |a| $.
-		\begin{align*}
-			\sqrt{ a^2 } & = |a|
-		\end{align*}
-		\textbf{Case by Case Proof}:
-		\begin{itemize}
-			\item Case 1: $ a \geq 0 $
-				\begin{align*}
-					\sqrt{ a^2 } & = |a| \\
-					a^2 & = |a|^2 \\
-					a \cdot a & = |a| \cdot |a|, \quad |a| = a \geq 0 \\
-					a \cdot a & = a \cdot a
-				\end{align*}
-			\item Case 2: $ a < 0 $
-				\begin{align*}
-					\sqrt{ a^2 } & = |a| \\
-					a^2 & = |a|^2 \\
-					a \cdot a & = |a| \cdot |a|, \quad |a| = a < 0 \implies -a > 0 \implies -a \geq 0 \\
-					a \cdot a & = -a \cdot -a \\
-					a \cdot a & = a \cdot a
-				\end{align*}
-		\end{itemize}
+	      \begin{align*}
+		      \sqrt{ a^2 } & = |a|
+	      \end{align*}
+	      \textbf{Case by Case Proof}:
+	      \begin{itemize}
+		      \item Case 1: $ a \geq 0 $
+		            \begin{align*}
+			            \sqrt{ a^2 } & = |a|                                 \\
+			            a^2          & = |a|^2                               \\
+			            a \cdot a    & = |a| \cdot |a|, \quad |a| = a \geq 0 \\
+			            a \cdot a    & = a \cdot a
+		            \end{align*}
+		      \item Case 2: $ a < 0 $
+		            \begin{align*}
+			            \sqrt{ a^2 } & = |a|                                                                 \\
+			            a^2          & = |a|^2                                                               \\
+			            a \cdot a    & = |a| \cdot |a|, \quad |a| = a < 0 \implies -a > 0 \implies -a \geq 0 \\
+			            a \cdot a    & = -a \cdot -a                                                         \\
+			            a \cdot a    & = a \cdot a
+		            \end{align*}
+	      \end{itemize}
 \end{enumerate}
 
 \section{Part 02}
@@ -216,58 +219,101 @@ If $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $ is a finite set, we define $ \
 
 \begin{enumerate}[label = \textbf{\alph*)}]
 	\item \label{part_02_a} If $ X = \left\{ a, b, c \right\} $, list all the members of $ \mathcal{P}(X) $. How many subsets does $ X $ have?
-		\begin{align*}
-			\mathcal{P}(X) & = \left\{ \emptyset, \left\{ A, B, C \right\}, \left\{ A, B \right\}, \left\{ A, C \right\}, \left\{ B, C \right\}, \left\{ A \right\}, \left\{ B \right\}, \left\{ C \right\} \right\} \\
-			|\mathcal{P}(X)| & = 8
-		\end{align*}
+	      \begin{align*}
+		      \mathcal{P}(X)   & = \left\{ \emptyset, \left\{ A, B, C \right\}, \left\{ A, B \right\}, \left\{ A, C \right\}, \left\{ B, C \right\}, \left\{ A \right\}, \left\{ B \right\}, \left\{ C \right\} \right\} \\
+		      |\mathcal{P}(X)| & = 8
+	      \end{align*}
 	\item \label{part_02_b} Separate the list that you got in part \ref{part_02_a} into two columns. Place on the left column those subsets that contain $ c $ and place on the right column those that do not contain $ c $. \\
-		\begin{tabular}{ | c | c | }
-			Contains $ c $ & Does Not Contain $ c $ \\
-			\hline
-			$ \left\{ A, B, C \right\} $ & $ \emptyset $ \\
-			$ \left\{ A, C \right\} $ & $ \left\{ A, B \right\} $ \\
-			$ \left\{ B, C \right\} $ & $ \left\{ A \right\} $ \\
-			$ \left\{ C \right\} $ & $ \left\{ B \right\} $
-		\end{tabular}
+	      \begin{tabular}{ | c | c | }
+		      Contains $ c $               & Does Not Contain $ c $    \\
+		      \hline
+		      $ \left\{ A, B, C \right\} $ & $ \emptyset $             \\
+		      $ \left\{ A, C \right\} $    & $ \left\{ A, B \right\} $ \\
+		      $ \left\{ B, C \right\} $    & $ \left\{ A \right\} $    \\
+		      $ \left\{ C \right\} $       & $ \left\{ B \right\} $
+	      \end{tabular}
 	\item \label{part_02_c} Now, cross out $ c $ from each subset on the left column. What do you notice? \\
-		\begin{tabular}{ | c | c | }
-			Contains $ c $ & Does Not Contain $ c $ \\
-			\hline
-			$ \left\{ A, B \right\} $ & $ \emptyset $ \\
-			$ \left\{ A \right\} $ & $ \left\{ A, B \right\} $ \\
-			$ \left\{ B \right\} $ & $ \left\{ A \right\} $ \\
-			$ \left\{ \right\} \left( \emptyset \right) $ & $ \left\{ B \right\} $
-		\end{tabular}
+	      \begin{tabular}{ | c | c | }
+		      Contains $ c $                                & Does Not Contain $ c $    \\
+		      \hline
+		      $ \left\{ A, B \right\} $                     & $ \emptyset $             \\
+		      $ \left\{ A \right\} $                        & $ \left\{ A, B \right\} $ \\
+		      $ \left\{ B \right\} $                        & $ \left\{ A \right\} $    \\
+		      $ \left\{ \right\} \left( \emptyset \right) $ & $ \left\{ B \right\} $
+	      \end{tabular}
 
-		Let $ S_0 $ be the set of all sets that contain $ C $
-		\begin{equation*}
-			S_0 = \left\{ x \mid x \in U \land C \in x \right\}
-		\end{equation*}
-		and $ S_1 $ be the power set of $ X $ that does not contain any sets containing $ C $. It can be seen that
-		\begin{equation*}
-			\mathcal{P}(X) - S_0 = S_1
-		\end{equation*}
-		or
-		\begin{equation*}
-			\mathcal{P}(X) \cap \overline{S_0} = S_1
-		\end{equation*}
-		This could be understood otherwise as: The intersection of the $ \mathcal{P}(X) $ (The set of all subsets of $ X $) and the complement of $ S_0 $ (The set of all subsets of $ U $ that \textbf{does not} contain $ C $) is the power set of $ X $ that does not contain $ C $.
+	      Let $ S_0 $ be the set of all sets that contain $ C $
+	      \begin{equation*}
+		      S_0 = \left\{ x \mid x \in U \land C \in x \right\}
+	      \end{equation*}
+	      and $ S_1 $ be the power set of $ X $ that does not contain any sets containing $ C $. It can be seen that
+	      \begin{equation*}
+		      \mathcal{P}(X) - S_0 = S_1
+	      \end{equation*}
+	      or
+	      \begin{equation*}
+		      \mathcal{P}(X) \cap \overline{S_0} = S_1
+	      \end{equation*}
+	      This could be understood otherwise as: The intersection of the $ \mathcal{P}(X) $ (The set of all subsets of $ X $) and the complement of $ S_0 $ (The set of all subsets of $ U $ that \textbf{does not} contain $ C $) is the power set of $ X $ that does not contain $ C $.
 
-		Table representation: \\
-		\begin{tabular}{ | c | c | c | c | }
-			$ \mathcal{P}(X) $ & $ S_0 $ & $ \overline{S_0} $ & $ \mathcal{P}(X) \cap \overline{S_0} $ \\
-			\hline
-			$ \left\{ A, B, C \right\} $ 	& $ \left\{ A, B, C \right\} $	& $ \cdots $	& $ \left\{ A, B \right\} $ \\
-			$ \left\{ A, B \right\} $ 		& $ \cdots $	& $ \left\{ A, B \right\} $		& $ \left\{ A \right\} $ \\
-			$ \left\{ A, C \right\} $ 		& $ \left\{ A, C \right\} $		& $ \cdots $	& $ \left\{ B \right\} $ \\
-			$ \left\{ B, C \right\} $ 		& $ \left\{ B, C \right\} $		& $ \cdots $	& $ \emptyset $ \\
-			$ \left\{ A \right\} $ 			& $ \cdots $	& $ \left\{ A \right\} $		& \\
-			$ \left\{ B	\right\} $ 			& $ \cdots $	& $ \left\{ B \right\} $		& \\
-			$ \left\{ C	\right\} $ 			& $ \left\{ C \right\} $		& $ \cdots $	& \\
-			$ \emptyset $ 					& $ \cdots $	& $ \emptyset $					&
-		\end{tabular}
+	      Table representation: \\
+	      \begin{tabular}{ | c | c | c | c | }
+		      $ \mathcal{P}(X) $           & $ S_0 $                      & $ \overline{S_0} $        & $ \mathcal{P}(X) \cap \overline{S_0} $ \\
+		      \hline
+		      $ \left\{ A, B, C \right\} $ & $ \left\{ A, B, C \right\} $ & $ \cdots $                & $ \left\{ A, B \right\} $              \\
+		      $ \left\{ A, B \right\} $    & $ \cdots $                   & $ \left\{ A, B \right\} $ & $ \left\{ A \right\} $                 \\
+		      $ \left\{ A, C \right\} $    & $ \left\{ A, C \right\} $    & $ \cdots $                & $ \left\{ B \right\} $                 \\
+		      $ \left\{ B, C \right\} $    & $ \left\{ B, C \right\} $    & $ \cdots $                & $ \emptyset $                          \\
+		      $ \left\{ A \right\} $       & $ \cdots $                   & $ \left\{ A \right\} $    &                                        \\
+		      $ \left\{ B	\right\} $       & $ \cdots $                   & $ \left\{ B \right\} $    &                                        \\
+		      $ \left\{ C	\right\} $       & $ \left\{ C \right\} $       & $ \cdots $                &                                        \\
+		      $ \emptyset $                & $ \cdots $                   & $ \emptyset $             &
+	      \end{tabular}
 	\item Repeat part \ref{part_02_a}, \ref{part_02_b}, and \ref{part_02_c} for $ X = \left\{ a, b, c, d \right\} $
-	\item For $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $, guess the number of elements in the power set $ \mathcal{P}(X) $.
+	      \begin{enumerate}[label = \textbf{\alph*)}]
+		      \item
+		            \begin{align*}
+			            \mathcal{P}(X) = & \left\{ \right.                                                                                                                          \\
+			                             & \left\{ A, B, C, D \right\},                                                                                                             \\
+			                             & \left\{ A, B, C \right\}, \left\{ A, B, D \right\}, \left\{ A, C, D \right\}, \left\{ B, C, D \right\}                                   \\
+			                             & \left\{ A, B \right\}, \left\{ A, C \right\}, \left\{ A, D \right\}, \left\{ B, C \right\}, \left\{ B, D \right\}, \left\{ C, D \right\} \\
+			                             & \left\{ A \right\}, \left\{ B \right\}, \left\{ C \right\}, \left\{ D \right\}, \emptyset                                                \\
+			                             & \left. \right\}                                                                                                                          \\
+			            |\mathcal{P}(X)| & = 16
+		            \end{align*}
+		      \item
+		            \begin{tabular}{ | c | c | }
+			            Contains $ C $                  & Does Not Contain $ C $       \\
+			            \hline
+			            $ \left\{ A, B, C, D \right\} $ & $ \left\{ A, B, D \right\} $ \\
+			            $ \left\{ A, B, C \right\} $    & $ \left\{ A, B \right\} $    \\
+			            $ \left\{ A, C, D \right\} $    & $ \left\{ A, D \right\} $    \\
+			            $ \left\{ B, C, D \right\} $    & $ \left\{ B, D \right\} $    \\
+			            $ \left\{ A, C \right\} $       & $ \left\{ A \right\} $       \\
+			            $ \left\{ B, C \right\} $       & $ \left\{ B \right\} $       \\
+			            $ \left\{ C, D \right\} $       & $ \left\{ D \right\} $       \\
+			            $ \left\{ C \right\} $          & $ \emptyset $
+		            \end{tabular}
+		      \item
+		            \begin{tabular}{ | c | c | }
+			            Contains $ C $                                & Does Not Contain $ C $       \\
+			            \hline
+			            $ \left\{ A, B, D \right\} $                  & $ \left\{ A, B, D \right\} $ \\
+			            $ \left\{ A, B \right\} $                     & $ \left\{ A, B \right\} $    \\
+			            $ \left\{ A, D \right\} $                     & $ \left\{ A, D \right\} $    \\
+			            $ \left\{ B, D \right\} $                     & $ \left\{ B, D \right\} $    \\
+			            $ \left\{ A \right\} $                        & $ \left\{ A \right\} $       \\
+			            $ \left\{ B \right\} $                        & $ \left\{ B \right\} $       \\
+			            $ \left\{ D \right\} $                        & $ \left\{ D \right\} $       \\
+			            $ \left\{ \right\} \left( \emptyset \right) $ & $ \emptyset $
+		            \end{tabular}
+	      \end{enumerate}
+	\item For $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $, guess the number of elements in the power set $ \mathcal{P}(X) $. \\
+	      From previous examples, it can be seen that the number of elements in a set's $ X $ power set $ \mathcal{P}(X) $ is $ 2 $ raised to the cardinality of $ X $. In other words: \\
+	      Let $ X $ be any set, $ \mathcal{P}(X) $ be the power set of $ X $, and $ | X | $ be the cardinality or number of elements in $ X $
+	      \begin{equation*}
+		      | \mathcal{P}(X) | = 2^{| X |}
+	      \end{equation*}
 \end{enumerate}
 
 \end{document}

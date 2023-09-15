@@ -215,7 +215,33 @@ Let's consider the powersets of a finite set. Our goal is to ``calculate" how ma
 If $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $ is a finite set, we define $ \mathcal{P}(X) $, the powerset of $ X $, to be the set of all subsets of $ X $. For Example, if $ X = \left\{ a, b \right\} $, then $ \mathcal{P}(X) = \left\{ \emptyset, \left\{ a \right\}, \left\{ b \right\}, \left\{ a, b \right\} \right\} $ and thus $ \mathcal{P}(X) $ has 4 elements.
 
 \begin{enumerate}[label = \textbf{\alph*)}]
-	\item If $ X = \left\{ a, b, c \right\} $, list all the members of $ \mathcal{P}(X) $. How many subsets does $ X $ have?
+	\item \label{part_02_a} If $ X = \left\{ a, b, c \right\} $, list all the members of $ \mathcal{P}(X) $. How many subsets does $ X $ have?
+		\begin{align*}
+			\mathcal{P}(X) & = \left\{ \emptyset, \left\{ A, B, C \right\}, \left\{ A, B \right\}, \left\{ A, C \right\}, \left\{ B, C \right\}, \left\{ A \right\}, \left\{ B \right\}, \left\{ C \right\} \right\} \\
+			|\mathcal{P}(X)| & = 8
+		\end{align*}
+	\item \label{part_02_b} Separate the list that you got in part \ref{part_02_a} into two columns. Place on the left column those subsets that contain $ c $ and place on the right column those that do not contain $ c $. \\
+		\begin{tabular}{ | c | c | }
+			Contains $ c $ & Does Not Contain $ c $ \\
+			\hline
+			$ \left\{ A, B, C \right\} $ & $ \emptyset $ \\
+			$ \left\{ A, C \right\} $ & $ \left\{ A, B \right\} $ \\
+			$ \left\{ B, C \right\} $ & $ \left\{ A \right\} $ \\
+			$ \left\{ C \right\} $ & $ \left\{ B \right\} $
+		\end{tabular}
+	\item \label{part_02_c} Now, cross out $ c $ from each subset on the left column. What do you notice? \\
+		\begin{tabular}{ | c | c | }
+			Contains $ c $ & Does Not Contain $ c $ \\
+			\hline
+			$ \left\{ A, B \right\} $ & $ \emptyset $ \\
+			$ \left\{ A \right\} $ & $ \left\{ A, B \right\} $ \\
+			$ \left\{ B \right\} $ & $ \left\{ A \right\} $ \\
+			$ \left\{ \right\} \left( \emptyset \right) $ & $ \left\{ B \right\} $
+		\end{tabular}
+
+		Let $ S = \left\{ x \in U \mid C \notin x \right\} $ (The set of all sets that do not contain $ C $).
+	\item Repeat part \ref{part_02_a}, \ref{part_02_b}, and \ref{part_02_c} for $ X = \left\{ a, b, c, d \right\} $
+	\item For $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $, guess the number of elements in the powerset $ \mathcal{P}(X) $.
 \end{enumerate}
 
 \end{document}

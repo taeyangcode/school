@@ -239,9 +239,35 @@ If $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $ is a finite set, we define $ \
 			$ \left\{ \right\} \left( \emptyset \right) $ & $ \left\{ B \right\} $
 		\end{tabular}
 
-		Let $ S = \left\{ x \in U \mid C \notin x \right\} $ (The set of all sets that do not contain $ C $).
+		Let $ S_0 $ be the set of all sets that contain $ C $
+		\begin{equation*}
+			S_0 = \left\{ x \mid x \in U \land C \in x \right\}
+		\end{equation*}
+		and $ S_1 $ be the power set of $ X $ that does not contain any sets containing $ C $. It can be seen that
+		\begin{equation*}
+			\mathcal{P}(X) - S_0 = S_1
+		\end{equation*}
+		or
+		\begin{equation*}
+			\mathcal{P}(X) \cap \overline{S_0} = S_1
+		\end{equation*}
+		This could be understood otherwise as: The intersection of the $ \mathcal{P}(X) $ (The set of all subsets of $ X $) and the complement of $ S_0 $ (The set of all subsets of $ U $ that \textbf{does not} contain $ C $) is the power set of $ X $ that does not contain $ C $.
+
+		Table representation: \\
+		\begin{tabular}{ | c | c | c | c | }
+			$ \mathcal{P}(X) $ & $ S_0 $ & $ \overline{S_0} $ & $ \mathcal{P}(X) \cap \overline{S_0} $ \\
+			\hline
+			$ \left\{ A, B, C \right\} $ 	& $ \left\{ A, B, C \right\} $	& $ \cdots $	& $ \left\{ A, B \right\} $ \\
+			$ \left\{ A, B \right\} $ 		& $ \cdots $	& $ \left\{ A, B \right\} $		& $ \left\{ A \right\} $ \\
+			$ \left\{ A, C \right\} $ 		& $ \left\{ A, C \right\} $		& $ \cdots $	& $ \left\{ B \right\} $ \\
+			$ \left\{ B, C \right\} $ 		& $ \left\{ B, C \right\} $		& $ \cdots $	& $ \emptyset $ \\
+			$ \left\{ A \right\} $ 			& $ \cdots $	& $ \left\{ A \right\} $		& \\
+			$ \left\{ B	\right\} $ 			& $ \cdots $	& $ \left\{ B \right\} $		& \\
+			$ \left\{ C	\right\} $ 			& $ \left\{ C \right\} $		& $ \cdots $	& \\
+			$ \emptyset $ 					& $ \cdots $	& $ \emptyset $					&
+		\end{tabular}
 	\item Repeat part \ref{part_02_a}, \ref{part_02_b}, and \ref{part_02_c} for $ X = \left\{ a, b, c, d \right\} $
-	\item For $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $, guess the number of elements in the powerset $ \mathcal{P}(X) $.
+	\item For $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $, guess the number of elements in the power set $ \mathcal{P}(X) $.
 \end{enumerate}
 
 \end{document}

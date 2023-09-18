@@ -291,6 +291,31 @@ We say $ f $ is bijective if $ f $ is injective and surjective.
 
 \textbf{Monotonic Function}: We say $ f $ is increasing (strictly increasing) if $ x_1 > x_2 \implies f(x_1) > f(x_2) $
 
+\subsubsection{Example 2.3.24}
+
+Let $ f: \mathbb{R} \rightarrow \mathbb{R} $ and let $ f(x) > 0 $ for all $ x \in \mathbb{R} $. Show that $ f(x) $ is strictly increasing if and only if the function $ g(x) = \frac{ 1 }{ f(x) } $ is strictly decreasing.
+\begin{align*}
+	 & \rightarrow \frac{ 1 }{ f(x_1) } < \frac{ 1 }{ f(x_2) }                                                                       \\
+	 & \rightarrow f(x_1) \cdot f(x_2) \left( \frac{ 1 }{ f(x_1) } \right) < f(x_1) \cdot f(x_2) \left( \frac{ 1 }{ f(x_2) } \right) \\
+	 & \rightarrow f(x_2) < f(x_1)
+\end{align*}
+where the first implication comes from the fact that $ f(x) > 0, \forall x \in \mathbb{R} $.
+
+\subsubsection{Example 2.3.73.b}
+
+Prove or disprove each of these statements about the floor and ceiling functions.
+
+\begin{equation*}
+	\left\lfloor 2x \right\rfloor = 2 \left\lfloor x \right\rfloor
+\end{equation*}
+
+Consider $ x = 1.6 $
+\begin{align*}
+	\left\lfloor 2x \right\rfloor  & = \left\lfloor 2 \cdot 1.6 \right\rfloor = \left\lfloor 3.2 \right\rfloor = 3 \\
+	2 \left\lfloor x \right\rfloor & = 2 \left\lfloor 1.6 \right\rfloor = 2(1) = 2
+\end{align*}
+Hence $ \left\lfloor 2x \right\rfloor = 2 \left\lfloor x \right\rfloor $ for all $ x \in \mathbb{R} $ is false.
+
 \subsection{Sequences and Summations}
 
 \subsection{Cardinality of Sets}

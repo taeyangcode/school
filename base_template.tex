@@ -3,7 +3,7 @@
 % Document extensibility %
 %
 % Disables native paragraph indentation
-\usepackage{parskip} 
+\usepackage{parskip}
 %
 % Provides further bullet options for lists
 \usepackage{enumitem}
@@ -79,9 +79,9 @@
 % Command for single line equations with a condition
 \newcommand{\cond}[2]{
 	\ifmmode
-		{#1} \quad {#2}
+	{#1} \quad {#2}
 	\else
-		$$ {#1} \quad {#2} $$
+	$$ {#1} \quad {#2} $$
 	\fi
 }
 
@@ -100,13 +100,13 @@
 % Laplace
 \NewDocumentCommand{\lap}{o}{
 	\IfNoValueTF{#1}
-		{ \mathcal{L} }
-		{ \mathcal{L} \left\{ {#1} \right\} }
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
 }
 \NewDocumentCommand{\ilap}{o}{
 	\IfNoValueTF{#1}
-		{ \mathcal{L}^{-1} }
-		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
 }
 
 \end{document}

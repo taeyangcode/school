@@ -1,0 +1,319 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Math 210 Homework \#1}
+\date{29 September 2023}
+\author{Corey Mostero - 2566652}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\newcommand{\boldalph}[0]{ \textbf{\alph*)} }
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Section 1.1}
+
+\subsection{29}
+
+How many rows appear in a truth table for each of these compound propositions?
+
+The amount of rows a complete truth table requires is found by noting the relation between the amount of variables, and the possible values for each variable (in this case binary). The anonymous function can be written as such:
+\begin{equation}
+	x \mapsto 2^{x} \label{truth_table_rows}
+\end{equation}
+
+\begin{enumerate}[label = \boldalph]
+	\item $ p \implies \neg p $
+	      \begin{align*}
+		       & \left( x \mapsto 2^{x} \right)\left( 1 \right) \\
+		       & = 2^{(1)}                                      \\
+		       & = 2
+	      \end{align*}
+
+	\item $ \left( p \lor \neg r \right) \land \left( q \lor \neg s \right) $
+	      \begin{align*}
+		       & \left( x \mapsto 2^{x} \right)\left( 4 \right) \\
+		       & = 2^{(4)}                                      \\
+		       & = 16
+	      \end{align*}
+
+	\item $ q \lor p \lor \neg s \lor \neg r \lor \neg t \lor u $
+	      \begin{align*}
+		       & \left( x \mapsto 2^{x} \right)\left( 6 \right) \\
+		       & = 2^{(6)}                                      \\
+		       & = 64
+	      \end{align*}
+
+	\item $ \left( p \land r \land t \right) \iff \left( q \land t \right) $
+	      \begin{align*}
+		       & \left( x \mapsto 2^{x} \right)\left( 4 \right) \\
+		       & = 2^{(4)}                                      \\
+		       & = 16
+	      \end{align*}
+\end{enumerate}
+
+\subsection{30}
+
+How many rows appear in a truth table for each of these compound propositions?
+
+The same anonymous function \eqref{truth_table_rows} can be utilized to found the amount of rows.
+
+\begin{enumerate}[label = \boldalph]
+	\item $ \left( q \implies \neg p \right) \lor \left( \neg p \implies \neg q \right) $
+	      \begin{align*}
+		       & \left( x \mapsto 2^{x} \right) \left( 2 \right) \\
+		       & = 2^{(2)}                                       \\
+		       & = 4
+	      \end{align*}
+
+	\item $ \left( p \lor \neg t \right) \land \left( p \lor \neg s \right) $
+	      \begin{align*}
+		       & \left( x \mapsto 2^{x} \right) \left( 3 \right) \\
+		       & = 2^{(3)}                                       \\
+		       & = 8
+	      \end{align*}
+
+	\item $ \left( p \implies r \right) \lor \left( \neg s \implies \neg t \right) \lor \left( \neg u \implies v \right) $
+	      \begin{align*}
+		       & \left( x \mapsto 2^{x} \right) \left( 6 \right) \\
+		       & = 2^{(6)}                                       \\
+		       & = 64
+	      \end{align*}
+
+	\item $ \left( p \land r \land s \right) \lor \left( q \land t \right) \lor \left( r \land \neg t \right) $
+	      \begin{align*}
+		       & \left( x \mapsto 2^{x} \right) \left( 5 \right) \\
+		       & = 2^{(5)}                                       \\
+		       & = 32
+	      \end{align*}
+\end{enumerate}
+
+\subsection{31}
+
+Construct a truth table for each of these compound propositions.
+
+\begin{enumerate}[label = \boldalph]
+	\item $ p \land \neg p $ \\
+	      \begin{tabular}{ | c | c | c | }
+		      $ p $ & $ \neg p $ & $ p \land \neg p $ \\
+		      \hline
+		      T     & F          & F                  \\
+		      F     & T          & F                  \\
+	      \end{tabular}
+
+	\item $ p \lor \neg p $ \\
+	      \begin{tabular}{ | c | c | c | }
+		      $ p $ & $ \neg p $ & $ p \lor \neg p $ \\
+		      \hline
+		      T     & F          & T                 \\
+		      F     & T          & T                 \\
+	      \end{tabular}
+
+	\item $ \left( p \lor \neg q \right) \implies q $ \\
+	      \begin{tabular}{ | c | c | c | c | c | }
+		      $ p $ & $ q $ & $ \neg q $ & $ \left( p \lor \neg q \right) $ & $ \left( p \lor \neg q \right) \implies q $ \\
+		      \hline
+		      T     & T     & F          & T                                & T                                           \\
+		      T     & F     & T          & T                                & F                                           \\
+		      F     & T     & F          & F                                & T                                           \\
+		      F     & F     & T          & T                                & F                                           \\
+	      \end{tabular}
+
+	\item $ \left( p \lor q \right) \implies \left( p \land q \right) $ \\
+	      \begin{tabular}{ | c | c | c | c | c | }
+		      $ p $ & $ q $ & $ \left( p \lor q \right) $ & $ \left( p \land q \right) $ & $ \left( p \lor q \right) \implies \left( p \land q \right) $ \\
+		      \hline
+		      T     & T     & T                           & T                            & T                                                             \\
+		      T     & F     & T                           & F                            & F                                                             \\
+		      F     & T     & T                           & F                            & F                                                             \\
+		      F     & F     & F                           & F                            & T                                                             \\
+	      \end{tabular}
+
+	\item $ \left( p \implies q \right) \iff \left( \neg q \implies \neg p \right) $ \\
+	      \begin{tabular}{ | c | c | c | c | c | c | c | }
+		      $ p $ & $ q $ & $ \left( p \implies q \right) $ & $ \neg q $ & $ \neg p $ & $ \left( \neg q \implies \neg p \right) $ & $ \left( p \implies q \right) \iff \left( \neg q \implies \neg p \right) $ \\
+		      \hline
+		      T     & T     & T                               & F          & F          & T                                         & T                                                                          \\
+		      T     & F     & F                               & T          & F          & F                                         & T                                                                          \\
+		      F     & T     & T                               & F          & T          & T                                         & T                                                                          \\
+		      F     & F     & T                               & T          & T          & T                                         & T                                                                          \\
+	      \end{tabular}
+
+	\item $ \left( p \implies q \right) \implies \left( q \implies p \right) $ \\
+	      \begin{tabular}{ | c | c | c | c | c | }
+		      $ p $ & $ q $ & $ \left( p \implies q \right) $ & $ \left( q \implies p \right) $ & $ \left( p \implies q \right) \implies \left( q \implies p \right) $ \\
+		      \hline
+		      T     & T     & T                               & T                               & T                                                                    \\
+		      T     & F     & F                               & T                               & T                                                                    \\
+		      F     & T     & T                               & F                               & F                                                                    \\
+		      F     & F     & T                               & T                               & T                                                                    \\
+	      \end{tabular}
+
+\end{enumerate}
+
+\subsection{38}
+
+Construct a truth table for $ \left( \left( p \implies q \right) \implies r \right) \implies s $.
+
+\begin{tabular}{ | c | c | c | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ s $ & $ \left( p \implies q \right) $ & $ \left( \left( p \implies q \right) \implies r \right) $ & $ \left( \left( p \implies q \right) \implies r \right) \implies s $ \\
+	\hline
+	T     & T     & T     & T     & T                               & T                                                         & T                                                                    \\
+	T     & T     & T     & F     & T                               & T                                                         & F                                                                    \\
+	T     & T     & F     & T     & T                               & F                                                         & T                                                                    \\
+	T     & T     & F     & F     & T                               & F                                                         & T                                                                    \\
+	T     & F     & T     & T     & F                               & T                                                         & T                                                                    \\
+	T     & F     & T     & F     & F                               & T                                                         & F                                                                    \\
+	T     & F     & F     & T     & F                               & T                                                         & T                                                                    \\
+	T     & F     & F     & F     & F                               & T                                                         & F                                                                    \\
+	F     & T     & T     & T     & T                               & T                                                         & T                                                                    \\
+	F     & T     & T     & F     & T                               & T                                                         & F                                                                    \\
+	F     & T     & F     & T     & T                               & F                                                         & T                                                                    \\
+	F     & T     & F     & F     & T                               & F                                                         & T                                                                    \\
+	F     & F     & T     & T     & T                               & T                                                         & T                                                                    \\
+	F     & F     & T     & F     & T                               & T                                                         & F                                                                    \\
+	F     & F     & F     & T     & T                               & F                                                         & T                                                                    \\
+	F     & F     & F     & F     & T                               & F                                                         & T                                                                    \\
+\end{tabular}
+
+\subsection{39}
+
+Construct a truth table for $ \left( p \iff q \right) \iff \left( r \iff s \right) $.
+
+\begin{tabular}{ | c | c | c | c | }
+	$ p $ & $ q $ & $ r $ & $ s $ \\
+	\hline
+	T     & T     & T     & T     \\
+	T     & T     & T     & F     \\
+	T     & T     & F     & T     \\
+	T     & T     & F     & F     \\
+	T     & F     & T     & T     \\
+	T     & F     & T     & F     \\
+	T     & F     & F     & T     \\
+	T     & F     & F     & F     \\
+	F     & T     & T     & T     \\
+	F     & T     & T     & F     \\
+	F     & T     & F     & T     \\
+	F     & T     & F     & F     \\
+	F     & F     & T     & T     \\
+	F     & F     & T     & F     \\
+	F     & F     & F     & T     \\
+	F     & F     & F     & F     \\
+\end{tabular}
+
+\subsection{40}
+
+\subsection{41}
+
+\subsection{42}
+
+\end{document}

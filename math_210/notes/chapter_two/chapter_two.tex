@@ -3,7 +3,7 @@
 % Document extensibility %
 %
 % Disables native paragraph indentation
-\usepackage{parskip} 
+\usepackage{parskip}
 %
 % Provides further bullet options for lists
 \usepackage{enumitem}
@@ -79,9 +79,9 @@
 % Command for single line equations with a condition
 \newcommand{\cond}[2]{
 	\ifmmode
-		{#1} \quad {#2}
+	{#1} \quad {#2}
 	\else
-		$$ {#1} \quad {#2} $$
+	$$ {#1} \quad {#2} $$
 	\fi
 }
 
@@ -100,13 +100,13 @@
 % Laplace
 \NewDocumentCommand{\lap}{o}{
 	\IfNoValueTF{#1}
-		{ \mathcal{L} }
-		{ \mathcal{L} \left\{ {#1} \right\} }
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
 }
 \NewDocumentCommand{\ilap}{o}{
 	\IfNoValueTF{#1}
-		{ \mathcal{L}^{-1} }
-		{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
 }
 
 \tableofcontents
@@ -133,16 +133,16 @@ Let $ S $ be a set. If there are exactly $ n $ distinct elements in $ S $ where 
 
 \begin{itemize}
 	\item Countable
-		\begin{itemize}
-			\item $ \mathbb{N} $
-			\item $ \mathbb{Z} $
-			\item $ \mathbb{Q} $
-		\end{itemize}
+	      \begin{itemize}
+		      \item $ \mathbb{N} $
+		      \item $ \mathbb{Z} $
+		      \item $ \mathbb{Q} $
+	      \end{itemize}
 	\item Uncountable
-		\begin{itemize}
-			\item $ \mathbb{R} $
-			\item $ \mathbb{C} $
-		\end{itemize}
+	      \begin{itemize}
+		      \item $ \mathbb{R} $
+		      \item $ \mathbb{C} $
+	      \end{itemize}
 \end{itemize}
 
 Let $ S_0 = \left\{ x \right\} $, and $ S_1 = \left\{ \left\{ x \right\} \right\} $.
@@ -153,17 +153,17 @@ Let $ S_0 = \left\{ x \right\} $, and $ S_1 = \left\{ \left\{ x \right\} \right\
 \subsubsection{Example}
 
 \begin{enumerate}
-\item List the members of these sets.
-	\begin{enumerate}[label = \textbf{\alph*)}]
-		\item $ \left\{ x \mid x \text{ is a real number such that } x^2 = 1 \right\} $
-			\begin{align*}
-				S & = \left\{ x \in \mathbb{R} \mid x^2 = 1 \right\}
-			\end{align*}
-		\item $ \left\{ x \mid x \text{ is a positive integer less than 12} \right\} $
-			\begin{align*}
-				S & = \left\{ x \in \mathbb{R} \mid 0 \leq x < 12 \right\}
-			\end{align*}
-	\end{enumerate}
+	\item List the members of these sets.
+	      \begin{enumerate}[label = \textbf{\alph*)}]
+		      \item $ \left\{ x \mid x \text{ is a real number such that } x^2 = 1 \right\} $
+		            \begin{align*}
+			            S & = \left\{ x \in \mathbb{R} \mid x^2 = 1 \right\}
+		            \end{align*}
+		      \item $ \left\{ x \mid x \text{ is a positive integer less than 12} \right\} $
+		            \begin{align*}
+			            S & = \left\{ x \in \mathbb{R} \mid 0 \leq x < 12 \right\}
+		            \end{align*}
+	      \end{enumerate}
 \end{enumerate}
 
 \subsubsection{Definition 6}
@@ -198,7 +198,98 @@ Let $ A $ and $ B $ be sets. The difference of $ A $ and $ B $, denoted by $ A -
 
 Let $ U $ be the universal set. The complement of the set $ A $, denoted by $ \bar{A} $, is the complement of $ A $ with respect to $ U $. Therefore, the complement of the set $ A $ is $ U - A $.
 
+\subsubsection{Proof}
+
+Let $ A $, $ B $ be sets from $ U $. Show that $ A \subseteq B $ if and only if $ \overline{B} \subseteq \overline{A} $.
+
+\textbf{Proof}:
+\begin{itemize}
+	\item For ``$ \implies $"
+
+	      Given $ A \subseteq B $, need to show $ \overline{B} \subseteq \overline{A} $. Then $ \forall x \in A $, we have $ x \in B $.
+
+	      By contrapositive we have
+	      \begin{align*}
+		      \neg \left( x \in B \right) & \implies \neg \left( x \in A \right)                           \\
+		      x \notin B                  & \implies x \notin A, \quad \overline{B} \subseteq \overline{A} \\
+	      \end{align*}
+	\item For ``$ \impliedby $"
+
+	      Given $ \overline{B} \subseteq \overline{A} $, we have $ \forall y \in \overline{B} $, $ y \in \overline{A} $ then the contrapositive is
+	      \begin{align*}
+		      \neg \left( y \in \overline{A} \right) & \implies \neg \left( y \in \overline{B} \right) \\
+		      y \in A                                & \implies y \in B
+	      \end{align*}
+\end{itemize}
+
+\subsubsection{Proof:}
+
+Use the identities to show that $ \overline{ \left( A \cup B \right) } \cap \overline{ \left( B \cup C \right) } \cap \overline{ \left( A \cup C \right) } = \overline{A} \cap \overline{B} \cap \overline{C} $
+
+\textbf{Proof}:
+\begin{align*}
+	\overline{A} \cap \overline{B} \cap \overline{C} & = \left( \overline{A} \cap \overline{B} \right) \cap \left( \overline{B} \cap \overline{C} \right) \cap \left( \overline{A} \cap \overline{C} \right) \\
+	                                                 & = \overline{A} \cap \left( \overline{B} \cap \overline{B} \right) \cap \left( \overline{C} \cap \overline{C} \right) \cap \overline{A}                \\
+	                                                 & = \overline{A} \cap \overline{B} \cap \overline{C}
+\end{align*}
+
+\subsubsection{Union}
+
+The union is a collection of sets is the set that contains those elements that are member s of at least one set in the collection.
+
+\begin{align*}
+	A_1 \cup A_2 \cup \cdots \cup A_n & = \bigcup_{ i = 1 }^{ n } A_i
+\end{align*}
+
+\subsubsection{Intersection}
+
+The intersection of a collection of sets is the set that contains those elements that are members of all the sets in the collection.
+
+\begin{align*}
+	A_1 \cap A_2 \cap \cdots \cap A_n & = \bigcap_{ i = 1 }^{ n } A_i
+\end{align*}
+
 \subsection{Functions}
+
+\begin{itemize}
+	\item Sets: $ A $, $ B $, $ C $, domain, codomain, range
+
+	\item Relations: functions ($ f $, $ g $, $ h $)
+
+	\item Elements: image, preimage
+\end{itemize}
+
+\subsubsection{Example}
+
+\begin{align*}
+	f_1 : \mathbb{R} \rightarrow \mathbb{R} \text{ as } y & = f_1(x) = 3x - 2 \\
+	f_2 : \mathbb{R} \rightarrow \mathbb{R} \text{ as } y & = e^{x}           \\
+	f_3 : \mathbb{R} \rightarrow \mathbb{R} \text{ as } y & = \sqrt{x}
+\end{align*}
+\begin{align*}
+	f               & : A \rightarrow B                                           \\
+	\text{range}(f) & = \left\{ y \in B \mid \forall x \in S \subseteq A \right\}
+\end{align*}
+
+\subsubsection{Properties}
+
+\begin{enumerate}[label = \textbf{\arabic*)}]
+	\item \label{function:property:1} $ f $ is injective – one-to-one \\
+	\item \label{function:property:2} $ f $ is surjective – \\
+	\item $ f $ is bijective if \ref{function:property:1} and \ref{function:property:2}
+\end{enumerate}
+
+Let $ f : A \rightarrow B $ be a function.
+
+We say $ f $ is injective if
+\begin{equation*}
+	\left( x_1 \neq x_2 \implies f(x_1) \neq f(x_2) \right) \iff \left( f(x_1) = f(x_2) \implies x_1 = x_2 \right)
+\end{equation*}
+We say $ f $ is surjective if $ \forall y \in B $, $ \exists x \in A $ such that $ y = f(x) \iff \text{range}(f) = B $
+
+We say $ f $ is bijective if $ f $ is injective and surjective.
+
+\textbf{Monotonic Function}: We say $ f $ is increasing (strictly increasing) if $ x_1 > x_2 \implies f(x_1) > f(x_2) $
 
 \subsection{Sequences and Summations}
 

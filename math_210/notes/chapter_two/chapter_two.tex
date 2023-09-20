@@ -316,7 +316,95 @@ Consider $ x = 1.6 $
 \end{align*}
 Hence $ \left\lfloor 2x \right\rfloor = 2 \left\lfloor x \right\rfloor $ for all $ x \in \mathbb{R} $ is false.
 
+\subsubsection{Inverse Function}
+
+Let $ f: A \rightarrow B $ be a function. If $ f $ is injective, then there exists $ g: B \rightarrow A $ such that $ f \cdot g \left( y \right) = y, \forall y \in B $ and $ g \cdot f \left( x \right) = x, \forall x \in A $. We call $ g $ the inverse of $ f $. We can denote $ g = f^{-1} $.
+
 \subsection{Sequences and Summations}
+
+Let $ f: A \rightarrow B $ where $ A = \left\{ 1, 2, 3, \cdots \right\} $ or $ \left\{ 0, 1, 2, 3, \cdots \right\} $, $ B = \mathbb{R} $.
+
+Special sequences:
+\begin{itemize}
+	\item Geometric Sequence
+	      \begin{equation}
+		      a_n = a_1r^{n - 1} = a_0r^{n}
+	      \end{equation}
+	\item Arithmetic Sequence
+	      \begin{equation}
+		      a_n = a_1 + (n - 1)d = a_0 + nd
+	      \end{equation}
+	\item Fibonacci Sequence: $ f_0, f_1, f_2, \cdots $ is defined by the initial conditions $ f_0 = 0, f_1 = 1 $ and the recurrence relation
+	      \begin{equation}
+		      f_n = f_{n - 1} + f_{n - 2}
+	      \end{equation}
+\end{itemize}
+
+In order to describe a sequence:
+\begin{itemize}
+	\item Closed formula
+	\item Recurrence relation
+	\item Verbally
+\end{itemize}
+
+\subsubsection{Geometric Sequence}
+
+If $ r = 1 $ then $ a_n = ar^{n} = a $ then $ \sum_{j = 0}^{n} ar^{j} = \sum_{j = 0}^{n} a = (n - 0 + 1)a $.
+
+Let $ k = j + 1 $.
+\begin{align*}
+	j & = k - 1                                    \\
+	j & = 0, k = 1                                 \\
+	  & = \sum_{j = 0}^{j = n} ar^{j + 1}          \\
+	  & = \sum_{k = 1}^{k = n + 1} ar^{k}          \\
+	  & = a + ar + ar^2 + \cdots + ar^{n + 1} - a  \\
+	  & = \sum_{k = 0}^{n} ar^{k} + ar^{n + 1} - a
+\end{align*}
+
+If $ r \neq 1 $
+
+Notice that $ \left( 1 - x \right) \left( 1 + x + x^2 + \cdots + x^{n} \right) = 1+ (x - x) + (x^2 - x^2) + \cdots + (x^{n} - x^{n}) - x^{n + 1} = 1 - x^{n + 1} $
+
+Then
+\begin{align*}
+	\sum_{j = 0}^{n} ar^{j} & = a + ar + ar^2 + \cdots + ar^{n}                  \\
+	                        & = a \left( 1 + r + r^2 + \cdots + r^{n} \right)    \\
+	                        & = a \left( \frac{ 1 - r^{n + 1} }{ 1 - r } \right) \\
+	                        & = a \left( \frac{ r^{n + 1} - 1 }{ r - 1 } \right)
+\end{align*}
+
+\subsubsection{Practice}
+
+Prove $ \sum_{k = 1}^{n} k = 1 + 2 + 3 + \cdots + k = \frac{ n(n + 1) }{ 2 } $
+\begin{enumerate}[label = \textbf{Method \arabic*:}]
+	\item
+	      \begin{align*}
+		      \sum_{k = 1}^{n} k         & = 1 + 2 + 3 + \cdots + n                                                                                                     \\
+		      2 \cdot \sum_{k = 1}^{n} k & = \left( 1 + 2 + 3 + \cdots + n \right) + \left( 1 + 2 + 3 + \cdots + n \right)                                              \\
+		                                 & = \sum_{k = 1}^{n} \left( n + 1 \right) = \left( n + 1 \right) \cdot \left( n - 1 + n \right) = \left( n + 1 \right) \cdot n \\
+		      \sum_{k = 1}^{n} k         & = \frac{ n \left( n + 1 \right) }{ 2 }
+	      \end{align*}
+
+	\item Telescoping
+
+	      Notice that
+	      \begin{align*}
+		      \sum_{k = 0}^{n - 1} \left( a_{k + 1} - a_{k} \right)        & = a_1 - a_0 + a_2 - a_1 + a_3 - a_2 + \cdots + a_{n} - a_{n - 1}                              \\
+		                                                                   & = \sum_{i = 1}^{n} \left( a_{i} - a_{i - 1} \right) = a_n - a_0                               \\
+		      \text{and, } i^2 - \left( i - 1 \right)^{2}                  & = i^2 - \left( i^2 - 2i + 1 \right) = 2i - 1                                                  \\
+		      \sum_{i = 1}^{n} \left( i^2 - \left( i - 1 \right)^2 \right) & = \sum_{i = 1}^{n} 2i - 1                                                                     \\
+		      n^2 - 0^2                                                    & = 2 \sum_{i = 1}^{n} i - \sum_{i = 1}^{n} 1, \quad \text{where $ a_i = i^2 $ for telescoping} \\
+		      \sum_{i = 1}^{n}                                             & = \frac{ n^2 + n }{ 2 }
+	      \end{align*}
+\end{enumerate}
+
+Prove $ \sum_{k = 1}^{n} k^2 = 1^2 + 2^2 + 3^2 + \cdots + k^2 = \frac{ n \left( n + 1 \right) \left( 2n + 1 \right) }{ 6 } $, Let $ a_i = i^3 $
+\begin{align*}
+	\sum_{i = 1}^{n} \left( a_{i} - a_{i - 1} \right) & = a_{n} - a_0                                                        \\
+	i^3 - (i - 1)^{3}                                 & = 3i^2 - 3i + 1                                                      \\
+	\sum_{i = 1}^{n} \left( i^3 \right)               & = 3 \sum_{i = 1}^{n} i^2 - 3 \sum_{i = 1}^{n} i + \sum_{i = 1}^{n} 1 \\
+	\sum_{i = 1}^{n} i^2                              & = 3n^3 - 3n^2 + 3n
+\end{align*}
 
 \subsection{Cardinality of Sets}
 

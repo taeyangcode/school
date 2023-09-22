@@ -1,0 +1,158 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 04 Participation Assignment}
+\date{22 September 2023}
+\author{Corey Mostero}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 01}
+
+Let $ f: \mathbb{R} \rightarrow \mathbb{R} $ and $ g: \mathbb{R} \rightarrow \mathbb{R} $ be two functions where $ f $ is strictly increasing and $ g $ is strictly decreasing.
+
+Prove that both $ f \circ g: \mathbb{R} \rightarrow \mathbb{R} $ and $ g \circ f: \mathbb{R} \rightarrow \mathbb{R} $ are strictly decreasing.
+
+\hr
+
+As $ f $ is strictly increasing, $ \forall x \forall y \left( x < y \implies f(x) < f(y) \right) $, and as $ g $ is strictly decreasing, $ \forall x \forall y \left( x < y \implies g(x) > g(y) \right) $.
+
+We can define the functions $ f $ and $ g $ as the following strictly increasing and strictly decreasing functions:
+
+Let $ x \in \mathbb{R} $.
+\begin{align*}
+	f(x) & = x  \\
+	g(x) & = -x
+\end{align*}
+
+\textbf{Case by Case Proof}
+
+\begin{itemize}
+	\item $ f \circ g: \mathbb{R} \rightarrow \mathbb{R} $
+	      \begin{align*}
+		      \left( f \circ g \right) \left( x \right) & = f(g(x)) \\
+		      \left( f \circ g \right) \left( x \right) & = f(-x)   \\
+		      \left( f \circ g \right) \left( x \right) & = -x
+	      \end{align*}
+	\item $ g \circ f: \mathbb{R} \rightarrow \mathbb{R} $
+	      \begin{align*}
+		      \left( g \circ f \right) \left( x \right) & = g(f(x)) \\
+		      \left( g \circ f \right) \left( x \right) & = g(x)    \\
+		      \left( g \circ f \right) \left( x \right) & = -x
+	      \end{align*}
+\end{itemize}
+In each case, it can be seen that the composition of functions $ f $ and $ g $ is strictly decreasing as it produces a linearly strictly decreasing function $ y(x) = -x $ where the domain and codomain $ \in \mathbb{R} $.
+
+\end{document}

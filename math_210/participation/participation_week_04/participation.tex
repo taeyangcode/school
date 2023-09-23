@@ -129,30 +129,25 @@ Prove that both $ f \circ g: \mathbb{R} \rightarrow \mathbb{R} $ and $ g \circ f
 
 As $ f $ is strictly increasing, $ \forall x \forall y \left( x < y \implies f(x) < f(y) \right) $, and as $ g $ is strictly decreasing, $ \forall x \forall y \left( x < y \implies g(x) > g(y) \right) $.
 
-We can define the functions $ f $ and $ g $ as the following strictly increasing and strictly decreasing functions:
-
-Let $ x \in \mathbb{R} $.
-\begin{align*}
-	f(x) & = x  \\
-	g(x) & = -x
-\end{align*}
-
 \textbf{Case by Case Proof}
 
 \begin{itemize}
 	\item $ f \circ g: \mathbb{R} \rightarrow \mathbb{R} $
 	      \begin{align*}
-		      \left( f \circ g \right) \left( x \right) & = f(g(x)) \\
-		      \left( f \circ g \right) \left( x \right) & = f(-x)   \\
-		      \left( f \circ g \right) \left( x \right) & = -x
+		      \left( f \circ g \right)                  & = f(g)                                      \\
+		      \left( f \circ g \right)                  & = f(g(y), g(x)), \quad g(y) < g(x)          \\
+		      \left( f \circ g \right)                  & = f(g(y)) < f(g(x))                         \\
+		      \left( f \circ g \right) \left( y \right) & < \left( f \circ g \right) \left( x \right)
 	      \end{align*}
+	      The composition $ f \circ g $ displays that for when $ x < y $, $ f(g(y)) < f(g(x)) $. In other words, the output $ g(y) $ of a larger input $ y $ will be less than the output $ g(x) $ of a smaller input $ x $.
 	\item $ g \circ f: \mathbb{R} \rightarrow \mathbb{R} $
 	      \begin{align*}
-		      \left( g \circ f \right) \left( x \right) & = g(f(x)) \\
-		      \left( g \circ f \right) \left( x \right) & = g(x)    \\
-		      \left( g \circ f \right) \left( x \right) & = -x
+		      \left( g \circ f \right)                  & = g(f)                                      \\
+		      \left( g \circ f \right)                  & = g(f(x), g(f(y)), \quad f(x) < f(y)        \\
+		      \left( g \circ f \right)                  & = g(f(x)) < g(f(y))                         \\
+		      \left( g \circ f \right) \left( x \right) & < \left( g \circ f \right) \left( y \right)
 	      \end{align*}
+	      The composition $ g \circ f $ displays that for when $ x < y $, $ g(f(x)) < g(f(y)) $. In other words, the output $ f(x) $ of a smaller input $ x $ will be less than the output $ f(y) $ of a larger input $ y $.
 \end{itemize}
-In each case, it can be seen that the composition of functions $ f $ and $ g $ is strictly decreasing as it produces a linearly strictly decreasing function $ y(x) = -x $ where the domain and codomain $ \in \mathbb{R} $.
 
 \end{document}

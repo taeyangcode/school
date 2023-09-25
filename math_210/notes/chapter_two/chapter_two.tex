@@ -452,4 +452,54 @@ Let $ A = [0, 1], B = (0, 1) $. Show that $ |A| = |B| $.
 
 \subsection{Matrices}
 
+\subsubsection{Definition 1}
+
+A matrix is a rectangular array of numbers. A matrix with $ m $ rows and $ n $ columns is called an $ m \times n $ matrix. The plural of matrix is matrices. A matrix with the same number of rows as columns is called square. Two matrices are equal if they have the same number of rows and the same number of columns and the corresponding entries in every position are equal.
+
+\textbf{Special Matrix Sizes}
+\begin{itemize}
+	\item $ n \times n $: Square matrix
+	\item $ 1 \times n $: Row matrix
+	\item $ m \times 1 $: Column matrix
+\end{itemize}
+
+\subsubsection{Definition 3}
+
+Let $ \matr{A} = \left[ a_{ij} \right] $ and $ \matr{B} = \left[ b_{ij} \right] $ be $ m \times n $ matrices. The sum of $ \matr{A} $ and $ \matr{B} $, denoted by $ \matr{A} + \matr{B} $, is the $ m \times n $ matrix that has $ a_{ij} + b_{ij} $ as its $ (i, j) $th element. In other words, $ \matr{A} + \matr{B} = \left[ a_{ij} + b_{ij} \right] $.
+
+\subsubsection{Proof}
+
+Proof of matrix addition.
+
+Let $ \matr{A} = \left[ a_{ij} \right], \matr{B} = \left[ b_{ij} \right] $.
+
+Then $ \matr{A} + \matr{B} = \left[ a_{ij} \right] + \left[ b_{ij} \right] = \left[ a_{ij} + b_{ij} \right] = \left[ b_{ij} + a_{ij} \right] = \left[ b_{ij} \right] + \left[ a_{ij} \right] $
+
+\subsubsection{Definition 4}
+
+Let $ \matr{A} $ be an $ m \times k $ matrix and $ \matr{B} $ be a $ k \times n $ matrix. The product of $ \matr{A} $ and $ \matr{B} $, denoted by $ \matr{AB} $, is the $ m \times n $ matrix with its $ (i, j) $th entry equal to the sum of the products of the corresponding elements from the $ i $th row of $ \matr{A} $ and the $ j $th column of $ \matr{B} $. In other words, if $ \matr{AB} = [c_{ij}] $, then
+\begin{equation*}
+	c_{ij} = a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{ik}b_{kj} \sum_{l = 1}^{k} a_{il}b_{lj}
+\end{equation*}
+
+\subsubsection{Definition 6}
+
+Let $ \matr{A} = \left[ a_{ij} \right] $ be an $ m \times n $ matrix. The transpose of $ \matr{A} $, denoted by $ \matr{A}^{T} $, is the $ n \times m $ matrix obtained by interchanging the rows and columns of $ \matr{A} $. In other words, if $ \matr{A}^{T} = \left[ b_{ij} \right] $, then $ b_{ij} = a_{ij} $ for $ i = 1, 2, \cdots, n $ and $ j = 1, 2, \cdots, m $.
+
+\subsubsection{Example 2.6.20}
+
+Definition: If $ \matr{AB} = \matr{BA} = \matr{I} $, then we say $ \matr{A} $ is invertible and denote the inverse of $ \matr{A} $ as $ \matr{A}^{-1} = \matr{B} $.
+
+Let $ \matr{A} $ be the invertible $ n \times n $ matrix. Prove that $ \matr{A}^3 $ is invertible and $ \left( \matr{A}^3 \right)^{-1} = \left( \matr{A}^{-1} \right)^3 $.
+
+\textbf{Proof}: Since $ \matr{A} $ is invertible, then $ \matr{A}^{-1} $ exists. $ \matr{A}\matr{A}^{-1} = \matr{I}, \matr{A}^{-1}\matr{A} = \matr{I} $.
+
+Notice that:
+\begin{align*}
+	\matr{A}^3 \cdot \left( \matr{A}^{-1} \right)^3 & = \left( \matr{AAA} \right) \left( \matr{A}^{-1}\matr{A}^{-1}\matr{A}^{-1} \right)                          \\
+	                                                & = \left( \matr{AA} \right) \left( \matr{A} \matr{A}^{-1} \right) \left( \matr{A}^{-1} \matr{A}^{-1} \right) \\
+	                                                & = \left( \matr{AA} \right) \left( \matr{I} \right) \left( \matr{A}^{-1} \matr{A}^{-1} \right)               \\
+	                                                & = \left( \matr{AA} \right) \left( \matr{A}^{-1} \matr{A}^{-1} \right), \quad etc.
+\end{align*}
+
 \end{document}

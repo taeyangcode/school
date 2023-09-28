@@ -312,7 +312,13 @@ Construct a truth table for $ \left( p \iff q \right) \iff \left( r \iff s \righ
 
 \subsection{40}
 
+Explain, without using a truth table, why $ \left( p \lor \neg q \right) \land \left( q \lor \neg r \right) \land \left( r \lor \neg p \right) $ is true when $ p $, $ q $, and $ r $ have the same truth value and it is false otherwise.
+
+The proposition $ \left( x \lor \neg y \right) $ is seen an expression of implication. Therefore the expression can be rewritten as $ \left( p \implies q \right) \land \left( q \implies r \right) \land \left( r \implies p \right) $. If $ x \implies y $ and $ y \implies z $, we can simplify the proposition to $ \left( p \iff r \right) \land \left( q \iff p \right) \land \left( r \iff q \right) $. It can now be observed that the compound proposition is true if and only if $ p \equiv q \equiv r $.
+
 \subsection{41}
+
+Explain, without using a truth table, why $ \left( p \lor q \lor r \right) \land \left( \neg p \lor \neg q \lor \neg r \right) $ is true when at least one of $ p $, $ q $, and $ r $ is true and at least one is false, but is false when all three variables have the same truth value.
 
 \subsection{42}
 

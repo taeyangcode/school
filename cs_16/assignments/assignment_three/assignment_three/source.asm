@@ -17,14 +17,11 @@ list_two DWORD 0, 2, 5, 9, 10
 
 .code
 main PROC
-	add [list], 0
-
 	call array_exchange
 
 	call sum_of_gaps
 
 	INVOKE ExitProcess, 0
-
 main ENDP
 
 array_exchange PROC

@@ -1,0 +1,187 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{Section 4.1}
+
+\subsection{Theorem 1}
+
+\textbf{Proof}:
+\begin{align*}
+	a \vert b & \implies b = a \cdot m \\
+	a \vert c & \implies c = a \cdot n
+\end{align*}
+For some $ m, n \in \mathbb{Z} \implies m + n \in \mathbb{Z} $. Then $ b + c = am + an = a(m + n) \therefore a \vert b + c $.
+
+\subsection{Division Algorithm}
+
+The function \textbf{div} is called the division algorithm.
+
+\begin{equation}
+	\text{div}(a, d) = a \text{ div } d = \left\lfloor \frac{ a }{ d } \right\rfloor
+\end{equation}
+\begin{equation}
+	\text{div}: \mathbb{Z} \times \mathbb{Z}^{+} \implies \mathbb{Z}
+\end{equation}
+The function receives a dividend and divisor and produces the quotient.
+
+\subsection{Modulus Algorithm}
+
+The function \textbf{mod} is called the modulus algorithm.
+
+\begin{equation}
+	\text{mod}(a, d) = a \text{ mod } d = a - \left\lfloor \frac{ a }{ d } \right\rfloor
+\end{equation}
+where $ a = d \cdot q + r $.
+\begin{equation}
+	\text{mod}: \mathbb{Z} \times \mathbb{Z}^{+} \implies \mathbb{Z}
+\end{equation}
+The function receives a dividend and divisor and produces the remainder.
+\begin{equation}
+	a \equiv b \left( \text{mod } m \right) \iff m \vert \left( a - b \right)
+\end{equation}
+
+\subsection{Remarks}
+
+\begin{enumerate}
+	\item
+	      \begin{equation*}
+		      \mathbb{Z}_{m} \left( Z \text{ mod } m \right)
+	      \end{equation*}
+	      \begin{equation*}
+		      Z_{m} = \left\{ 0_m, 1_m, 2_m, \cdots, (m - 1)_m \right\}
+	      \end{equation*}
+	      where $ 0_m $ is a set
+	      \begin{itemize}
+		      \item $ r \in 0_m $ if $ r \equiv 0 \left( \text{mod } m \right) $
+		      \item $ r \in 1_m $ if $ r \equiv 1 \left( \text{mod } m \right) $
+	      \end{itemize}
+\end{enumerate}
+
+\section{Section 4.2}
+
+\subsection{Theorem 1}
+
+Let $ b $ be an integer greater than 1. Then if $ n $ is a positive integer, it can be expressed uniquely in the form
+\begin{equation}
+	n = a_kb^k + a_{k - 1}b^{k - 1} + \cdots + a_1b + a_0,
+\end{equation}
+where $ k $ is a nonnegative integer, $ a_0, a_1, \cdots, a_k $ are nonnegative integers less than $ b $, and $ a_k \neq 0 $.
+
+\subsection{Example}
+
+When $ b = 10, a_i \in \left\{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \right\} $
+\begin{equation*}
+	7254887 = 7 \cdot 10^6 + 2 \cdot 10^5 + 5 \cdot 10^4 + 4 \cdot 10^3 + 8 \cdot 10^2 + 8 \cdot 10^1 + 7 \cdot 10^0
+\end{equation*}
+
+\end{document}

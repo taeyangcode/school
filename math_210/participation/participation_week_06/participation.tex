@@ -1,0 +1,152 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+\title{Week 06 Participation Assignment}
+\author{Corey Mostero - 2566652}
+\date{6 September 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Part 1}
+
+Write out the addition and multiplication tables for $ \mathbb{Z}_7 $, where by addition and multiplication we mean $ +_7 $ and $ \cdot_7 $.
+
+\subsection{Addition Table}
+
+\begin{tabular}{ | c | c | c | c | c | c | c | c | }
+	           & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} \\
+	\hline
+	\textbf{0} & 0          & 1          & 2          & 3          & 4          & 5          & 6          \\
+	\textbf{1} & 1          & 2          & 3          & 4          & 5          & 6          & 0          \\
+	\textbf{2} & 2          & 3          & 4          & 5          & 6          & 0          & 1          \\
+	\textbf{3} & 3          & 4          & 5          & 6          & 0          & 1          & 2          \\
+	\textbf{4} & 4          & 5          & 6          & 0          & 1          & 2          & 3          \\
+	\textbf{5} & 5          & 6          & 0          & 1          & 2          & 3          & 4          \\
+	\textbf{6} & 6          & 0          & 1          & 2          & 3          & 4          & 5          \\
+\end{tabular}
+
+\subsection{Multiplication Table}
+
+\begin{tabular}{ | c | c | c | c | c | c | c | c | }
+	           & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} \\
+	\hline
+	\textbf{0} & 0          & 0          & 0          & 0          & 0          & 0          & 0          \\
+	\textbf{1} & 0          & 1          & 2          & 3          & 4          & 5          & 6          \\
+	\textbf{2} & 0          & 2          & 4          & 6          & 1          & 3          & 5          \\
+	\textbf{3} & 0          & 3          & 6          & 2          & 5          & 1          & 4          \\
+	\textbf{4} & 0          & 4          & 1          & 5          & 2          & 6          & 3          \\
+	\textbf{5} & 0          & 5          & 3          & 1          & 6          & 4          & 2          \\
+	\textbf{6} & 0          & 6          & 5          & 4          & 3          & 2          & 1          \\
+\end{tabular}
+
+\end{document}

@@ -109,6 +109,10 @@
 	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
 }
 
+% GCD & LCM
+% \newcommand{\gcd}{\text{gcd}}
+\newcommand{\lcm}{\text{lcm}}
+
 \tableofcontents
 
 \section{Section 4.1}
@@ -183,5 +187,89 @@ When $ b = 10, a_i \in \left\{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \right\} $
 \begin{equation*}
 	7254887 = 7 \cdot 10^6 + 2 \cdot 10^5 + 5 \cdot 10^4 + 4 \cdot 10^3 + 8 \cdot 10^2 + 8 \cdot 10^1 + 7 \cdot 10^0
 \end{equation*}
+
+\section{Section 4.3}
+
+\subsection{Prime Factorization}
+
+\begin{align*}
+	24 & = 2 \cdot 2 \cdot 2 \cdot 3 = 2^3 \cdot 3^1 \cdot 5^0 \\
+	36 & = 2 \cdot 2 \cdot 3 \cdot 3 = 2^2 \cdot 3^2 \cdot 5^0 \\
+	60 & = 2 \cdot 2 \cdot 3 \cdot 5 = 2^2 \cdot 3^1 \cdot 5^1
+\end{align*}
+\begin{align*}
+	\text{gcd} & = 2^{\min} \cdot 3^{\min} \cdot 5^{\min} \\
+	\text{gcd} & = 2^{2} \cdot 3^{1} \cdot 5^{0}
+\end{align*}
+
+\subsection{Greatest Common Divisor}
+
+$ d = \gcd(a, b) $ if $ d \geq x $ for all $ x $ such that $ x \mid a \& x \mid b $.
+
+\subsection{Least Common Multiple}
+
+$ m = \text{lcm}(a, b) $ if $ m \leq y $ for all $ y $ such that $ a \mid y \& b \mid y $.
+
+\subsection{Example 4.3.9}
+
+$ x = -1 $ is a solution to $ x^m + 1 = 0 $ if $ m $ is odd.
+\begin{align*}
+	x^m + 1 & = \left( x + 1 \right) \left( x^{m - 1} - x^{m - 2} + x^{m - 3} - x^{m - 4} + \cdots - x + 1 \right) \\
+	a^m + 1 & = \left( a + 1 \right) \left( a^{m - 1} - a^{m - 2} + \cdots - a + 1 \right)
+\end{align*}
+\begin{align*}
+	a \text{ is great than } 1 & \implies a + 1 > 1       \\
+	x \text{ is at least } 3   & \implies a + 1 < a^m + 1
+\end{align*}
+$ \therefore 1 < a + 1 < a^m + 1 $
+
+\subsection{4.3.40}
+
+Using the method followed in Example 17, express the greatest common divisor of each of these pairs of integers as a linear combination of these integers.
+
+\begin{enumerate}[label = \textbf{\alph*)}]
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item 2002, 2339
+	      \begin{enumerate}
+		      \item Show that $ \gcd(x, y) = 1 $.
+		      \item Find $ x, y, \in \mathbb{Z} $, such that $ 2002x + 2339y = 1 $.
+	      \end{enumerate}
+	      \begin{itemize}
+		      \item By the Euclidean Algorithm
+		            \begin{align*}
+			            2339 & = 2002 \cdot 1 + 337 \\
+			            2002 & = 337 \cdot 6 + 317  \\
+			            337  & = 317 \cdot 1 + 20   \\
+			            317  & = 20 \cdot 15 + 17   \\
+			            20   & = 17 \cdot 1 + 3     \\
+			            17   & = 3 \cdot 5 + 2      \\
+			            3    & = 2 \cdot 1 + 1      \\
+			            2    & = 1 \cdot 2
+		            \end{align*}
+		            \begin{align*}
+			            1 & = 3 - 2 \cdot 1                                       \\
+			              & = 3 - (16 - 3 \cdot 5)                                \\
+			              & = 3 \cdot 6 - 17                                      \\
+			              & = (20 - 17 \cdot 1) \cdot 6 + (-1) \cdot 17           \\
+			              & = 20 \cdot 6 + (-7) \cdot 17                          \\
+			              & = 20 \cdot 6 + (-7)(317 - 20 \cot 15)                 \\
+			              & = 20 \cdot 111 + (-7) \cdot 317                       \\
+			              & = (337 - 317 \cdot 10) \cdot 111 + (-7) \cdot 317     \\
+			              & = 317 \cdot 111 + (-118) \cdot 317                    \\
+			              & = 317 \cdot 111 + (-118)(2002 - 337 \cdot 6)          \\
+			              & = 317 \cdot 819 + (-118) \cdot 2002                   \\
+			              & = (2339 - 2002 \cdot 1) \cdot 819 + (-118) \cdot 2002 \\
+			              & = 2339 \cdot 819 + (-937) \cdot 2002                  \\
+			            x & = -937, y = 819
+		            \end{align*}
+	      \end{itemize}
+	\item
+	\item
+\end{enumerate}
 
 \end{document}

@@ -97,6 +97,8 @@
 	\fi
 }
 
+\newcommand{\modulus}{\text{mod }}
+
 % Laplace
 \NewDocumentCommand{\lap}{o}{
 	\IfNoValueTF{#1}
@@ -271,5 +273,114 @@ Using the method followed in Example 17, express the greatest common divisor of 
 	\item
 	\item
 \end{enumerate}
+
+\section{Section 4.4}
+
+\subsection{Theorem 1}
+
+\begin{align*}
+	ax + b          & = c                    \\
+	a^{-1} \cdot ax & = c - b \cdot a^{-1}   \\
+	x               & = (c - b) \cdot a^{-1}
+\end{align*}
+\begin{align*}
+	4x + 2       & \equiv 1 (\modulus 9)   \\
+	4x           & \equiv -1 (\modulus 9)  \\
+	4x           & \equiv 8 (\modulus 9)   \\
+	7 \cdot ( 4x & \equiv 8 (\modulus 9) ) \\
+	x            & \equiv 56 (\modulus 9)  \\
+	x            & \equiv 2 (\modulus 9)
+\end{align*}
+
+\subsection{Chinese Remainder Theorem}
+
+\begin{align*}
+	x & \equiv a_1 (\modulus m_1) \\
+	x & \equiv a_2 (\modulus m_2) \\
+	x & \equiv a_3 (\modulus m_3) \\
+\end{align*}
+Where $ x $ is the same and $ \modulus m_i $ is pair-wise relatively prime.
+
+Let $ m = m_1, m_2, \cdots m_n $
+\begin{equation}
+	M_i = \frac{ m }{ m_i }
+\end{equation}
+$ y_i $ as inverse of $ M_i \modulus m_i $
+\begin{equation}
+	x = a_1M_1y_1 + a_2M_2y_2 + \cdots + a_nM_ny_n
+\end{equation}
+
+\subsubsection{Example}
+
+\begin{alignat*}{1}
+	x & \equiv 1 ( \modulus 5 ) \\
+	x & \equiv 2 ( \modulus 7 ) \\
+	x & \equiv 3 ( \modulus 4 )
+\end{alignat*}
+\begin{align*}
+	m   & = 5 \cdot 7 \cdot 4 = 140 \\
+	M_1 & = \frac{ 140 }{ 5 } = 28  \\
+	M_2 & = \frac{ 140 }{ 7 } = 20  \\
+	M_2 & = \frac{ 140 }{ 4 } = 35
+\end{align*}
+\begin{align*}
+	y_1 \cdot 28 & = 1(\modulus 5) = 2 \\
+	y_2 \cdot 20 & = 1(\modulus 7) = 6 \\
+	y_3 \cdot 35 & = 1(\modulus 4) = 3
+\end{align*}
+\begin{align*}
+	x & = 1 \cdot 28 \cdot 2 + 2 \cdot 20 \cdot 6 + 3 \cdot 35 \cdot 3 \\
+	  & = 611 = 51(\modulus 140)
+\end{align*}
+
+\subsection{Method of Back Substitution}
+
+\begin{alignat*}{1}
+	x & \equiv 1 ( \modulus 5 ) \\
+	x & \equiv 2 ( \modulus 7 ) \\
+	x & \equiv 3 ( \modulus 4 )
+\end{alignat*}
+\begin{alignat*}{2}
+	 &          & x & \equiv 1(\modulus 5) \\
+	 & \implies & x & = 5t + 1
+\end{alignat*}
+Then $ x \equiv 2(\modulus 7) $ becomes
+\begin{alignat*}{2}
+	 &          & 5t + 1     & \equiv 2(\modulus 7)         \\
+	 &          & 3 \cdot 5t & \equiv 1(\modulus 7) \cdot 3 \\
+	 &          & t          & \equiv 3(\modulus 7)         \\
+	 & \implies & t          & = 7s + 3                     \\
+	 & \implies & c          & = 5(7s + 3) + 1              \\
+	 &          &            & = 355 + 16
+\end{alignat*}
+Then $ x \equiv 3(\modulus 4) $ becomes
+\begin{align*}
+	355 + 16 & \equiv 3(\modulus 4)          \\
+	355      & \equiv 3(\modulus 4)          \\
+	35       & \equiv 3(\modulus 4)          \\
+	s        & \equiv 9(\modulus 4)          \\
+	s        & \equiv 1(\modulus 4)          \\
+	s        & = 4r + 1                      \\
+	x        & = 35(4r + 1) + 16 = 140r + 51
+\end{align*}
+
+\subsection{Fermat's Little Theorem}
+
+\subsubsection{Example}
+
+\begin{align*}
+	a   & = 7                      \\
+	p   & = 13 \implies p - 1 = 12 \\
+	121 & = 12 \cdot 10 + 1        \\
+	7^{p - 1} \equiv 1 \modulus 13
+\end{align*}
+\begin{align*}
+	 & 7^{121} \modulus 13                                      \\
+	 & \equiv 7^{12 \cdot 10 + 1} \modulus 13                   \\
+	 & \equiv 7^{12 \cdot 10} \cdot 7 \modulus 13               \\
+	 & \equiv \left( 7^{p - 1} \right)^{10} \cdot 7 \modulus 13 \\
+	 & \equiv 1^{10} \cdot 7 \modulus 13                        \\
+	 & = 7 \modulus 13
+\end{align*}
 
 \end{document}

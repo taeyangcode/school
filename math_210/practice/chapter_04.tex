@@ -1,0 +1,187 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\newcommand{\modulus}[1]{\mathrm{mod}\ #1}
+
+\tableofcontents
+
+\section{1}
+
+Use the Euclidean Algorithm to find $ \gcd(7544, 115) $. Then express the greatest common divisor as a linear combination of 7544 and 115.
+\begin{align*}
+	7544                       & = 65 \cdot 115 + 69 \\
+	115                        & = 1 \cdot 69 + 46   \\
+	69                         & = 1 \cdot 46 + 23   \\
+	46                         & = 2 \cdot 23 + 0    \\
+	\therefore \gcd(7544, 115) & = 23
+\end{align*}
+\begin{align*}
+	23 & = 69 - 1 \cdot 46                      \\
+	46 & = 115 - 1 \cdot 69                     \\
+	23 & = 69 - 1 \cdot (115 - 1 \cdot 69)      \\
+	23 & = 2 \cdot 69 - 1 \cdot 115             \\
+	69 & = 7544 - 65 \cdot 115                  \\
+	23 & = 2(7544 - 65 \cdot 115) - 1 \cdot 115 \\
+	23 & = 2 \cdot 7544 - 131 \cdot 115
+\end{align*}
+
+\section{2}
+
+Find an inverse of $ a $ modulo $ m $ by Euclidean Algorithm, where $ a = 74, m = 389 $.
+\begin{align*}
+	389                      & = 5 \cdot 74 + 19 \\
+	74                       & = 3 \cdot 19 + 17 \\
+	19                       & = 1 \cdot 17 + 2  \\
+	17                       & = 8 \cdot 2 + 1   \\
+	2                        & = 2 \cdot 1       \\
+	\therefore \gcd(74, 389) & = 1
+\end{align*}
+\begin{align*}
+	1  & = 17 - 8 \cdot 2                           \\
+	2  & = 19 - 1 \cdot 17                          \\
+	1  & = 17 - 8 \cdot (19 - 1 \cdot 17)           \\
+	1  & = 9 \cdot 17 - 8 \cdot 19                  \\
+	17 & = 74 - 3 \cdot 19                          \\
+	1  & = 9 \cdot (74 - 3 \cdot 19) - 8 \cdot 19   \\
+	1  & = 9 \cdot 74 - 35 \cdot 19                 \\
+	19 & = 389 - 5 \cdot 74                         \\
+	1  & = 9 \cdot 74 - 35 \cdot (389 - 5 \cdot 74) \\
+	1  & = 184 \cdot 74 - 35 \cdot 389
+\end{align*}
+\begin{align*}
+	sa + tm                     & = 1(\bmod(m))         \\
+	184 \cdot 74 - 35 \cdot 389 & \equiv 1 (\bmod(389)) \\
+	184 \cdot 74                & \equiv 1 (\bmod(389))
+\end{align*}
+184 is an inverse of $ a \bmod(m) $.
+
+\section{3}
+
+Solve the congruence $ 74x \equiv 5(\bmod(389)) $ using the modular inverse from the previous problem.
+\begin{align*}
+	184 \cdot \left[ 74x \right] & \equiv \left[ 5(\bmod(389)) \right] \cdot 184 \\
+	x                            & \equiv 142(\bmod(389))
+\end{align*}
+
+\section{4}
+
+Show that if $ ac \equiv bc(\bmod(m)) $, where $ a, b, c $, and $ m $ are integers with $ m > 2 $, and $ d = \gcd(m, c) $, then $ a \equiv b \left( \bmod \left( \frac{ m }{ d } \right) \right) $.
+
+\begin{align*}
+	ac                                                                                  & \equiv bc(\bmod(m)) \iff m \mid ac - bc                                         \\
+	ac - bc                                                                             & = k \cdot m                                                                     \\
+	a \left( d \cdot \frac{ c }{ d } \right) - b \left( d \cdot \frac{ c }{ d } \right) & = k \left( d \cdot \frac { m }{ d } \right)                                     \\
+	a \left(  \frac{ c }{ d } \right) - b \left(  \frac{ c }{ d } \right)               & = k \left(  \frac { m }{ d } \right)                                            \\
+	a \left(  \frac{ c }{ d } \right)                                                   & \equiv b \left(  \frac{ c }{ d } \right) \bmod \left(  \frac { m }{ d } \right) \\
+	a                                                                                   & \equiv b  \bmod \left(  \frac { m }{ d } \right)
+\end{align*}
+
+\end{document}

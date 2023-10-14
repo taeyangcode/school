@@ -1,0 +1,217 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 07 Participation Assignment}
+\author{Corey Mostero - 2566652}
+\date{13 October 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Week 07 Participation Assignment}
+
+\subsection{} \label{a}
+
+Show that the positive integers less than 11, except 1 and 10, can be split into pairs of integers such that each pair consists of integers that are inverses of each other modulo 11.
+\begin{alignat*}{2}
+	2 \cdot 6 & \equiv 12 & = 1(\bmod \ 11) \\
+	3 \cdot 4 & \equiv 12 & = 1(\bmod \ 11) \\
+	5 \cdot 9 & \equiv 45 & = 1(\bmod \ 11) \\
+	7 \cdot 8 & \equiv 56 & = 1(\bmod \ 11)
+\end{alignat*}
+
+\subsection{} \label{b}
+
+Show that if $ p $ is a prime, the only solutions of $ x^2 \equiv 1(\bmod(p)) $ are the integers $ x $ such that $ x \equiv 1(\bmod(p)) $ or $ x \equiv -1(\bmod(p)) $.
+\begin{align*}
+	x^2            & \equiv 1(\bmod(p))    \\
+	x^2 - 1        & \equiv 0(\bmod(p))    \\
+	(x - 1)(x + 1) & \equiv 0(\bmod(p))    \\
+	\therefore{}   & p \mid (x - 1)(x + 1)
+\end{align*}
+\begin{align*}
+	x - 1 & \equiv 0(\bmod(p))  \\
+	x     & \equiv 1(\bmod(p))  \\
+	x + 1 & \equiv 0(\bmod(p))  \\
+	x     & \equiv -1(\bmod(p))
+\end{align*}
+
+\subsection{} \label{c}
+
+Generalize the result in part \ref{a}; that is, show that if $ p $ is a prime, the positive integers less than $ p $, except $ 1 $ and $ p - 1 $, can be split into $ \frac{ p - 3 }{ 2 } $ pairs of integers such that each pair consists of integers that are inversed of each other.
+\begin{align*}
+	S & = \mathbb{Z}_p = \left\{ 1, 2, \cdots, p - 2, p - 1 \right\}
+\end{align*}
+From \ref{b} we can see that there is $ x $ that makes $ x \cdot x^{-1} \equiv 1(\bmod(p)) $. It can also be observed that the equivalences for $ x $ can be written as $ x = 1, p - 1 $. The set $ S $ can now be rewritten as
+\begin{align*}
+	S & = \left\{ 2, 3, \cdots, p - 3, p - 2 \right\}
+\end{align*}
+where we have $ p - 3 $ (cannot be $ p - 2 $ as primes cannot be even, and the result of an odd divided by an even is not an integer) positive integers, $ \therefore{} \frac{ p - 3 }{ 2 } $ pairs.
+
+\subsection{}
+
+From part \ref{c}, conclude that $ (p - 1)! \equiv -1(\bmod(p)) $ whenever $ p $ is prime.
+\begin{align*}
+	(p - 1)! & \equiv 1 \cdot 2 \cdots (p - 2) \cdot (p - 1)                                                                       \\
+	(p - 1)! & \equiv 1 \cdot (2 \cdot 2^{-1}) \cdots \left[ (p - 2)(p - 2)^{-1} \right] \cdot (p - 1), \quad \text{using \ref{c}} \\
+	(p - 1)! & \equiv 1 \cdot (1) \cdots \left[ 1 \right] \cdot (p - 1)                                                            \\
+	(p - 1)! & \equiv 1 \cdot (p - 1)                                                                                              \\
+	(p - 1)! & \equiv (p - 1)\bmod(p)                                                                                              \\
+	(p - 1)! & \equiv (p \bmod(p)) - (1 \bmod(p))                                                                                  \\
+	(p - 1)! & \equiv 0 - 1 \bmod(p)                                                                                               \\
+	(p - 1)! & \equiv -1 \bmod(p)
+\end{align*}
+
+\subsection{} \label{e}
+
+Suppose that $ a $ is not divisible by the prime $ p $. Show that no two of the integers $ 1 \cdot a, 2 \cdot a, \cdots, (p - 1) \cdot a $ are congruent modulo $ p $.
+
+Let the two integers be $ x $ and $ y $, where $ 1 \leq x < y < p $, giving $ p \mid a(y - x) $. As $ a $ is not divisible by the prime $ p $, it must conclude that $ p \mid (y - x) $. Though as $ p $ is prime, and $ 1 \leq y - x < p $, this cannot be true by the definition of a prime number.
+
+\subsection{} \label{f}
+
+Conclude from part \ref{e} that the product of $ 1, 2, \cdots, p - 1 $ is congruent modulo $ p $ to the product of $ a, 2a, \cdots, (p - 1)a $. Use this to show that $ (p - 1)! \equiv a^{p - 1}(p - 1)!(\bmod(p)) $.
+
+\ref{e} shows that no two integers $ 1 \cdot a, 2 \cdot a, \cdots, (p - 1) \cdot a $ are congruent modulo $ p $.
+\begin{align*}
+	a \cdot 2a \cdots (p - 1)a                   & = (1 \cdot 2 \cdots p - 1) \bmod(p) \\
+	(1 \cdot 2 \cdots (p - 1)) \cdot (a^{p - 1}) & = (p - 1)!                          \\
+	(p - 1)! \cdot a^{p - 1}                     & = (p - 1)!
+\end{align*}
+
+\subsection{}
+
+Use Theorem 7 of Section 4.3 to show that from part \ref{f} that $ a^{p - 1} \equiv 1(\bmod{p}) $ if $ p \mid a $.
+\begin{align*}
+	(p - 1)!                      & \equiv -1 (\bmod(p))         \\
+	(-1) \cdot a^{p - 1}          & \equiv -1(\bmod(p))          \\
+	-1 \cdot (-1) \cdot a^{p - 1} & \equiv -1(\bmod(p)) \cdot -1 \\
+	a^{p - 1}                     & \equiv 1(\bmod(p))
+\end{align*}
+
+\subsection{}
+
+Use part \ref{c} to show that $ a^{p} \equiv a(\bmod(p)) $ for all integers $ a $.
+\begin{itemize}
+	\item Case 1: $ p \mid a $
+	      \begin{equation*}
+		      \forall a \in \mathbb{Z} (a^{p} \equiv 0 \bmod(p) \iff a(\bmod(p)) \equiv 0 \bmod(p))
+	      \end{equation*}
+	\item Case 2: $ p \nmid a $ (Fermat's Little Theorem)
+	      \begin{align*}
+		      a^{p - 1} & \equiv 1(\bmod(p)) \\
+		      a^p       & \equiv a(\bmod(p))
+	      \end{align*}
+\end{itemize}
+
+\end{document}

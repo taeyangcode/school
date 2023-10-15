@@ -17,13 +17,10 @@ sentinel SWORD 0FFFFh
 
 val1 DWORD ?
 
+grade_score DWORD ?
+
 .code
 main PROC
-	mov ebx, 0
-	mov val1, 24
-
-	call part_four
-
 	INVOKE ExitProcess, 0
 main ENDP
 
@@ -87,9 +84,99 @@ Return:
 part_four ENDP
 
 CalcGrade PROC
+	cmp grade_score, 90				; compare grade_score & 90 (>= 90 -> A)
+	jae GradeA						; grade_score >= 90 -> assign 'A' to al
+	
+	cmp grade_score, 80				; compare grade_score & 80 (>= 80 -> B)
+	jae GradeB          			; grade_score >= 80 -> assign 'B' to al
+	
+	cmp grade_score, 70				; compare grade_score & 70 (>= 70 -> C)
+	jae GradeC          			; grade_score >= 70 -> assign 'C' to al
+	
+	cmp grade_score, 60				; compare grade_score & 60 (>= 60 -> D)
+	jae GradeD          			; grade_score >= 60 -> assign 'D' to al
 
+	jmp GradeF						; else -> assign 'F' to al
+
+GradeA:
+	mov al, 'A'
+	ret
+
+GradeB:
+	mov al, 'B'
+	ret
+
+GradeC:
+	mov al, 'C'
+	ret
+
+GradeD:
+	mov al, 'D'
+	ret
+
+GradeF:
+	mov al, 'F'
+	ret
 
 	ret
 CalcGrade ENDP
+
+test_CalcGrade PROC
+	mov grade_score, 50				; initialize grade_score to score in respective range
+	call CalcGrade					; call CalcGrade procedure which should initialize al to the respective letter grade
+	cmp al, 'F'						; compare the letter grade ASCII code in al with the expected letter grade
+	jne EarlyExit					; al != '[Letter Grade]' -> exit program early with code 1
+
+	mov grade_score, 55
+	call CalcGrade
+	cmp al, 'F'
+	jne EarlyExit
+
+	mov grade_score, 60
+	call CalcGrade
+	cmp al, 'D'
+	jne EarlyExit
+
+	mov grade_score, 65
+	call CalcGrade
+	cmp al, 'D'
+	jne EarlyExit
+
+	mov grade_score, 70
+	call CalcGrade
+	cmp al, 'C'
+	jne EarlyExit
+
+	mov grade_score, 75
+	call CalcGrade
+	cmp al, 'C'
+	jne EarlyExit
+
+	mov grade_score, 80
+	call CalcGrade
+	cmp al, 'B'
+	jne EarlyExit
+
+	mov grade_score, 85
+	call CalcGrade
+	cmp al, 'B'
+	jne EarlyExit
+
+	mov grade_score, 90
+	call CalcGrade
+	cmp al, 'A'
+	jne EarlyExit
+
+	mov grade_score, 100
+	call CalcGrade
+	cmp al, 'A'
+	jne EarlyExit
+	
+	ret									; all test cases passed
+
+EarlyExit:
+	INVOKE ExitProcess, 1				; at least one test case failed, exit program with code 1
+	ret
+test_CalcGrade ENDP
 
 END main

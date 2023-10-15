@@ -30,23 +30,23 @@ part_one PROC
 
 L1:
 	cmp WORD PTR [esi], 0			; check for zero
-	jnz NonZero						; zero flag not set -> located first nonzero value at esi
+	jnz NonZero				; zero flag not set -> located first nonzero value at esi
 
-	add esi, TYPE array				; increment counter
-	loop L1							; loop
+	add esi, TYPE array			; increment counter
+	loop L1					; loop
 	
 	mov esi, DWORD PTR sentinel		; iteration complete && nonzero value not found -> point esi to sentinel's value
-	ret								; nonzero value not found, exit function
+	ret					; nonzero value not found, exit function
 
 NonZero:
-	ret								; nonzero value found, exit function
+	ret					; nonzero value found, exit function
 part_one ENDP
 
 part_two PROC
- 	cmp ebx, ecx					; compare values of registers ebx and ecx
-	ja Return						; ebx > ecx -> jump to ret, else perform listed instructions
+ 	cmp ebx, ecx				; compare values of registers ebx and ecx
+	ja Return				; ebx > ecx -> jump to ret, else perform listed instructions
  	
- 	mov eax, 5				
+ 	mov eax, 5
  	mov edx, 6
 
 Return: 	
@@ -54,13 +54,13 @@ Return:
 part_two ENDP
 
 part_three PROC
-	cmp ebx, ecx					; compare values of ebx & ecx
-	jnle Return						; ebx !<= ecx -> return early
+	cmp ebx, ecx				; compare values of ebx & ecx
+	jnle Return				; ebx !<= ecx -> return early
 
-	cmp ecx, edx					; compare values of ecx & edx
-	jng Return						; ecx !> edx -> return early
+	cmp ecx, edx				; compare values of ecx & edx
+	jng Return				; ecx !> edx -> return early
 
-	mov eax, 5						; neither of the above conditions are true -> perform instructions
+	mov eax, 5				; neither of the above conditions are true -> perform instructions
 	mov edx, 6
 
 Return:
@@ -69,11 +69,11 @@ part_three ENDP
 
 part_four PROC
 while_loop:
-	cmp ebx, val1					; compare values of ebx & val1
-	jnle Return						; ebx !<= val1 -> return early
+	cmp ebx, val1				; compare values of ebx & val1
+	jnle Return				; ebx !<= val1 -> return early
 
-	add ebx, 5						; ebx += 5
-	dec val1						; --val1
+	add ebx, 5				; ebx += 5
+	dec val1				; --val1
 
 	jmp while_loop
 
@@ -84,20 +84,19 @@ Return:
 part_four ENDP
 
 CalcGrade PROC
-	cmp grade_score, 90				; compare grade_score & 90 (>= 90 -> A)
-	jae GradeA						; grade_score >= 90 -> assign 'A' to al
+	cmp grade_score, 90			; compare grade_score & 90 (>= 90 -> A)
+	jae GradeA				; grade_score >= 90 -> assign 'A' to al
 	
-	cmp grade_score, 80				; compare grade_score & 80 (>= 80 -> B)
+	cmp grade_score, 80			; compare grade_score & 80 (>= 80 -> B)
 	jae GradeB          			; grade_score >= 80 -> assign 'B' to al
 	
-	cmp grade_score, 70				; compare grade_score & 70 (>= 70 -> C)
+	cmp grade_score, 70			; compare grade_score & 70 (>= 70 -> C)
 	jae GradeC          			; grade_score >= 70 -> assign 'C' to al
 	
-	cmp grade_score, 60				; compare grade_score & 60 (>= 60 -> D)
+	cmp grade_score, 60			; compare grade_score & 60 (>= 60 -> D)
 	jae GradeD          			; grade_score >= 60 -> assign 'D' to al
 
-	jmp GradeF						; else -> assign 'F' to al
-
+	jmp GradeF				; else -> assign 'F' to al
 GradeA:
 	mov al, 'A'
 	ret
@@ -122,10 +121,10 @@ GradeF:
 CalcGrade ENDP
 
 test_CalcGrade PROC
-	mov grade_score, 50				; initialize grade_score to score in respective range
-	call CalcGrade					; call CalcGrade procedure which should initialize al to the respective letter grade
-	cmp al, 'F'						; compare the letter grade ASCII code in al with the expected letter grade
-	jne EarlyExit					; al != '[Letter Grade]' -> exit program early with code 1
+	mov grade_score, 50			; initialize grade_score to score in respective range
+	call CalcGrade				; call CalcGrade procedure which should initialize al to the respective letter grade
+	cmp al, 'F'				; compare the letter grade ASCII code in al with the expected letter grade
+	jne EarlyExit				; al != '[Letter Grade]' -> exit program early with code 1
 
 	mov grade_score, 55
 	call CalcGrade
@@ -172,10 +171,10 @@ test_CalcGrade PROC
 	cmp al, 'A'
 	jne EarlyExit
 	
-	ret									; all test cases passed
+	ret					; all test cases passed
 
 EarlyExit:
-	INVOKE ExitProcess, 1				; at least one test case failed, exit program with code 1
+	INVOKE ExitProcess, 1			; at least one test case failed, exit program with code 1
 	ret
 test_CalcGrade ENDP
 

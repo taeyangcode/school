@@ -1,0 +1,142 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{5.1 Weak Induction}
+
+\section{5.2 Strong Induction}
+
+\subsection{Example}
+
+Prove that any positive integer can be written as a sum of $ 2^k $, where $ k $'s are distinct.
+
+\textbf{Proof}:
+\begin{enumerate}
+	\item Basis step:
+	      \begin{equation*}
+		      1 = 2^0, 2 = 2^1, 3 = 2^0 + 2^1
+	      \end{equation*}
+	\item Inductive step:
+
+	      We assume that $ k $ can be written as a sum of distinct powers of 2.
+
+	      Where $ 1 \leq k \leq n $, we want to show that $ n + 1 $ is a sum of distinct powers of 1.
+
+	      Consider the following cases
+	      \begin{enumerate}
+		      \item $ n = \sum 2^r $, where $ r $ is some distinct positive integers. Then $ n + 1 = 1 + \sum 2^r = 2^0 + \sum 2^r $ is a sum of distinct powers of 2.
+
+		      \item $ n = 1 + \sum 2^s $, where $ s $ is some distinct positive integers. Then $ n + 1 = 1 + \sum 2^s + 1 = 2 + \sum 2^s = 2 \left( 1 + \sum 2^{s - 1} \right) $. Since $ n \geq 1 $, $ \frac{ n + 1 }{ 2 } = 1 + \sum 2^{s - 1} $, then $ \frac{ n + 1 }{ 2 } $ is a sum of distinct powers of 2.
+	      \end{enumerate}
+\end{enumerate}
+
+\end{document}

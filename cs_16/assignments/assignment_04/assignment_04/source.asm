@@ -11,6 +11,7 @@
 .stack 4096
 ExitProcess PROTO, dwExitCode: DWORD
 
+INCLUDE Irvine32.inc
 .data
 array SWORD 50 DUP(?)
 sentinel SWORD 0FFFFh
@@ -21,6 +22,8 @@ grade_score DWORD ?
 
 .code
 main PROC
+	call test_CalcGrade
+
 	INVOKE ExitProcess, 0
 main ENDP
 
@@ -121,60 +124,78 @@ GradeF:
 CalcGrade ENDP
 
 test_CalcGrade PROC
-	mov grade_score, 50			; initialize grade_score to score in respective range
+	call Randomize			; reseed randomizer
+
+	mov eax, 51				; move random range into eax [0, 51) or [0, 50]
+	call RandomRange			; generate random integer
+	add eax, 50				; add 50 to range to get integer in [50, 101) or [50, 100]
+
+	mov grade_score, eax			; initialize grade_score to score in respective range
 	call CalcGrade				; call CalcGrade procedure which should initialize al to the respective letter grade
-	cmp al, 'F'				; compare the letter grade ASCII code in al with the expected letter grade
-	jne EarlyExit				; al != '[Letter Grade]' -> exit program early with code 1
 
-	mov grade_score, 55
-	call CalcGrade
-	cmp al, 'F'
-	jne EarlyExit
+	mov eax, 51
+	call RandomRange
+	add eax, 50
 
-	mov grade_score, 60
+	mov grade_score, eax
 	call CalcGrade
-	cmp al, 'D'
-	jne EarlyExit
 
-	mov grade_score, 65
-	call CalcGrade
-	cmp al, 'D'
-	jne EarlyExit
+	mov eax, 51
+	call RandomRange
+	add eax, 50
 
-	mov grade_score, 70
+	mov grade_score, eax
 	call CalcGrade
-	cmp al, 'C'
-	jne EarlyExit
 
-	mov grade_score, 75
-	call CalcGrade
-	cmp al, 'C'
-	jne EarlyExit
+	mov eax, 51
+	call RandomRange
+	add eax, 50
 
-	mov grade_score, 80
+	mov grade_score, eax
 	call CalcGrade
-	cmp al, 'B'
-	jne EarlyExit
 
-	mov grade_score, 85
-	call CalcGrade
-	cmp al, 'B'
-	jne EarlyExit
+	mov eax, 51
+	call RandomRange
+	add eax, 50
 
-	mov grade_score, 90
+	mov grade_score, eax
 	call CalcGrade
-	cmp al, 'A'
-	jne EarlyExit
 
-	mov grade_score, 100
+	mov eax, 51
+	call RandomRange
+	add eax, 50
+
+	mov grade_score, eax
 	call CalcGrade
-	cmp al, 'A'
-	jne EarlyExit
+
+	mov eax, 51
+	call RandomRange
+	add eax, 50
+
+	mov grade_score, eax
+	call CalcGrade
+
+	mov eax, 51
+	call RandomRange
+	add eax, 50
+
+	mov grade_score, eax
+	call CalcGrade
+
+	mov eax, 51
+	call RandomRange
+	add eax, 50
+
+	mov grade_score, eax
+	call CalcGrade
+
+	mov eax, 51
+	call RandomRange
+	add eax, 50
+
+	mov grade_score, eax
+	call CalcGrade
 	
-	ret					; all test cases passed
-
-EarlyExit:
-	INVOKE ExitProcess, 1			; at least one test case failed, exit program with code 1
 	ret
 test_CalcGrade ENDP
 

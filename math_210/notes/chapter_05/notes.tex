@@ -139,4 +139,30 @@ Prove that any positive integer can be written as a sum of $ 2^k $, where $ k $'
 	      \end{enumerate}
 \end{enumerate}
 
+\section{5.3 Recursive Definitions}
+
+\subsubsection{Example}
+
+Prove that $ f(0) = 0, f(n + 1) = f(n) + 2n + 1 $ is equivalent to $ f(n) = n^2 $.
+
+\textbf{Proof By Induction}:
+
+\begin{itemize}
+	\item Basis Step:
+
+	      When $ n = 0, f(0) = 0, f(0) = n^2 = 0^2 = 0 $. Then the recursive is equivalent to the closed formula when $ n = 1 $. Then $ f(1) = f(0 + 1) = f(0) + 2 \cdot 0 + 1 = 0 + 0 + 1 = 1 $ and $ f(1) = 1^2 = 1 $.
+
+	\item Inductive Step:
+
+	      Then for the closed formula,
+	      \begin{equation*}
+		      f(n + 1) = (n + 1)^2
+	      \end{equation*}
+	      and for the recursive form
+	      \begin{equation*}
+		      f(n + 1) = f(n) + 2n + 1 = n^2 + 2n + 1 = (n + 1)^2
+	      \end{equation*}
+	      Thus, the closed form and the recursive form are equivalent (for $ n + 1$). Therefore, the equivalency is proved.
+\end{itemize}
+
 \end{document}

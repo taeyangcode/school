@@ -1,0 +1,305 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 08 Participation Assignment}
+\author{Corey Mostero - 2566652}
+\date{20 October 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\section{}
+
+If $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $ is a finite set, we define $ \mathcal{P}(X) $, the powerset of $ X $, to be the set of all subsets of $ X $.
+
+\subsection{} \label{a}
+
+If $ X = \left\{ a, b, c \right\} $, list all the members of $ \mathcal{P}(X) $. How many subsets does $ X $ have?
+
+\begin{align*}
+	\mathcal{P}(X) & = \left\{ \right.          \\
+	               & \left\{ a, b, c \right\}   \\
+	               & \left\{ a, b \right\}      \\
+	               & \left\{ a, c \right\}      \\
+	               & \left\{ b, c \right\}      \\
+	               & \left\{ a \right\}         \\
+	               & \left\{ b \right\}         \\
+	               & \left\{ c \right\}         \\
+	               & \left\{ \emptyset \right\} \\
+	               & \left. \right\}
+\end{align*}
+\begin{align*}
+	\left| \mathcal{P}(X) \right| & = 8
+\end{align*}
+
+\subsection{} \label{b}
+
+Separate the list that you got in part \ref{a} into two columns. Place on the left column those subsets that contain $ c $ and place on the right column those that do not contain $ c $.
+
+\begin{tabular}{ | c | c | }
+	\textbf{Contains}            & \textbf{Does not contain}      \\
+	\hline
+	$ \left\{ a, b, c \right\} $ & $ \left\{ a, b \right\} $      \\
+	$ \left\{ a, c \right\}    $ & $ \left\{ a \right\} $         \\
+	$ \left\{ b, c \right\}    $ & $ \left\{ b \right\} $         \\
+	$ \left\{ c \right\}       $ & $ \left\{ \emptyset \right\} $ \\
+\end{tabular}
+
+\subsection{} \label{c}
+
+Now, cross out $ c $ from each subset on the left column. What do you notice?
+
+\begin{tabular}{ | c | c | }
+	\textbf{Contains}                      & \textbf{Does not contain}      \\
+	\hline
+	$ \left\{ a, b, \bcancel{c} \right\} $ & $ \left\{ a, b \right\} $      \\
+	$ \left\{ a, \bcancel{c} \right\}    $ & $ \left\{ a \right\} $         \\
+	$ \left\{ b, \bcancel{c} \right\}    $ & $ \left\{ b \right\} $         \\
+	$ \left\{ \bcancel{c} \right\}       $ & $ \left\{ \emptyset \right\} $ \\
+\end{tabular}
+
+\begin{tabular}{ | c | c | }
+	\textbf{Contains}                    & \textbf{Does not contain}      \\
+	\hline
+	$ \left\{ a, b \right\} $            & $ \left\{ a, b \right\} $      \\
+	$ \left\{ a \right\}    $            & $ \left\{ a \right\} $         \\
+	$ \left\{ b \right\}    $            & $ \left\{ b \right\} $         \\
+	$ \left\{ \emptyset \right\}       $ & $ \left\{ \emptyset \right\} $ \\
+\end{tabular}
+
+The set of each column ends up equivalent.
+
+\subsection{}
+
+Repeat part \ref{a}, \ref{b}, and \ref{c} for $ X = \left\{ a, b, c, d \right\} $
+
+\subsubsection{}
+
+\begin{align*}
+	\mathcal{P}(X) & = \left\{ \right.           \\
+	               & \left\{ a, b, c, d \right\} \\
+	               & \left\{ a, b, c \right\}    \\
+	               & \left\{ a, b, d \right\}    \\
+	               & \left\{ a, c, d \right\}    \\
+	               & \left\{ b, c, d \right\}    \\
+	               & \left\{ a, b \right\}       \\
+	               & \left\{ a, c \right\}       \\
+	               & \left\{ a, d \right\}       \\
+	               & \left\{ b, c \right\}       \\
+	               & \left\{ b, d \right\}       \\
+	               & \left\{ c, d \right\}       \\
+	               & \left\{ a \right\}          \\
+	               & \left\{ b \right\}          \\
+	               & \left\{ c \right\}          \\
+	               & \left\{ d \right\}          \\
+	               & \left\{ \emptyset \right\}  \\
+	               & \left. \right\}
+\end{align*}
+\begin{align*}
+	\left| \mathcal{P}(X) \right| & = 16
+\end{align*}
+
+\subsubsection{}
+
+\begin{tabular}{ | c | c | }
+	\textbf{Contains}               & \textbf{Does not contain}      \\
+	\hline
+	$ \left\{ a, b, c, d \right\} $ & $ \left\{ a, b, d \right\} $   \\
+	$ \left\{ a, b, c \right\} $    & $ \left\{ a, b \right\} $      \\
+	$ \left\{ a, c, d \right\} $    & $ \left\{ a, d \right\} $      \\
+	$ \left\{ b, c, d \right\} $    & $ \left\{ b, d \right\} $      \\
+	$ \left\{ a, c \right\} $       & $ \left\{ a \right\} $         \\
+	$ \left\{ b, c \right\} $       & $ \left\{ b \right\} $         \\
+	$ \left\{ c, d \right\} $       & $ \left\{ d \right\}         $ \\
+	$ \left\{ c \right\} $          & $ \left\{ \emptyset \right\} $ \\
+\end{tabular}
+
+\subsubsection{}
+
+\begin{tabular}{ | c | c | }
+	\textbf{Contains}                         & \textbf{Does not contain}      \\
+	\hline
+	$ \left\{ a, b, \bcancel{c}, d \right\} $ & $ \left\{ a, b, d \right\} $   \\
+	$ \left\{ a, b, \bcancel{c} \right\} $    & $ \left\{ a, b \right\} $      \\
+	$ \left\{ a, \bcancel{c}, d \right\} $    & $ \left\{ a, d \right\} $      \\
+	$ \left\{ b, \bcancel{c}, d \right\} $    & $ \left\{ b, d \right\} $      \\
+	$ \left\{ a, \bcancel{c} \right\} $       & $ \left\{ a \right\} $         \\
+	$ \left\{ b, \bcancel{c} \right\} $       & $ \left\{ b \right\} $         \\
+	$ \left\{ \bcancel{c}, d \right\} $       & $ \left\{ d \right\}         $ \\
+	$ \left\{ \bcancel{c} \right\} $          & $ \left\{ \emptyset \right\} $ \\
+\end{tabular}
+
+\begin{tabular}{ | c | c | }
+	\textbf{Contains}              & \textbf{Does not contain}      \\
+	\hline
+	$ \left\{ a, b, d \right\} $   & $ \left\{ a, b, d \right\} $   \\
+	$ \left\{ a, b \right\} $      & $ \left\{ a, b \right\} $      \\
+	$ \left\{ a, d \right\} $      & $ \left\{ a, d \right\} $      \\
+	$ \left\{ b, d \right\} $      & $ \left\{ b, d \right\} $      \\
+	$ \left\{ a \right\} $         & $ \left\{ a \right\} $         \\
+	$ \left\{ b \right\} $         & $ \left\{ b \right\} $         \\
+	$ \left\{  d \right\} $        & $ \left\{ d \right\}         $ \\
+	$ \left\{ \emptyset \right\} $ & $ \left\{ \emptyset \right\} $ \\
+\end{tabular}
+
+\subsection{}
+
+For $ X = \left\{ x_1, x_2, \cdots, x_n \right\} $, guess the number of elements in the powerset $ \mathcal{P}(X) $.
+
+\begin{equation*}
+	\left| \mathcal{P} \right| = 2^n
+\end{equation*}
+
+\subsection{}
+
+I hope you can guess that the number of elements in the powerset $ \mathcal{P}(X) $ is $ 2^n $. That means $ \left| \mathcal{P}(X) \right| = 2^n $.
+
+Now, use induction to prove this guess.
+
+\textbf{Proof by induction}:
+
+Where $ n \in \mathbb{W} $.
+
+\begin{itemize}
+	\item Basis step: $ n = 0 $
+	      \begin{align*}
+		      X                             & = \left\{ \emptyset \right\} \\
+		      \mathcal{P}(X)                & = \left\{ \emptyset \right\} \\
+		      \left| \mathcal{P}(X) \right| & = 1
+	      \end{align*}
+	      \begin{equation*}
+		      \left| \mathcal{P}(X) \right| \equiv 2^0 = 1
+	      \end{equation*}
+
+	\item Inductive step:
+
+	      Where $ k \in \mathbb{W} $,
+	      \begin{equation*}
+		      \left| X \right| = k \implies \left| \mathcal{P}(X) \right| = 2^k
+	      \end{equation*}
+	      Let the set $ Y $ be the set with cardinality $ \left| X \right| + 1 $.
+	      \begin{equation*}
+		      Y = \left\{ a_1, a_2, \cdots, a_k, a_{k + 1} \right\}
+	      \end{equation*}
+	      $ Y $ can also be defined as
+	      \begin{equation*}
+		      Y = \left\{ a_1, a_2, \cdots, a_{k - 1}, a_k \right\} \cup \left\{ a_{k + 1} \right\}
+	      \end{equation*}
+	      The first set in the redefinition of $ Y $ can be observed as the set $ X $; or the set not containing $ a_{k + 1} $. From our initial inductive step, we can say that the cardinality of the powerset of $ \mathcal{P} \left( \left\{ a_1, a_2, \cdots, a_{k - 1}, a_k \right\} \right) = 2^k $. Now considering the union portion of the set $ \left\{ a_{k + 1} \right\} $, it can be observed that it will simply be the powerset $ \mathcal{P} \left( \left\{ a_1, a_2, \cdots, a_{k - 1}, a_k \right\} \right) $ that includes $ a_{k + 1} $ within each element. It can observed that the cardinality would also be $ 2^k $ as the amount of elements in the powerset doesn't change, and only the contents of each element.
+	      \begin{align*}
+		      \therefore\ Y                 & = \left\{ a_1, a_2, \cdots, a_{k - 1}, a_k \right\} \cup \left\{ a_{k + 1} \right\} \\
+		      \left| \mathcal{P}(Y) \right| & = 2^k + 2^k = 2^{k + 1}
+	      \end{align*}
+	      It is proven that a set with $ n $ elements, its powerset must have $ 2^n $ elements.
+\end{itemize}
+
+\end{document}

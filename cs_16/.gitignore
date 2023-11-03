@@ -6,3 +6,6 @@
 **/*.synctex.gz
 **/*.toc
 **/*.out
+
+# assembly
+**/*.lst

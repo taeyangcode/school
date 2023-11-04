@@ -18,13 +18,13 @@ DECIMAL_OFFSET=5
 .data
 
 decimal_one BYTE "100123456789765"
+decimal_two BYTE "123456"
+decimal_three BYTE "12345"
 
 .code
 
 main PROC
-    mov edx, OFFSET decimal_one
-    mov ecx, LENGTHOF decimal_one
-    mov ebx, OFFSET DECIMAL_OFFSET
+    call test_WriteScaled
 
     INVOKE ExitProcess, 0
 main ENDP
@@ -44,7 +44,55 @@ part_01 PROC
 part_01 ENDP
 
 WriteScaled PROC
-    sub ecx, DECIMAL_OFFSET
+    mov ebx, ecx
+    sub ebx, DECIMAL_OFFSET
+
+write_string:
+    cmp WORD PTR [edx], 0
+    jz end_loop
+
+    cmp ebx, 0
+    jnz write_char
+
+    mov al, '.'
+    call WriteChar
+
+    dec ebx
+
+    jmp write_string
+
+write_char:
+    mov al, BYTE PTR [edx]
+    call WriteChar
+
+    dec ebx
+    add edx, TYPE BYTE
+
+    loop write_string
+
+end_loop:
+    call CrlF
+    ret
 WriteScaled ENDP
+
+test_WriteScaled PROC
+    mov edx, OFFSET decimal_one
+    mov ecx, LENGTHOF decimal_one
+    mov ebx, OFFSET DECIMAL_OFFSET
+
+    call WriteScaled
+
+    mov edx, OFFSET decimal_two
+    mov ecx, LENGTHOF decimal_two
+    mov ebx, OFFSET DECIMAL_OFFSET
+
+    call WriteScaled
+
+    mov edx, OFFSET decimal_three
+    mov ecx, LENGTHOF decimal_three
+    mov ebx, OFFSET DECIMAL_OFFSET
+
+    call WriteScaled
+test_WriteScaled ENDP
 
 END main

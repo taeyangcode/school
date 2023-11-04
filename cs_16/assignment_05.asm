@@ -21,10 +21,15 @@ decimal_one BYTE "100123456789765"
 decimal_two BYTE "123456"
 decimal_three BYTE "12345"
 
+message BYTE "secretmessage"
+key BYTE -2, 4, 1, 0, -3, 5, 2, -4, -4, 6
+
 .code
 
 main PROC
     ; call test_WriteScaled ; test function for WriteScaled procedure
+
+    call part_03
 
     INVOKE ExitProcess, 0
 main ENDP
@@ -94,5 +99,39 @@ test_WriteScaled PROC
 
     call WriteScaled			; expected output: ".12345"
 test_WriteScaled ENDP
+
+part_03 PROC
+    mov esi, OFFSET key
+    mov edx, 0
+    
+encrypt:
+    cmp BYTE PTR [message + edx], 0
+    jz end_encrypt
+
+    cmp BYTE PTR [esi], 0
+
+    jz loop_encrypt
+    jns right_shift
+    js left_shift
+
+right_shift:
+    mov cl, BYTE PTR [esi]
+    shr [message + edx], cl
+    jmp loop_encrypt
+
+left_shift:
+    mov cl, BYTE PTR [esi]
+    shl [message + edx], cl
+    jmp loop_encrypt
+
+loop_encrypt:
+    add edx, TYPE BYTE
+    add esi, TYPE BYTE
+
+    jmp encrypt
+
+end_encrypt:
+    ret
+part_03 ENDP
 
 END main

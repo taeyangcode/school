@@ -18,6 +18,10 @@ INCLUDE Irvine32.inc
 .code
 
 main PROC
+    mov ax, 123
+
+    call part_01
+
     INVOKE ExitProcess, 0
 main ENDP
 
@@ -34,3 +38,5 @@ part_01 PROC
     pop bx				; recover factor 16
     add ax, bx				; add factor 16
 part_01 ENDP
+
+END main

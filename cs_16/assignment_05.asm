@@ -13,14 +13,18 @@ ExitProcess PROTO, dwExitCode: DWORD
 
 INCLUDE Irvine32.inc
 
+DECIMAL_OFFSET=5
+
 .data
+
+decimal_one BYTE "100123456789765"
 
 .code
 
 main PROC
-    mov ax, 123
-
-    call part_01
+    mov edx, OFFSET decimal_one
+    mov ecx, LENGTHOF decimal_one
+    mov ebx, OFFSET DECIMAL_OFFSET
 
     INVOKE ExitProcess, 0
 main ENDP
@@ -38,5 +42,9 @@ part_01 PROC
     pop bx				; recover factor 16
     add ax, bx				; add factor 16
 part_01 ENDP
+
+WriteScaled PROC
+    sub ecx, DECIMAL_OFFSET
+WriteScaled ENDP
 
 END main

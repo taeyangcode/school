@@ -21,7 +21,7 @@ decimal_one BYTE "100123456789765"
 decimal_two BYTE "123456"
 decimal_three BYTE "12345"
 
-message BYTE "secretmessage"
+message BYTE "1111111111"
 key BYTE -2, 4, 1, 0, -3, 5, 2, -4, -4, 6
 
 .code
@@ -121,6 +121,7 @@ right_shift:
 
 left_shift:
     mov cl, BYTE PTR [esi]
+    neg cl
     shl [message + edx], cl
     jmp loop_encrypt
 

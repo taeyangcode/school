@@ -24,7 +24,7 @@ decimal_three BYTE "12345"
 .code
 
 main PROC
-    call test_WriteScaled
+    ; call test_WriteScaled ; test function for WriteScaled procedure
 
     INVOKE ExitProcess, 0
 main ENDP
@@ -44,35 +44,35 @@ part_01 PROC
 part_01 ENDP
 
 WriteScaled PROC
-    mov ebx, ecx
-    sub ebx, DECIMAL_OFFSET
+    mov ebx, ecx			; overwrite ebx to length of string
+    sub ebx, DECIMAL_OFFSET		; subtract decimal offset to find position to print decimal
 
 write_string:
-    cmp WORD PTR [edx], 0
-    jz end_loop
+    cmp WORD PTR [edx], 0		; if current letter is 0
+    jz end_loop				; true -> reached end of string function done
 
-    cmp ebx, 0
-    jnz write_char
+    cmp ebx, 0				; if decimal position is reached
+    jnz write_char			; false -> print current letter
 
-    mov al, '.'
-    call WriteChar
+    mov al, '.'				; decimal position is reached, move into al register
+    call WriteChar			; print al register
 
-    dec ebx
+    dec ebx				; decrement ebx to avoid repeated decimal print
 
-    jmp write_string
+    jmp write_string			; jmp instead of loop to avoid ecx decrement (original byte position hasn't been printed)
 
 write_char:
-    mov al, BYTE PTR [edx]
-    call WriteChar
+    mov al, BYTE PTR [edx]		; move current letter into al register
+    call WriteChar			; print al register
 
-    dec ebx
-    add edx, TYPE BYTE
+    dec ebx				; decrement ebx to reach or avoid repeated decimal positon
+    add edx, TYPE BYTE			; increment string position
 
-    loop write_string
+    loop write_string			; decrement loop counter
 
 end_loop:
-    call CrlF
-    ret
+    call CrlF				; reached end of string, print new line
+    ret					; return from function
 WriteScaled ENDP
 
 test_WriteScaled PROC
@@ -80,19 +80,19 @@ test_WriteScaled PROC
     mov ecx, LENGTHOF decimal_one
     mov ebx, OFFSET DECIMAL_OFFSET
 
-    call WriteScaled
+    call WriteScaled			; expected output: "1001234567.89765"
 
     mov edx, OFFSET decimal_two
     mov ecx, LENGTHOF decimal_two
     mov ebx, OFFSET DECIMAL_OFFSET
 
-    call WriteScaled
+    call WriteScaled			; expected output: "1.23456"
 
     mov edx, OFFSET decimal_three
     mov ecx, LENGTHOF decimal_three
     mov ebx, OFFSET DECIMAL_OFFSET
 
-    call WriteScaled
+    call WriteScaled			; expected output: ".12345"
 test_WriteScaled ENDP
 
 END main

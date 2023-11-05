@@ -12,3 +12,4 @@
 
 # visual studio
 .vs/
+Project.vcxproj*

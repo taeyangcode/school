@@ -27,9 +27,10 @@ key BYTE -2, 4, 1, 0, -3, 5, 2, -4, -4, 6
 .code
 
 main PROC
-    ; call test_WriteScaled ; test function for WriteScaled procedure
+    ; call test_WriteScaled		; test function for WriteScaled procedure
 
-    call part_03
+    ; call part_03			; parameter message:	31h 31h 31h 31h 31h 31h 31h 31h 31h 31h
+					; expected value:	c4h 03h 18h 31h 88h 01h 0ch 10h 10h 00h
 
     INVOKE ExitProcess, 0
 main ENDP
@@ -101,38 +102,38 @@ test_WriteScaled PROC
 test_WriteScaled ENDP
 
 part_03 PROC
-    mov esi, OFFSET key
-    mov edx, 0
+    mov esi, OFFSET key			; move address of encryption key into esi
+    mov edx, 0				; initialize index counter
     
 encrypt:
-    cmp BYTE PTR [message + edx], 0
-    jz end_encrypt
+    cmp BYTE PTR [message + edx], 0	; if reached end of string
+    jz end_encrypt			; true -> end of string reached complete function
 
-    cmp BYTE PTR [esi], 0
+    cmp BYTE PTR [esi], 0		; if rotation value is zero
 
-    jz loop_encrypt
-    jns right_shift
-    js left_shift
+    jz loop_encrypt			; true -> continue to next iteration
+    jns right_shift			; shift value is positive -> jump to right_shift
+    js left_shift			; shift value is negative -> jump to left_shift
 
 right_shift:
-    mov cl, BYTE PTR [esi]
-    shr [message + edx], cl
-    jmp loop_encrypt
+    mov cl, BYTE PTR [esi]		; move shift value into cl
+    shr [message + edx], cl		; right shift message at current index by cl
+    jmp loop_encrypt			; continue to next iteration
 
 left_shift:
-    mov cl, BYTE PTR [esi]
-    neg cl
-    shl [message + edx], cl
-    jmp loop_encrypt
+    mov cl, BYTE PTR [esi]		; move shift value into cl
+    neg cl				; convert negative value to positive
+    shl [message + edx], cl		; left shift message at current index by cl
+    jmp loop_encrypt			; continue to next iteration
 
 loop_encrypt:
-    add edx, TYPE BYTE
-    add esi, TYPE BYTE
+    add edx, TYPE BYTE			; increment edx
+    add esi, TYPE BYTE			; increment esi
 
-    jmp encrypt
+    jmp encrypt				; continue encryption
 
 end_encrypt:
-    ret
+    ret					; end of function reached
 part_03 ENDP
 
 END main

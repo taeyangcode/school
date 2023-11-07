@@ -15,8 +15,8 @@ INCLUDE Irvine32.inc
 
 .data
 
-targetString BYTE "ABCDE", 10 DUP(0)
-sourceString BYTE "FGH", 0
+targetString BYTE "HELLO", 10 DUP(0)
+sourceString BYTE "WORLD", 0
 
 .code
 
@@ -86,37 +86,34 @@ test_DifferenceInputs PROC
 	INVOKE DifferentInputs, 1, 0, 1
 test_DifferenceInputs ENDP
 
-StrConcat PROC USES eax ebx esi edi,
+StrConcat PROC USES esi edi,
 	source: PTR BYTE,
 	target: PTR BYTE
 
-	mov esi, 0
-	mov edi, 0
+	mov esi, source
+	mov edi, target
 
 find_target_end:
-	cmp source[esi], 0
-	jz append_source
+	cmp BYTE PTR [edi], 0
+	jz append_target
 
-	add esi, TYPE BYTE
+	inc edi
 	jmp find_target_end
 
-append_source:
-	cmp target[edi], 0
-	jz concat_done
+append_target:
+	cmp BYTE PTR [esi], 0
+	jz end_concat
 
-	mov eax, esi
-	add eax, edi
+	push esi
+	mov esi, [esi]
+	mov [edi], esi
+	pop esi
 
-	mov ebx, source[edi]
+	inc esi
+	inc edi
+	jmp append_target
 
-	mov target[eax], ebx
-
-	add esi, TYPE BYTE
-	add edi, TYPE BYTE
-
-	jmp append_source
-
-concat_done:
+end_concat:
 	ret
 StrConcat ENDP
 

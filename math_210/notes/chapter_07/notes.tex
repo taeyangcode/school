@@ -1,0 +1,162 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\tableofcontents
+
+\section{7.1}
+
+\subsection{8}
+
+What is the probability that a five-card poker hand contains the ace of hearts?
+\begin{align*}
+	\mathbb{P}(A \heartsuit) & = \frac{ |E| }{ |S| }                                                                                                                                            \\
+	                         & = \frac{ C(51, 4) }{ C(52, 5) }                                                                                                                                  \\
+	                         & = \frac{ 51 \cdot 50 \cdot 49 \cdot 48 }{ 1 \cdot 2 \cdot 3 \cdot 4 } \cdot \frac{ 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 }{ 52 \cdot 51 \cdot 50 \cdot 49 \cdot 48 } \\
+	                         & = \frac{ 5 }{ 52 }
+\end{align*}
+
+\subsection{Birthday Problem}
+
+Given a group of $ n $ people, what is the probability of at least two people having the same birthday?
+
+\section{7.2}
+
+$ \mathbb{P} \colon S \rightarrow [0, 1] $ is called probability if
+\begin{enumerate}
+	\item $ \forall s \in S, 0 \leq \mathbb{P}(S) \leq 1 $
+	\item $ \sum_{s \in S} \mathbb{P}(s) = 1 $
+\end{enumerate}
+
+\textbf{Disjoint} (mutually exclusive)
+\[ \mathbb{P}(E \cup F) = \mathbb{P}(E) + \mathbb{P}(F) \]
+\begin{align*}
+	\mathbb{P}(E \cup F) & = \mathbb{P}(E) + \mathbb{P}(F) - \mathbb{P}(E \cap F) \\
+	\mathbb{P}(E \cap F) & = 0
+\end{align*}
+\textbf{Independent}
+\[ \mathbb{P}(E \cap F) = \mathbb{P}(E) \cdot \mathbb{P}(F) \]
+
+\subsection{Random Variable}
+
+\begin{align*}
+	X \colon S    & \rightarrow \mathbb{R}                    \\
+	\mathbb{P}(X) & \rightarrow [0, 1]                        \\
+	S             & \rightarrow \mathbb{R} \rightarrow [0, 1]
+\end{align*}
+
+\subsection{Conditional Probability}
+
+\begin{align*}
+	\mathbb{P}(E \mid F) & = \frac{ \mathbb{P}(E \cap F) }{ \mathbb{P}(F) }
+\end{align*}
+Probably of $ E $ if $ F $ happened. (after $ F $ happened)
+
+\end{document}

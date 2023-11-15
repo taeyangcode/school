@@ -161,6 +161,48 @@ Probably of $ E $ if $ F $ happened. (after $ F $ happened)
 
 \section{7.3}
 
+\subsection{Bayes's Theorem}
+
+\begin{equation}
+	\mathbb{P}(E \mid F) = \frac{ \mathbb{P}(F \mid E) \cdot \mathbb{P}(E) }{ \mathbb{P}(F \mid E) \cdot \mathbb{P}(E) + \mathbb{P}(F \mid \overline{E}) \cdot \mathbb{P}(\overline{E}) }
+\end{equation}
+
+\begin{align*}
+	E & \equiv E \cap U                              \\
+	  & \equiv E \cap (F \cup \overline{F})          \\
+	  & \equiv (E \cap F) \cup (E \cap \overline{F})
+\end{align*}
+
+Recall \[ \mathbb{P}(E \mid F) = \frac{ \mathbb{P}(E \cap F) }{ \mathbb{F} ) } \]
+
+\subsection{Example 7.3.7}
+
+\begin{enumerate}[label = \textbf{\alph*)}]
+	\item \[ \mathbb{P}(\overline{O} \mid -) = \mathord{?} \]
+	      \begin{align*}
+		      \mathbb{P}(\overline{O} \mid -) & = \frac{ \mathbb{P}(- \mid \overline{O}) \cdot \mathbb{P}(\overline{O}) }{ \mathbb{P}(- \mid \overline{O}) \cdot \mathbb{P}(\overline{O}) + \mathbb{P}(- \mid O) \cdot \mathbb{P}(O) }
+	      \end{align*}
+	      \begin{align*}
+		      \mathbb{P}(- \mid \overline{O}) & = \frac{ \mathbb{P}(- \cap \overline{O}) }{ \mathbb{P}(\overline{O}) }
+	      \end{align*}
+	      \begin{align*}
+		      \mathbb{P}(\overline{O})        & = \mathbb{P}(+ \cap \overline{O}) + \mathbb{P}(- \cap \overline{O}) \\
+		      \mathbb{P}(- \cap \overline{O}) & = \mathbb{P}(\overline{O}) - \mathbb{P}(+ \cap \overline{O})        \\
+		      \mathbb{P}(- \cap \overline{O}) & = 0.99 - 0.02 \cdot 0.99                                            \\
+		      \mathbb{P}(- \cap \overline{O}) & = 0.97
+	      \end{align*}
+	      \begin{align*}
+		      \mathbb{P}(- \mid \overline{O}) & = \frac{ \mathbb{P}(- \cap \overline{O}) }{ \mathbb{P}(\overline{O}) } \\
+		      \mathbb{P}(- \mid \overline{O}) & = \frac{ 0.97 }{ 0.99 }                                                \\
+		      \mathbb{P}(- \mid \overline{O}) & = 0.98
+	      \end{align*}
+	      \begin{align*}
+		      \mathbb{P}(\overline{O} \mid -) & = \frac{ \mathbb{P}(- \mid \overline{O}) \cdot \mathbb{P}(\overline{O}) }{ \mathbb{P}(- \mid \overline{O}) \cdot \mathbb{P}(\overline{O}) + \mathbb{P}(- \mid O) \cdot \mathbb{P}(O) } \\
+		      \mathbb{P}(\overline{O} \mid -) & = \frac{ 0.98 \cdot 0.99 }{ 0.98 \cdot 0.99 + 0.05 \cdot 0.01 }                                                                                                                        \\
+		      \mathbb{P}(\overline{O} \mid -) & = 0.9995
+	      \end{align*}
+\end{enumerate}
+
 \section{7.4}
 
 \end{document}

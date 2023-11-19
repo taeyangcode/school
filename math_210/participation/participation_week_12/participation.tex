@@ -1,0 +1,264 @@
+\documentclass{article}
+
+% Document extensibility %
+%
+% Disables native paragraph indentation
+\usepackage{parskip}
+%
+% Provides further bullet options for lists
+\usepackage{enumitem}
+
+% Mathematical symbol and statement packages %
+%
+% Necessary
+\usepackage{amsmath}
+\usepackage{amssymb}
+%
+% Extensive fraction notation
+\usepackage{xfrac}
+%
+% Generic mathematical commands
+% Notable: \degree, \celcius
+\usepackage{gensymb}
+%
+% Variable vector notation (arrow above variable)
+\usepackage{esvect}
+%
+% Multiline boxed equations
+\usepackage{empheq}
+%
+% SI Unit
+\usepackage{siunitx}
+\usepackage{physunits}
+%
+% More intuitive arrays/matrices
+\usepackage{array}
+%
+% Linear Equations
+\usepackage{systeme}
+%
+% Boxes!
+\usepackage{mdframed}
+%
+% Matrix Notation
+\usepackage{bm}
+
+% Graphic packages %
+%
+% Diagrams and illustrations
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%
+% Image insertion
+\usepackage{graphicx}
+
+% LaTeX Commands
+%
+% Argument Parser
+\usepackage{xparse}
+
+% Document content %
+%
+% Change title of table of contents
+% \renewcommand{\contentsname}{Title}
+
+\title{Week 12 Participation Assignment}
+\author{Corey Mostero - 2566652}
+\date{17 November 2023}
+
+\begin{document}
+
+% Command `\hr` to insert horizontal rules
+\newcommand{\hr}{\par\noindent\rule{\textwidth}{0.4pt}}
+
+% Command to box and center math equations
+\newcommand{\bc}[1]{
+	\begin{equation*}
+		\begin{boxed}
+			{#1}
+		\end{boxed}
+	\end{equation*}
+}
+
+% Command for single line equations with a condition
+\newcommand{\cond}[2]{
+	\ifmmode
+	{#1} \quad {#2}
+	\else
+	$$ {#1} \quad {#2} $$
+	\fi
+}
+
+% Matrix and Vector notation
+\newcommand{\matr}[1]{
+	\ifmmode \bm{#1}
+	\else \textit{\textbf{#1}}
+	\fi
+}
+\newcommand{\vect}[1]{
+	\ifmmode \mathbf{#1}
+	\else \textbf{#1}
+	\fi
+}
+
+\newcommand{\prob}[2]{
+	\binom{5}{#1} \cdot \binom{69 - 5}{5 - #1} \cdot \binom{1}{#2} \cdot \binom{26 - 1}{1 - #2}
+}
+
+% Laplace
+\NewDocumentCommand{\lap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L} }
+	{ \mathcal{L} \left\{ {#1} \right\} }
+}
+\NewDocumentCommand{\ilap}{o}{
+	\IfNoValueTF{#1}
+	{ \mathcal{L}^{-1} }
+	{ \mathcal{L}^{-1} \left\{ {#1} \right\} }
+}
+
+\maketitle
+\newpage
+
+\tableofcontents
+
+\section{Week 12 Participation Assignment}
+
+Let's calculate the expected value of the random variable $ X $, which represents the money that one ticket can win.
+
+Complete the following table and then calculate the expectation of the game.
+
+\begin{tabular}{| c | c | c | c | c | c | c |}
+	\textbf{Random Variable} $ X $      & $ x = 4 $ & $ x = 7 $ & $ x = 100 $ & $ x = 50000 $ & $ x = 1000000 $ & $ x = \text{grand prize} $ \\
+	\hline
+	\textbf{Probability: } $ P(X = r) $ & 0.037     & 0.00316   & 0.000975    & 0.00000110    & \num{8.56e-8}   & \num{3.42e-9}
+\end{tabular}
+
+\subsection{Sample Space Cardinality}
+
+\begin{alignat*}{2}
+	n & = 69 & \quad & \text{Amount of white balls}           \\
+	r & = 5  & \quad & \text{Number of white balls to choose} \\
+	m & = 26 & \quad & \text{Amount of red balls}             \\
+	w & = 1  & \quad & \text{Amount of red balls to choose}
+\end{alignat*}
+\begin{align*}
+	|S| & = (\text{White Balls Combinations}) \cdot (\text{Red Ball Combinations}) \\
+	|S| & = \frac{ 69! }{ 5!(69 - 5)! } \cdot 26                                   \\
+	|S| & = 292201338
+\end{align*}
+
+\subsection{Probability}
+
+The equation I will use to derive the probability of winning the respective category is:
+\begin{align*}
+	|E|_{no\ match\ red} & = \binom{r}{x} \cdot \binom{n - r}{r - x} \cdot \binom{w}{y} \cdot \binom{m - w}{w - y} \\
+	\mathbb{P}(X)        & = \frac{ |E| }{ |S| }
+\end{align*}
+Where $ x $ represents the amount of white balls to match, and $ y $ red balls (in reality ball) to match.
+\[ \binom{r}{x} \cdot \binom{n - r}{r - x} \] represents the amount of winning white balls you need to match multiplied against the amount of losing white balls you need to match.
+\[ \binom{w}{y} \cdot \binom{m - w}{w - y} \] similarly represents matching the winning red ball multiplied against the remaining losses.
+
+\subsubsection{x = 4}
+
+\textbf{Red}:
+\begin{align*}
+	|E|             & = \binom{5}{0} \cdot \binom{69 - 5}{5 - 0} \cdot \binom{1}{1} \cdot \binom{26 - 1}{1 - 1} \\
+	|E|             & = 7624512                                                                                 \\
+	\mathbb{P}(4_1) & = \frac{ 7624512 }{ 292201338 }                                                           \\
+	\mathbb{P}(4_1) & = 0.0261
+\end{align*}
+
+\textbf{One White \& Red}:
+\begin{align*}
+	|E|             & = \binom{5}{1} \cdot \binom{69 - 5}{5 - 1} \cdot \binom{1}{1} \cdot \binom{26 - 1}{1 - 1} \\
+	|E|             & = 3176880                                                                                 \\
+	\mathbb{P}(4_2) & = \frac{ 3176880 }{ 292201338 }                                                           \\
+	\mathbb{P}(4_2) & = 0.0109
+\end{align*}
+\begin{align*}
+	\mathbb{P}(4) & = 0.0261 + 0.0109 = 0.037
+\end{align*}
+
+\subsubsection{x = 7}
+
+\textbf{Two White \& Red}
+\begin{align*}
+	|E|             & = \prob{2}{1}                  \\
+	|E|             & = 416640                       \\
+	\mathbb{P}(7_1) & = \frac{ 416640 }{ 292201338 } \\
+	\mathbb{P}(7_1) & = 0.00143
+\end{align*}
+
+\textbf{Three White}
+\begin{align*}
+	|E|             & = \prob{3}{0}                  \\
+	|E|             & = 504000                       \\
+	\mathbb{P}(7_2) & = \frac{ 504000 }{ 292201338 } \\
+	\mathbb{P}(7_2) & = 0.00173
+\end{align*}
+\begin{align*}
+	\mathbb{P}(7) & = 0.00143 + 0.00173 = 0.00316
+\end{align*}
+
+\subsubsection{x = 100}
+
+\textbf{Three White \& Red}
+\begin{align*}
+	|E|               & = \prob{3}{1}                 \\
+	|E|               & = 20160                       \\
+	\mathbb{P}(100_1) & = \frac{ 20160 }{ 292201338 } \\
+	\mathbb{P}(100_1) & = 0.0000690
+\end{align*}
+
+\textbf{Four White}
+\begin{align*}
+	|E|               & = \prob{4}{0}                \\
+	|E|               & = 8320                       \\
+	\mathbb{P}(100_2) & = \frac{ 8320 }{ 292201338 } \\
+	\mathbb{P}(100_2) & = 0.0000285
+\end{align*}
+\begin{align*}
+	\mathbb{P}(100) & = 0.0000690 + 0.0000285 = 0.0000975
+\end{align*}
+
+\subsubsection{x = 50000}
+
+\textbf{Four White \& Red}
+\begin{align*}
+	|E|               & = \prob{4}{1}               \\
+	|E|               & = 320                       \\
+	\mathbb{P}(50000) & = \frac{ 320 }{ 292201338 } \\
+	\mathbb{P}(50000) & = 0.00000110
+\end{align*}
+
+\subsubsection{x = 1000000}
+
+\textbf{Five White}
+\begin{align*}
+	|E|                 & = \prob{5}{0}              \\
+	|E|                 & = 25                       \\
+	\mathbb{P}(1000000) & = \frac{ 25 }{ 292201338 } \\
+	\mathbb{P}(1000000) & = \num{8.56e-8}
+\end{align*}
+
+\subsubsection{x = grand prize}
+
+\textbf{Five White \& Red}
+\begin{align*}
+	|E|                 & = \prob{5}{1}             \\
+	|E|                 & = 1                       \\
+	\mathbb{P}(1000000) & = \frac{ 1 }{ 292201338 } \\
+	\mathbb{P}(1000000) & = \num{3.42e-9}
+\end{align*}
+
+\subsection{Expected Value}
+
+Assume the grand prize is 200000000\$.
+\begin{align*}
+	E(X) & = (0.037)(4\$) + (0.00316)(7\$) + (\num{9.75e-5})(100\$)                              \\
+	     & + (\num{1.1e-6})(50000\$) + (\num{8.56e-8})(1000000\$) + (\num{3.42e-9})(200000000\$) \\
+	E(X) & = 1.00447\$ = 1\$
+\end{align*}
+
+\end{document}

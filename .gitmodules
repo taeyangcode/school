@@ -1,3 +1,6 @@
 [submodule "cs_16"]
 	path = cs_16
 	url = https://github.com/taeyangcode/cs_16
+[submodule "cs_8"]
+	path = cs_8
+	url = https://github.com/taeyangcode/cs_8
